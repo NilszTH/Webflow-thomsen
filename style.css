@@ -718,6 +718,50 @@ main {
     z-index: 2; /* Hält sie im Hintergrund */
 }
 
+/* Desktop‑Styles bleiben unverändert … */
+
+/* Mobile Anpassung – bei max-width: 600px */
+@media (max-width: 600px) {
+  /* Verringere den beweglichen Punkt (.moving-dot) und passe den Parallax-Radius an */
+  .moving-dot {
+    width: 12px;
+    height: 12px;
+  }
+  /* Passe die Keyframes an: statt 200px nun z. B. 100px */
+  @keyframes moveAroundCircle {
+    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
+  }
+
+  /* Reduziere die Schriftgröße des Parallax-Textes und das Padding */
+  .parallax-text {
+    font-size: 40px;
+    padding: 5px;
+  }
+
+  /* Passe den Container für die Parallax-Buttons an, falls nötig */
+  .parallax-container-button {
+    /* Falls du hier spezifische Anpassungen benötigst, z. B. kleinere Buttons */
+    /* Du kannst hier ggf. nichts ändern, wenn die Positionierung relativ zum Scrollbereich bleiben soll */
+  }
+  
+  /* Verkleinere die Parallax-Buttons selbst */
+  .parallax-button {
+    padding: 6px 10px;
+    transform: translate(-50%, -50%); /* Behalte die Übersetzung, aber der Button ist nun kleiner */
+  }
+  
+  /* Verkleinere das Logo in den Buttons */
+  .button-logo {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Verkleinere den Text in den Buttons */
+  .button-text {
+    font-size: 12px;
+  }
+}
 .dashed-line {
     max-width: 100%;
     height: 100%;
