@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG-Test</title>
+</head>
+<body>
+
+    <!-- ✅ Test-SVG -->
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <path id="circlePath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+        </defs>
+        <text font-size="14" fill="black">
+            <textPath xlink:href="#circlePath">
+                WordPress • Code • Design • WordPress • Code • Design •
+            </textPath>
+        </text>
+    </svg>
+
+</body>
+</html>

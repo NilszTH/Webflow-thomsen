@@ -1,0 +1,1777 @@
+
+/* 🌑 BODY */
+body {
+    overflow-x: visible;
+    overflow-y: visible;
+    background-color: #050505;
+    margin: 0;
+    padding: 0;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap');
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #fff;
+  }
+  
+  /* Das Pseudoelement für das Pixelraster */
+  body::before {
+    content: "";
+    position: fixed; 
+    inset: 0;        
+    pointer-events: none; 
+    z-index: 100;        
+    background: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 2px 2px repeat; 
+  }
+  
+  /* Optional: Keyframes für eine leichte Bewegung */
+  @keyframes drift {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 200px; /* oder diagonal: 200px 200px */
+    }
+  }
+
+/* ✅ HEADER */
+header {
+    width: 100%;
+    height: 50px; /* Platz für die Navigation */
+    text-align: center;
+}
+
+/* ===================== Desktop: Standard ===================== */
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45%;
+    max-width: 980px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;    
+    justify-content: space-between;
+  }
+  
+  /* Logo links */
+  .logo-header {
+    height: 30px;
+    width: auto;
+    margin-right: 0px;
+    padding-left: 30px;
+  }
+  
+  /* Links (Desktop: sichtbar) */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Einzelne Links */
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0px 15px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover-Effekt */
+  .nav-links li a:hover {
+    color: rgba(170, 225, 225, 1);
+  }
+  
+  /* Trennlinien zwischen Links (Desktop) */
+  .nav-links li:not(:last-child) {
+    position: relative;
+    padding: 0 20px;
+  }
+
+  .nav-links li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Hamburger-Button (Desktop: unsichtbar) */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .hamburger .bar {
+    height: 3px;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+  
+  /* ===================== Mobile (max-width: 900px) ===================== */
+  @media (max-width: 900px) {
+    .nav-links {
+        display: none;
+      width: 90%;
+    }
+  
+    /* Hamburger anzeigen, Links verstecken */
+    .hamburger {
+      display: flex; /* Jetzt sichtbar */
+    }
+    /* Wenn aktiv, dann anzeigen */
+    .nav-links.active {
+        display: flex;
+      }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+      padding: 10px 0;
+      margin: 0;
+    }
+  
+    .nav-links li {
+      text-align: center;
+      margin: 5px 0;
+    }
+  }
+
+
+
+/* ✅ MAIN-BEREICH */
+main {
+    display: block; /* Flex entfernen, um alle Sektionen frei positionierbar zu machen */
+    min-height: 100vh; 
+    text-align: center;
+}
+
+/* ✅ Farbklecks-Container: Damit Farbkleckse nicht über Inhalte liegen */
+.color-container {
+    position: absolute; 
+    width: 100%;
+    height: 100vh;
+    z-index: -2; /* GANZ HINTEN */
+}
+
+/* ✅ Farbkleckse */
+.colorb {
+    position: absolute;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+.colorb1 {
+    position: absolute;
+    width: 400px;
+    height:400px;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+.colorb2 {
+    position: absolute;
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+.colorb3 {
+    position: absolute;
+    width: 350px;
+    height:350px;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+.colorb4 {
+    position: absolute;
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+.colorb5 {
+    position: absolute;
+    width: 350px;
+    height:350px;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+.colorbvideo {
+  position: absolute;
+  width: 400px;
+  height:400px;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+.colorbsz {
+  position: absolute;
+  width: 400px;
+  height:400px;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+.colorbbottom {
+  position: absolute;
+  width: 350px;
+  height:350px;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+/* Farbkleckse richtig verteilen */
+.colorb {
+    top: 18%;
+    left: -10%;
+    background: rgba(0, 204, 255, 0.3);
+}
+.colorb1 {
+    top: 126%;
+    left: 37%;
+    background: rgba(0, 157, 255, 0.3);
+}
+.colorb2 {
+    top: -10%;
+    left: 67%;
+    background: rgba(119, 178, 206, 0.0);
+}
+.colorb3 {
+    top: 2900px;
+    left: 67%;
+    background: rgba(0, 208, 255, 0.3);
+}
+.colorb4 {
+    top: 4600px;
+    left: 67%;
+    background: rgba(0, 170, 255, 0.3);
+}
+.colorb5 {
+    top: 4400px;
+    left: 7%;
+    background: rgba(0, 221, 255, 0.3);
+}
+.colorbvideo {
+  top: 2200px;
+  left: 7%;
+  background: rgba(0, 187, 255, 0.3);
+}
+.colorbsz {
+  top: 1900px;
+  left: 66%;
+  background: rgba(0, 187, 255, 0.3);
+}
+.colorbbottom {
+  bottom: 2400px;
+  left: 60%;
+  background: rgba(0, 255, 255, 0.3);
+}
+
+
+/* ✅ Hero-Bereich (Startbereich) */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: transparent; /* Kein Hintergrund, Farbkleckse bleiben sichtbar */
+    z-index: 1; /* Über den Farbklecksen */
+}
+
+/* ✅ Hero-Inhalte */
+.hero-content {
+    text-align: left;
+    padding-left: 150px;
+    padding-top: 250px;
+    opacity: 1;
+    z-index: 2; /* Über allem */
+    position: relative;
+}
+
+/* ✅ Blurrrrrrrrrrrrrrrrrrrr-Effekt als eigene Ebene */
+
+.blur-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1; 
+}
+
+/* ✅ Text-Animation */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* -------------------------
+   LIGHTBEAM SECTION STYLES
+   ------------------------- */
+  
+  /* Der animierte Lichtstrahl */
+  .light-beam {
+    position: absolute;
+    top: 0;
+    left: 75%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 45%;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 80%
+    );
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: beam 5s infinite; /* Dauer 2s, endlose Wiederholung */
+    z-index: 10;
+  }
+  
+  /* Keyframes für die Animation des Strahls */
+  @keyframes beam {
+    0% {
+      transform: translateX(-50%) translateY(-100%) scaleY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(0) scaleY(1);
+    }
+    100% {
+      transform: translateX(-50%) translateY(100%) scaleY(0);
+    }
+  }
+  
+  /* Rasteroverlay via Pseudoelement */
+  .lightbeam-section::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: url("raster.png") repeat; /* Pfad zur Raster-Grafik anpassen */
+    opacity: 0.15;        /* Transparenz des Overlays, je nach Wunsch anpassen */
+    pointer-events: none; /* Damit Klicks nicht blockiert werden */
+  }
+
+/* Wende die Animation auf den Text an */
+.animated-text {
+    animation: slideInFromLeft 1s ease-out forwards;
+    top: 50%;
+    left: 45%;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-weight: 400;
+}
+.animated-text1 {
+    opacity: 1;
+    animation: slideInFromLeft 1s ease-out forwards;
+    color: rgb(170, 255, 255, 0.6);
+    font-size: 18px;
+    font-weight: 400;
+}
+.animated-text2 {
+    opacity: 1;
+    animation: slideInFromLeft 1s ease-out forwards;
+    color: rgb(156, 156, 156);
+    font-size: 14x;
+    font-weight: 200;
+}
+
+/* ✅ Button-Styling */
+.btn {
+    display: inline-block;
+    padding: 14px 40px;
+    margin-top: 30px;
+    background: rgb(255, 255, 255);
+    position: relative;
+    left: 0%;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 12;
+}
+
+/* ✅ Glow, der sich mit der Maus bewegt */
+.btn::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(235, 235, 235, 0.806) 10%, rgba(170, 255, 255, 0) 60%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out, transform 0.05s linear;
+}
+
+/* ✅ Standard Hover */
+.btn:hover {
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(11, 251, 255);
+}
+/* ✅ Dynamischer Glow */
+.glow-effect {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgb(255, 255, 255) 10%, rgba(170, 255, 255, 0) 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-out, transform 0.05s linear;
+}
+
+/* ✅ Glow beim Hovern aktivieren */
+.btn:hover::after {
+    opacity: 1;
+}
+
+/* ✅ Animierter Button */
+.cta-button {
+    position: absolute;
+    top: 51%;
+    left: 69%;
+    width: 180px; /* Etwas größer für bessere Balance */
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(0, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.0);
+    border: 1px solid rgba(211, 211, 211, 0.208);
+    border-radius: 50%;
+}
+
+/* ✅ Farb- und Glow-Einstellungen */
+:root {
+    --blur-color: rgba(50, 50, 50, 0.4);  /* Dunkler Grauton mit leichtem Türkis */
+    --text-color: rgba(255, 255, 255, 1); /* Weiß für maximale Lesbarkeit */
+    --text-glow: rgba(0, 255, 255, 0.6);  /* Türkisfarbener Glow */
+}
+
+/* ✅ Farbklecks mit sanftem Farbverlauf */
+.cta-blur {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--blur-color) 20%, rgba(0, 0, 0, 0) 90%);
+    filter: blur(25px);
+    z-index: 3;
+}
+
+/* ✅ Rotierender SVG-Text */
+.rotating-text {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    animation: rotateText 8s linear infinite;
+    overflow: visible;
+}
+
+/* ✅ SVG-Text Styling */
+.rotating-text text {
+    font-size: 14px;
+    fill: var(--text-color);
+    font-weight: thin;
+    letter-spacing: 5px;
+    text-shadow: 0 0 0px var(--text-glow);
+    z-index: 5;
+}
+
+/* ✅ Animation für das Drehen des Texts */
+@keyframes rotateText {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ✅ Logo mittig setzen */
+.cta-logo img {
+    width: 50px;
+    height: auto;
+    z-index: 4; /* Über dem rotierenden Text */
+}
+/* ===================== Mobile (max-width: 600px) ===================== */
+@media (max-width: 600px) {
+  .cta-button {
+    /* Statt absoluter Position oben/links → Fixiere unten rechts */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    
+    /* Verkleinerte Maße */
+    width: 80px;
+    height: 80px;
+    
+    /* Entferne die alten top/left */
+    top: auto;
+    left: auto;
+    
+    /* Optional: etwas andere Transparenz oder Box-Shadow */
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Verkleinere ggf. den Blur-Kreis */
+  .cta-blur {
+    width: 120px;
+    height: 120px;
+    filter: blur(15px); /* Weniger Blur, da alles kleiner */
+  }
+
+  /* Rotierender Text anpassen */
+  .rotating-text {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Logo in der Mitte auch verkleinern */
+  .cta-logo img {
+    width: 30px;
+    height: auto;
+  }
+}
+
+/* Kreis */
+.cirlce {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    color: rgba(228, 227, 227, 0.271);
+}
+
+/* ✅ Container für die Kreise */
+.circle-container {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    color: rgba(228, 227, 227, 0.271);
+    z-index: 10;
+}
+
+/* ✅ Äußerer & innerer Kreis */
+.outer-circle, .inner-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(228, 227, 227, 0.271);
+    margin-bottom: 20%;
+    z-index: 10;
+}
+
+/* ✅ Animierter Text */
+.text-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotateText 10s linear infinite;
+    z-index: 10;
+}
+
+/* ✅ Animation für das Drehen des Texts */
+@keyframes rotateText {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ✅ Farbklecks, der sich entlang des Kreises bewegt */
+.moving-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: rgba(227, 231, 231, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: moveAroundCircle 10s linear infinite;
+}
+
+/* ✅ Animation für den Farbklecks */
+@keyframes moveAroundCircle {
+    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(200px) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(200px) rotate(-360deg); }
+}
+
+.my-section {
+    min-height: 2000px; /* Testweise, damit ein Scroll entsteht */
+  }
+.parallax-container {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: auto;
+    will-change: transform;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+/* ✅ Haupttext mit Parallax-Effekt */
+.parallax-text {
+    font-size: 70px;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s ease-out;
+    z-index: 10;
+}
+
+.parallax-container-button {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* über dem Kreis/der Überschrift */
+    pointer-events: none; /* oder weglassen, wenn Buttons klickbar sein sollen */
+    z-index: 11;
+  }
+  
+  .parallax-button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 16px;
+    border-radius: 8px;
+    pointer-events: auto; /* Buttons bleiben klickbar */
+    z-index: 90;
+  }
+  
+  /* Hover-Effekt (optional) */
+  .parallax-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .button-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  .button-text {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+.dashed-line-section {
+    position: absolute;
+    max-width: 100%;
+    height: 100vh; /* Falls du die gesamte Höhe abdecken möchtest */
+    top: 220px;
+    left: 50%;
+    transform: translatex(-50%);
+    pointer-events: none; /* Damit sie keine Klicks blockiert */
+    z-index: 2; /* Hält sie im Hintergrund */
+}
+
+.dashed-line {
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Globale Einstellungen für den Main-Bereich */
+main {
+    min-height: 300vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 3;
+}
+.dashed-line-section2 {
+    position: absolute;
+    max-width: 100%;
+    height: 100vh; /* Falls du die gesamte Höhe abdecken möchtest */
+    top: 1300px;
+    left: 50%;
+    transform: translatex(-50%);
+    pointer-events: none; /* Damit sie keine Klicks blockiert */
+    z-index: 2; /* Hält sie im Hintergrund */
+}
+
+.dashed-line2 {
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ========== Section: Bild + Marquee in einer Ebene ========== */
+.image-section {
+    position: relative;
+    margin-top: 10%;
+    width: 100%;    
+    background: transparent; 
+    overflow: visible; 
+    z-index: 20;
+  }
+  
+  /* Das Bild (80% breit, mittig) */
+  .section-image {
+    display: block;
+    width: 80%;
+    border-radius: 25px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+
+/* ===================== Schriftzug WEBFLOW-THOMSEN ===================== */
+.marquee-section {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  z-index: 11;
+}
+
+/* Container, der beide Kopien in einer Zeile hält */
+.loop-content {
+  display: inline-block;
+  white-space: nowrap;
+  /* Die Animation verschiebt den Inhalt um genau 50% (d.h. eine Kopie) */
+  animation: marqueeLoop 20s linear infinite;
+  animation-delay: 0s;
+}
+
+/* Keyframes: Nahtloser Loop von 0% bis -50% */
+@keyframes marqueeLoop {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Jede Kopie (Block) */
+.marquee-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: -2.5% 40px -2.5% 40px;
+}
+
+/* Text-Styling */
+.marquee-text {
+  display: inline-block;
+  color: #fff;
+  font-size: 90px;
+  margin: 60px;
+  vertical-align: middle;
+}
+
+/* Container für den Circle (Text, Blur, Logo) */
+.marquee-circle {
+  display: inline-block;
+  position: relative;
+  margin: 0 30px;
+}
+
+/* CTA-Blur (unverändert) */
+.cta-blur {
+  position: absolute;
+  padding: 0px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--blur-color, rgba(0,0,0,0.3)) 20%, rgba(0,0,0,0) 90%);
+  filter: blur(25px);
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Rotierender SVG-Text */
+.rotating-text {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotateText 8s linear infinite;
+  overflow: visible;
+  z-index: 4;
+}
+
+/* Keyframes: Rotation */
+@keyframes rotateText {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* CTA-Logo mittig im Kreis */
+.cta-logo {
+  position: absolute;
+  padding: 0px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+.cta-logo img {
+  width: 50px;
+  height: auto;
+}
+
+
+/* ---------------------------About-Me Sektion------------------------*/
+.about-me {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 100px 40px;
+  position: relative;
+  z-index: 3;
+}
+
+/* Linker Balken - etwas nach innen rücken */
+.left-bar {
+    width: 2px;
+    height: 80%;
+    margin-top: 10%;
+    margin-left: 0%;
+    background: linear-gradient(180deg, #00d9ff, #0077ff);
+    position: absolute;
+    top: 0;
+    box-shadow: 0px 0px 10px #00d9ff;
+    z-index: 3;
+}
+
+/* Inhalte */
+.content {
+    padding-left: 20px;
+    width: 90%;
+    align-content: center;
+    z-index: 3;
+}
+
+.content h2 {
+  font-size: 55px;
+  color: white;
+  z-index: 3;
+}
+
+/* Stichpunkte */
+.stichpunkte {
+    list-style: none;
+    padding-left: 5%;
+    width: 98%;
+    z-index: 3;
+}
+
+.stichpunkte li {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white; /* Falls vorher nicht sichtbar */
+    z-index: 3;
+}
+
+/* Zahlen - jetzt etwas deutlicher */
+.num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    width: 35px;
+    height: 35px;
+    border: 2px solid rgba(176, 186, 188, 0.797);
+    border-radius: 6px;
+    margin-right: 20px;
+    font-size: 18px;
+    z-index: 3;
+}
+/* ========== TABLET-BREAKPOINT (max-width: 900px) ========== */
+@media (max-width: 900px) {
+  /* Weniger oberer Abstand, weniger Padding */
+  .about-me {
+    margin-top: 5%;
+    padding: 80px 20px;
+  }
+
+  /* Balken etwas kleiner/anders positionieren */
+  .left-bar {
+    margin-left: 5%;
+    height: 100%;
+  }
+
+  /* Überschrift kleiner, keine negative margin-left */
+  .content h2 {
+    font-size: 45px;
+    margin-left: 0;
+    margin-bottom: 60px;
+  }
+
+  /* Stichpunkte etwas kleiner */
+  .stichpunkte li {
+    font-size: 18px;
+    padding: 20px 0;
+  }
+}
+
+/* ========== SMARTPHONE-BREAKPOINT (max-width: 600px) ========== */
+@media (max-width: 600px) {
+  .about-me {
+    margin-top: 2%;
+    padding: 60px 15px;
+    max-width: 100%; /* Wenn du die 900px-Grenze lösen willst */
+  }
+
+
+  .left-bar {
+  height: 90%; margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  }
+
+  .content h2 {
+    font-size: 35px;
+    margin-bottom: 40px;
+  }
+
+  /* Stichpunkte noch kleiner */
+  .stichpunkte li {
+    font-size: 16px;
+    padding: 15px 0;
+  }
+
+  /* Nummerierung anpassen */
+  .num {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+/* ------------ FEATURES Section -------------------*/
+.features-section {
+  position: relative;
+  padding: 60px 20px;
+  text-align: center; /* Wenn du alles mittig willst */
+  z-index: 5;
+}
+
+/* Überschrift */
+.features-title {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #fff; 
+}
+
+/* Grid-Layout für 6 Blöcke: 3 Spalten, 2 Zeilen */
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px; /* Abstand zwischen Blöcken */
+  max-width: 1200px;
+  margin: 0 auto; /* Zentriert das Grid */
+}
+
+/* Einzelner Block (ohne Hintergrund) */
+.feature-block {
+  /* kein background, kein border */
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Icon-Container */
+.feature-icon {
+  position: relative;
+  left: -5%;
+  width: 80px;
+  height: 80px;
+  margin-bottom: -20px;
+}
+
+/* Farbklecks (Bulb) */
+.feature-bulb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 162, 255, 0.3); /* Farbe + Transparenz anpassbar */
+  filter: blur(25px); /* Weicher Effekt */
+  z-index: -1; /* Hinter dem Icon */
+}
+
+/* Icon-Bild */
+.feature-icon img {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+  align-items: left;
+}
+
+/* Überschrift + Text */
+.feature-heading {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  font-weight: 400;
+  text-align: left;
+  color: #fff; /* Schriftfarbe */
+}
+
+.feature-text {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #ddd;
+  text-align: left;
+  color: #bcbcbc; /* Schriftfarbe */
+}
+
+@media (max-width: 600px) {
+  .features-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten statt 3 */
+    gap: 20px;  /* ggf. etwas kleinerer Abstand */
+    max-width: 100%;
+    margin: 0 10px; /* Eventuell etwas Außenabstand */
+  }
+  
+  .feature-heading {
+    font-size: 1.5rem; /* Schriftgröße anpassen */
+  }
+  
+  .feature-text {
+    font-size: 0.7rem; /* Schriftgröße anpassen */
+  }
+}
+
+
+/* =========================================
+   RECENT WORK SECTION (PX & % ONLY)
+   ========================================= */
+
+   .recent-work-section {
+    position: relative;
+    z-index: 10;           /* Damit alles über Blur-Effekten liegt */
+    max-width: 100%;           /* Volle Seitenbreite */
+    padding: 60px 20px;    /* Abstand oben/unten, seitlich in px */
+    margin-bottom: 15%;
+    margin-top: 8%;
+    text-align: center;
+    color: #fff;
+    background: transparent; /* oder eine andere Hintergrundfarbe */
+  }
+  
+  /* Kleiner Untertitel (z.B. "HAPPY CLIENTS <3>") */
+  .section-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px; /* Abstand in px */
+    letter-spacing: 1px;
+  }
+  
+  /* Gradient-Text-Effekt (nur fürs Subtitle) */
+  .gradient-text {
+    background: linear-gradient(90deg, #ffffff, #00c8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Große Überschrift (z.B. "Recent Work") */
+  .section-title {
+    font-size: 60px;
+    margin-bottom: 32px;
+  }
+  
+  /* Container für die Karten */
+  .cards-container {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    gap: 32px; /* Abstand zwischen Karten in px */
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Einzelne Card */
+  .card {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(22, 22, 22, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;  /* Innenabstand in px */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 500px;
+  }
+  
+  /* Hover-Effekt */
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Bild in der Card */
+  .card img {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    /* Wenn du aspect-ratio nutzt und das Bild das Ratio nicht hat:
+       object-fit: cover; 
+       height: 100%;
+    */
+  }
+  
+  /* Card-Titel */
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 4px;
+    text-align: left;
+  }
+  
+  /* Location oder Zusatzinfo */
+  .card-location {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  
+  /* Beschreibungstext */
+  .card-description {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    flex: 1; /* Damit der Button nach unten rutscht, wenn Text länger wird */
+    text-align: left;
+    z-index: 10;
+  }
+
+  /* Mobile: 2 Spalten */
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* Optional: Kartenhöhe und Bild anpassen */
+  .card {
+    height: 350px; /* Beispiel: Reduziert von 500px */
+    padding: 12px; /* ggf. etwas weniger Innenabstand */
+  }
+  .card img {
+    height: 200px; /* Bildhöhe verkleinern, damit es proportional bleibt */
+  }
+  .card-title {
+    font-size: 18px;
+  }
+  .card-description {
+    font-size: 14px;
+  }
+}
+
+
+  /* ===================== DIVIDER-BEREICH ===================== */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 100px; /* Höhe des Bereichs, damit man genug Platz hat */
+  background: transparent; /* kein Hintergrund, oder #000 etc. */
+}
+
+/* Die horizontale Linie */
+.divider-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;        /* Dicke der Linie */
+  background: linear-gradient(
+  rgba(255, 255, 255, 0.4),  /* Weiß mit 40% Deckkraft */
+  rgba(8, 187, 193, 0.4)     /* Türkis mit 40% Deckkraft */
+);
+  transform: translateY(-50%);
+  opacity: 0.3;
+  z-index: 3;
+}
+
+/* ------------------------- CTA (Button) ----------------------*/
+.cta-mid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.0);
+  border: 1px solid rgba(211, 211, 211, 0.208);
+  z-index: 999;
+}
+
+/* Die Unterschichten des CTA (dein Code) */
+.cta-mid .cta-blur {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--blur-color, rgba(50, 50, 50, 0.4)) 20%, rgba(0, 0, 0, 0) 90%);
+  filter: blur(0px);
+  z-index: 3;
+}
+
+.cta-mid .rotating-text {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  animation: rotateText 8s linear infinite;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+
+.cta-mid .rotating-text text {
+  font-size: 14px;
+  fill: #fff; /* Farbe des Textes */
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-shadow: 0 0 0px rgba(0, 255, 255, 0.6);
+  z-index: 5;
+}
+
+/* Animation für das Drehen des Texts */
+@keyframes rotateText {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Logo in der Mitte */
+.cta-mid .cta-logo img {
+  width: 50px;
+  height: auto;
+  z-index: 4;
+}
+
+/* ###################################################################*/
+/* ========== Services-Sektion ========== */
+.services-section {
+  position: relative;
+  padding: 60px 20px;
+  color: #fff;
+  margin-top: 10%;
+}
+
+.services-title {
+  position: relative;
+  text-align: center;
+  font-size: 90px;
+  font-family: 'Lekton' sans-serif !important;
+  font-weight: 200;
+  margin-bottom: 40px;
+  z-index: 10 !important;
+}
+
+/* ========== Container für 3 Cards in EINER Zeile ========== */
+.services-container {
+  display: flex;
+  flex-wrap: nowrap;  /* Kein Zeilenumbruch */
+  gap: 20px;          /* Abstand zwischen Cards */
+  max-width: 1400px;  /* Größerer Container, anpassbar */
+  margin: 0 auto;     /* Zentriert die Cards */
+  justify-content: center;
+  z-index: 10;
+}
+
+/* ========== Einzelne Card ========== */
+.service-card {
+  background: rgba(0, 0, 0, 0.3); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 10;
+}
+
+/* Hover-Effekt */
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== Nummernzeile (01 + Linie) ========== */
+.card-number-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* Nummer */
+.card-number {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #21cacd;
+}
+
+/* Kurze Linie in hellem Grau */
+.card-line {
+  width: 30px;
+  height: 1px;
+  background: #9f9f9fd4;
+}
+
+/* ========== Card-Überschrift ========== */
+.card-heading {
+  font-size: 30px;
+  margin-top: 40px;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* ========== Card-Text ========== */
+.card-text {
+  font-size: 0.95rem;
+  font-weight: 100;
+  color: #ccc;
+  line-height: 1.4;
+  margin-top: 50px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+/* ========== Optionaler Link in der Card ========== */
+.card-link {
+  display: inline-block;
+  color: #00eeff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+
+/* ✅ Farbkleckse */
+.colorbservice {
+  position: absolute;
+  width: 500px;
+  height:500px;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -2;
+}
+.colorbservice1 {
+  position: absolute;
+  width: 400px;
+  height:400px;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -2;
+}
+.colorbservice2 {
+  position: absolute;
+  width: 400px;
+  height:400px;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -2;
+}
+.colorbservice3 {
+  position: absolute;
+  width: 400px;
+  height:400px;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -2;
+}
+.colorbservicetopmid {
+  position: absolute;
+  width: 600px;
+  height:400px;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -2;
+}
+.colorbservice {
+  top: 18%;
+  left: -10%;
+  background: rgba(0, 255, 255, 0.2);
+}
+.colorbservice1 {
+  top: 46%;
+  left: 10%;
+  background: rgba(0, 191, 255, 0.254);
+}
+.colorbservice2 {
+  top: 50%;
+  left: 65%;
+  background: rgba(124, 90, 218, 0.2);
+}
+.colorbservice3 {
+  top: 10%;
+  left: 67%;
+  background: rgba(0, 255, 255, 0.1);
+}
+.colorbservicetopmid {
+  top: 20%;
+  left: 40%;
+  background: rgba(0, 153, 255, 0.2);
+}
+@media (max-width: 600px) {
+  /* Container: Ausrichtung auf Spalte, also eine Card pro Zeile */
+  .services-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Karten zentriert */
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Einzelne Card: Breite anpassen, Höhe evtl. auf auto setzen */
+  .service-card {
+    width: 80%;       /* oder 100% minus gewünschter Innenabstand */
+    height: auto;     /* Höhe wird durch Inhalt bestimmt */
+    padding: 20px;
+  }
+  
+  /* Überschrift und Text anpassen */
+  .card-heading {
+    font-size: 2rem;  /* kleiner als 30px, wenn nötig */
+  }
+  
+  .card-text {
+    font-size: 0.9rem; /* leicht verkleinerter Text */
+  }
+}
+
+/* ---------------- Deine Kontakt Section-------------------- */
+.contact-section {
+  position: relative;
+  min-height: 600px; 
+  color: #fff;
+  z-index: 10;
+}
+
+/* Der Container für den abgerundeten Kasten */
+.contact-content {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: calc(100% - 40px); /* Platz für den 40px-Balken rechts */
+  height: 100%;            /* Deckt die ganze Section-Höhe ab */
+  display: flex;
+  justify-content: center; /* Kasten horizontal zentrieren */
+  align-items: center;     /* Kasten vertikal zentrieren */
+  box-sizing: border-box;
+}
+
+/* Der abgerundete, halbtransparente Kasten */
+.social-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px; 
+  width: 900px;
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: #ffffff21;
+  padding: 20px 30px;
+  background: radial-gradient(circle, var(--blur-color, rgba(50, 50, 50, 0.4)) 20%, rgba(0, 0, 0, 0) 90%);
+  border-radius: 8px;
+}
+
+/* Mittlerer Teil: Social-Links */
+.social-center {
+  display: flex;
+  gap: 100px;
+}
+.social-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 6px 12px;
+  gap: 20px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+.social-link:hover {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Weißer Balken rechts (bestehender Code) */
+.right-bar {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  width: 60px;
+  height: 100%;
+  background: #fff;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Vertikal gedrehter Text im Balken */
+.right-bar span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-lr;
+  text-orientation: s;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.footer-left {
+  position: absolute;
+  text-align: left;
+  bottom: 15%;
+  left: 17%;
+  display: flex;
+  flex-direction: column; /* Logo oben, "Webflow - Thomsen" drunter */
+  align-items: flex-start;
+  gap: 6px; /* Abstand zwischen Logo und Text */
+}
+
+.footer-logo {
+  width: 50px !important;      /* Höhe anpassen */
+  height: auto !important;     /* Proportional */
+  max-width: none !important;  
+  max-height: none !important; 
+  object-fit: contain !important;
+  display: block !important;   /* Falls es inline sein sollte */
+}
+
+.footer-sub {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+/* ========== 3. UNTEN RECHTS: TEXT MIT 80PX ABSTAND ========== */
+.footer-right {
+  position: absolute;
+  bottom: 15%;
+  right: 17%; /* 80px vom rechten Rand entfernt */
+  font-size: 0.85rem;
+  color: #aaa;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  /* Der Container (contact-content) soll volle Breite nutzen */
+  .contact-content {
+    width: 100% !important;
+    padding: 20px;
+    justify-content: center; /* Inhalt zentriert */
+  }
+  
+  /* Das abgerundete Kasten (.social-box) schmaler und spaltenweise */
+  .social-box {
+    width: 100% !important;
+    max-width: 500px; /* oder 400px, anpassbar */
+    flex-direction: column;  /* Stapelt alles vertikal */
+    align-items: center;     /* Zentriert horizontal */
+    gap: 25px;               /* Weniger Abstand */
+    padding: 20px;           /* Weniger Innenabstand */
+  }
+
+  /* Linker Bereich (Logo + Subtext) in einer Spalte */
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: left;  /* Zentriert horizontal */
+    text-align: left;
+    gap: 8px;            /* Abstand zw. Logo & Text */
+    width: 100%;
+    margin-bottom: 10%;
+  }
+
+  /* Mittlerer Bereich (Social-Links) ebenso */
+  .social-center {
+    display: flex;
+    flex-wrap: wrap;       /* Umbruch, falls zu viele Links */
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Rechter Bereich (Kontakt/Impressum) ebenfalls zentriert */
+  .footer-right {
+    display: hide;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0px;
+    margin-left: 0%;
+  }
+
+  /* Weißen Balken rechts ausblenden oder schmaler machen */
+  .right-bar {
+    display: none;
+  }
+
+  /* Optional: Schriftgrößen anpassen */
+  .footer-sub {
+    font-size: 0.9rem;
+  }
+  .social-link {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+  .footer-right span {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ----------------------- FOOTER ------------------- */
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 101;
+}
+
+/*LOGO FOOTER*/
+.logo-footer {
+    height: 25px;
+    width: auto;
+    padding: 40px;
+}
+
+.navfooter {
+    display: flex;
+    align-items: center;
+}
+
+/* ✅ FOOTER-NAVIGATION FIX */
+.navfooter {
+    position: fixed; /* Fixierte Position am unteren Rand */
+    bottom: 0; /* Immer ganz unten */
+    left: 50%; /* Horizontale Zentrierung */
+    transform: translateX(-50%); /* Exakte Zentrierung */
+    color: white; /* Textfarbe */
+    font-family: 'Lekton', sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    text-align: center;
+    display: flex !important; /* Links nebeneinander */
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important; /* Volle Breite */
+    height: 20px;
+    padding: 10px 0 !important;
+    background: rgba(10, 10, 10, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
+}
+
+/* ✅ LINKS INNERHALB DER FOOTER-NAV */
+.navfooter ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; 
+}
+
+/* ✅ STYLING FÜR DIE LINKS */
+.navfooter ul li a {
+    color: rgb(200, 200, 200); /* Leicht helles Grau */
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+/* ✅ HOVER-EFFEKT */
+.navfooter ul li a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
