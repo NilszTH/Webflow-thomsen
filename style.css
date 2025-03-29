@@ -292,7 +292,104 @@ main {
   left: 60%;
   background: rgba(0, 255, 255, 0.3);
 }
+@media (max-width: 600px) {
+  /* Container bleibt unverändert */
+  .color-container {
+    width: 100%;
+    height: 100vh;
+  }
 
+  /* Farbfleck 1: Statt left: -10% → 0 und Größen verkleinert */
+  .colorb {
+    width: 300px;
+    height: 300px;
+    filter: blur(60px);
+    top: 130%;
+    left: 25%;  /* negative Margin entfernt */
+    background: rgba(0, 204, 255, 0.3);
+  }
+  
+  /* Farbfleck 2 */
+  .colorb1 {
+    width: 250px;
+    height: 250px;
+    filter: blur(60px);
+    top: 10%;    /* anpassen, statt 126% */
+    left: 20%;   /* relativ, ohne negative Werte */
+    background: rgba(0, 157, 255, 0.3);
+  }
+  
+  /* Farbfleck 3 */
+  .colorb2 {
+    width: 150px;
+    height: 150px;
+    filter: blur(60px);
+    top: 120%;    /* anpassen statt -10% */
+    left: 50%;
+    background: rgba(119, 178, 206, 0.0);
+  }
+  
+  /* Farbfleck 4 */
+  .colorb3 {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+    top: 60%;   /* anpassen statt 2900px */
+    left: 60%;
+    background: rgba(0, 208, 255, 0.3);
+  }
+  
+  /* Farbfleck 5 */
+  .colorb4 {
+    width: 150px;
+    height: 150px;
+    filter: blur(60px);
+    top: 75%;   /* anpassen statt 4600px */
+    left: 60%;
+    background: rgba(0, 170, 255, 0.3);
+  }
+  
+  /* Farbfleck 6 */
+  .colorb5 {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+    top: 70%;   /* anpassen statt 4400px */
+    left: 5%;
+    background: rgba(0, 221, 255, 0.3);
+  }
+  
+  /* Farbfleck für Video */
+  .colorbvideo {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+    top: 65%;  /* anpassen statt 2200px */
+    left: 5%;
+    background: rgba(0, 187, 255, 0.3);
+  }
+  
+  /* Farbfleck für SZ */
+  .colorbsz {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+    top: 55%;  /* anpassen statt 1900px */
+    left: 60%;
+    background: rgba(0, 187, 255, 0.3);
+  }
+  
+  /* Farbfleck am unteren Bereich */
+  .colorbbottom {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+    bottom: 20%;  /* statt bottom: 2400px */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 255, 255, 0.3);
+  }
+}
 
 /* ✅ Hero-Bereich (Startbereich) */
 .hero {
@@ -382,6 +479,12 @@ main {
     opacity: 0.15;        /* Transparenz des Overlays, je nach Wunsch anpassen */
     pointer-events: none; /* Damit Klicks nicht blockiert werden */
   }
+  @media (max-width: 600px) {
+    .light-beam {
+      left: 90%;  /* Verschiebt den Strahl ins rechte Viertel */
+      transform: translateX(-50%); /* Beibehaltung der Zentrierung des Elements */
+    }
+  }
 
 /* Wende die Animation auf den Text an */
 .animated-text {
@@ -461,7 +564,32 @@ main {
 .btn:hover::after {
     opacity: 1;
 }
-
+@media (max-width: 600px) {
+  /* Animierter Text – verkleinert und weiter links positionieren */
+  .animated-text {
+    font-size: 30px;       /* kleiner als 50px */
+    top: 50%;              /* bleibt unverändert */
+    left: 30%;             /* ca. im linken Drittel (statt 45%) */
+  }
+  .animated-text1 {
+    font-size: 14px;       /* kleiner als 18px */
+  }
+  .animated-text2 {
+    font-size: 12px;       /* korrigiert (statt "14x") */
+  }
+  
+  /* Button-Anpassung für mobile Ansicht */
+  .btn {
+    padding: 10px 20px;    /* kleineres Padding */
+    font-size: 14px;       /* verkleinerte Schrift */
+    /* Falls der Button innerhalb eines Containers liegt, der zentriert war,
+       sollte der Button dann linksbündig erscheinen. Falls nötig, kannst du hier
+       auch noch margin-left setzen, z.B.: */
+    margin-left: 0;
+    /* oder, wenn der Button absolut positioniert ist, kannst du left anpassen: */
+    /* left: 10%;  */
+  }
+}
 /* ✅ Animierter Button */
 .cta-button {
     position: absolute;
@@ -707,6 +835,45 @@ main {
     white-space: nowrap;
   }
 
+  @media (max-width: 600px) {
+    .circle-container {
+      width: 300px; /* Kleiner Kreis */
+      height: 300px;
+      margin: 20px auto; /* etwas Abstand */
+    }
+  
+    .outer-circle,
+    .inner-circle {
+      width: 300px;
+      height: 300px;
+    }
+  
+    /* Rotierender Punkt kleiner / weniger Radius */
+    .moving-dot {
+      width: 12px;
+      height: 12px;
+      /* Keyframes anpassen, z.B. translateX(100px) statt 200px */
+    }
+  
+    /* Farbklecks ebenfalls kleiner */
+    .color-bulb {
+      width: 120px;
+      height: 120px;
+      filter: blur(20px);
+    }
+  
+    /* Parallax-Buttons: Neue Positionen, 
+       z.B. weiter unten / kleiner / mittig */
+    .parallax-button {
+      width: auto;
+      padding: 6px 10px;
+      /* Konkrete Koordinaten z.B.: */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
 .dashed-line-section {
     position: absolute;
     max-width: 100%;
@@ -718,52 +885,6 @@ main {
     z-index: 2; /* Hält sie im Hintergrund */
 }
 
-/* Desktop‑Styles bleiben unverändert … */
-
-/* Mobile Anpassung – bei max-width: 600px */
-@media (max-width: 600px) {
-  /* Verringere den beweglichen Punkt (.moving-dot) und passe den Parallax-Radius an */
-  .moving-dot {
-    width: 12px;
-    height: 12px;
-  }
-  /* Passe die Keyframes an: statt 200px nun z. B. 100px */
-  @keyframes moveAroundCircle {
-    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
-  }
-
-  /* Reduziere die Schriftgröße des Parallax-Textes und das Padding */
-  .parallax-text {
-    font-size: 40px;
-    padding: 5px;
-  }
-
-  /* Passe den Container für die Parallax-Buttons an, falls nötig */
-  .parallax-container-button {
-    /* Falls du hier spezifische Anpassungen benötigst, z. B. kleinere Buttons */
-    /* Du kannst hier ggf. nichts ändern, wenn die Positionierung relativ zum Scrollbereich bleiben soll */
-  }
-  
-  /* Verkleinere die Parallax-Buttons selbst */
-  .parallax-button {
-    top: 120%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 6px 12px;
-  }
-  
-  /* Verkleinere das Logo in den Buttons */
-  .button-logo {
-    width: 16px;
-    height: 16px;
-  }
-  
-  /* Verkleinere den Text in den Buttons */
-  .button-text {
-    font-size: 12px;
-  }
-}
 .dashed-line {
     max-width: 100%;
     height: 100%;
@@ -1131,9 +1252,15 @@ main {
 @media (max-width: 600px) {
   .features-container {
     grid-template-columns: repeat(2, 1fr); /* 2 Spalten statt 3 */
-    gap: 20px;  /* ggf. etwas kleinerer Abstand */
+    gap: 20px;  
     max-width: 100%;
-    margin: 0 10px; /* Eventuell etwas Außenabstand */
+    margin: 0 10px; 
+  }
+  
+  /* Entferne die negativen Offsets im Icon-Container */
+  .feature-icon {
+    left: 0;           /* Keine Verschiebung mehr */
+    margin-bottom: 0;  /* Kein negativer Margin */
   }
   
   .feature-heading {
@@ -1251,7 +1378,7 @@ main {
     z-index: 10;
   }
 
-  /* Mobile: 2 Spalten */
+  /* Mobile: 1 Spalten */
 @media (max-width: 900px) {
   .cards-container {
     grid-template-columns: repeat(1, 1fr);
