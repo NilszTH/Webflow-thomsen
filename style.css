@@ -152,7 +152,7 @@ header {
       left: 0;
       width: 100%;
       flex-direction: column;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
       border-radius: 40px;
       padding: 10px 0;
@@ -324,7 +324,7 @@ main {
     width: 150px;
     height: 150px;
     filter: blur(60px);
-    top: 120%;    /* anpassen statt -10% */
+    top: 220%;    /* anpassen statt -10% */
     left: 50%;
     background: rgba(119, 178, 206, 0.0);
   }
@@ -334,18 +334,18 @@ main {
     width: 200px;
     height: 200px;
     filter: blur(60px);
-    top: 60%;   /* anpassen statt 2900px */
+    top: 280%;   /* anpassen statt 2900px */
     left: 60%;
     background: rgba(0, 208, 255, 0.3);
   }
   
   /* Farbfleck 5 */
   .colorb4 {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     filter: blur(60px);
-    top: 75%;   /* anpassen statt 4600px */
-    left: 60%;
+    top: 210%;   /* anpassen statt 4600px */
+    left: 20%;
     background: rgba(0, 170, 255, 0.3);
   }
   
@@ -569,7 +569,7 @@ main {
   .animated-text {
     font-size: 30px;       /* kleiner als 50px */
     top: 50%;              /* bleibt unverändert */
-    left: 30%;             /* ca. im linken Drittel (statt 45%) */
+    left: 10%;             /* ca. im linken Drittel (statt 45%) */
   }
   .animated-text1 {
     font-size: 14px;       /* kleiner als 18px */
@@ -664,7 +664,7 @@ main {
   .cta-button {
     /* Statt absoluter Position oben/links → Fixiere unten rechts */
     position: fixed;
-    bottom: 20px;
+    bottom: 35px;
     right: 20px;
     
     /* Verkleinerte Maße */
@@ -868,7 +868,7 @@ main {
       width: auto;
       padding: 6px 10px;
       /* Konkrete Koordinaten z.B.: */
-      top: 50%;
+      top: 66%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
