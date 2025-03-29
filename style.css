@@ -869,7 +869,7 @@ main {
       width: auto;
       padding: 6px 10px;
       /* Konkrete Koordinaten z.B.: */
-      top: 85%;
+      top: 110%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
