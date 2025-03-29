@@ -292,6 +292,7 @@ main {
   left: 60%;
   background: rgba(0, 255, 255, 0.3);
 }
+
 @media (max-width: 600px) {
   /* Container bleibt unverändert */
   .color-container {
@@ -565,31 +566,50 @@ main {
     opacity: 1;
 }
 @media (max-width: 600px) {
-  /* Animierter Text – verkleinert und weiter links positionieren */
-  .animated-text {
-    font-size: 30px;       /* kleiner als 50px */
-    top: 50%;              /* bleibt unverändert */
-    left: 5%;             /* ca. im linken Drittel (statt 45%) */
-  }
-  .animated-text1 {
-    font-size: 14px;       /* kleiner als 18px */
-  }
+  /* Entferne die absolute Positionierung der animierten Texte */
+  .animated-text,
+  .animated-text1,
   .animated-text2 {
-    font-size: 12px;       /* korrigiert (statt "14x") */
+    position: static !important;  /* Statt absolute */
+    display: block !important;    /* Jede Zeile im normalen Flow */
+    margin: 0 20px 60px 0px;     /* Abstand oben/unten, links/rechts */
+    text-align: left !important;  /* Links ausrichten */
   }
   
-  /* Button-Anpassung für mobile Ansicht */
+  /* Passe die Schriftgrößen an */
+  .animated-text {
+    font-size: 45px !important;  /* statt 50px */
+    font-weight: 500;           /* ggf. anpassen */
+  }
+  .animated-text1 {
+    font-size: 16px !important; /* statt 18px */
+  }
+  .animated-text2 {
+    font-size: 14px !important; /* statt 14x */
+  }
+
+  /* Button kleiner und im normalen Flow unter den Texten */
   .btn {
-    padding: 10px 20px;    /* kleineres Padding */
-    font-size: 14px;       /* verkleinerte Schrift */
-    /* Falls der Button innerhalb eines Containers liegt, der zentriert war,
-       sollte der Button dann linksbündig erscheinen. Falls nötig, kannst du hier
-       auch noch margin-left setzen, z.B.: */
-    margin-left: 0;
-    /* oder, wenn der Button absolut positioniert ist, kannst du left anpassen: */
-    /* left: 10%;  */
+    position: static !important; /* statt absolute/relative mit left, top */
+    display: inline-block !important;
+    margin: 10px 20px;           /* etwas Abstand vom Text */
+    font-size: 14px !important;  /* verkleinert */
+    padding: 10px 16px !important;
+    /* Button Hover entfernen */
+  }
+
+  /* Hover-Effekt komplett deaktivieren auf Mobile */
+  .btn:hover {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  /* Glow entfernen */
+  .btn::after {
+    content: none !important;
   }
 }
+
+
 /* ✅ Animierter Button */
 .cta-button {
     position: absolute;
