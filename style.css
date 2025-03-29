@@ -566,50 +566,31 @@ main {
     opacity: 1;
 }
 @media (max-width: 600px) {
-  /* Entferne die absolute Positionierung der animierten Texte */
-  .animated-text,
-  .animated-text1,
-  .animated-text2 {
-    position: static !important;  /* Statt absolute */
-    display: block !important;    /* Jede Zeile im normalen Flow */
-    margin: 0 20px 60px 0px;     /* Abstand oben/unten, links/rechts */
-    text-align: left !important;  /* Links ausrichten */
+  .hero-content {
+    padding-left: 30px;
+    padding-top: 220px;
   }
-  
-  /* Passe die Schriftgrößen an */
+
   .animated-text {
-    font-size: 45px !important;  /* statt 50px */
-    font-weight: 500;           /* ggf. anpassen */
+    left: 0;
+    transform: translateX(-10%);
+    font-size: 30px;
   }
+
   .animated-text1 {
-    font-size: 16px !important; /* statt 18px */
+    font-size: 14px;
   }
+
   .animated-text2 {
-    font-size: 14px !important; /* statt 14x */
+    font-size: 12px;
   }
 
-  /* Button kleiner und im normalen Flow unter den Texten */
   .btn {
-    position: static !important; /* statt absolute/relative mit left, top */
-    display: inline-block !important;
-    margin: 10px 20px;           /* etwas Abstand vom Text */
-    font-size: 14px !important;  /* verkleinert */
-    padding: 10px 16px !important;
-    /* Button Hover entfernen */
-  }
-
-  /* Hover-Effekt komplett deaktivieren auf Mobile */
-  .btn:hover {
-    background: none !important;
-    box-shadow: none !important;
-  }
-  /* Glow entfernen */
-  .btn::after {
-    content: none !important;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-left: 0;
   }
 }
-
-
 /* ✅ Animierter Button */
 .cta-button {
     position: absolute;
