@@ -1878,7 +1878,10 @@ main {
   /* Das abgerundete Kasten (.social-box) schmaler und spaltenweise */
   .social-box {
     width: 80% !important;
+    position: absolute;
     max-width: 600px; /* oder 400px, anpassbar */
+    left: 50%;
+    transform: translatex(-50%,  -50%);
     flex-direction: column;  /* Stapelt alles vertikal */
     align-items: center;     /* Zentriert horizontal */
     gap: 25px;               /* Weniger Abstand */
@@ -1946,7 +1949,7 @@ footer {
   padding: 0;
   width: 100%;
   z-index: 9999;
-  background: transparent; /* ⬅️ Wichtig, damit Raster-Overlay durchscheint */
+  background: transparent;
 }
 
 /* NAVIGATION IM FOOTER */
