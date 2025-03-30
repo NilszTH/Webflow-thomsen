@@ -1193,7 +1193,7 @@ main {
   .about-me {
     margin-top: 2%;
     padding: 40px 10px; /* nochmal reduziertes Padding */
-    max-width: 100%;
+    max-width: 90%;
   }
 
   .left-bar {
@@ -1874,7 +1874,7 @@ main {
   /* Das abgerundete Kasten (.social-box) schmaler und spaltenweise */
   .social-box {
     width: 100% !important;
-    max-width: 500px; /* oder 400px, anpassbar */
+    max-width: 400px; /* oder 400px, anpassbar */
     flex-direction: column;  /* Stapelt alles vertikal */
     align-items: center;     /* Zentriert horizontal */
     gap: 25px;               /* Weniger Abstand */
@@ -1910,7 +1910,7 @@ main {
     align-items: center;
     width: 100%;
     gap: 0px;
-    margin-left: 0%;
+    margin-left: -5%;
   }
 
   /* Weißen Balken rechts ausblenden oder schmaler machen */
@@ -1933,73 +1933,83 @@ main {
 
 
 /* ----------------------- FOOTER ------------------- */
+/* FOOTER GRUNDSTIL */
 footer {
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 101;
+  position: fixed;
+  color: white;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  z-index: 9999;
+  background: transparent; /* ⬅️ Wichtig, damit Raster-Overlay durchscheint */
 }
 
-/*LOGO FOOTER*/
+/* NAVIGATION IM FOOTER */
+.navfooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Lekton', sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  background: transparent; /* ⬅️ Halbtransparenter Hintergrund entfernt */
+  backdrop-filter: none;   /* ⬅️ Blur entfernt */
+  -webkit-backdrop-filter: none;
+}
+
+/* LOGO IM FOOTER */
 .logo-footer {
-    height: 25px;
-    width: auto;
-    padding: 40px;
+  height: 25px;
+  width: auto;
+  padding: 20px;
+  order: 2; /* ⬅️ Logo unter die Linkliste */
 }
 
-.navfooter {
-    display: flex;
-    align-items: center;
-}
-
-/* ✅ FOOTER-NAVIGATION FIX */
-.navfooter {
-    position: fixed; /* Fixierte Position am unteren Rand */
-    bottom: 0; /* Immer ganz unten */
-    left: 50%; /* Horizontale Zentrierung */
-    transform: translateX(-50%); /* Exakte Zentrierung */
-    color: white; /* Textfarbe */
-    font-family: 'Lekton', sans-serif;
-    font-size: 14px;
-    font-weight: 200;
-    text-align: center;
-    display: flex !important; /* Links nebeneinander */
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important; /* Volle Breite */
-    height: 20px;
-    padding: 10px 0 !important;
-    background: rgba(10, 10, 10, 0.4) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
-}
-
-/* ✅ LINKS INNERHALB DER FOOTER-NAV */
+/* LINKLISTE IM FOOTER */
 .navfooter ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px; 
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  order: 1; /* ⬅️ Linkliste über dem Logo */
 }
 
-/* ✅ STYLING FÜR DIE LINKS */
+/* LINKS SELBST */
 .navfooter ul li a {
-    color: rgb(200, 200, 200); /* Leicht helles Grau */
-    text-decoration: none;
-    font-size: 12px;
-    transition: all 0.3s ease;
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.3s ease;
 }
 
-/* ✅ HOVER-EFFEKT */
+/* HOVER-EFFEKT */
 .navfooter ul li a:hover {
-    color: white;
-    text-decoration: underline;
+  color: white;
+  text-decoration: underline;
 }
 
+/* RESPONSIVE FÜR MOBILGERÄTE */
+@media (max-width: 600px) {
+  .navfooter {
+    font-size: 12px;
+    padding: 15px 0;
+  }
+
+  .logo-footer {
+    padding: 10px;
+    height: 20px;
+  }
+
+  .navfooter ul {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
