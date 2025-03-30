@@ -1905,7 +1905,7 @@ main {
     display: flex;
     flex-wrap: wrap;       /* Umbruch, falls zu viele Links */
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     width: 100%;
     text-align: center;
   }
@@ -1931,8 +1931,8 @@ main {
     font-size: 0.9rem;
   }
   .social-link {
-    font-size: 0.9rem;
-    padding: 4px 8px;
+    font-size: 0.6rem;
+    padding: 3px 6px;
   }
   .footer-right span {
     position: absolute;
