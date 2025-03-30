@@ -1870,14 +1870,14 @@ main {
 @media (max-width: 600px) {
   /* Der Container (contact-content) soll volle Breite nutzen */
   .contact-content {
-    width: 80% !important;
+    width: 100% !important;
     padding: 20px;
     justify-content: center; /* Inhalt zentriert */
   }
   
   /* Das abgerundete Kasten (.social-box) schmaler und spaltenweise */
   .social-box {
-    width: 80% !important;
+    width: 100% !important;
     position: absolute;
     max-width: 600px; /* oder 400px, anpassbar */
     left: 50%;
