@@ -1870,15 +1870,15 @@ main {
 @media (max-width: 600px) {
   /* Der Container (contact-content) soll volle Breite nutzen */
   .contact-content {
-    width: 100% !important;
+    width: 80% !important;
     padding: 20px;
     justify-content: center; /* Inhalt zentriert */
   }
   
   /* Das abgerundete Kasten (.social-box) schmaler und spaltenweise */
   .social-box {
-    width: 100% !important;
-    max-width: 400px; /* oder 400px, anpassbar */
+    width: 80% !important;
+    max-width: 600px; /* oder 400px, anpassbar */
     flex-direction: column;  /* Stapelt alles vertikal */
     align-items: center;     /* Zentriert horizontal */
     gap: 25px;               /* Weniger Abstand */
@@ -1939,9 +1939,10 @@ main {
 /* ----------------------- FOOTER ------------------- */
 /* FOOTER GRUNDSTIL */
 footer {
-  position: fixed;
+  position: relative;
   color: white;
   text-align: center;
+  bottom: 0;
   padding: 0;
   width: 100%;
   z-index: 9999;
