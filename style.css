@@ -974,6 +974,7 @@ main {
 
   @media (max-width: 600px) {
     .circle-container {
+      position: absolute;
       width: 300px; /* Kleiner Kreis */
       height: 300px;
       margin: 20px auto; /* etwas Abstand */
@@ -981,6 +982,8 @@ main {
   
     .outer-circle,
     .inner-circle {
+      position: relative;
+      top: 50%;
       width: 300px;
       height: 300px;
     }
@@ -1011,7 +1014,7 @@ main {
       position: absolute;
       width: auto;
       padding: 6px 10px;
-      top: 180%;
+      top: 80%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
