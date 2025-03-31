@@ -1006,7 +1006,7 @@ main {
       position: absolute;
       width: auto;
       padding: 6px 10px;
-      top: 150%;
+      top: 180%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
