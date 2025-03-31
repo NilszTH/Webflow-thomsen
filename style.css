@@ -997,14 +997,15 @@ main {
       width: 120px;
       height: 120px;
       filter: blur(20px);
+      color:rgba(11, 170, 255, 0.36)
     }
   
     /* Parallax-Buttons: Neue Positionen, 
        z.B. weiter unten / kleiner / mittig */
     .parallax-button {
+      position: absolute;
       width: auto;
       padding: 6px 10px;
-      /* Konkrete Koordinaten z.B.: */
       top: 150%;
       left: 50%;
       transform: translate(-50%, -50%);
