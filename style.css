@@ -2,6 +2,7 @@
 /* 🌑 BODY */
 body {
     overflow-y: visible;
+    overflow-x: hidden;
     background-color: #050505;
     margin: 0;
     padding: 0;
@@ -442,6 +443,7 @@ main {
   /* Der animierte Lichtstrahl */
   .light-beam {
     position: absolute;
+    overflow-x: hidden;
     top: 0;
     left: 75%;
     transform: translateX(-50%);
@@ -481,17 +483,19 @@ main {
   }
   .video-cloud {
     position: absolute;
+    max-width: 100vw;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1; /* Unterhalb vom light-beam (z-index: 10) */
+    z-index: 0; /* Unterhalb vom light-beam (z-index: 10) */
     opacity: 0.3; /* Je nach gewünschter Sichtbarkeit */
     pointer-events: none; /* Wichtig, damit nichts blockiert wird */
   }
   .colorbwolke {
     position: absolute;
+    overflow-x: hidden;
     width: 500px;
     height:500px;
     border-radius: 50%;
@@ -500,6 +504,7 @@ main {
   }
   .colorbwolke1 {
     position: absolute;
+    overflow-x: hidden;
     width: 500px;
     height:500px;
     border-radius: 50%;
@@ -508,6 +513,7 @@ main {
   }
   .colorbwolke2 {
     position: absolute;
+    overflow-x: hidden;
     width: 500px;
     height:500px;
     border-radius: 50%;
@@ -516,6 +522,7 @@ main {
   }
   .colorbwolke3 {
     position: absolute;
+    overflow-x: hidden;
     width: 500px;
     height:500px;
     border-radius: 50%;
@@ -524,6 +531,16 @@ main {
   }
   .colorbwolke4 {
     position: absolute;
+    overflow-x: hidden;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 10 !important;
+  }
+  .colorbwolke-right {
+    position: absolute;
+    overflow-x: hidden;
     width: 500px;
     height:500px;
     border-radius: 50%;
@@ -538,6 +555,7 @@ main {
   .colorbwolke1 {
     top: 70%;
     left: 80%;
+    transform: translateX(-50%);
     background: #050505;
   }
   .colorbwolke2 {
@@ -553,6 +571,13 @@ main {
   .colorbwolke4 {
     top: 90%;
     left: 20%;
+    background: #050505;
+  }
+  .colorbwolke-right {
+    position: absolute;
+    top: 90%;
+    left: 100%;
+    transform: translateX(-100%);
     background: #050505;
   }
   @media (max-width: 600px) {
