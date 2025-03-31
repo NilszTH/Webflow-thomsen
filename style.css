@@ -296,7 +296,6 @@ main {
   /* Container bleibt unverändert */
   .color-container {
     width: 100%;
-    height: 100vh;
     overflow-x: hidden;
   }
 
@@ -355,7 +354,7 @@ main {
     width: 200px;
     height: 200px;
     filter: blur(60px);
-    top: 70%;   /* anpassen statt 4400px */
+    top: 120%;   /* anpassen statt 4400px */
     left: 5%;
     background: rgba(0, 221, 255, 0.3);
   }
@@ -365,30 +364,30 @@ main {
     width: 200px;
     height: 200px;
     filter: blur(60px);
-    top: 65%;  /* anpassen statt 2200px */
+    top: 25%;  /* anpassen statt 2200px */
     left: 5%;
     background: rgba(0, 187, 255, 0.3);
   }
   
   /* Farbfleck für SZ */
   .colorbsz {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     filter: blur(60px);
-    top: 55%;  /* anpassen statt 1900px */
-    left: 60%;
+    top: 0%;  /* anpassen statt 1900px */
+    left: 50%;
     background: rgba(0, 187, 255, 0.3);
   }
   
   /* Farbfleck am unteren Bereich */
   .colorbbottom {
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     filter: blur(60px);
-    bottom: 20%;  /* statt bottom: 2400px */
-    left: 50%;
+    top: 45%;  /* statt bottom: 2400px */
+    left: 25%;
     transform: translateX(-50%);
-    background: rgba(0, 255, 255, 0.3);
+    background: rgba(0, 255, 255, 0.1);
   }
 }
 
@@ -479,6 +478,82 @@ main {
     background: url("raster.png") repeat; /* Pfad zur Raster-Grafik anpassen */
     opacity: 0.15;        /* Transparenz des Overlays, je nach Wunsch anpassen */
     pointer-events: none; /* Damit Klicks nicht blockiert werden */
+  }
+  .video-cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Unterhalb vom light-beam (z-index: 10) */
+    opacity: 0.3; /* Je nach gewünschter Sichtbarkeit */
+    pointer-events: none; /* Wichtig, damit nichts blockiert wird */
+  }
+  .colorbwolke {
+    position: absolute;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 10 !important;
+  }
+  .colorbwolke1 {
+    position: absolute;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 10 !important;
+  }
+  .colorbwolke2 {
+    position: absolute;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 10 !important;
+  }
+  .colorbwolke3 {
+    position: absolute;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 10 !important;
+  }
+  .colorbwolke4 {
+    position: absolute;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 10 !important;
+  }
+  .colorbwolke {
+    top: 80%;
+    left: 60%;
+    background: #050505;
+  }
+  .colorbwolke1 {
+    top: 70%;
+    left: 80%;
+    background: #050505;
+  }
+  .colorbwolke2 {
+    top: 90%;
+    left: 50%;
+    background: #050505;
+  }
+  .colorbwolke3 {
+    top: 90%;
+    left: 30%;
+    background: #050505;
+  }
+  .colorbwolke4 {
+    top: 90%;
+    left: 20%;
+    background: #050505;
   }
   @media (max-width: 600px) {
     .light-beam {
@@ -677,7 +752,7 @@ main {
     left: auto;
     
     /* Optional: etwas andere Transparenz oder Box-Shadow */
-    background: rgba(0, 255, 255, 0.1);
+    background: rgba(0, 255, 255, 0.0);
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
   }
 
@@ -1041,7 +1116,8 @@ main {
     display: inline-flex;       /* in einer Zeile */
     align-items: center;        /* vertikal ausgerichtet */
     vertical-align: middle;
-    margin: 10px;               /* ggf. anpassen */
+    margin: 10px;
+    z-index: -1;
   }
 
   /* Marquee-Text verkleinern */
@@ -1453,26 +1529,23 @@ main {
     height: 250px;
   }
 }
-  /* Mobile: 1 Spalten */
-@media (max-width: 900px) {
+/* Mobile: 1 Spalte */
+@media (max-width: 600px) {
   .cards-container {
+    position: relative;
+    width: 90%;
+    align-items: center;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
-  
-  /* Optional: Kartenhöhe und Bild anpassen */
+
   .card {
-    height: 350px; /* Beispiel: Reduziert von 500px */
-    padding: 12px; /* ggf. etwas weniger Innenabstand */
+    height: 350px;
+    padding: 12px;
   }
+
   .card img {
-    height: 200px; /* Bildhöhe verkleinern, damit es proportional bleibt */
-  }
-  .card-title {
-    font-size: 18px;
-  }
-  .card-description {
-    font-size: 14px;
+    height: 200px;
   }
 }
 
