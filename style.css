@@ -548,12 +548,12 @@ main {
     z-index: 10 !important;
   }
   .colorbwolke {
-    top: 80%;
+    top: 90%;
     left: 60%;
     background: #050505;
   }
   .colorbwolke1 {
-    top: 70%;
+    top: 80%;
     left: 100%;
     transform: translateX(-100%);
     background: #050505;
@@ -1595,6 +1595,7 @@ main {
   .cards-container {
     position: relative;
     width: 90%;
+    margin-left: 5%;
     align-items: center;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
