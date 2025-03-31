@@ -367,7 +367,7 @@ main {
     filter: blur(60px);
     top: 25%;  /* anpassen statt 2200px */
     left: 5%;
-    background: rgba(0, 187, 255, 0.3);
+    background: rgba(0, 187, 255, 0.0);
   }
   
   /* Farbfleck für SZ */
@@ -377,7 +377,7 @@ main {
     filter: blur(60px);
     top: 0%;  /* anpassen statt 1900px */
     left: 50%;
-    background: rgba(0, 187, 255, 0.3);
+    background: rgba(0, 187, 255, 0.0);
   }
   
   /* Farbfleck am unteren Bereich */
@@ -388,7 +388,7 @@ main {
     top: 45%;  /* statt bottom: 2400px */
     left: 25%;
     transform: translateX(-50%);
-    background: rgba(0, 255, 255, 0.1);
+    background: rgba(0, 255, 255, 0.0);
   }
 }
 
@@ -593,7 +593,7 @@ main {
     /* Video leicht sichtbar lassen */
     .video-cloud {
       opacity: 0.15; /* sanfter durchschimmern */
-      object-position: right center; /* Fokus eher rechts, damit es dort sichtbar bleibt */
+      object-position: center;
     }
   
     /* Farbkleckse ausblenden, bis auf einen */
@@ -618,7 +618,7 @@ main {
   
     /* Lightbeam position leicht anpassen falls nötig */
     .light-beam {
-      left: 90%;
+      left: 85%;
       transform: translateX(-50%);
     }
   }
