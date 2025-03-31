@@ -489,7 +489,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0; /* Unterhalb vom light-beam (z-index: 10) */
+    z-index: 1; /* Unterhalb vom light-beam (z-index: 10) */
     opacity: 0.3; /* Je nach gewünschter Sichtbarkeit */
     pointer-events: none; /* Wichtig, damit nichts blockiert wird */
   }
@@ -554,8 +554,8 @@ main {
   }
   .colorbwolke1 {
     top: 70%;
-    left: 80%;
-    transform: translateX(-50%);
+    left: 100%;
+    transform: translateX(-100%);
     background: #050505;
   }
   .colorbwolke2 {
@@ -570,20 +570,56 @@ main {
   }
   .colorbwolke4 {
     top: 90%;
-    left: 20%;
+    left: 100%;
+    transform: translateX(-100%);
     background: #050505;
   }
   .colorbwolke-right {
     position: absolute;
-    top: 90%;
+    top: 78%;
     left: 100%;
     transform: translateX(-100%);
     background: #050505;
   }
   @media (max-width: 600px) {
+    /* Begrenzung der Sektion */
+    .lightbeam-section {
+      max-width: 100%;
+      width: 100vw;
+      overflow: hidden;
+      position: relative;
+    }
+  
+    /* Video leicht sichtbar lassen */
+    .video-cloud {
+      opacity: 0.15; /* sanfter durchschimmern */
+      object-position: right center; /* Fokus eher rechts, damit es dort sichtbar bleibt */
+    }
+  
+    /* Farbkleckse ausblenden, bis auf einen */
+    .colorbwolke,
+    .colorbwolke1,
+    .colorbwolke2,
+    .colorbwolke3,
+    .colorbwolke4 {
+      display: none;
+    }
+  
+    /* Nur dieser bleibt – am Rand sichtbar */
+    .colorbwolke-right {
+      width: 300px;
+      height: 300px;
+      filter: blur(70px);
+      top: 85%;
+      left: 100%;
+      transform: translateX(-100%);
+      opacity: 0.5;
+    }
+  
+    /* Lightbeam position leicht anpassen falls nötig */
     .light-beam {
-      left: 90%;  /* Verschiebt den Strahl ins rechte Viertel */
-      transform: translateX(-50%); /* Beibehaltung der Zentrierung des Elements */
+      left: 90%;
+      transform: translateX(-50%);
     }
   }
 
