@@ -91,15 +91,16 @@
             <div class="circle-container">
                 <!-- Äußerer gestrichelter Kreis -->
                 <svg class="outer-circle" viewBox="0 0 300 300">
-                    <circle cx="150" cy="150" r="155" fill="none" stroke="rgba(211, 211, 211, 0.1)" stroke-width="1" stroke-dasharray="4,4" />
+                    <circle cx="150" cy="150" r="155" fill="none" stroke="rgba(211, 211, 211, 0.1)" stroke-width="1" stroke-dasharray="3,4" />
                 </svg>
         
                 <!-- Innerer gestrichelter Kreis -->
                 <svg class="inner-circle" viewBox="0 0 300 300">
-                    <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(211, 211, 211, 0.1)" stroke-width="1" stroke-dasharray="4,4" />
+                    <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(211, 211, 211, 0.1)" stroke-width="1" stroke-dasharray="3,4" />
                 </svg>
                 <!-- Farbklecks, der um den äußeren Kreis kreist -->
-                <div class="moving-dot"></div>
+                <!-- Statt: <div class="moving-dot"></div> -->
+                <img src="movingdot.png" alt="Logo" class="moving-logo">
             </div>
            <!-- Haupttext mit Parallax-Effekt in extra Wrapper -->
             <div class="parallax-container">
@@ -111,7 +112,7 @@
                     <div class="parallax-button"
                          data-range-start="500"
                          data-range-end="900"
-                         data-move-x="-80"
+                         data-move-x="-90"
                          data-move-y="40"
                          style="top: 135%; left: 40%;">
                       <img src="logo1.png" alt="Finsuite Logo" class="button-logo" />
@@ -123,7 +124,7 @@
                          data-range-start="500"
                          data-range-end="800"
                          data-move-x="80"
-                         data-move-y="0"
+                         data-move-y="-30"
                          style="top: 135%; left: 60%;">
                       <img src="wordpress.png" alt="Webflow Logo" class="button-logo" />
                       <span class="button-text">Wordpress</span>
@@ -133,8 +134,8 @@
                     <div class="parallax-button"
                          data-range-start="500"
                          data-range-end="900"
-                         data-move-x="-60"
-                         data-move-y="40"
+                         data-move-x="60"
+                         data-move-y="70"
                          style="top: 160%; left: 45%;">
                       <img src="clients1.png" alt="Client-First Logo" class="button-logo" />
                       <span class="button-text">Client-First</span>
@@ -154,9 +155,9 @@
                     <!-- Beispiel-Button 5: etwas weiter nach links/unten -->
                     <div class="parallax-button"
                          data-range-start="500"
-                         data-range-end="900"
-                         data-move-x="-20"
-                         data-move-y="60"
+                         data-range-end="1200"
+                         data-move-x="-55"
+                         data-move-y="65"
                          style="top: 170%; left: 40%;">
                       <img src="design.png" alt="Figma Logo" class="button-logo" />
                       <span class="button-text">Design</span>
@@ -165,9 +166,9 @@
                     <!-- Beispiel-Button 6: etwas weiter nach rechts/unten -->
                     <div class="parallax-button"
                          data-range-start="500"
-                         data-range-end="900"
-                         data-move-x="20"
-                         data-move-y="60"
+                         data-range-end="1000"
+                         data-move-x="50"
+                         data-move-y="80"
                          style="top: 165%; left: 60%;">
                       <img src="custom.png" alt="Custom Logo" class="button-logo" />
                       <span class="button-text">Custom</span>
@@ -198,7 +199,7 @@
               <div class="loop-content">
                 <!-- Erste Kopie -->
                 <div class="marquee-content">
-                  <span class="marquee-text">WEBFLOW · THOMSEN</span>
+                  <span class="marquee-text">WEBFLOW  THOMSEN</span>
                   <div class="marquee-circle">
                     <div class="cta-logo"></div>
                     <svg class="rotating-text" width="170" height="170" viewBox="0 0 250 250">
@@ -215,7 +216,7 @@
                       <img src="logo1.png" alt="Logo">
                     </div>
                   </div>
-                  <span class="marquee-text">WEBFLOW · THOMSEN</span>
+                  <span class="marquee-text">WEBFLOW  THOMSEN</span>
                   <div class="cta-logo">
                     <svg class="rotating-text" width="170" height="170" viewBox="0 0 250 250">
                       <defs>
@@ -233,7 +234,7 @@
             
                 <!-- Zweite Kopie (exakte Duplikation) -->
                 <div class="marquee-content">
-                  <span class="marquee-text">WEBFLOW · THOMSEN</span>
+                  <span class="marquee-text">WEBFLOW  THOMSEN</span>
                   <div class="marquee-circle">
                     <div class="cta-logo"></div>
                     <svg class="rotating-text" width="170" height="170" viewBox="0 0 250 250">
@@ -250,7 +251,7 @@
                       <img src="logo1.png" alt="Logo">
                     </div>
                   </div>
-                  <span class="marquee-text">WEBFLOW · THOMSEN</span>
+                  <span class="marquee-text">WEBFLOW  THOMSEN</span>
                   <div class="cta-logo">
                     <svg class="rotating-text" width="170" height="170" viewBox="0 0 250 250">
                       <defs>
@@ -298,7 +299,7 @@
                 </svg>
         </section>
         <section class="features-section">
-          <h2 class="features-title">Technischer Service</h2>
+          <h2 class="features-title">Leistungen im Überblick</h2>
           <div class="features-container">
             
             <!-- Block 1 -->
@@ -326,7 +327,7 @@
             <div class="feature-block">
               <div class="feature-icon">
                 <div class="feature-bulb"></div>
-                <img src="mail.png" alt="Icon 3" />
+                <img src="mail1.png" alt="Icon 3" />
               </div>
               <h3 class="feature-heading">E-Mail-Service</h3>
               <p class="feature-text">Von der Konfiguration professioneller E-Mail-Adressen bis zum sicheren Hosting – ich übernehme den kompletten Einrichtungsprozess.</p>
@@ -336,7 +337,7 @@
             <div class="feature-block">
               <div class="feature-icon">
                 <div class="feature-bulb"></div>
-                <img src="live.png" alt="Icon 4" />
+                <img src="live1.png" alt="Icon 4" />
               </div>
               <h3 class="feature-heading">Live-Schaltung</h3>
               <p class="feature-text">Sobald das Design steht, kümmere ich mich um Domain, Hosting und den reibungslosen Launch deiner Website.</p>
@@ -346,7 +347,7 @@
             <div class="feature-block">
               <div class="feature-icon">
                 <div class="feature-bulb"></div>
-                <img src="support.png" alt="Icon 5" />
+                <img src="support1.png" alt="Icon 5" />
               </div>
               <h3 class="feature-heading">Support</h3>
               <p class="feature-text">Ob per Telefon oder Chat – ich stehe dir bei Fragen oder Problemen schnell und unkompliziert zur Seite.</p>
@@ -356,7 +357,7 @@
             <div class="feature-block">
               <div class="feature-icon">
                 <div class="feature-bulb"></div>
-                <img src="progress.png" alt="Icon 6" />
+                <img src="progress1.png" alt="Icon 6" />
               </div>
               <h3 class="feature-heading">Responsive Design</h3>
               <p class="feature-text">Deine Website wird auf allen Geräten perfekt dargestellt – egal ob Smartphone, Tablet oder Desktop.</p>
@@ -481,7 +482,7 @@
             <div class="social-box">
               <!-- Mittig: Social-Links -->
               <div class="social-center">
-                <a href="#" class="social-link">Instagram</a>
+                <a href="https://www.instagram.com/nilsz_th" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
                 <a href="#" class="social-link">Mail</a>
                 <a href="#" class="social-link">X</a>
                 <a href="#" class="social-link">WhatsApp</a>
@@ -503,9 +504,6 @@
 
     <footer>
       <nav class="navfooter">
-        <a href="https://www.webflow-thomsen.de">
-          <img src="logo1.png" alt="Logo" class="logo-footer">
-        </a>
         <ul>
           <li><a href="Datenschutz.html">Datenschutz</a></li>
           <li><a href="Affiliate.html">Affiliate</a></li>

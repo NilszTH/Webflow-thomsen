@@ -626,24 +626,24 @@ main {
 /* Wende die Animation auf den Text an */
 .animated-text {
     animation: slideInFromLeft 1s ease-out forwards;
-    top: 50%;
+    top: 45%;
     left: 45%;
     color: rgb(255, 255, 255);
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 400;
 }
 .animated-text1 {
     opacity: 1;
     animation: slideInFromLeft 1s ease-out forwards;
     color: rgb(170, 255, 255, 0.6);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
 }
 .animated-text2 {
     opacity: 1;
     animation: slideInFromLeft 1s ease-out forwards;
     color: rgb(156, 156, 156);
-    font-size: 14x;
+    font-size: 18x;
     font-weight: 200;
 }
 
@@ -866,7 +866,7 @@ main {
     width: 100%;
     height: 100%;
     color: rgba(228, 227, 227, 0.271);
-    margin-bottom: 20%;
+    margin-bottom: 18%;
     z-index: 10;
 }
 
@@ -886,16 +886,15 @@ main {
 }
 
 /* ✅ Farbklecks, der sich entlang des Kreises bewegt */
-.moving-dot {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background: rgba(227, 231, 231, 0.2);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: moveAroundCircle 10s linear infinite;
+.moving-logo {
+  position: absolute;
+  width: 70px;       /* Passe die Größe deines Logos an */
+  height: 70px;      /* Passe die Größe an – oder entferne height, wenn auto passt */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: moveAroundCircle 10s linear infinite;
+  object-fit: contain; /* Stellt sicher, dass das Logo proportional bleibt */
 }
 
 /* ✅ Animation für den Farbklecks */
@@ -922,7 +921,7 @@ main {
 }
 /* ✅ Haupttext mit Parallax-Effekt */
 .parallax-text {
-    font-size: 70px;
+    font-size: 90px;
     color: white;
     font-weight: 500;
     padding: 10px;
@@ -1116,7 +1115,7 @@ main {
   .section-image {
     display: block;
     width: 80%;
-    border-radius: 25px;
+    border-radius: 30px;
     height: auto;
     margin: 0 auto;
   }
@@ -1149,14 +1148,15 @@ main {
 .marquee-content {
   display: inline-block;
   vertical-align: middle;
-  margin: -2.5% 40px -2.5% 40px;
+  margin: -5% 50px -5% 50px;
 }
 
 /* Text-Styling */
 .marquee-text {
   display: inline-block;
   color: #fff;
-  font-size: 90px;
+  font-size: 100px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
   margin: 60px;
   vertical-align: middle;
 }
@@ -2090,14 +2090,13 @@ main {
 
   /* Linker Bereich (Logo + Subtext) in einer Spalte */
   .footer-left {
+    position: absolute;
+    top: 20px;       /* Abstand vom oberen Rand */
+    left: 20px;     /* Abstand vom rechten Rand */
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: left;  /* Zentriert horizontal */
-    text-align: left;
-    gap: 8px;            /* Abstand zw. Logo & Text */
-    width: 100%;
-    margin-bottom: 10%;
-    margin-left: 10%;
+    gap: 6px;
   }
 
   /* Mittlerer Bereich (Social-Links) ebenso */
@@ -2168,18 +2167,11 @@ footer {
   text-align: center;
   width: 100%;
   padding: 20px 0;
-  background: transparent; /* ⬅️ Halbtransparenter Hintergrund entfernt */
-  backdrop-filter: none;   /* ⬅️ Blur entfernt */
+  background: transparent; 
+  backdrop-filter: none;  
   -webkit-backdrop-filter: none;
 }
 
-/* LOGO IM FOOTER */
-.logo-footer {
-  height: 25px;
-  width: auto;
-  padding: 20px;
-  order: 2; /* ⬅️ Logo unter die Linkliste */
-}
 
 /* LINKLISTE IM FOOTER */
 .navfooter ul {
