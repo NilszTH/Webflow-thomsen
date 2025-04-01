@@ -489,7 +489,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1; /* Unterhalb vom light-beam (z-index: 10) */
+    z-index: -1; /* Unterhalb vom light-beam (z-index: 10) */
     opacity: 0.3; /* Je nach gewünschter Sichtbarkeit */
     pointer-events: none; /* Wichtig, damit nichts blockiert wird */
   }
@@ -973,50 +973,86 @@ main {
   }
 
   @media (max-width: 600px) {
+    /* Container verkleinern und zentrieren */
     .circle-container {
-      position: absolute;
-      width: 300px; /* Kleiner Kreis */
-      height: 300px;
-      margin: 20px auto; /* etwas Abstand */
-    }
-  
-    .outer-circle,
-    .inner-circle {
       position: relative;
-      top: 50%;
-      width: 300px;
+      width: 300px;       /* Kleiner Kreis */
       height: 300px;
+      margin: 20px auto;  /* horizontal zentriert */
     }
   
-    /* Rotierender Punkt kleiner / weniger Radius */
+    /* Äußere und innere Kreise bleiben absolut, damit sie exakt übereinander liegen */
+    .outer-circle, 
+    .inner-circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;  /* 300px */
+      height: 100%;
+      margin: 0;    /* Alle extra Margins entfernen */
+    }
+  
+    /* Moving Dot: Zentrale Position beibehalten, ggf. kleinere Translation */
     .moving-dot {
+      position: absolute;
       width: 12px;
       height: 12px;
-      /* Keyframes anpassen, z.B. translateX(100px) statt 200px */
-    }
-  
-    /* Farbklecks ebenfalls kleiner */
-    .color-bulb {
-      width: 120px;
-      height: 120px;
-      filter: blur(20px);
-      color:rgba(11, 170, 255, 0.36)
-    }
-  
-    .parallax-container-button {
-      position: relative;
-      width: 100%;
-      height: 600px;
-    }
-    /* Parallax-Buttons: Neue Positionen, 
-       z.B. weiter unten / kleiner / mittig */
-    .parallax-button {
-      position: absolute;
-      width: auto;
-      padding: 6px 10px;
-      top: 80%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      /* Keyframes anpassen, z. B. kleineren Radius (100px statt 200px) */
+    }
+  
+    /* Optional: Falls du einen Farbklecks (Bulb) verwendest – verkleinere ihn */
+    .color-bulb {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(20px);
+      /* Hintergrundfarbe beibehalten */
+    }
+  
+    /* Parallax-Container für Button und animierten Text, passend zum Kreis */
+    .parallax-container-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      z-index: 11;
+      pointer-events: none;
+    }
+  
+    /* Parallax-Buttons: Neue, mobile Positionierung innerhalb des Kreises */
+    .parallax-button {
+      position: absolute;
+      /* Beispielposition: etwas unten im Kreis */
+      top: 80%;      /* Passe diesen Wert an, bis er passt */
+      left: 50%;     /* Zentriert horizontal */
+      transform: translate(-50%, -50%);
+      padding: 6px 10px;
+      font-size: 12px;
+      z-index: 12;
+    }
+  
+    /* Animierter Text im Kreis: Falls als .text-circle eingesetzt */
+    .text-circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      animation: rotateText 10s linear infinite;
+      z-index: 10;
+    }
+  
+    /* Keyframes für den Moving Dot anpassen – kleineren Radius verwenden */
+    @keyframes moveAroundCircle {
+      0% { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
     }
   }
 
