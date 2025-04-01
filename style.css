@@ -981,6 +981,9 @@ main {
       margin: 20px auto;  /* horizontal zentriert */
     }
   
+    .parallax-text {
+      display: none;
+    }
     /* Äußere und innere Kreise bleiben absolut, damit sie exakt übereinander liegen */
     .outer-circle, 
     .inner-circle {
