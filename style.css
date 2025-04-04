@@ -1033,7 +1033,7 @@ main {
     .parallax-button {
       position: absolute;
       /* Beispielposition: etwas unten im Kreis */
-      top: calc(90% + 200px);
+      top: 120% !important;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 6px 10px;
@@ -1074,6 +1074,11 @@ main {
     max-width: 100%;
     height: 100%;
     overflow: hidden;
+}
+@media (max-width: 600px) {
+  .dashed-line-section {
+    display: none;
+  }
 }
 
 /* Globale Einstellungen für den Main-Bereich */
