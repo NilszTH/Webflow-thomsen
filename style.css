@@ -73,6 +73,8 @@ header {
   /* Links (Desktop: sichtbar) */
   .nav-links {
     list-style: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     display: flex;
     gap: 10px;
     margin: 0;
@@ -115,7 +117,7 @@ header {
   .hamburger {
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     width: 25px;
     height: 18px;
     background: transparent;
@@ -132,13 +134,17 @@ header {
   /* ===================== Mobile (max-width: 900px) ===================== */
   @media (max-width: 900px) {
     .nav-links {
+      justify-content: space-between;
         display: none;
       width: 90%;
     }
   
     /* Hamburger anzeigen, Links verstecken */
     .hamburger {
-      display: flex; /* Jetzt sichtbar */
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
     }
     /* Wenn aktiv, dann anzeigen */
     .nav-links.active {
@@ -163,6 +169,14 @@ header {
       text-align: center;
       justify-content: space-between;
       margin: 5px 0;
+    }
+    .nav-links li:focus,
+    .nav-links li a:focus {
+      outline: none;
+      border: none;
+    }
+    *:focus {
+      outline: none;
     }
   }
 
@@ -494,6 +508,13 @@ main {
     opacity: 0.3; /* Je nach gewünschter Sichtbarkeit */
     pointer-events: none; /* Wichtig, damit nichts blockiert wird */
   }
+
+  @media (max-width: 600px) {
+    .video-cloud {
+      display: none;
+    }
+  }
+
   .colorbwolke {
     position: absolute;
     overflow-x: hidden;
@@ -593,8 +614,7 @@ main {
   
     /* Video leicht sichtbar lassen */
     .video-cloud {
-      opacity: 0.15; /* sanfter durchschimmern */
-      object-position: center;
+      display: none;
     }
   
     /* Farbkleckse ausblenden, bis auf einen */
@@ -800,40 +820,32 @@ main {
 /* ===================== Mobile (max-width: 600px) ===================== */
 @media (max-width: 600px) {
   .cta-button {
-    /* Statt absoluter Position oben/links → Fixiere unten rechts */
     position: fixed;
     bottom: 45px;
     right: 20px;
-    
-    /* Verkleinerte Maße */
-    width: 70px;
-    height: 70px;
-    
-    /* Entferne die alten top/left */
+    width: 60px;  /* etwas kleiner als vorher */
+    height: 60px;
     top: auto;
     left: auto;
-    
-    /* Optional: etwas andere Transparenz oder Box-Shadow */
-    background: rgba(0, 255, 255, 0.0);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    background: rgba(0, 149, 255, 0.077);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.0);
+    z-index: 9999; /* Ganz oben */
   }
 
-  /* Verkleinere ggf. den Blur-Kreis */
   .cta-blur {
-    width: 120px;
-    height: 120px;
-    filter: blur(15px); /* Weniger Blur, da alles kleiner */
+    width: 100px;
+    height: 100px;
+    filter: blur(12px);
   }
 
-  /* Rotierender Text anpassen */
   .rotating-text {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+    font-size: 10px; /* falls Text sichtbar ist */
   }
 
-  /* Logo in der Mitte auch verkleinern */
   .cta-logo img {
-    width: 30px;
+    width: 26px;
     height: auto;
   }
 }
@@ -2142,7 +2154,9 @@ main {
   .right-bar {
     display: none;
   }
-
+  .right-bar span {
+    display: none;
+  }
   /* Optional: Schriftgrößen anpassen */
   .footer-sub {
     font-size: 0.9rem;
