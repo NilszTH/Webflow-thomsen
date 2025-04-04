@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+// ------------------------ Parallax Text über Circle----------
 window.addEventListener("scroll", function() {
     let text = document.querySelector(".parallax-text");
     let scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -36,7 +37,7 @@ window.addEventListener("scroll", function() {
     text.style.transition = "transform 0.2s ease-out";
 });
 
-// Hover Animation für Info-button
+// Hover Animation für Info-button (Start Bereich)
 document.querySelectorAll(".btn").forEach(button => {
     let glow = document.createElement("div");
     glow.classList.add("glow-effect");
@@ -60,38 +61,53 @@ document.querySelectorAll(".btn").forEach(button => {
     });
 });
 
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-    document.querySelectorAll('.parallax-button').forEach(button => {
-        // Daten aus dem HTML-Attribut lesen
-        const rangeStart = parseInt(button.dataset.rangeStart) || 800;
-        const rangeEnd   = parseInt(button.dataset.rangeEnd)   || 1000;
-        const moveX      = parseFloat(button.dataset.moveX)    || 0;
-        const moveY      = parseFloat(button.dataset.moveY)    || 0;
-    
-        // "Fortschritt" in der definierten Range berechnen (0 = Start, 1 = Ende)
-        let progress;
-        if (scrollTop < rangeStart) {
-        progress = 0;
-        } else if (scrollTop > rangeEnd) {
-        progress = 1;
-        } else {
-        progress = (scrollTop - rangeStart) / (rangeEnd - rangeStart);
-        }
-    
-        // Tatsächliche Verschiebung in X/Y basierend auf progress
-        const offsetX = moveX * progress;
-        const offsetY = moveY * progress;
-    
-        // Button um (offsetX, offsetY) verschieben, 
-        // ausgehend von der ursprünglichen "translate(-50%, -50%)"
-        button.style.transform = `
-        translate(-50%, -50%)
-        translate(${offsetX}px, ${offsetY}px)
-        `;
-    });
-});
+// Parallax Effect für Buttons über Circle
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+function onScroll() {
+  lastScrollY = window.scrollY;
+  requestTick();
+}
+
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(updateParallaxButtons);
+    ticking = true;
+  }
+}
+
+function updateParallaxButtons() {
+  const scrollTop = lastScrollY;
+
+  document.querySelectorAll('.parallax-button').forEach(button => {
+    const rangeStart = parseInt(button.dataset.rangeStart) || 800;
+    const rangeEnd   = parseInt(button.dataset.rangeEnd)   || 1000;
+    const moveX      = parseFloat(button.dataset.moveX)    || 0;
+    const moveY      = parseFloat(button.dataset.moveY)    || 0;
+
+    let progress;
+    if (scrollTop < rangeStart) {
+      progress = 0;
+    } else if (scrollTop > rangeEnd) {
+      progress = 1;
+    } else {
+      progress = (scrollTop - rangeStart) / (rangeEnd - rangeStart);
+    }
+
+    const offsetX = moveX * progress;
+    const offsetY = moveY * progress;
+
+    button.style.transform = `
+      translate(-50%, -50%)
+      translate(${offsetX}px, ${offsetY}px)
+    `;
+  });
+
+  ticking = false;
+}
+
+window.addEventListener('scroll', onScroll);
 
 // Smooth scrolling Funktion für Buttons
 function smoothScroll(targetSelector, duration) {

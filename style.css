@@ -971,6 +971,7 @@ main {
     pointer-events: auto; /* Buttons bleiben klickbar */
     z-index: 90;
   }
+
   .parallax-button:nth-child(1) { top: 135%; left: 40%; }
 .parallax-button:nth-child(2) { top: 135%; left: 60%; }
 .parallax-button:nth-child(3) { top: 160%; left: 45%; }
@@ -1072,12 +1073,12 @@ main {
     }
   
     /* Einzelpositionen der Buttons mobil optimiert */
-    .parallax-button:nth-child(1) { top: 135%; left: 40%; }
-    .parallax-button:nth-child(2) { top: 135%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 160%; left: 45%; }
-    .parallax-button:nth-child(4) { top: 140%; left: 48%; }
-    .parallax-button:nth-child(5) { top: 170%; left: 40%; }
-    .parallax-button:nth-child(6) { top: 165%; left: 60%; }
+    .parallax-button:nth-child(1) { top: 155%; left: 40%; }
+    .parallax-button:nth-child(2) { top: 155%; left: 60%; }
+    .parallax-button:nth-child(3) { top: 180%; left: 45%; }
+    .parallax-button:nth-child(4) { top: 160%; left: 48%; }
+    .parallax-button:nth-child(5) { top: 190%; left: 40%; }
+    .parallax-button:nth-child(6) { top: 185%; left: 60%; }
   
     .text-circle {
       position: absolute;
