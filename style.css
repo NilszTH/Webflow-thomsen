@@ -1033,8 +1033,8 @@ main {
     .parallax-button {
       position: absolute;
       /* Beispielposition: etwas unten im Kreis */
-      top: calc(80% + 200px);      /* Passe diesen Wert an, bis er passt */
-      left: 50%;     /* Zentriert horizontal */
+      top: calc(90% + 200px);
+      left: 50%;
       transform: translate(-50%, -50%);
       padding: 6px 10px;
       font-size: 12px;
@@ -1083,17 +1083,17 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    z-index: 3;
+    z-index: -2;
 }
 .dashed-line-section2 {
     position: absolute;
     max-width: 100%;
-    height: 100vh; /* Falls du die gesamte Höhe abdecken möchtest */
+    height: 100vh;
     top: 1300px;
     left: 50%;
     transform: translatex(-50%);
     pointer-events: none; /* Damit sie keine Klicks blockiert */
-    z-index: 1; /* Hält sie im Hintergrund */
+    z-index: -2; /* Hält sie im Hintergrund */
 }
 
 .dashed-line2 {
