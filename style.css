@@ -209,8 +209,8 @@ main {
 }
 .colorb1 {
     position: absolute;
-    width: 400px;
-    height:400px;
+    width: 500px;
+    height:500px;
     border-radius: 50%;
     filter: blur(90px);
 }
@@ -270,9 +270,9 @@ main {
     background: rgba(0, 204, 255, 0.3);
 }
 .colorb1 {
-    top: 126%;
-    left: 37%;
-    background: rgba(0, 157, 255, 0.3);
+    top: 115%;
+    left: 35%;
+    background: rgba(0, 157, 255, 0.5);
 }
 .colorb2 {
     top: -10%;
@@ -1157,9 +1157,9 @@ main {
       left: 50%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
-      background: rgba(86, 129, 192, 0.2); /* sanfter Farbton */
+      background: rgba(78, 138, 228, 0.2);
       filter: blur(60px);
-      z-index: -3; /* ganz hinten */
+      z-index: -3;
       pointer-events: none;
     }
 
