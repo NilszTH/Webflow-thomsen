@@ -1033,7 +1033,7 @@ main {
     .parallax-button {
       position: absolute;
       /* Beispielposition: etwas unten im Kreis */
-      top: 100%;      /* Passe diesen Wert an, bis er passt */
+      top: calc(50% + 100px);      /* Passe diesen Wert an, bis er passt */
       left: 50%;     /* Zentriert horizontal */
       transform: translate(-50%, -50%);
       padding: 6px 10px;
