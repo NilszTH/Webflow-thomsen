@@ -2240,15 +2240,7 @@ main {
 
   /* Rechter Bereich (Kontakt/Impressum) ebenfalls zentriert */
   .footer-right {
-    display: hide;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: right;
-    width: 100%;
-    margin-left: 50%;
-    margin-bottom: 0%;
-    gap: 0px;
-    font-size: 12px;
+    display: none;
   }
 
   /* Weißen Balken rechts ausblenden oder schmaler machen */
