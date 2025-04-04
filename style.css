@@ -959,6 +959,8 @@ main {
   
   .parallax-button {
     position: absolute;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
@@ -1001,7 +1003,7 @@ main {
     }
   
     .parallax-text {
-      display: block;
+      display: flex;
       font-size: 26px;
       font-weight: 500;
       text-align: center;
@@ -1063,6 +1065,8 @@ main {
       position: absolute;
       font-size: 11px;
       padding: 6px 8px;
+      will-change: transform;
+      transition: transform 0.2s ease-out;
       transform: translate(-50%, -50%);
       z-index: 12;
     }
