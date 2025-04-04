@@ -605,6 +605,7 @@ main {
     transform: translateX(-100%);
     background: #050505;
   }
+
   @media (max-width: 600px) {
     /* Begrenzung der Sektion */
     .lightbeam-section {
@@ -2218,7 +2219,7 @@ main {
   /* Linker Bereich (Logo + Subtext) in einer Spalte */
   .footer-left {
     position: absolute;
-    top: 20px;       /* Abstand vom oberen Rand */
+    top: 80px;       /* Abstand vom oberen Rand */
     left: 20px;     /* Abstand vom rechten Rand */
     text-align: left;
     display: flex;
@@ -2264,8 +2265,8 @@ main {
   }
   .footer-right span {
     position: absolute;
-    left: 50%;
-    font-size: 0.85rem;
+    left: 60%;
+    font-size: 12px;
   }
 }
 
