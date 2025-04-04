@@ -322,19 +322,20 @@ main {
     width: 300px;
     height: 300px;
     filter: blur(60px);
-    top: 130%;
-    left: 25%;  /* negative Margin entfernt */
+    top: 40%;
+    left: 35%;
     background: rgba(0, 204, 255, 0.3);
   }
   
   /* Farbfleck 2 */
   .colorb1 {
-    width: 250px;
-    height: 250px;
+    position: fixed;
+    width: 350px;
+    height: 350px;
     filter: blur(60px);
-    top: 10%;    /* anpassen, statt 126% */
-    left: 20%;   /* relativ, ohne negative Werte */
-    background: rgba(0, 157, 255, 0.3);
+    top: 10%; 
+    left: 20%; 
+    background: rgba(0, 157, 255, 0.4);
   }
   
   /* Farbfleck 3 */
@@ -342,7 +343,7 @@ main {
     width: 150px;
     height: 150px;
     filter: blur(60px);
-    top: 220%;    /* anpassen statt -10% */
+    top: 220%;
     left: 50%;
     background: rgba(119, 178, 206, 0.0);
   }
@@ -352,7 +353,7 @@ main {
     width: 200px;
     height: 200px;
     filter: blur(60px);
-    top: 280%;   /* anpassen statt 2900px */
+    top: 280%; 
     left: 60%;
     background: rgba(0, 208, 255, 0.3);
   }
@@ -382,7 +383,7 @@ main {
     width: 200px;
     height: 200px;
     filter: blur(60px);
-    top: 25%;  /* anpassen statt 2200px */
+    top: 25%;
     left: 5%;
     background: rgba(0, 187, 255, 0.0);
   }
@@ -829,7 +830,7 @@ main {
     left: auto;
     background: rgba(0, 149, 255, 0.077);
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.0);
-    z-index: 9999999; /* Ganz oben */
+    z-index: 9999999 !important;
   }
 
   .cta-blur {
@@ -1043,7 +1044,7 @@ main {
     .colorb-mediacircle {
       width: 350px;
       height: 350px;
-      top: 145%;
+      top: 160%;
       left: 50%;
       transform: translate(-50%, -50%);
       filter: blur(50px);
@@ -1152,7 +1153,7 @@ main {
       position: absolute;
       width: 300px;
       height: 300px;
-      top: 155%;
+      top: 165%;
       left: 50%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
@@ -1232,7 +1233,7 @@ main {
   .video-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -1241,7 +1242,7 @@ main {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: 30px;
+    border-radius: 25px;
     display: block;
     margin: 0 auto;
     position: relative;
@@ -2250,7 +2251,7 @@ main {
 
   /* Weißen Balken rechts ausblenden oder schmaler machen */
   .right-bar {
-    display: none;
+    display: none !important;
   }
   .right-bar span {
     display: none;
