@@ -1033,7 +1033,7 @@ main {
     .parallax-button {
       position: absolute;
       /* Beispielposition: etwas unten im Kreis */
-      top: calc(50% + 100px);      /* Passe diesen Wert an, bis er passt */
+      top: calc(80% + 200px);      /* Passe diesen Wert an, bis er passt */
       left: 50%;     /* Zentriert horizontal */
       transform: translate(-50%, -50%);
       padding: 6px 10px;
@@ -1093,7 +1093,7 @@ main {
     left: 50%;
     transform: translatex(-50%);
     pointer-events: none; /* Damit sie keine Klicks blockiert */
-    z-index: 2; /* Hält sie im Hintergrund */
+    z-index: 1; /* Hält sie im Hintergrund */
 }
 
 .dashed-line2 {
@@ -1105,20 +1105,31 @@ main {
 /* ========== Section: Bild + Marquee in einer Ebene ========== */
 .image-section {
     position: relative;
-    margin-top: 10%;
-    width: 100%;    
+    align-items: center;
+    left: 9%;
+    margin-top: 8%;
+    width: 80%;    
     background: transparent; 
     overflow: visible; 
-    z-index: 20;
+    z-index: 2;
   }
   
-  /* Das Bild (80% breit, mittig) */
-  .section-image {
-    display: block;
-    width: 80%;
-    border-radius: 30px;
-    height: auto;
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .section-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 30px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
   }
   
 
@@ -1150,6 +1161,7 @@ main {
   display: inline-block;
   vertical-align: middle;
   margin: -5% 50px -5% 50px;
+  z-index: 1;
 }
 
 /* Text-Styling */
