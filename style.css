@@ -2221,7 +2221,7 @@ main {
   .footer-left {
     position: absolute;
     bottom: 15%;
-    left: 25px;     /* Abstand vom rechten Rand */
+    left:39px;     /* Abstand vom rechten Rand */
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -2243,9 +2243,10 @@ main {
     display: hide;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
+    text-align: right;
     width: 100%;
-    margin-right: 0%;
+    margin-left: 50%;
+    margin-bottom: 0%;
     gap: 0px;
     font-size: 12px;
   }
