@@ -129,27 +129,17 @@ header {
     width: 80%;
     background-color: #fff;
     border-radius: 2px;
+    box-shadow: none;
   }
+  .hamburger:focus,
+.hamburger:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
   
   /* ===================== Mobile (max-width: 900px) ===================== */
   @media (max-width: 900px) {
-    .nav-links {
-      justify-content: space-between;
-        display: none;
-      width: 90%;
-    }
-  
-    /* Hamburger anzeigen, Links verstecken */
-    .hamburger {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-    /* Wenn aktiv, dann anzeigen */
-    .nav-links.active {
-        display: flex;
-      }
     .nav-links {
       display: none;
       position: absolute;
@@ -160,23 +150,35 @@ header {
       justify-content: space-between;
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
-      border-radius: 40px;
+      border-radius: 30px;
       padding: 10px 0;
-      margin: 0;
+      margin-top: 8px;
+      z-index: 9999;
+    }
+  
+    .nav-links li,
+    .nav-links li a {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+  
+    .hamburger {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  
+    .nav-links.active {
+      display: flex;
     }
   
     .nav-links li {
       text-align: center;
       justify-content: space-between;
       margin: 5px 0;
-    }
-    .nav-links li:focus,
-    .nav-links li a:focus {
-      outline: none;
-      border: none;
-    }
-    *:focus {
-      outline: none;
     }
   }
 
