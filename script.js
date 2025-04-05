@@ -154,3 +154,34 @@ function smoothScroll(targetSelector, duration) {
       history.replaceState(null, null, window.location.href.split('#')[0]);
     }
   });
+
+  // WHATSAPP CHAT
+  // Öffnen des Chatfensters
+  function openChat() {
+    document.getElementById("whatsapp-chat").classList.remove("hidden");
+  }
+
+  // Schließen
+  function closeChat() {
+    document.getElementById("whatsapp-chat").classList.add("hidden");
+  }
+
+  // Nachricht an WhatsApp senden
+  function sendToWhatsApp() {
+    const message = document.getElementById("userMessage").value.trim();
+    if (message !== "") {
+      const phone = "+491751503737"; // <-- deine Nummer hier mit Ländervorwahl, ohne + oder Leerzeichen
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  }
+
+  // Button-Klick abfangen
+  document.querySelectorAll(".social-link").forEach(link => {
+    if (link.textContent.trim().toLowerCase() === "whatsapp") {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        openChat();
+      });
+    }
+  });

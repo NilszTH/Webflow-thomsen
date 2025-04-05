@@ -2375,4 +2375,67 @@ footer {
     justify-content: center;
   }
 }
+/* WHATSAPP CSS */
 
+.whatsapp-chat {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 280px;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+  z-index: 9999;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 16px;
+}
+
+.chat-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chat-body p {
+  color: white;
+  margin: 0;
+  font-size: 14px;
+}
+
+.chat-body input {
+  width: 80%;
+  padding: 8px;
+  margin-top: 10px;;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+}
+
+.chat-body button {
+  padding: 8px;
+  width: 50%;
+  margin-top: 20px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
