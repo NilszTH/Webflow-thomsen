@@ -487,7 +487,7 @@
                 <a href="https://www.instagram.com/nilsz_th" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
                 <a href="#" class="social-link">Mail</a>
                 <a href="#" class="social-link">X</a>
-                <a href="#" class="social-link">WhatsApp</a>
+                <a href="#" class="social-link" onclick="toggleChat()">WhatsApp</a>
               </div>
               <!-- WhatsApp Chatfenster -->
               <div id="whatsapp-chat" class="whatsapp-chat hidden">
@@ -496,7 +496,7 @@
                   <button onclick="closeChat()">×</button>
                 </div>
                 <div class="chat-body">
-                  <p>Sende mir direkt eine Nachricht mit deinen Anliegen. Zur Info: Du wirst nach dem absenden weitergeleitet. :)</p>
+                  <p>Sende mir direkt eine Nachricht. Info: Du wirst nach dem absenden weitergeleitet. :)</p>
                   <input type="text" id="userMessage" placeholder="Deine Nachricht...">
                   <button onclick="sendToWhatsApp()">Senden</button>
                 </div>

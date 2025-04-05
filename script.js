@@ -157,6 +157,20 @@ function smoothScroll(targetSelector, duration) {
 
   // WHATSAPP CHAT
   // Öffnen des Chatfensters
+  document.addEventListener("DOMContentLoaded", function () {
+    const chat = document.getElementById("whatsapp-chat");
+    if (chat && !chat.classList.contains("hidden")) {
+      chat.classList.add("hidden");
+    }
+  });
+  document.addEventListener("click", function (e) {
+    const chat = document.getElementById("whatsapp-chat");
+    const isClickInside = chat.contains(e.target) || e.target.classList.contains("social-link");
+  
+    if (!isClickInside && !chat.classList.contains("hidden")) {
+      closeChat();
+    }
+  });
   function openChat() {
     document.getElementById("whatsapp-chat").classList.remove("hidden");
   }

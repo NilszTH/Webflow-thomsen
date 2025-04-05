@@ -334,7 +334,7 @@ main {
     filter: blur(60px);
     top: 10%; 
     left: 20%; 
-    background: rgba(0, 110, 255, 0.25);
+    background: rgba(0, 170, 255, 0.25);
   }
   
   /* Farbfleck 3 */
@@ -2384,7 +2384,7 @@ footer {
   width: 280px;
   background: rgba(0, 0, 0, 0.9);
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.3);
   z-index: 9999;
   padding: 15px;
   display: flex;
@@ -2414,15 +2414,16 @@ footer {
 }
 
 .chat-body p {
-  color: white;
+  color: rgb(215, 215, 215);
+  font-weight: 100;
   margin: 0;
   font-size: 14px;
 }
 
 .chat-body input {
-  width: 80%;
+  width: 85%;
   padding: 8px;
-  margin-top: 10px;;
+  margin-top: 20px;;
   border-radius: 6px;
   border: none;
   font-size: 12px;
