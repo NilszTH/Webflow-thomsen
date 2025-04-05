@@ -163,6 +163,7 @@ function smoothScroll(targetSelector, duration) {
       chat.classList.add("hidden");
     }
   });
+  
   document.addEventListener("click", function (e) {
     const chat = document.getElementById("whatsapp-chat");
     const isClickInside = chat.contains(e.target) || e.target.classList.contains("social-link");
@@ -171,6 +172,7 @@ function smoothScroll(targetSelector, duration) {
       closeChat();
     }
   });
+
   function openChat() {
     document.getElementById("whatsapp-chat").classList.remove("hidden");
   }
@@ -184,11 +186,19 @@ function smoothScroll(targetSelector, duration) {
   function sendToWhatsApp() {
     const message = document.getElementById("userMessage").value.trim();
     if (message !== "") {
-      const phone = "491751503737"; // ohne + oder Leerzeichen!
+      const phone = "491751503737";
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      
-      // Verwende location.href für bessere Kompatibilität auf Mobilgeräten
-      window.location.href = url;
+  
+      // Prüfen, ob der Benutzer ein Mobilgerät nutzt
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+      if (isMobile) {
+        // Auf Handy: Direkt zur App
+        window.location.href = url;
+      } else {
+        // Auf Desktop: In neuem Tab öffnen
+        window.open(url, '_blank');
+      }
     }
   }
 
