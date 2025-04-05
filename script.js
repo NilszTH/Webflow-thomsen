@@ -163,7 +163,7 @@ function smoothScroll(targetSelector, duration) {
       chat.classList.add("hidden");
     }
   });
-  
+
   document.addEventListener("click", function (e) {
     const chat = document.getElementById("whatsapp-chat");
     const isClickInside = chat.contains(e.target) || e.target.classList.contains("social-link");
@@ -187,7 +187,8 @@ function smoothScroll(targetSelector, duration) {
     const message = document.getElementById("userMessage").value.trim();
     if (message !== "") {
       const phone = "491751503737";
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
+window.location.href = url;
   
       // Prüfen, ob der Benutzer ein Mobilgerät nutzt
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
