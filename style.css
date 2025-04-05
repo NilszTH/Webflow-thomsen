@@ -1825,11 +1825,11 @@ main {
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  background: rgba(0, 255, 255, 0.1);
+  background: rgba(0, 174, 255, 0.1);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.0);
-  border: 1px solid rgba(211, 211, 211, 0.208);
+  border: 1px solid rgba(255, 255, 255, 0.208);
   z-index: 999;
 }
 
@@ -1858,7 +1858,7 @@ main {
   fill: #fff; /* Farbe des Textes */
   font-weight: 300;
   letter-spacing: 5px;
-  text-shadow: 0 0 0px rgba(0, 255, 255, 0.6);
+  text-shadow: 0 0 0px rgba(0, 162, 255, 0.6);
   z-index: 5;
 }
 
@@ -1893,8 +1893,8 @@ main {
   }
 
   .cta-mid .rotating-text text {
-    font-size: 10px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 4px;
   }
 
   .cta-mid .cta-logo img {
