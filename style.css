@@ -1072,7 +1072,7 @@ main {
       color: white;
       line-height: 1.3;
       padding: 20px;
-      top: -50px;
+      top: 100%;
       left: auto;
       transform: none;
       z-index: 10;
