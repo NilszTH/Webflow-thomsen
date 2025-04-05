@@ -1066,13 +1066,12 @@ main {
   
     .parallax-text {
       position: absolute;
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 500;
       text-align: center;
       color: white;
       line-height: 1.3;
-      padding: 20px;
-      top: 100%;
+      top: 0;
       left: auto;
       transform: none;
       z-index: 10;
@@ -1793,8 +1792,8 @@ main {
 .section-divider {
   position: relative;
   width: 100%;
-  height: 100px; /* Höhe des Bereichs, damit man genug Platz hat */
-  background: transparent; /* kein Hintergrund, oder #000 etc. */
+  height: 100px;
+  background: transparent;
 }
 
 /* Die horizontale Linie */
@@ -1803,10 +1802,10 @@ main {
   top: 50%;
   left: 0;
   width: 100%;
-  height: 1px;        /* Dicke der Linie */
+  height: 1px;
   background: linear-gradient(
-  rgba(255, 255, 255, 0.4),  /* Weiß mit 40% Deckkraft */
-  rgba(8, 187, 193, 0.4)     /* Türkis mit 40% Deckkraft */
+  rgba(255, 255, 255, 0.497),
+  rgba(8, 100, 193, 0.4)
 );
   transform: translateY(-50%);
   opacity: 0.3;
@@ -1876,6 +1875,33 @@ main {
   z-index: 4;
 }
 
+@media (max-width: 600px) {
+  .cta-mid {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cta-mid .cta-blur {
+    width: 140px;
+    height: 140px;
+    filter: blur(10px);
+  }
+
+  .cta-mid .rotating-text {
+    width: 90px;
+    height: 90px;
+  }
+
+  .cta-mid .rotating-text text {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .cta-mid .cta-logo img {
+    width: 30px;
+  }
+}
+
 /* ###################################################################*/
 /* ========== Services-Sektion ========== */
 .services-section {
@@ -1898,10 +1924,10 @@ main {
 /* ========== Container für 3 Cards in EINER Zeile ========== */
 .services-container {
   display: flex;
-  flex-wrap: nowrap;  /* Kein Zeilenumbruch */
-  gap: 20px;          /* Abstand zwischen Cards */
-  max-width: 1400px;  /* Größerer Container, anpassbar */
-  margin: 0 auto;     /* Zentriert die Cards */
+  flex-wrap: nowrap;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
   justify-content: center;
   z-index: 10;
 }
@@ -2049,7 +2075,14 @@ main {
   background: rgba(0, 153, 255, 0.2);
 }
 @media (max-width: 600px) {
-  /* Container: Ausrichtung auf Spalte, also eine Card pro Zeile */
+  .services-title {
+    position: relative;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
   .services-container {
     display: flex;
     flex-direction: column;
@@ -2061,18 +2094,18 @@ main {
   
   /* Einzelne Card: Breite anpassen, Höhe evtl. auf auto setzen */
   .service-card {
-    width: 80%;       /* oder 100% minus gewünschter Innenabstand */
-    height: auto;     /* Höhe wird durch Inhalt bestimmt */
+    width: 80%;
+    height: auto;
     padding: 20px;
   }
   
   /* Überschrift und Text anpassen */
   .card-heading {
-    font-size: 2rem;  /* kleiner als 30px, wenn nötig */
+    font-size: 2rem;
   }
   
   .card-text {
-    font-size: 0.9rem; /* leicht verkleinerter Text */
+    font-size: 0.9rem;
   }
 }
 
