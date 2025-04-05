@@ -184,9 +184,11 @@ function smoothScroll(targetSelector, duration) {
   function sendToWhatsApp() {
     const message = document.getElementById("userMessage").value.trim();
     if (message !== "") {
-      const phone = "+491751503737"; // <-- deine Nummer hier mit Ländervorwahl, ohne + oder Leerzeichen
+      const phone = "491751503737"; // ohne + oder Leerzeichen!
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
+      
+      // Verwende location.href für bessere Kompatibilität auf Mobilgeräten
+      window.location.href = url;
     }
   }
 
