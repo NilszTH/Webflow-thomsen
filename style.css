@@ -469,24 +469,68 @@ main {
     top: 0;
     left: 75%;
     transform: translateX(-50%);
-    width: 3px;
-    height: 80%;
+    width: 4px;
+    height: 70%;
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.5),
-      rgba(170, 220, 255, 0.4),
-      rgba(255, 255, 255, 0.2)
+      rgba(255, 255, 255, 0.85),
+      rgba(170, 220, 255, 0.6),
+      rgba(255, 255, 255, 0.4)
     );
-    filter: blur(12px);
+    filter: blur(14px);
     box-shadow:
-      0 0 30px rgba(255, 255, 255, 0.3),
-      0 0 80px rgba(170, 220, 255, 0.2),
-      0 0 150px rgba(255, 255, 255, 0.15);
-    animation: beamPulse 6s ease-in-out infinite;
-    z-index: 200; /* Höher als 2, wie gewünscht */
+      0 0 40px rgba(255, 255, 255, 0.4),
+      0 0 100px rgba(170, 220, 255, 0.3),
+      0 0 160px rgba(255, 255, 255, 0.25);
+    animation: beamPulse 5s ease-in-out infinite;
+    z-index: 20;
     pointer-events: none;
   }
+  .beam-particles {
+    position: absolute;
+    top: 0;
+    left: 75%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 69%;
+    z-index: 21;
+    pointer-events: none;
+    overflow: hidden;
+  }
   
+  .beam-particles .particle {
+    position: absolute;
+    width: 2px;
+    height: 4px;
+    background: white;
+    opacity: 0.6;
+    filter: blur(1px);
+    animation: fall linear;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-10px) translateX(20%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    40% {
+      transform: translateY(20vh) translateX(5%);
+    }
+    70% {
+      transform: translateY(70vh) translateX(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) translateX(0%);
+      opacity: 0;
+    }
+  }
+
   /* Keyframes für die Animation des Strahls */
   @keyframes beamPulse {
     0%, 100% {

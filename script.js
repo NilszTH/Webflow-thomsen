@@ -15,6 +15,35 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+// Light-beam---
+const container = document.querySelector('.beam-particles');
+
+function createParticle() {
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+
+  // Versatz nach links oder rechts vom Strahl (–30px bis +30px)
+  const offset = (Math.random() - 0.5) * 60;
+  particle.style.left = `${offset + 3}px`; // Strahl ist 3px breit → zentriert
+
+  // Größe leicht variieren
+  particle.style.width = Math.random() * 2 + 1 + 'px';
+  particle.style.height = Math.random() * 4 + 2 + 'px';
+
+  // Fallgeschwindigkeit langsamer
+  particle.style.animationDuration = (2.5 + Math.random() * 1.5).toFixed(2) + 's';
+
+  container.appendChild(particle);
+
+  // Automatisch entfernen nach Animation
+  setTimeout(() => {
+    container.removeChild(particle);
+  }, 4000); // angepasst auf längere Fallzeiten
+}
+
+// alle 100ms ein Partikel erzeugen
+setInterval(createParticle, 100);
+
 // ------------------------ Parallax Text über Circle----------
 window.addEventListener("scroll", function() {
     let text = document.querySelector(".parallax-text");
