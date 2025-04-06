@@ -66,8 +66,8 @@ header {
   .logo-header {
     position: fixed;
     margin-left: 8%;
-    margin-top: -10px;
-    height: 30px;
+    margin-top: -8px;
+    height: 33px;
     width: auto;
   }
   
@@ -89,7 +89,7 @@ header {
   .nav-links li a {
     color: #fff;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 300;
     padding: 0px 15px;
     transition: color 0.3s ease;
@@ -99,7 +99,44 @@ header {
   .nav-links li a:hover {
     color: rgba(170, 225, 225, 1);
   }
-
+  .nav-social-container {
+    position: fixed;
+    right: 18%;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    z-index: 1000;
+  }
+  .whatsapp-button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 6px 25px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    backdrop-filter: blur(4px);
+    transition: background 0.3s ease;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  .whatsapp-button img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(1.3);
+  }
+  
+  .whatsapp-button .faded {
+    opacity: 0.4;
+  }
   .nav-social {
     position: fixed;
     right: 8%;
@@ -107,7 +144,7 @@ header {
     transform: translateY(-50%);
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 18px;
     z-index: 1000;
   }
   
