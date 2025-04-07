@@ -1398,7 +1398,7 @@ main {
 .marquee-content {
   display: inline-block;
   vertical-align: middle;
-  margin: -5% 50px -5% 50px -5% 50px;
+  margin: -5% 50px -5% 50px;
   z-index: 1;
 }
 
