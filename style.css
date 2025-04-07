@@ -607,7 +607,7 @@ main {
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      height: 120vh; /* angepasst auf Wunsch */
+      height: 80vh; /* angepasst auf Wunsch */
       width: 3px; /* leicht schmaler auf kleineren Screens */
     }
   
