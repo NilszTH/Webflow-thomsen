@@ -1533,7 +1533,7 @@ main {
   max-width: 900px;
   width: 100%;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 5%;
   padding: 100px 40px;
   position: relative;
   z-index: 3;
@@ -1603,28 +1603,28 @@ main {
 @media (max-width: 900px) {
   .about-me {
     margin-top: 5%;
-    padding: 60px 15px; /* Weniger Padding als Desktop */
-    max-width: 100%;    /* Falls du 900px Grenze lösen willst */
+    padding: 60px 15px;
+    max-width: 100%;
   }
 
   .left-bar {
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 0%;
     height: 90%; 
   }
 
   .content h2 {
-    font-size: 40px;      /* kleiner als 45px */
-    margin-bottom: 50px;  /* etwas mehr Platz darunter */
-    line-height: 1.2;     /* dichteres Zeilenverhältnis */
-    text-align: left;     /* falls du es nicht zentriert willst */
+    font-size: 40px;
+    margin-bottom: 50px;
+    line-height: 1.2;
+    text-align: left;
   }
 
   .stichpunkte li {
-    font-size: 17px;      /* etwas kleiner als 18px */
-    padding: 15px 0;      /* enger als 20px 0 */
-    line-height: 1.5;     /* mehr Zeilenabstand für Lesbarkeit */
-    text-align: left;     /* linksbündig, statt zentriert */
+    font-size: 17px;
+    padding: 15px 0;
+    line-height: 1.5;
+    text-align: left;
   }
 
   .num {
@@ -1644,7 +1644,8 @@ main {
 
   .left-bar {
     margin-left: 5%;
-    height: 80%;
+    margin-top: 7%;
+    height: 90%;
     margin-bottom: 0%;
   }
 
@@ -1696,7 +1697,6 @@ main {
 
 /* Einzelner Block (ohne Hintergrund) */
 .feature-block {
-  /* kein background, kein border */
   display: flex;
   flex-direction: column;
 
@@ -1720,9 +1720,9 @@ main {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: rgba(0, 162, 255, 0.3); /* Farbe + Transparenz anpassbar */
-  filter: blur(25px); /* Weicher Effekt */
-  z-index: -1; /* Hinter dem Icon */
+  background: rgba(0, 162, 255, 0.3);
+  filter: blur(25px);
+  z-index: -1;
 }
 
 /* Icon-Bild */
@@ -1740,7 +1740,7 @@ main {
   margin-bottom: 5px;
   font-weight: 400;
   text-align: left;
-  color: #fff; /* Schriftfarbe */
+  color: #fff;
 }
 
 .feature-text {
@@ -1748,7 +1748,7 @@ main {
   line-height: 1.4;
   color: #ddd;
   text-align: left;
-  color: #bcbcbc; /* Schriftfarbe */
+  color: #bcbcbc;
 }
 
 @media (max-width: 600px) {
@@ -1761,16 +1761,16 @@ main {
   
   /* Entferne die negativen Offsets im Icon-Container */
   .feature-icon {
-    left: 0;           /* Keine Verschiebung mehr */
-    margin-bottom: 0;  /* Kein negativer Margin */
+    left: 0;
+    margin-bottom: 0;
   }
   
   .feature-heading {
-    font-size: 1.5rem; /* Schriftgröße anpassen */
+    font-size: 1.5rem;
   }
   
   .feature-text {
-    font-size: 0.7rem; /* Schriftgröße anpassen */
+    font-size: 0.7rem;
   }
 }
 
@@ -1781,21 +1781,21 @@ main {
 
    .recent-work-section {
     position: relative;
-    z-index: 10;           /* Damit alles über Blur-Effekten liegt */
-    max-width: 100%;           /* Volle Seitenbreite */
-    padding: 60px 20px;    /* Abstand oben/unten, seitlich in px */
+    z-index: 10;
+    max-width: 100%;
+    padding: 60px 20px;
     margin-bottom: 15%;
     margin-top: 8%;
     text-align: center;
     color: #fff;
-    background: transparent; /* oder eine andere Hintergrundfarbe */
+    background: transparent;
   }
   
   /* Kleiner Untertitel (z.B. "HAPPY CLIENTS <3>") */
   .section-subtitle {
     font-size: 16px;
     font-weight: 400;
-    margin-bottom: 8px; /* Abstand in px */
+    margin-bottom: 8px;
     letter-spacing: 1px;
   }
   
