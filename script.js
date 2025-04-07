@@ -239,6 +239,25 @@ window.location.href = url;
     }
   }
 
+  // Auto-copy E-Mail Button
+  function copyEmail(event) {
+    event.preventDefault();
+  
+    const email = 'kontakt@webflow-thomsen.de';
+    const toast = event.target.nextElementSibling;
+  
+    navigator.clipboard.writeText(email).then(() => {
+      // Pop-up anzeigen (Hover oder Mobile)
+      toast.classList.add('show-mobile');
+  
+      setTimeout(() => {
+        toast.classList.remove('show-mobile');
+      }, 2000);
+    }).catch(err => {
+      console.error("Kopieren fehlgeschlagen:", err);
+    });
+  }
+
   // Button-Klick abfangen
   document.querySelectorAll(".social-link").forEach(link => {
     if (link.textContent.trim().toLowerCase() === "whatsapp") {

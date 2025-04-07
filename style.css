@@ -2298,6 +2298,46 @@ main {
   color: rgba(255, 255, 255, 0.2);
 }
 
+.email-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.hover-popup {
+  position: absolute;
+  bottom: 100%; /* über dem Button */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(20, 20, 20, 0.85);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.email-wrapper:hover .hover-popup {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hover-popup {
+    display: none; /* auf Mobile per JS sichtbar */
+  }
+
+  .hover-popup.show-mobile {
+    display: inline-block;
+    opacity: 1;
+  }
+}
+
 /* Weißer Balken rechts (bestehender Code) */
 .right-bar {
   position: absolute;

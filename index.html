@@ -513,7 +513,10 @@
               <!-- Mittig: Social-Links -->
               <div class="social-center">
                 <a href="https://www.instagram.com/nilsz_th" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
-                <a href="#" class="social-link">Mail</a>
+                <span class="email-wrapper">
+                  <a href="javascript:void(0)" class="social-link" onclick="copyEmail(event)">E-Mail</a>
+                  <span class="hover-popup">Zum Kopieren klicken</span>
+                </span>
                 <a href="#" class="social-link">X</a>
                 <a href="#" class="social-link" onclick="toggleChat()">WhatsApp</a>
               </div>
@@ -532,7 +535,7 @@
           </div>
           <div class="footer-left">
             <img src="design.png" alt="My Logo" class="footer-logo">
-            <span class="footer-sub">Webflow - Thomsen<br><br>kontakt@webflow-thomsen.de</span>
+            <span class="footer-sub">Webflow Thomsen<br><br>Letztes Update: 04/2025</span>
           </div>
           <div class="footer-right">
             THOMSEN |  © Alle Rechte vorbehalten
