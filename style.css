@@ -1193,7 +1193,7 @@ main {
       text-align: center;
       color: white;
       line-height: 1.3;
-      top: 0;
+      top: 80vh;
       left: auto;
       transform: none;
       z-index: 1;
@@ -1213,8 +1213,8 @@ main {
     .moving-logo {
       width: 40px;
       height: 40px;
-      top: 50%;
-      left: 50%;
+      top: 55%;
+      left: 55%;
       transform: translate(-50%, -50%);
       animation: moveAroundCircleMobile 10s linear infinite;
       z-index: 2;
@@ -1398,7 +1398,7 @@ main {
 .marquee-content {
   display: inline-block;
   vertical-align: middle;
-  margin: -5% 50px -5% 50px;
+  margin: -5% 50px -5% 50px -5% 50px;
   z-index: 1;
 }
 
@@ -1407,7 +1407,6 @@ main {
   display: inline-block;
   color: #fff;
   font-size: 100px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
   margin: 60px;
   vertical-align: middle;
 }
