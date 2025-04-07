@@ -1346,7 +1346,7 @@ main {
     align-items: center;
     left: 9%;
     margin-top: 8%;
-    width: 80%;    
+    width: 90%;    
     background: transparent; 
     overflow: visible; 
     z-index: 2;
@@ -1354,8 +1354,8 @@ main {
   
   .video-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -1476,8 +1476,8 @@ main {
     height: 200px;
   }
   .marquee-content {
-    display: inline-flex;       /* in einer Zeile */
-    align-items: center;        /* vertikal ausgerichtet */
+    display: none;
+    align-items: center;
     vertical-align: middle;
     margin: 10px;
     z-index: -1;
