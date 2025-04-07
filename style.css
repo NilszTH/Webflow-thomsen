@@ -1473,8 +1473,8 @@ main {
     max-width: 100%;
   }
   .section-video { 
-    width: 80%;
-    height: auto;
+    width: 90%;
+    height: 2oopx;
   }
   .marquee-content {
     display: inline-flex;       /* in einer Zeile */
