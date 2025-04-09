@@ -960,7 +960,9 @@ main {
     position: relative;
     transition: transform 0.2s ease-out;
 }
-
+.mobile-headline {
+  display: none;
+}
 .parallax-container-button {
     position: absolute;
     top: 0; 
