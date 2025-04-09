@@ -1101,7 +1101,7 @@ main {
     .outer-circle,
     .inner-circle {
       position: absolute;
-      top: 12;
+      top: 5;
       left: 0;
       width: 100%;
       height: 100%;
@@ -1350,7 +1350,7 @@ main {
       border-radius: 14px;
     }
   }
-  
+
 /* ===================== Schriftzug WEBFLOW-THOMSEN ===================== */
 .marquee-section {
   position: absolute;
