@@ -650,26 +650,7 @@ main {
     .video-cloud {
       display: none;
     }
-  
-    /* Farbkleckse ausblenden, bis auf einen */
-    .colorbwolke,
-    .colorbwolke1,
-    .colorbwolke2,
-    .colorbwolke3,
-    .colorbwolke4 {
-      display: none;
-    }
-  
-    /* Nur dieser bleibt – am Rand sichtbar */
-    .colorbwolke-right {
-      width: 300px;
-      height: 300px;
-      filter: blur(70px);
-      top: 85%;
-      left: 100%;
-      transform: translateX(-100%);
-      opacity: 0.5;
-    }
+
   
     /* Lightbeam position leicht anpassen falls nötig */
     .light-beam {
@@ -1097,7 +1078,7 @@ main {
       margin: 20px auto;
     }
   
-    .parallax-text {
+    .mobile-headline {
       position: absolute;
       font-size: 30px;
       font-weight: 500;
@@ -1113,7 +1094,7 @@ main {
     .outer-circle,
     .inner-circle {
       position: absolute;
-      top: 10;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
@@ -1181,6 +1162,7 @@ main {
       animation: rotateText 10s linear infinite;
       z-index: 10;
     }
+
     .colorb-mediacircle {
       position: absolute;
       width: 300px;
