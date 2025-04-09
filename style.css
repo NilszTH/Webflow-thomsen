@@ -1317,6 +1317,40 @@ main {
     object-fit: cover;
   }
 
+  @media (max-width: 600px) {
+    .feature-video-section {
+      width: 95%;
+      margin: 60px auto 60px;
+    }
+  
+    .video-headline {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  
+    .video-subline {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  
+    .video-frame-enhanced {
+      padding: 6px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.08),
+                  0 0 100px 50px rgba(255, 255, 255, 0.05);
+    }
+  
+    .video-frame-enhanced::after {
+      border-radius: 18px;
+    }
+  
+    .video-feature {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+  }
+  
 /* ===================== Schriftzug WEBFLOW-THOMSEN ===================== */
 .marquee-section {
   position: absolute;
