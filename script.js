@@ -267,3 +267,5 @@ window.location.href = url;
       });
     }
   });
+
+  // WANDERNDER GLOW EFFECT VIDE
