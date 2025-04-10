@@ -633,7 +633,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Unterhalb vom light-beam (z-index: 10) */
+    z-index: 0; /* Unterhalb vom light-beam (z-index: 10) */
     opacity: 0.3; /* Je nach gewünschter Sichtbarkeit */
     pointer-events: none; /* Wichtig, damit nichts blockiert wird */
   }
@@ -672,7 +672,7 @@ main {
     opacity: 1;
     margin-top: 0;
     animation: slideInFromLeft 1s ease-out forwards;
-    color: rgb(170, 255, 255, 0.6);
+    color: rgba(170, 225, 255, 0.6);
     font-size: 14px;
     font-weight: 400;
 }
@@ -1056,7 +1056,7 @@ main {
     .parallax-button:nth-child(6) { top: 155%; left: 60%; }
   
     .text-circle {
-      top: 115%;
+      top: 50%;
     }
   
     .colorb-mediacircle {
@@ -1162,7 +1162,7 @@ main {
   
     .text-circle {
       position: absolute;
-      top: 130%;
+      top: 50%;
       left: 0;
       width: 100%;
       height: 100%;
@@ -1266,10 +1266,12 @@ main {
   }
   
   .video-headline {
-    font-size: 48px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 1.3;
-    color: #fff; /* Oder #000 für helles Design */
+    text-align: left;
+    margin-left: 16%;
+    color: #fff;
   }
   
   .video-subline {
@@ -1659,9 +1661,9 @@ main {
 
 /* Überschrift */
 .features-title {
-  font-size: 60px;
-  font-weight: 400;
-  margin-bottom: 40px;
+  font-size: 70px;
+  font-weight: 500;
+  margin-bottom: 45px;
   color: #fff; 
 }
 
@@ -1745,7 +1747,7 @@ main {
   }
   
   .feature-heading {
-    font-size: 1.5rem;
+    font-size: 40px;
   }
   
   .feature-text {
@@ -1787,8 +1789,8 @@ main {
   
   /* Große Überschrift (z.B. "Recent Work") */
   .section-title {
-    font-size: 60px;
-    font-weight: 400;
+    font-size: 70px;
+    font-weight: 500;
     margin-bottom: 32px;
   }
   
@@ -2024,8 +2026,8 @@ main {
 .services-title {
   position: relative;
   text-align: center;
-  font-size: 60px;
-  font-weight: 400;
+  font-size: 70px;
+  font-weight: 500;
   margin-bottom: 40px;
   z-index: 10;
 }
