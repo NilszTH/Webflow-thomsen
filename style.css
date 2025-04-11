@@ -420,7 +420,7 @@ main {
     filter: blur(60px);
     top: 10%; 
     left: 20%; 
-    background: rgba(0, 170, 255, 0.25);
+    background: rgba(0, 170, 255, 0.0);
   }
   
   /* Farbfleck 3 */
@@ -440,7 +440,7 @@ main {
     filter: blur(60px);
     top: 280%; 
     left: 60%;
-    background: rgba(0, 208, 255, 0.3);
+    background: rgba(0, 208, 255, 0.0);
   }
   
   /* Farbfleck 5 */
@@ -450,7 +450,7 @@ main {
     filter: blur(60px);
     top: 210%;   /* anpassen statt 4600px */
     left: 20%;
-    background: rgba(0, 170, 255, 0.3);
+    background: rgba(0, 170, 255, 0.0);
   }
   
   /* Farbfleck 6 */
@@ -460,7 +460,7 @@ main {
     filter: blur(60px);
     top: 120%;   /* anpassen statt 4400px */
     left: 5%;
-    background: rgba(0, 221, 255, 0.3);
+    background: rgba(0, 221, 255, 0.0);
   }
   
   /* Farbfleck für Video */
@@ -638,20 +638,37 @@ main {
     pointer-events: none; 
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) and (min-width: 601px) {
     .video-cloud {
-      display: none;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.3;
+      pointer-events: none;
     }
   }
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
   
     /* Video leicht sichtbar lassen */
     .video-cloud {
-      display: none;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.3;
+      pointer-events: none;
     }
 
-  
     /* Lightbeam position leicht anpassen falls nötig */
     .light-beam {
       left: 85%;
