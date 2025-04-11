@@ -1337,8 +1337,17 @@ main {
     }
   
     .video-subline {
-      font-size: 14px;
-      margin-top: 8px;
+      display: none;
+    }
+
+    .video-subline-mobile {
+      display: block;
+      position: relative;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 12px;
+      z-index: 10;
+
     }
   
     .video-frame-enhanced {
@@ -2257,9 +2266,11 @@ main {
 
   .services-title-mobile {
     display: block;
+    position: relative;
     font-size: 40px;
     font-weight: 400;
     z-index: 10;
+    text-align: center;
   }
 
   .services-container {
