@@ -268,4 +268,8 @@ window.location.href = url;
     }
   });
 
-  // WANDERNDER GLOW EFFECT VIDE
+  // PIXEL OVERLAY
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.querySelector(".global-pixel-overlay");
+    overlay.style.height = `${window.innerHeight * 3}px`; // 3x Bildschirmhöhe
+  });

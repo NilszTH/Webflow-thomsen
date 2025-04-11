@@ -1735,12 +1735,21 @@ main {
 
 @media (max-width: 600px) {
   .features-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 Spalten statt 3 */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;  
     max-width: 100%;
     margin: 0 10px; 
   }
-  
+  .features-title {
+    display: none;
+  }
+
+  .features-title-mobile {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 45px;
+    color: #fff; 
+  }
   /* Entferne die negativen Offsets im Icon-Container */
   .feature-icon {
     left: 0;
@@ -1748,7 +1757,7 @@ main {
   }
   
   .feature-heading {
-    font-size: 40px;
+    font-size: 30px;
   }
   
   .feature-text {
@@ -1889,7 +1898,29 @@ main {
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
-
+  .section-title {
+    display: none;
+  }
+  .section-title-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 42px; /* kleiner für mobile */
+    line-height: 1.3;
+  }
+  
+  .title-line-1,
+  .title-line-2 {
+    display: block;
+  }
+  
+  .title-separator {
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 8px 0;
+  }
   .card {
     height: 350px;
     padding: 12px;
