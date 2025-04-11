@@ -273,3 +273,7 @@ window.location.href = url;
     const overlay = document.querySelector(".global-pixel-overlay");
     overlay.style.height = `${window.innerHeight * 3}px`; // 3x Bildschirmhöhe
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.querySelector('.pixel-overlay');
+    overlay.style.transform = "translateZ(0)";
+  });

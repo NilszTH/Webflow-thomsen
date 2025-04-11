@@ -2468,7 +2468,7 @@ main {
   /* Linker Bereich (Logo + Subtext) in einer Spalte */
   .footer-left {
     position: absolute;
-    bottom: 15%;
+    bottom: 0%;
     left:39px;     
     text-align: left;
     display: flex;
@@ -2491,10 +2491,6 @@ main {
     display: none;
   }
 
-  /* Weißen Balken rechts ausblenden oder schmaler machen */
-  .right-bar {
-    display: none !important;
-  }
   .right-bar span {
     display: none;
   }
