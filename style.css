@@ -1360,11 +1360,11 @@ main {
     .video-subline-mobile {
       display: block;
       position: relative;
-      font-size: 18px;
+      font-size: 12px;
       color: rgba(255, 255, 255, 0.75);
       margin-top: 12px;
       z-index: 10;
-
+      text-align: left;
     }
   
     .video-frame-enhanced {
@@ -1797,7 +1797,7 @@ main {
   }
   
   .feature-text {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
