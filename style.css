@@ -420,7 +420,7 @@ main {
     filter: blur(60px);
     top: 10%; 
     left: 20%; 
-    background: rgba(0, 170, 255, 0.0);
+    background: rgba(0, 170, 255, 0.2);
   }
   
   /* Farbfleck 3 */
