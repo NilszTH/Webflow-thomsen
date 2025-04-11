@@ -2237,7 +2237,7 @@ main {
   position: absolute;
   top: 0; 
   left: 0;
-  width: calc(100% - 40px);
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -2245,10 +2245,23 @@ main {
   box-sizing: border-box;
 }
 
+.contact-image-overlay {
+  position: absolute;
+  height: 100%;
+  inset: 0;
+  background: url("0113.jpg") center center no-repeat;
+  background-size: cover;
+  z-index: -3;
+  opacity: 0.25;
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+}
+
 /* Der abgerundete, halbtransparente Kasten */
 .social-box {
   position: absolute;
-  top: 50%;
+  bottom: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
   align-items: center;
@@ -2324,18 +2337,6 @@ main {
   }
 }
 
-/* Weißer Balken rechts (bestehender Code) */
-.right-bar {
-  position: absolute;
-  top: 0;
-  right: -40px;
-  width: 60px;
-  height: 100%;
-  background: #fff;
-  overflow: hidden;
-  z-index: 10;
-}
-
 /* Vertikal gedrehter Text im Balken */
 .right-bar span {
   position: absolute;
@@ -2353,8 +2354,8 @@ main {
 .footer-left {
   position: absolute;
   text-align: left;
-  bottom: 15%;
-  left: 17%;
+  bottom: 20%;
+  left: 18%;
   display: flex;
   flex-direction: column; /* Logo oben, "Webflow - Thomsen" drunter */
   align-items: flex-start;
@@ -2378,8 +2379,8 @@ main {
 /* ========== 3. UNTEN RECHTS: TEXT MIT 80PX ABSTAND ========== */
 .footer-right {
   position: absolute;
-  bottom: 15%;
-  right: 17%;
+  bottom: 20%;
+  right: 18%;
   font-size: 0.85rem;
   color: #aaa;
   text-align: right;
