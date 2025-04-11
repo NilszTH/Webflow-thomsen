@@ -1135,7 +1135,7 @@ main {
     .moving-logo {
       width: 40px;
       height: 40px;
-      top: 50%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
       animation: moveAroundCircleMobile 10s linear infinite;
@@ -1793,11 +1793,11 @@ main {
   }
   
   .feature-heading {
-    font-size: 30px;
+    font-size: 22px;
   }
   
   .feature-text {
-    font-size: 0.7rem;
+    font-size: 16px;
   }
 }
 
