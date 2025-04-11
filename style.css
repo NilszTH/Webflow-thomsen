@@ -1093,7 +1093,7 @@ main {
     .mobile-headline {
       display: block; 
       position: absolute;
-      top: 20%;
+      top: 0%;
       left: 50%;
       transform: translateX(-50%);
       font-size: 20px;
@@ -1107,7 +1107,7 @@ main {
     .outer-circle,
     .inner-circle {
       position: absolute;
-      top: -30;
+      top: -30%;
       left: 0;
       width: 100%;
       height: 100%;
@@ -1813,14 +1813,14 @@ main {
     font-weight: 500;
     margin-bottom: 32px;
   }
+  .section-title-mobile {
+    display: none;
+  }
+
   @media (max-width: 600px) {
     .section-title {
       display: none;
     }
-  }
-
-  .section-title-mobile {
-    display: none;
   }
   
   /* Container für die Karten */
@@ -2088,6 +2088,9 @@ main {
   margin-bottom: 40px;
   z-index: 10;
 }
+.services-title-mobile {
+  display: none;
+}
 
 /* ========== Container für 3 Cards in EINER Zeile ========== */
 .services-container {
@@ -2245,13 +2248,16 @@ main {
   left: 40%;
   background: rgba(0, 153, 255, 0.2);
 }
+
 @media (max-width: 600px) {
   .services-title {
-    position: relative;
-    text-align: center;
-    font-size: 70px;
-    font-weight: 400;
-    margin-bottom: 40px;
+    display: none;
+  }
+
+  .services-title-mobile {
+    display: block;
+    font-size: 40px;
+    font-weight: 400
   }
 
   .services-container {
