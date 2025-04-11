@@ -2252,7 +2252,7 @@ main {
   background: url("0113.jpg") center center no-repeat;
   background-size: cover;
   z-index: -3;
-  opacity: 0.25;
+  opacity: 0.35;
   mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
   -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
   pointer-events: none;
@@ -2397,7 +2397,7 @@ main {
   .social-box {
     position: relative;
     left: 50%;
-    bottom: 80%;
+    bottom: 0%;
     transform: translateX( -50%, -50%);
     width: 90%;
     max-width: 100%;
