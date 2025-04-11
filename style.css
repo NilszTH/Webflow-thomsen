@@ -660,7 +660,7 @@ main {
       display: block;
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
@@ -1301,6 +1301,9 @@ main {
     font-size: 18px;
     color: rgba(255, 255, 255, 0.75); /* Oder dunkler für hellen Hintergrund */
     margin-top: 12px;
+  }
+  .video-subline-mobile {
+    display: none;
   }
   
   .video-frame-enhanced {
