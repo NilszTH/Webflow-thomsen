@@ -620,9 +620,9 @@ main {
     content: "";
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
-    background: url("raster.png") repeat; /* Pfad zur Raster-Grafik anpassen */
-    opacity: 0.15;        /* Transparenz des Overlays, je nach Wunsch anpassen */
-    pointer-events: none; /* Damit Klicks nicht blockiert werden */
+    background: url("raster.png") repeat;
+    opacity: 0.15;
+    pointer-events: none; 
   }
   
   .video-cloud {
@@ -1088,9 +1088,9 @@ main {
     }
 
     .mobile-headline {
-      display: block; /* ← Zeige den Text an! */
+      display: block; 
       position: absolute;
-      top: 20%; /* oder 40%, je nach gewünschter Höhe */
+      top: 20%;
       left: 50%;
       transform: translateX(-50%);
       font-size: 20px;
@@ -1104,7 +1104,7 @@ main {
     .outer-circle,
     .inner-circle {
       position: absolute;
-      top: -10;
+      top: -20;
       left: 0;
       width: 100%;
       height: 100%;
@@ -1669,6 +1669,9 @@ main {
   margin-bottom: 45px;
   color: #fff; 
 }
+.features-title-mobile {
+  display: none;
+}
 
 /* Grid-Layout für 6 Blöcke: 3 Spalten, 2 Zeilen */
 .features-container {
@@ -1805,6 +1808,10 @@ main {
     font-weight: 500;
     margin-bottom: 32px;
   }
+
+  .section-title-mobile {
+    display: none;
+  }
   
   /* Container für die Karten */
   .cards-container {
@@ -1880,6 +1887,9 @@ main {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+  .section-title {
+    display: none;
+  }
 
   .card {
     height: 400px; /* z. B. etwas kleiner als Desktop */
@@ -1890,6 +1900,7 @@ main {
     height: 250px;
   }
 }
+
 /* Mobile: 1 Spalte */
 @media (max-width: 600px) {
   .cards-container {
@@ -1900,9 +1911,11 @@ main {
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
+
   .section-title {
     display: none;
   }
+
   .section-title-mobile {
     display: flex;
     flex-direction: column;
@@ -1918,7 +1931,7 @@ main {
   
   .title-separator {
     display: block;
-    width: 40px;
+    width: 80px;
     height: 2px;
     background: rgba(255, 255, 255, 0.3);
     margin: 8px 0;
