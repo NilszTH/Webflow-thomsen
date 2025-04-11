@@ -869,7 +869,7 @@ main {
   }
 }
 
-/* Kreis */
+/* -------------------------- Kreis + Paralax -------------------------- */
 .cirlce {
     width: 100%;
     min-height: 100vh;
@@ -938,6 +938,7 @@ main {
 .my-section {
     min-height: 2000px; /* Testweise, damit ein Scroll entsteht */
   }
+
 .parallax-container {
     position: relative;
     overflow-x: auto;
@@ -961,9 +962,11 @@ main {
     position: relative;
     transition: transform 0.2s ease-out;
 }
+
 .mobile-headline {
   display: none;
 }
+
 .parallax-container-button {
     position: absolute;
     top: 0; 
@@ -1104,7 +1107,7 @@ main {
     .outer-circle,
     .inner-circle {
       position: absolute;
-      top: -20;
+      top: -30;
       left: 0;
       width: 100%;
       height: 100%;
@@ -1750,11 +1753,13 @@ main {
   }
 
   .features-title-mobile {
+    display: block;
     font-size: 40px;
     font-weight: 500;
     margin-bottom: 45px;
     color: #fff; 
   }
+
   /* Entferne die negativen Offsets im Icon-Container */
   .feature-icon {
     left: 0;
@@ -1807,6 +1812,11 @@ main {
     font-size: 70px;
     font-weight: 500;
     margin-bottom: 32px;
+  }
+  @media (max-width: 600px) {
+    .section-title {
+      display: none;
+    }
   }
 
   .section-title-mobile {
