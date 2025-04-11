@@ -2258,7 +2258,8 @@ main {
   .services-title-mobile {
     display: block;
     font-size: 40px;
-    font-weight: 400
+    font-weight: 400;
+    z-index: 10;
   }
 
   .services-container {
