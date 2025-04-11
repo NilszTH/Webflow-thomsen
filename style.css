@@ -633,9 +633,9 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0; /* Unterhalb vom light-beam (z-index: 10) */
-    opacity: 0.3; /* Je nach gewünschter Sichtbarkeit */
-    pointer-events: none; /* Wichtig, damit nichts blockiert wird */
+    z-index: 0;
+    opacity: 0.5;
+    pointer-events: none; 
   }
 
   @media (max-width: 600px) {
@@ -759,6 +759,7 @@ main {
   }
 
   .btn {
+    display: none;
     padding: 10px 20px;
     font-size: 14px;
     margin-left: 0;
