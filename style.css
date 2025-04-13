@@ -32,7 +32,11 @@ html, body {
     z-index: 9999;        
     background: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 2px 2px repeat; 
   }
-  
+  @media (max-width: 600px) {
+    .pixel-overlay {
+      display: none;
+  }
+}
   /* Optional: Keyframes für eine leichte Bewegung */
   @keyframes drift {
     0% {
