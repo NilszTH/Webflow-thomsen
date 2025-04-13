@@ -2535,8 +2535,7 @@ main {
     object-fit: contain;
     display: block;
   }
-  }
-
+  
   /* Mittlerer Bereich (Social-Links) ebenso */
   .social-center {
     display: flex;
@@ -2569,6 +2568,7 @@ main {
     font-size: 12px;
   }
 }
+
 .contact-background-video {
   position: absolute;
   top: 0;
