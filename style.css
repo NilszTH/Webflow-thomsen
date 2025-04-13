@@ -2527,6 +2527,16 @@ main {
     gap: 6px;
   }
 
+  .footer-logo {
+    width: 30px;
+    height: auto;
+    max-width: none;  
+    max-height: none; 
+    object-fit: contain;
+    display: block;
+  }
+  }
+
   /* Mittlerer Bereich (Social-Links) ebenso */
   .social-center {
     display: flex;
