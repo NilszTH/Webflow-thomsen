@@ -1214,13 +1214,13 @@ main {
       position: absolute;
       width: 350px;
       height: 350px;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: rgba(0, 166, 255, 0.2);
       border-radius: 50%;
-      filter: blur(20px);
-      z-index: -2;
+      filter: blur(90px);
+      z-index: -3;
     }
   
     .parallax-container-button {
