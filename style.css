@@ -1071,6 +1071,17 @@ main {
       height: 50px;
       animation: moveAroundCircleTablet 10s linear infinite;
     }
+    .mobile-headline {
+      display: block;
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      font-weight: 500;
+      color: white;
+      z-index: 10;
+    }
   
     .color-bulb {
       width: 160px;
@@ -1150,7 +1161,7 @@ main {
     .moving-logo {
       width: 40px;
       height: 40px;
-      top: 30%;
+      top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
       animation: moveAroundCircleMobile 10s linear infinite;
@@ -2386,6 +2397,17 @@ main {
 
 .location-text.mobile {
   display: none;
+}
+@media (max-width: 900px) and (min-width: 601px) {
+  .location-text.desktop {
+    display: block;
+    font-size: 16px;
+    margin-left: 10%;
+    text-align: center;
+  }
+  .location-text.mobile {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
