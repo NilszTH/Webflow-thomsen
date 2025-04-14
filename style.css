@@ -1151,6 +1151,7 @@ main {
       100% { transform: translate(-50%, -50%) rotate(360deg) translateX(140px) rotate(-360deg); }
     }
   }
+/* PHONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE */
 
   @media (max-width: 600px) {
     .circle-container {
@@ -1166,8 +1167,8 @@ main {
 
     .mobile-headline {
       display: block; 
-      position: relative;
-      top: 20px;
+      position: absolute;
+      top: 30%;
       left: 0;
       transform: none;
       font-size: 25px;
@@ -1182,7 +1183,7 @@ main {
     .outer-circle,
     .inner-circle {
       position: absolute;
-      top: 60%;
+      top: 30%;
       left: 0;
       width: 100%;
       height: 100%;
@@ -1193,7 +1194,7 @@ main {
     .moving-logo {
       width: 40px;
       height: 40px;
-      top: 20%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
       animation: moveAroundCircleMobile 10s linear infinite;
@@ -1204,7 +1205,7 @@ main {
       position: absolute;
       width: 120px;
       height: 120px;
-      top: 50%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: rgba(0, 255, 255, 0.2);
@@ -1234,12 +1235,12 @@ main {
     }
   
     /* Einzelpositionen der Buttons mobil optimiert */
-    .parallax-button:nth-child(1) { top: 55%; left: 40%; }
-    .parallax-button:nth-child(2) { top: 55%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 80%; left: 45%; }
-    .parallax-button:nth-child(4) { top: 60%; left: 48%; }
-    .parallax-button:nth-child(5) { top: 90%; left: 40%; }
-    .parallax-button:nth-child(6) { top: 85%; left: 60%; }
+    .parallax-button:nth-child(1) { top: 25%; left: 40%; }
+    .parallax-button:nth-child(2) { top: 25%; left: 60%; }
+    .parallax-button:nth-child(3) { top: 60%; left: 45%; }
+    .parallax-button:nth-child(4) { top: 40%; left: 48%; }
+    .parallax-button:nth-child(5) { top: 70%; left: 40%; }
+    .parallax-button:nth-child(6) { top: 65%; left: 60%; }
   
     .text-circle {
       position: absolute;
