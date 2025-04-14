@@ -1212,12 +1212,12 @@ main {
   
     .color-bulb {
       position: absolute;
-      width: 120px;
-      height: 120px;
-      top: 30%;
+      width: 350px;
+      height: 350px;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(0, 255, 255, 0.2);
+      background-color: rgba(0, 166, 255, 0.2);
       border-radius: 50%;
       filter: blur(20px);
       z-index: -2;
