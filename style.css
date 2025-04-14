@@ -1079,7 +1079,9 @@ main {
   @media (max-width: 1200px) and (min-width: 601px) {
     .circle-container {
       width: 400px;
-      height: 400px;
+      top: 30%;
+      width: 300px;
+      height: 300px;
       margin: 30px auto;
     }
   
@@ -1124,12 +1126,12 @@ main {
     }
   
     /* Tablet: Neu positionierte Buttons */
-    .parallax-button:nth-child(1) { top: 120%; left: 40%; }
-    .parallax-button:nth-child(2) { top: 120%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 145%; left: 45%; }
-    .parallax-button:nth-child(4) { top: 130%; left: 48%; }
-    .parallax-button:nth-child(5) { top: 160%; left: 40%; }
-    .parallax-button:nth-child(6) { top: 155%; left: 60%; }
+    .parallax-button:nth-child(1) { top: 30%; left: 40%; }
+    .parallax-button:nth-child(2) { top: 30%; left: 60%; }
+    .parallax-button:nth-child(3) { top: 55%; left: 45%; }
+    .parallax-button:nth-child(4) { top: 40%; left: 48%; }
+    .parallax-button:nth-child(5) { top: 70%; left: 40%; }
+    .parallax-button:nth-child(6) { top: 65%; left: 60%; }
   
     .text-circle {
       display: none;
@@ -1232,12 +1234,12 @@ main {
     }
   
     /* Einzelpositionen der Buttons mobil optimiert */
-    .parallax-button:nth-child(1) { top: 145%; left: 40%; }
-    .parallax-button:nth-child(2) { top: 145%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 170%; left: 45%; }
-    .parallax-button:nth-child(4) { top: 150%; left: 48%; }
-    .parallax-button:nth-child(5) { top: 180%; left: 40%; }
-    .parallax-button:nth-child(6) { top: 175%; left: 60%; }
+    .parallax-button:nth-child(1) { top: 55%; left: 40%; }
+    .parallax-button:nth-child(2) { top: 55%; left: 60%; }
+    .parallax-button:nth-child(3) { top: 80%; left: 45%; }
+    .parallax-button:nth-child(4) { top: 60%; left: 48%; }
+    .parallax-button:nth-child(5) { top: 90%; left: 40%; }
+    .parallax-button:nth-child(6) { top: 85%; left: 60%; }
   
     .text-circle {
       position: absolute;
@@ -1253,7 +1255,7 @@ main {
       position: absolute;
       width: 300px;
       height: 300px;
-      top: 165%;
+      top: 65%;
       left: 50%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
@@ -2405,7 +2407,7 @@ main {
 .faq-title .faq-glow {
   position: absolute;
   top: 50%;
-  left: 65%;
+  left: 55%;
   width: 60px;
   height: 60px;
   background: rgba(0, 162, 255, 0.3);
