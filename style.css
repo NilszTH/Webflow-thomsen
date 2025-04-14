@@ -867,6 +867,36 @@ main {
     height: auto;
     z-index: 4;
 }
+@media (max-width: 900px) and (min-width: 601px) {
+  .cta-button {
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 174, 255, 0.08);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    z-index: 999999;
+  }
+
+  .cta-blur {
+    width: 160px;
+    height: 160px;
+    filter: blur(20px);
+  }
+
+  .rotating-text {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
+
+  .cta-logo img {
+    width: 20px;
+    height: auto;
+  }
+}
+
 
 /* ===================== Mobile (max-width: 600px) ===================== */
 @media (max-width: 600px) {
@@ -874,8 +904,8 @@ main {
     position: fixed;
     bottom: 45px;
     right: 20px;
-    width: 60px;  /* etwas kleiner als vorher */
-    height: 60px;
+    width: 50px;
+    height: 50px;
     top: auto;
     left: auto;
     background: rgba(0, 149, 255, 0.077);
@@ -890,13 +920,11 @@ main {
   }
 
   .rotating-text {
-    width: 60px;
-    height: 60px;
-    font-size: 10px; /* falls Text sichtbar ist */
+    display: none;
   }
 
   .cta-logo img {
-    width: 26px;
+    width: 20px;
     height: auto;
   }
 }
