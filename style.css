@@ -25,6 +25,7 @@ html, body {
   
   /* Das Pseudoelement für das Pixelraster */
   .pixel-overlay {
+    display: none;
     content: "";
     position: fixed; 
     inset: 0;        
@@ -292,8 +293,8 @@ main {
 /* ✅ Farbkleckse */
 .colorb {
     position: absolute;
-    width: 500px;
-    height:500px;
+    width: 400px;
+    height:400px;
     border-radius: 50%;
     filter: blur(90px);
 }
@@ -357,12 +358,12 @@ main {
 .colorb {
     top: 18%;
     left: -10%;
-    background: rgba(0, 174, 255, 0.3);
+    background: rgba(0, 174, 255, 0.2);
 }
 .colorb1 {
-    top: 115%;
+    top: 120%;
     left: 35%;
-    background: rgba(0, 157, 255, 0.5);
+    background: rgba(0, 157, 255, 0.3);
 }
 .colorb2 {
     top: -10%;
@@ -506,7 +507,6 @@ main {
     min-height: 100vh;
     display: flex;
     background-color: transparent; /* Kein Hintergrund, Farbkleckse bleiben sichtbar */
-    z-index: 1; /* Über den Farbklecksen */
 }
 
 /* ✅ Hero-Inhalte */
@@ -606,6 +606,7 @@ main {
       opacity: 0;
     }
   }
+
   @media (max-width: 600px) {
     .light-beam {
       top: 0;
@@ -619,6 +620,7 @@ main {
       height: 30vh; /* optional leicht reduziert auf Mobile */
     }
   }
+
   /* Rasteroverlay via Pseudoelement */
   .lightbeam-section::after {
     content: "";
@@ -627,7 +629,7 @@ main {
     background: url("raster.png") repeat;
     opacity: 0.15;
     pointer-events: none;
-    z-index: 10000
+    z-index: 10
   }
   
   .video-cloud {
@@ -638,7 +640,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
+    z-index: 1;
     opacity: 0.5;
     pointer-events: none; 
   }
@@ -693,12 +695,14 @@ main {
 
 /* Wende die Animation auf den Text an */
 .animated-text {
+  position: relative;
     animation: slideInFromLeft 1s ease-out forwards;
-    top: 35%;
-    left: 45%;
+    top: 0%;
+    left: 0;
     color: rgb(255, 255, 255);
     font-size: 70px;
     font-weight: 600;
+    z-index: 5;
 }
 .animated-text1 {
     opacity: 1;
@@ -770,10 +774,25 @@ main {
 .btn:hover::after {
     opacity: 1;
 }
+
+@media (max-width: 900px) and (min-width: 601px) {
+  .glow-effect {
+    display: none;
+  }
+
+  .btn {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
   .hero-content {
     padding-left: 30px;
     padding-top: 150px;
+  }
+
+  .glow-effect {
+    display: none;
   }
 
   .animated-text {
@@ -801,21 +820,22 @@ main {
 /* ✅ Animierter Button */
 .cta-button {
     position: absolute;
-    top: 51%;
-    left: 69%;
-    width: 180px; /* Etwas größer für bessere Balance */
-    height: 180px;
+    top: 55%;
+    left: 79%;
+    width: 150px; /* Etwas größer für bessere Balance */
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     overflow: hidden;
-    background: rgba(0, 255, 255, 0.1);
+    background: rgba(0, 255, 255, 0.0);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.0);
-    border: 1px solid rgba(211, 211, 211, 0.208);
+    border: 1px solid rgba(211, 211, 211, 0.0);
     border-radius: 50%;
+    z-index: 100;
 }
 
 /* ✅ Farb- und Glow-Einstellungen */
@@ -827,20 +847,20 @@ main {
 
 /* ✅ Farbklecks mit sanftem Farbverlauf */
 .cta-blur {
+  display: none;
     position: absolute;
     width: 250px;
     height: 250px;
     border-radius: 50%;
     background: radial-gradient(circle, var(--blur-color) 20%, rgba(0, 0, 0, 0) 90%);
     filter: blur(25px);
-    z-index: 3;
 }
 
 /* ✅ Rotierender SVG-Text */
 .rotating-text {
     position: absolute;
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     animation: rotateText 8s linear infinite;
     overflow: visible;
 }
@@ -863,7 +883,7 @@ main {
 
 /* ✅ Logo mittig setzen */
 .cta-logo img {
-    width: 15px;
+    width: 10px;
     height: auto;
     z-index: 4;
 }
@@ -960,15 +980,6 @@ main {
     height: 100%;
     color: rgba(228, 227, 227, 0.271);
     margin-bottom: 10%;
-    z-index: 10;
-}
-
-/* ✅ Animierter Text */
-.text-circle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    animation: rotateText 10s linear infinite;
     z-index: 10;
 }
 
@@ -1085,8 +1096,8 @@ main {
 
     .circle-container {
       position: absolute;
-      width: 400px;
-      width: 300px;
+      width: 500px;
+      width: 500px;
       height: 300px;
       margin: 30px auto;
     }
@@ -1102,6 +1113,7 @@ main {
       height: 50px;
       animation: moveAroundCircleTablet 10s linear infinite;
     }
+
     .mobile-headline {
       display: block;
       position: absolute;
@@ -1116,6 +1128,8 @@ main {
   
     .color-bulb {
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       width: 160px;
       height: 160px;
       filter: blur(30px);
@@ -1135,17 +1149,13 @@ main {
     .parallax-button:nth-child(5) { top: 70%; left: 40%; }
     .parallax-button:nth-child(6) { top: 65%; left: 60%; }
   
-    .text-circle {
-      display: none;
-    }
-  
     .colorb-mediacircle {
       position: absolute;
       width: 350px;
       height: 350px;
       top: 30%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%);
       filter: blur(50px);
     }
   
@@ -1165,7 +1175,6 @@ main {
     .circle-container {
       position: absolute;
       width: 300px;
-      height: 300px;
       margin: 20px auto;
     }
   
@@ -1177,7 +1186,6 @@ main {
       display: block; 
       position: absolute;
       top: 30%;
-      left: 0;
       transform: none;
       font-size: 25px;
       font-weight: 500;
@@ -1185,7 +1193,6 @@ main {
       color: white;
       line-height: 1.3;
       z-index: 10;
-      margin-bottom: 200px;
     }
   
     .outer-circle,
