@@ -11,6 +11,11 @@
     <meta name="google-site-verification" content="nGg_SWZVcbvXYkQRGLRJxl9C6ZyBVAxgKUjq3qYLl8A" />
 </head>
 <body>
+  <!-- GANZ OBEN direkt unter <body> -->
+    <div class="lightbeam-effect">
+      <div class="light-beam"></div>
+      <canvas id="particles"></canvas>
+    </div>
   <div class="pixel-overlay"></div>
     <a id="top"></a>
     <header>
@@ -74,6 +79,11 @@
         </div>
         <!--Erste Sektion: Hero-Bereich mit Animation -->
         <section class="hero">
+          <div class="hero-video-wrapper">
+            <div class="video-frame-enhanced">
+              <video class="video-feature" src="beam_01.mp4" autoplay muted loop playsinline></video>
+            </div>
+          </div>
             <div class="blur-layer"></div>
             <div class="hero-content">
                 <p class="animated-text1">KREATIV. MODERN. FUNKTIONELL.</p>
@@ -89,7 +99,7 @@
                 </defs>
                 <text font-size="14" fill="white">
                   <textPath xlink:href="#circlePath" startOffset="50%" text-anchor="middle">
-                    • WordPress • Code • Design • WordPress • Code • Design •
+                    • WordPress • Code • Design • WordPress • Code • Design
                   </textPath>
                 </text>
               </svg>
@@ -102,17 +112,9 @@
             </div>
         </section>
         <section class="lightbeam-section">
-            <div class="beam-particles"></div>
-            <div class="light-beam"></div>
-            <div class="colorbwolke"></div>
-            <div class="colorbwolke1"></div>
-            <div class="colorbwolke2"></div>
-            <div class="colorbwolke3"></div>
-            <div class="colorbwolke4"></div>
-            <div class="colorbwolke-right"></div>
             <video class="video-cloud" autoplay muted loop playsinline>
-              <source src="loopfinished.webm" type="video/webm" />
-              <source src="loopfinished.mp4" type="video/mp4" />
+              <source src="" type="video/webm" />
+              <source src="" type="video/mp4" />
             </video>
             <video class="video-cloud-mobile" autoplay muted loop playsinline>
               <source src="w_loop_mobil.webm" type="video/webm" />
@@ -226,7 +228,9 @@
             </section>
             <section class="image-section">
               <div class="video-feature-text">
-                <h1 class="video-headline">Deine Vision.<br>Mein Code.</h1>
+                <h1 class="video-headline">
+                  Deine Vision.<br>.Mein Code <span class="code-brackets">{}</span>
+                </h1>
                 <p class="video-subline">Ob neue Website oder Redesign – ich helfe dir dabei, digital sichtbar zu werden und deine Zielgruppe zu erreichen.</p>
                 <p class="video-subline-mobile">Ob neue Website oder Redesign<br>
                   Ich helfe dir dabei, digital sichtbar zu werden<br>

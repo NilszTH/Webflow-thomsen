@@ -16,40 +16,67 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Light-beam---
-const container = document.querySelector('.beam-particles');
+// Sicherstellen, dass das DOM geladen ist
+window.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
 
-function createParticle() {
-  const particle = document.createElement('div');
-  particle.classList.add('particle');
+  const ctx = canvas.getContext('2d');
 
-  // Startposition: Links oder rechts vom Strahl
-  const fromLeft = Math.random() < 0.5;
-  const offsetX = fromLeft ? -100 : window.innerWidth + 100;
-  particle.style.left = `${offsetX}px`;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  // Obere Startposition im oberen Drittel
-  const startY = Math.random() * (window.innerHeight * 0.33);
-  particle.style.top = `${startY}px`;
+  let particles = [];
 
-  // Größe zufällig
-  particle.style.width = Math.random() * 2 + 1 + 'px';
-  particle.style.height = Math.random() * 4 + 2 + 'px';
+  class Particle {
+    constructor() {
+      const side = -1;
+      this.x = window.innerWidth / 2 + side * (Math.random() * 400 + 100);
+      this.y = 0;
+      this.speedX = 0;
+      this.speedY = Math.random() * 1 + 1;
+      this.size = Math.random() * 2 + 1;
+      this.opacity = Math.random() * 0.5 + 0.3;
+    }
 
-  // Dauer bis zum Lichtstrahl + durchfallen
-  const duration = 2.5 + Math.random() * 2;
-  particle.style.animationDuration = `${duration}s`;
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.opacity -= 0.002;
+    }
 
-  container.appendChild(particle);
+    draw() {
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(180,220,255,${this.opacity})`;
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
 
-  // Entfernen nach Animation
-  setTimeout(() => {
-    container.removeChild(particle);
-  }, duration * 1000);
-}
+  function handleParticles() {
+    if (particles.length < 100) {
+      particles.push(new Particle());
+    }
 
-// Regelmäßig neue Partikel erzeugen
-setInterval(createParticle, 80);
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
 
+      if (particles[i].opacity <= 0) {
+        particles.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    handleParticles();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
 
 // ------------------------ Parallax Text über Circle----------
 window.addEventListener("scroll", function() {

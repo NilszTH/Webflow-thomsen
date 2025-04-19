@@ -10,7 +10,7 @@
 body {
     overflow-y: visible;
     overflow-x: hidden;
-    background-color: #050505;
+    background-color: #0d0d0d;
     margin: 0;
     padding: 0;
     font-family: 'inter', sans-serif;
@@ -57,7 +57,7 @@ header {
 
 /* ===================== Desktop: Standard ===================== */
 .nav {
-    position: fixed;
+    position: relative;
     top: 5px;
     left: 50%;
     transform: translateX(-50%);
@@ -357,7 +357,7 @@ main {
 /* Farbkleckse richtig verteilen */
 .colorb {
     top: 18%;
-    left: -10%;
+    left: 60%;
     background: rgba(0, 174, 255, 0.2);
 }
 .colorb1 {
@@ -366,9 +366,9 @@ main {
     background: rgba(0, 157, 255, 0.3);
 }
 .colorb2 {
-    top: -10%;
-    left: 67%;
-    background: rgba(119, 178, 206, 0.0);
+    top: 30%;
+    left: 20%;
+    background: rgba(119, 178, 206, 0.2);
 }
 .colorb3 {
     top: 2900px;
@@ -543,68 +543,71 @@ main {
         transform: translateX(0);
     }
 }
+
+.hero-video-wrapper {
+  position: absolute;
+  top: 22%;
+  right: 15%;
+  width: 700px;
+  max-width: 90vw;
+  z-index: 1;
+}
+
+.hero-video-wrapper .video-frame-enhanced {
+  padding: 10px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.1),
+              0 0 200px 100px rgba(77, 136, 204, 0.07);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+}
+
+.hero-video-wrapper .video-feature {
+  display: block;
+  width: 100%;
+  height: 350px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+@media (max-width: 900px) {
+  .hero-video-wrapper {
+    display: none;
+  }
+}
 /* -------------------------
    LIGHTBEAM SECTION STYLES
    ------------------------- */
-  
-  /* Der animierte Lichtstrahl */
-  .light-beam {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 125%;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.9),
-      rgba(180, 220, 255, 0.5),
-      rgba(255, 255, 255, 0.2)
-    );
-    filter: blur(14px);
-    box-shadow:
-      0 0 40px rgba(255, 255, 255, 0.4),
-      0 0 100px rgba(180, 220, 255, 0.3),
-      0 0 160px rgba(255, 255, 255, 0.2);
-    animation: beamPulse 6s ease-in-out infinite;
-    z-index: 2000000000;
-    pointer-events: none;
-  }
-  
-  @keyframes beamPulse {
-    0%, 100% {
-      opacity: 0.7;
-      filter: blur(12px);
-    }
-    50% {
-      opacity: 1;
-      filter: blur(16px);
-    }
-  }
-  
-  .beam-particles {
+   .lightbeam-effect {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 33%; /* Oberes Drittel */
-    z-index: 21;
+    height: 100vh;
     pointer-events: none;
-    overflow: visible;
+    z-index: 999; /* Stelle sicher, dass es über allem liegt */
   }
   
-  @keyframes fallIn {
-    0% {
-      transform: translate(0, 0);
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    100% {
-      transform: translate(50%, 120vh);
-      opacity: 0;
-    }
+  .light-beam {
+    display: none;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(140,190,255,0.2), rgba(140,190,255,0.8), rgba(255,255,255,0));
+    transform: translateX(-50%);
+    filter: blur(30px);
+    opacity: 0.9;
+  }
+  
+  canvas#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   @media (max-width: 600px) {
@@ -621,16 +624,6 @@ main {
     }
   }
 
-  /* Rasteroverlay via Pseudoelement */
-  .lightbeam-section::after {
-    content: "";
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: url("raster.png") repeat;
-    opacity: 0.15;
-    pointer-events: none;
-    z-index: 10
-  }
   
   .video-cloud {
     position: absolute;
@@ -640,7 +633,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
+    z-index: -1;
     opacity: 0.5;
     pointer-events: none; 
   }
@@ -820,8 +813,8 @@ main {
 /* ✅ Animierter Button */
 .cta-button {
     position: absolute;
-    top: 55%;
-    left: 79%;
+    top: 37%;
+    left: 80%;
     width: 150px; /* Etwas größer für bessere Balance */
     height: 150px;
     display: flex;
@@ -830,8 +823,8 @@ main {
     border-radius: 50%;
     overflow: hidden;
     background: rgba(0, 255, 255, 0.0);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.0);
     border: 1px solid rgba(211, 211, 211, 0.0);
     border-radius: 50%;
@@ -847,7 +840,7 @@ main {
 
 /* ✅ Farbklecks mit sanftem Farbverlauf */
 .cta-blur {
-  display: none;
+    display: none;
     position: absolute;
     width: 250px;
     height: 250px;
@@ -861,13 +854,13 @@ main {
     position: absolute;
     width: 150px;
     height: 150px;
-    animation: rotateText 8s linear infinite;
+    animation: rotateText 9s linear infinite;
     overflow: visible;
 }
 
 /* ✅ SVG-Text Styling */
 .rotating-text text {
-    font-size: 14px;
+    font-size: 13px;
     fill: var(--text-color);
     font-weight: thin;
     letter-spacing: 5px;
@@ -883,7 +876,7 @@ main {
 
 /* ✅ Logo mittig setzen */
 .cta-logo img {
-    width: 10px;
+    width: 47px !important;
     height: auto;
     z-index: 4;
 }
@@ -1347,6 +1340,12 @@ main {
     text-align: left;
     margin-left: 16%;
     color: #fff;
+  }
+  .code-brackets {
+    color: #1e96ffbc;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal; 
   }
   
   .video-subline {
