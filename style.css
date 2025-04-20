@@ -362,31 +362,7 @@ main {
     display: none;
   }
 }
-/* -------------------------
-   LIGHTBEAM SECTION STYLES
-   ------------------------- */
-   .lightbeam-effect {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 999; /* Stelle sicher, dass es über allem liegt */
-  }
-  
-  .light-beam {
-    display: none;
-    top: 0;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(140,190,255,0.2), rgba(140,190,255,0.8), rgba(255,255,255,0));
-    transform: translateX(-50%);
-    filter: blur(30px);
-    opacity: 0.9;
-  }
+
   
   canvas#particles {
     position: absolute;
@@ -394,82 +370,6 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-  }
-
-  @media (max-width: 600px) {
-    .light-beam {
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 80vh; /* angepasst auf Wunsch */
-      width: 3px;
-    }
-  
-    .beam-particles {
-      height: 30vh; /* optional leicht reduziert auf Mobile */
-    }
-  }
-
-  
-  .video-cloud {
-    position: absolute;
-    max-width: 100vw;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.5;
-    pointer-events: none; 
-  }
-  .video-cloud-mobile {
-    display: none;
-  }
-
-  @media (max-width: 900px) and (min-width: 601px) {
-    .video-cloud {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.3;
-      pointer-events: none;
-    }
-  }
-  .video-cloud-mobile {
-    display: none;
-  }
-
-@media (max-width: 600px) {
-  
-    /* Video leicht sichtbar lassen */
-    .video-cloud {
-      display: none;
-    }
-
-    .video-cloud-mobile {
-      display: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.35;
-      pointer-events: none;
-    }
-
-    /* Lightbeam position leicht anpassen falls nötig */
-    .light-beam {
-      left: 85%;
-      transform: translateX(-50%);
-    }
   }
 
 /* Wende die Animation auf den Text an */
@@ -1061,6 +961,7 @@ main {
   }
 
   /* DASHED LINEEEEEEEEEE */
+
 .dashed-line-section {
     display: none;
     position: absolute;
@@ -1078,6 +979,7 @@ main {
     height: 100%;
     overflow: hidden;
 }
+
 @media (max-width: 600px) {
   .dashed-line-section {
     display: none;
@@ -1093,7 +995,9 @@ main {
     justify-content: flex-start;
     z-index: -2;
 }
+
 .dashed-line-section2 {
+  display: none;
     position: absolute;
     max-width: 100%;
     height: 100vh;

@@ -15,68 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// Light-beam---
-// Sicherstellen, dass das DOM geladen ist
-window.addEventListener('DOMContentLoaded', () => {
-  const canvas = document.getElementById('particles');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let particles = [];
-
-  class Particle {
-    constructor() {
-      const side = -1;
-      this.x = window.innerWidth / 2 + side * (Math.random() * 400 + 100);
-      this.y = 0;
-      this.speedX = 0;
-      this.speedY = Math.random() * 1 + 1;
-      this.size = Math.random() * 2 + 1;
-      this.opacity = Math.random() * 0.5 + 0.3;
-    }
-
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      this.opacity -= 0.002;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(180,220,255,${this.opacity})`;
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  function handleParticles() {
-    if (particles.length < 100) {
-      particles.push(new Particle());
-    }
-
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
-
-      if (particles[i].opacity <= 0) {
-        particles.splice(i, 1);
-        i--;
-      }
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    handleParticles();
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-});
 
 // ------------------------ Parallax Text über Circle----------
 window.addEventListener("scroll", function() {
