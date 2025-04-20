@@ -63,11 +63,10 @@ header {
     left: 50%;
     transform: translateX(-50%);
     max-width: 100% !important;
-    width: 100%;
+    width: 95%;
     padding: 15px;
     z-index: 1000;
     display: flex;
-    overflow-x: hidden !important;
   }
   
   /* Logo links */
