@@ -420,8 +420,9 @@ main {
   
   /* Farbfleck 2 */
   .colorb1 {
-    width: 350px;
-    height: 350px;
+    display: none;
+    width: 300px;
+    height: 300px;
     filter: blur(60px);
     top: 10%; 
     left: 20%; 
@@ -923,10 +924,13 @@ main {
     left: auto;
     background: rgba(0, 149, 255, 0.077);
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.0);
+    border: 1px solid rgba(211, 211, 211, 0.0);
+    border-radius: 50%;
     z-index: 9999999 !important;
   }
 
   .cta-blur {
+    display: none;
     width: 100px;
     height: 100px;
     filter: blur(12px);
@@ -937,7 +941,7 @@ main {
   }
 
   .cta-logo img {
-    width: 20px;
+    width: 20px !important;
     height: auto;
   }
 }
@@ -1120,6 +1124,7 @@ main {
     }
   
     .color-bulb {
+      display: none;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -1212,9 +1217,9 @@ main {
   
     .color-bulb {
       position: absolute;
-      width: 350px;
-      height: 350px;
-      top: 40%;
+      width: 300px;
+      height: 300px;
+      top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: rgba(0, 166, 255, 0.2);
