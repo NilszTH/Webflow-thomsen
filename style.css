@@ -9,7 +9,7 @@
 
 body {
     overflow-y: visible;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     background-color: #0d0d0d;
     margin: 0;
     padding: 0;
@@ -51,6 +51,7 @@ html, body {
 /* ✅ HEADER */
 header {
     width: 100%;
+    max-width: 100%;
     height: 50px; /* Platz für die Navigation */
     text-align: center;
 }
@@ -61,10 +62,12 @@ header {
     top: 5px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;;
+    max-width: 100% !important;
+    width: 100%;
     padding: 15px;
     z-index: 1000;
     display: flex;
+    overflow-x: hidden !important;
   }
   
   /* Logo links */
@@ -104,6 +107,7 @@ header {
   .nav-links li a:hover {
     color: rgb(126, 189, 226);
   }
+
   .nav-social-container {
     position: fixed;
     right: 18%;
@@ -273,235 +277,17 @@ header {
     }
   }
 
-
-
 /* ✅ MAIN-BEREICH */
 main {
     display: block; /* Flex entfernen, um alle Sektionen frei positionierbar zu machen */
     min-height: 100vh; 
     text-align: center;
-}
-
-/* ✅ Farbklecks-Container: Damit Farbkleckse nicht über Inhalte liegen */
-.color-container {
-    position: absolute; 
-    width: 100%;
-    height: 100vh;
-    z-index: -2; /* GANZ HINTEN */
-}
-
-/* ✅ Farbkleckse */
-.colorb {
-    position: absolute;
-    width: 400px;
-    height:400px;
-    border-radius: 50%;
-    filter: blur(90px);
-}
-.colorb1 {
-    position: absolute;
-    width: 500px;
-    height:500px;
-    border-radius: 50%;
-    filter: blur(90px);
-}
-.colorb2 {
-    position: absolute;
-    width: 250px;
-    height:250px;
-    border-radius: 50%;
-    filter: blur(90px);
-}
-.colorb3 {
-    position: absolute;
-    width: 350px;
-    height:350px;
-    border-radius: 50%;
-    filter: blur(90px);
-}
-.colorb4 {
-    position: absolute;
-    width: 250px;
-    height:250px;
-    border-radius: 50%;
-    filter: blur(90px);
-}
-.colorb5 {
-    position: absolute;
-    width: 350px;
-    height:350px;
-    border-radius: 50%;
-    filter: blur(90px);
-}
-.colorbvideo {
-  position: absolute;
-  width: 400px;
-  height:400px;
-  border-radius: 50%;
-  filter: blur(90px);
-}
-.colorbsz {
-  position: absolute;
-  width: 400px;
-  height:400px;
-  border-radius: 50%;
-  filter: blur(90px);
-}
-.colorbbottom {
-  position: absolute;
-  width: 350px;
-  height:350px;
-  border-radius: 50%;
-  filter: blur(90px);
-}
-/* Farbkleckse richtig verteilen */
-.colorb {
-    top: 18%;
-    left: 60%;
-    background: rgba(0, 174, 255, 0.2);
-}
-.colorb1 {
-    top: 120%;
-    left: 35%;
-    background: rgba(0, 157, 255, 0.3);
-}
-.colorb2 {
-    top: 30%;
-    left: 20%;
-    background: rgba(119, 178, 206, 0.2);
-}
-.colorb3 {
-    top: 2900px;
-    left: 67%;
-    background: rgba(0, 208, 255, 0.3);
-}
-.colorb4 {
-    top: 4600px;
-    left: 67%;
-    background: rgba(0, 170, 255, 0.3);
-}
-.colorb5 {
-    top: 4400px;
-    left: 7%;
-    background: rgba(0, 221, 255, 0.3);
-}
-.colorbvideo {
-  top: 2200px;
-  left: 7%;
-  background: rgba(0, 187, 255, 0.3);
-}
-.colorbsz {
-  top: 1900px;
-  left: 66%;
-  background: rgba(0, 187, 255, 0.3);
-}
-.colorbbottom {
-  bottom: 2400px;
-  left: 60%;
-  background: rgba(0, 255, 255, 0.3);
-}
-
-@media (max-width: 600px) {
-  /* Container bleibt unverändert */
-  .color-container {
-    width: 100%;
     overflow-x: hidden;
-  }
-
-  /* Farbfleck 1: Statt left: -10% → 0 und Größen verkleinert */
-  .colorb {
-    width: 300px;
-    height: 300px;
-    filter: blur(60px);
-    top: 40%;
-    left: 35%;
-    background: rgba(0, 204, 255, 0.0);
-  }
-  
-  /* Farbfleck 2 */
-  .colorb1 {
-    width: 300px;
-    height: 300px;
-    filter: blur(60px);
-    top: 10%; 
-    left: 20%; 
-    background: rgba(0, 170, 255, 0.2);
-  }
-  
-  /* Farbfleck 3 */
-  .colorb2 {
-    width: 150px;
-    height: 150px;
-    filter: blur(60px);
-    top: 220%;
-    left: 50%;
-    background: rgba(119, 178, 206, 0.0);
-  }
-  
-  /* Farbfleck 4 */
-  .colorb3 {
-    width: 200px;
-    height: 200px;
-    filter: blur(60px);
-    top: 280%; 
-    left: 60%;
-    background: rgba(0, 208, 255, 0.0);
-  }
-  
-  /* Farbfleck 5 */
-  .colorb4 {
-    width: 250px;
-    height: 250px;
-    filter: blur(60px);
-    top: 210%;   /* anpassen statt 4600px */
-    left: 20%;
-    background: rgba(0, 170, 255, 0.0);
-  }
-  
-  /* Farbfleck 6 */
-  .colorb5 {
-    width: 200px;
-    height: 200px;
-    filter: blur(60px);
-    top: 120%;   /* anpassen statt 4400px */
-    left: 5%;
-    background: rgba(0, 221, 255, 0.0);
-  }
-  
-  /* Farbfleck für Video */
-  .colorbvideo {
-    width: 200px;
-    height: 200px;
-    filter: blur(60px);
-    top: 25%;
-    left: 5%;
-    background: rgba(0, 187, 255, 0.0);
-  }
-  
-  /* Farbfleck für SZ */
-  .colorbsz {
-    width: 300px;
-    height: 300px;
-    filter: blur(60px);
-    top: 0%;  /* anpassen statt 1900px */
-    left: 50%;
-    background: rgba(0, 187, 255, 0.0);
-  }
-  
-  /* Farbfleck am unteren Bereich */
-  .colorbbottom {
-    width: 400px;
-    height: 400px;
-    filter: blur(60px);
-    top: 45%;  /* statt bottom: 2400px */
-    left: 25%;
-    transform: translateX(-50%);
-    background: rgba(0, 255, 255, 0.0);
-  }
 }
 
 /* ✅ Hero-Bereich (Startbereich) */
 .hero {
+    overflow-x: hidden;
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -559,9 +345,9 @@ main {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.1),
-              0 0 200px 100px rgba(77, 136, 204, 0.07);
+              0 0 150px 80px rgba(77, 136, 204, 0.07);
   backdrop-filter: blur(2px);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .hero-video-wrapper .video-feature {
@@ -880,6 +666,7 @@ main {
     height: auto;
     z-index: 4;
 }
+
 @media (max-width: 900px) and (min-width: 601px) {
   .cta-button {
     position: absolute;
@@ -956,6 +743,7 @@ main {
     flex-direction: column;
     background-color: transparent;
     color: rgba(228, 227, 227, 0.271);
+    overflow-x: hidden;
 }
 
 /* ✅ Container für die Kreise */
@@ -1007,9 +795,17 @@ main {
     min-height: 2000px; /* Testweise, damit ein Scroll entsteht */
   }
 
+  .color-bulb {
+    display: none;
+  }
+
+  .colorb-mediacircle {
+    display: none;
+  }
+
 .parallax-container {
     position: relative;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: auto;
     will-change: transform;
     position: relative;
@@ -1020,6 +816,7 @@ main {
     text-align: center;
     z-index: 10;
 }
+
 /* ✅ Haupttext mit Parallax-Effekt */
 .parallax-text {
     font-size: 90px;
@@ -1251,7 +1048,7 @@ main {
     /* Einzelpositionen der Buttons mobil optimiert */
     .parallax-button:nth-child(1) { top: 15%; left: 40%; }
     .parallax-button:nth-child(2) { top: 15%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 45%; left: 45%; }
+    .parallax-button:nth-child(3) { top: 40%; left: 45%; }
     .parallax-button:nth-child(4) { top: 25%; left: 48%; }
     .parallax-button:nth-child(5) { top: 55%; left: 40%; }
     .parallax-button:nth-child(6) { top: 50%; left: 60%; }
@@ -1877,8 +1674,11 @@ main {
     text-align: center;
     background-color: #f7f6f6;
     background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-repeat: repeat;
     background-size: 5px 5px;
+    background-position: center center;
     color: #000;
+    overflow-x: hidden;
   }
   
   /* Kleiner Untertitel (z.B. "HAPPY CLIENTS <3>") */
@@ -2090,10 +1890,10 @@ main {
   top: 0%;
   left: 0;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(
   rgba(255, 255, 255, 0.497),
-  rgba(8, 100, 193, 0.4)
+  rgba(8, 100, 193, 0.9)
 );
   transform: translateY(-50%);
   opacity: 0.3;
@@ -2112,7 +1912,7 @@ main {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  overflow: hidden;
+  overflow-x: hidden;
   background: rgba(87, 87, 87, 0.3);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -2344,7 +2144,7 @@ main {
 }
 .colorbservice {
   top: 18%;
-  left: -10%;
+  left: 10%;
   background: rgba(0, 255, 255, 0.2);
 }
 .colorbservice1 {
@@ -2409,7 +2209,9 @@ main {
 }
 
  /* FAQ */
+
 .faq-section {
+  overflow-x: hidden;
   position: relative;
   padding: 60px 20px;
   color: #fff;
@@ -2417,6 +2219,7 @@ main {
   z-index: 10;
   min-height: 100vh;
 }
+
 .faq-title {
   position: relative;
   text-align: center;
@@ -2424,6 +2227,7 @@ main {
   font-weight: 500;
   margin-bottom: 70px;
 }
+
 .faq-title .faq-highlight {
   position: relative;
   display: inline-block;
@@ -2486,6 +2290,10 @@ main {
   max-height: 500px; /* genügt für 3–4 Absätze */
 }
 @media (max-width: 900px) and (min-width: 601px) {
+
+  .faq-section {
+    overflow-x: hidden;
+  }
   .faq-title {
     font-size: 40px;
     margin-bottom: 50px;
