@@ -1815,7 +1815,6 @@ main {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  overflow-x: hidden;
   background: rgba(87, 87, 87, 0.3);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
