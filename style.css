@@ -1390,7 +1390,7 @@ main {
     z-index: 3;
 }
 /* ========== TABLET-BREAKPOINT (max-width: 900px) ========== */
-@media (max-width: 900px) {
+@media (max-width: 1200px) and (min-width: 601px) {
   .about-me {
     margin-top: 5%;
     padding: 60px 15px;
@@ -1433,7 +1433,7 @@ main {
   }
 
   .left-bar {
-    margin-left: 5%;
+    margin-left: 3%;
     margin-top: 7%;
     height: 90%;
     margin-bottom: 0%;
@@ -1456,7 +1456,8 @@ main {
   .num {
     width: 28px;
     height: 28px;
-    font-size: 12px;
+    font-size: 11px;
+    border: 1px solid;
   }
 }
 
