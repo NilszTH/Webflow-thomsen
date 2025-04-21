@@ -52,8 +52,8 @@ html, body {
 header {
     width: 100%;
     max-width: 100%;
-    height: 50px; /* Platz für die Navigation */
     text-align: center;
+    background: transparent;
 }
 
 /* ===================== Desktop: Standard ===================== */
@@ -67,6 +67,7 @@ header {
     padding: 15px;
     z-index: 1000;
     display: flex;
+    background: transparent;
   }
   
   /* Logo links */
@@ -196,6 +197,7 @@ header {
   /* ===================== Mobile (max-width: 900px) ===================== */
   @media (max-width: 900px) {
     .nav {
+      position: relative;
       justify-content: space-between;
       padding: 10px 15px;
       flex-direction: row;
@@ -224,7 +226,8 @@ header {
       position: absolute;
       top: 60px;
       left: 0;
-      width: 100%;
+      max-width: 100%;
+      width: 90%;
       flex-direction: column;
       justify-content: space-between;
       background: rgba(0, 0, 0, 0.3);
@@ -281,12 +284,10 @@ main {
     display: block; /* Flex entfernen, um alle Sektionen frei positionierbar zu machen */
     min-height: 100vh; 
     text-align: center;
-    overflow-x: hidden;
 }
 
 /* ✅ Hero-Bereich (Startbereich) */
 .hero {
-    overflow-x: hidden;
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -361,6 +362,10 @@ main {
   .hero-video-wrapper {
     display: none;
   }
+  .hero-video-mobile {
+    display: block;
+  }
+}
 
   canvas#particles {
     position: absolute;
@@ -370,32 +375,47 @@ main {
     height: 100%;
   }
 
+  .hero-video-mobile-wrapper {
+    display: none;
+  }
 
   @media (max-width: 600px) {
     .hero-video-mobile {
+      position: relative;
       display: block;
     }
   
     .hero-video-wrapper {
-      display: none; 
+      display: none;
     }
 
     /* Mobile Wrapper für Video am oberen Bildschirmrand */
     .hero-video-mobile-wrapper {
+      display: block;
       position: absolute;
-      top: -10%;
+      top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: -1;
+      z-index: 0;
       overflow: hidden;
+      pointer-events: none;
     }
+
     .hero-video-mobile-wrapper .hero-video-mobile {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       opacity: 0.5;
-      z-index: -1;
+      z-index: 0;
+    }
+    .hero {
+      position: relative;
+      padding-top: 0 !important; /* WICHTIG: Kein Extra-Abstand */
+    }
+    .nav {
+      position: absolute;
     }
   }
 
