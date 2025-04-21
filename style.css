@@ -383,11 +383,14 @@ main {
     height: 100vh;
     object-fit: cover;
     opacity: 0.5;
-    z-index: -1;
+    z-index: 0;
     display: none; /* wird nur in Media aktiviert */
   }
   @media (max-width: 600px) {
     .hero-video-mobile {
+      position: relative;
+      top: 0;
+      left: 0;
       display: block;
     }
   
