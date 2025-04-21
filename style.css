@@ -361,6 +361,9 @@ main {
   .hero-video-wrapper {
     display: none;
   }
+  .hero-video-mobile {
+    display: block;
+  }
 }
 
   
