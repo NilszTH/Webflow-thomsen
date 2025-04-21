@@ -361,10 +361,6 @@ main {
   .hero-video-wrapper {
     display: none;
   }
-  .hero-video-mobile {
-    display: block;
-  }
-}
 
   canvas#particles {
     position: absolute;
@@ -381,13 +377,13 @@ main {
     }
   
     .hero-video-wrapper {
-      display: none; /* Desktop-Video ausblenden */
+      display: none; 
     }
 
     /* Mobile Wrapper für Video am oberen Bildschirmrand */
     .hero-video-mobile-wrapper {
       position: absolute;
-      top: 0;
+      top: -10%;
       left: 0;
       width: 100vw;
       height: 100vh;
