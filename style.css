@@ -607,9 +607,9 @@ main {
     height: 50px;
     top: auto;
     left: auto;
-    background: rgba(0, 149, 255, 0.077);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.0);
-    border: 1px solid rgba(211, 211, 211, 0.0);
+    background: rgba(0, 149, 255, 0.0);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    border: 1px solid rgba(211, 211, 211, 0.5);
     border-radius: 50%;
     z-index: 9999999 !important;
   }
@@ -694,12 +694,24 @@ main {
     min-height: 2000px; /* Testweise, damit ein Scroll entsteht */
   }
 
-  .color-bulb {
+  .colorb-mediacircle {
     display: none;
   }
 
-  .colorb-mediacircle {
-    display: none;
+  .circle-color-container {
+    display: block;
+  }
+
+  .color-bulb-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 260px;
+    color: rgb(126, 189, 226, 0.2);
+    filter: blur(90px);
+    z-index: -3;
   }
 
 .parallax-container {
@@ -818,8 +830,7 @@ main {
       z-index: 10;
     }
   
-    .color-bulb {
-      display: none;
+    .color-bulb-circle {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -911,7 +922,7 @@ main {
       z-index: 2;
     }
   
-    .color-bulb {
+    .color-bulb-circle {
       position: absolute;
       width: 300px;
       height: 300px;
@@ -1632,7 +1643,7 @@ main {
     border: 1px solid rgba(0, 0, 0, 0.2);
     color: #000;
     border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     padding: 16px;
