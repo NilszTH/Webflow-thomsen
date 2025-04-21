@@ -700,16 +700,21 @@ main {
 
   .circle-color-container {
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
   }
 
   .color-bulb-circle {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     width: 260px;
     height: 260px;
-    color: rgb(126, 189, 226, 0.2);
+    background-color: rgba(126, 189, 226, 0.2);
     filter: blur(90px);
     z-index: -3;
   }
@@ -924,9 +929,9 @@ main {
   
     .color-bulb-circle {
       position: absolute;
-      width: 300px;
-      height: 300px;
-      top: 30%;
+      width: 150px;
+      height: 150px;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: rgba(0, 166, 255, 0.2);
