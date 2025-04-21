@@ -376,9 +376,9 @@ main {
   }
 
   .hero-video-mobile {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
+    top: 0%;
+    left: 0%;
     width: 100vw;
     height: 100vh;
     object-fit: cover;
@@ -388,9 +388,9 @@ main {
   }
   @media (max-width: 600px) {
     .hero-video-mobile {
-      position: relative;
-      top: 0;
-      left: 0;
+      position: absolute;
+      top: 0%;
+      left: 0%;
       display: block;
     }
   
