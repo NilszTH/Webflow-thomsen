@@ -356,6 +356,7 @@ main {
   border-radius: 20px;
   object-fit: cover;
 }
+
 @media (max-width: 900px) {
   .hero-video-wrapper {
     display: none;
@@ -369,6 +370,27 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .hero-video-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: -1;
+    display: none; /* wird nur in Media aktiviert */
+  }
+  @media (max-width: 600px) {
+    .hero-video-mobile {
+      display: block;
+    }
+  
+    .hero-video-wrapper {
+      display: none; /* Desktop-Video ausblenden */
+    }
   }
 
 /* Wende die Animation auf den Text an */
