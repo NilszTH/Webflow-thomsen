@@ -366,7 +366,6 @@ main {
   }
 }
 
-  
   canvas#particles {
     position: absolute;
     top: 0;
@@ -375,27 +374,32 @@ main {
     height: 100%;
   }
 
-  .hero-video-mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    opacity: 0.5;
-    z-index: 0;
-    display: none; /* wird nur in Media aktiviert */
-  }
+
   @media (max-width: 600px) {
     .hero-video-mobile {
-      position: absolute;
-      top: 0%;
-      left: 0%;
       display: block;
     }
   
     .hero-video-wrapper {
       display: none; /* Desktop-Video ausblenden */
+    }
+
+    /* Mobile Wrapper für Video am oberen Bildschirmrand */
+    .hero-video-mobile-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .hero-video-mobile-wrapper .hero-video-mobile {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: -1;
     }
   }
 
@@ -463,6 +467,7 @@ main {
     background: rgb(255, 255, 255);
     box-shadow: 0 0 10px rgb(11, 251, 255);
 }
+
 /* ✅ Dynamischer Glow */
 .glow-effect {
     position: absolute;
