@@ -33,7 +33,7 @@ html, body {
     z-index: 9999;        
     background: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 2px 2px repeat; 
   }
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     .pixel-overlay {
       display: none;
   }
@@ -358,7 +358,7 @@ main {
   object-fit: cover;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) and (min-width: 751px) {
   .hero-video-wrapper {
     display: none;
   }
@@ -379,7 +379,7 @@ main {
     display: none;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     .hero-video-mobile {
       position: relative;
       display: block;
@@ -502,7 +502,7 @@ main {
     opacity: 1;
 }
 
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 1200px) and (min-width: 751px) {
   .glow-effect {
     display: none;
   }
@@ -512,7 +512,7 @@ main {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .hero-content {
     padding-left: 30px;
     padding-top: 150px;
@@ -615,7 +615,7 @@ main {
     z-index: 4;
 }
 
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 1200px) and (min-width: 751px) {
   .cta-button {
     position: absolute;
     top: 60%;
@@ -647,7 +647,7 @@ main {
 
 
 /* ===================== Mobile (max-width: 600px) ===================== */
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .cta-button {
     position: fixed;
     bottom: 45px;
@@ -846,7 +846,7 @@ main {
   }
 
 /* TABLETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
-  @media (max-width: 1200px) and (min-width: 650px) {
+  @media (max-width: 1200px) and (min-width: 751px) {
 
     .circle {
       position: relative;
@@ -924,7 +924,7 @@ main {
   }
 
 /* PHONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE */
-  @media (max-width: 650px) {
+  @media (max-width: 750px) {
 
     .circle {
       position: relative;
@@ -1044,7 +1044,7 @@ main {
     overflow: hidden;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .dashed-line-section {
     display: none;
   }
@@ -1166,7 +1166,7 @@ main {
     object-fit: cover;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     .feature-video-section {
       width: 95%;
       margin: 60px auto 60px;
@@ -1305,7 +1305,7 @@ main {
   width: 50px;
   height: auto;
 }
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   /* Gemeinsamer Container, der Text & Circle in eine Zeile bringt */
 
   .image-section {
@@ -1439,7 +1439,7 @@ main {
     z-index: 3;
 }
 /* ========== TABLET-BREAKPOINT (max-width: 900px) ========== */
-@media (max-width: 1200px) and (min-width: 601px) {
+@media (max-width: 1200px) and (min-width: 751px) {
   .about-me {
     margin-top: 5%;
     padding: 60px 15px;
@@ -1474,7 +1474,7 @@ main {
 }
 
 /* ========== SMARTPHONE-BREAKPOINT (max-width: 600px) ========== */
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .about-me {
     margin-top: 2%;
     padding: 40px 10px;
@@ -1594,7 +1594,7 @@ main {
   color: #bcbcbc;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .features-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;  
@@ -1675,7 +1675,7 @@ main {
     display: none;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     .section-title {
       display: none;
     }
@@ -1755,7 +1755,7 @@ main {
   }
 
   /* Tablet: 2 Spalten (zwischen 600px und 900px) */
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 1200px) and (min-width: 751px) {
 
   .recent-work-section {
     background-color: #f7f6f6;
@@ -1786,7 +1786,7 @@ main {
 }
 
 /* Mobile: 1 Spalte */
-@media (max-width: 600px) {
+@media (max-width: 750px) {
 
   .recent-work-section {
     background-color: #f7f6f6;
@@ -1931,7 +1931,7 @@ main {
   z-index: 4;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .cta-mid {
     width: 100px;
     height: 100px;
@@ -2136,7 +2136,7 @@ main {
   background: rgba(0, 153, 255, 0.2);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .services-title {
     display: none;
   }
@@ -2257,7 +2257,7 @@ main {
 .faq-answer.active {
   max-height: 500px; /* genügt für 3–4 Absätze */
 }
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 1200px) and (min-width: 751px) {
 
   .faq-section {
     overflow-x: hidden;
@@ -2291,7 +2291,7 @@ main {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .faq-title {
     font-size: 32px;
     margin-bottom: 40px;
@@ -2374,7 +2374,7 @@ main {
 .location-text.mobile {
   display: none;
 }
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 1200px) and (min-width: 751px) {
   .location-text.desktop {
     display: block;
     font-size: 16px;
@@ -2386,7 +2386,7 @@ main {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .location-title {
     font-size: 22px;
   }
@@ -2408,7 +2408,7 @@ main {
   top: 15%;
   height: 100%;
   inset: 0;
-  background: url("FL_Hafen.png") center center no-repeat;
+  background: url("flensburg_01.png") center center no-repeat;
   background-size: cover;
   z-index: -3;
   opacity: 0.35;
@@ -2485,7 +2485,7 @@ main {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 750px) {
   .hover-popup {
     display: none; /* auf Mobile per JS sichtbar */
   }
@@ -2545,7 +2545,7 @@ main {
   text-align: right;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .contact-content {
     width: 100%;
     padding: 20px;
@@ -2691,7 +2691,7 @@ footer {
 }
 
 /* RESPONSIVE FÜR MOBILGERÄTE */
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   footer {
     margin-top: 90px;
   }
