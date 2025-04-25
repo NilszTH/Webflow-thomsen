@@ -657,16 +657,16 @@ main {
     top: auto;
     left: auto;
     background: rgba(0, 149, 255, 0.0);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-    border: 1px solid rgba(211, 211, 211, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.0);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     z-index: 9999999 !important;
   }
 
   .cta-blur {
     display: none;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     filter: blur(12px);
   }
 
@@ -675,7 +675,7 @@ main {
   }
 
   .cta-logo img {
-    width: 20px !important;
+    width: 15px !important;
     height: auto;
   }
 }
