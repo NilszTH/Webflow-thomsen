@@ -205,7 +205,7 @@ header {
   
     .logo-header {
       position: relative;
-      margin-left: 40px;
+      margin-left: 10%;
       margin-top: 0;
       height: 28px;
     }
@@ -226,8 +226,8 @@ header {
       position: absolute;
       top: 60px;
       left: 0;
-      max-width: 100%;
-      width: 90%;
+      max-width: 90%;
+      width: 80%;
       flex-direction: column;
       justify-content: space-between;
       background: rgba(0, 0, 0, 0.3);
