@@ -182,10 +182,11 @@ header {
   }
   .hamburger .bar {
     height: 3px;
-    width: 80%;
+    width: 25px;
     background-color: #fff;
     border-radius: 2px;
-    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
   }
   .hamburger:focus,
 .hamburger:active {
@@ -193,6 +194,19 @@ header {
   border: none;
   box-shadow: none;
 }
+
+  /* Hamburger-Button aktiv: Balken verwandeln sich in X */
+  .hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
   
   /* ===================== Mobile (max-width: 900px) ===================== */
   @media (max-width: 900px) {
