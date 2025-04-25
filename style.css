@@ -182,11 +182,10 @@ header {
   }
   .hamburger .bar {
     height: 3px;
-    width: 25px;
+    width: 80%;
     background-color: #fff;
     border-radius: 2px;
-    transition: all 0.3s ease-in-out;
-    transform-origin: center;
+    box-shadow: none;
   }
   .hamburger:focus,
 .hamburger:active {
@@ -194,19 +193,6 @@ header {
   border: none;
   box-shadow: none;
 }
-
-  /* Hamburger-Button aktiv: Balken verwandeln sich in X */
-  .hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
   
   /* ===================== Mobile (max-width: 900px) ===================== */
   @media (max-width: 900px) {
@@ -409,6 +395,7 @@ main {
     }
     
     .hero-video-wrapper .video-frame-enhanced {
+      display: none;
       padding: 10px;
       border-radius: 25px;
       background: rgba(255, 255, 255, 0.1);
@@ -420,7 +407,7 @@ main {
     }
     
     .hero-video-wrapper .video-feature {
-      display: block;
+      display: none;
       width: 100%;
       height: 350px;
       border-radius: 20px;
