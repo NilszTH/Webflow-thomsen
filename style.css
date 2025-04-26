@@ -177,6 +177,8 @@ header {
   @media (max-width: 900px) {
     .nav {
       position: relative;
+      width: 100%;
+      max-width: 100%;
       justify-content: space-between;
       padding: 10px 15px;
       flex-direction: row;
@@ -190,39 +192,39 @@ header {
     
     .logo-header {
       position: relative;
-      margin-left: 25%;
-      margin-top: 15px;
-      height: 28px;
+      margin-left: 20px;
+      margin-top: 10px;
+      height: 32px;
       z-index: 10;
     }
   
-    .hamburger {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 40px;
-      height: 30px;
-      background: transparent;
-      border: none;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      z-index: 100;
-    }
+      .hamburger {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px; /* passt für breite Striche und X */
+        height: 32px;
+        background: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1100;
+        overflow: visible;
+      }
 
     .hamburger .bar {
       position: relative;
-      height: 1.5px;
-      width: 70%;
+      height: 1px;
+      width: 30px;
       background-color: white;
       transform-origin: center;
       transition: all 0.3s ease;
       transition: transform 0.3s ease, opacity 0.3s ease;
-      z-index: 5;
+      z-index: 1110; 
     }
 
     .hamburger:focus,
@@ -255,15 +257,18 @@ header {
       display: flex;
     }
     .hamburger.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(11px, 11px);
+  background-color: #28b4ff;
 }
 
 .hamburger.open .bar:nth-child(2) {
   opacity: 0;
+  background-color: #28b4ff;
 }
 
 .hamburger.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(7px, -7px);
+  background-color: #28b4ff;
 }
   
     .nav-links li {
@@ -286,7 +291,7 @@ header {
     .nav-social-container {
       position: absolute;
       top: 10px;
-      right: 5px;
+      right: 0px;
       display: flex;
       flex-direction: row;
       gap: 8px;
@@ -298,7 +303,7 @@ header {
     .nav-social {
       position: relative;
       top: 0;
-      right: 3;
+      right: 5px;
       transform: none;
       flex-direction: row;
       gap: 10px;
@@ -309,7 +314,7 @@ header {
       padding: 3px 12px;
       margin-top: 30%;
       font-size: 12px;
-      right: 20px;
+      right: 5px;
     }
   
     .whatsapp-button img {
@@ -397,10 +402,37 @@ main {
   object-fit: cover;
 }
 
-@media (max-width: 1200px) and (min-width: 751px) {
+@media (max-width: 1200px) and (min-width: 651px) {
   .hero-video-wrapper {
-    display: none;
+    display: block;
+    position: absolute;
+    top: 17%;
+    right: 5%;
+    width: 400px;
+    height: 250px;
+    max-width: 100%;
+    z-index: 1;
   }
+
+  .hero-video-wrapper .video-frame-enhanced {
+    padding: 10px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.1),
+                0 0 150px 80px rgba(77, 136, 204, 0.07);
+    backdrop-filter: blur(2px);
+    overflow-x: hidden;
+  }
+  
+  .hero-video-wrapper .video-feature {
+    display: block;
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
   .hero-video-mobile {
     display: block;
   }
@@ -418,7 +450,7 @@ main {
     display: none;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 650px) {
     .hero-video-mobile {
       position: relative;
       display: block;
@@ -567,12 +599,35 @@ main {
 }
 
 @media (max-width: 1200px) and (min-width: 751px) {
+  .hero-content {
+    padding-left: 30px;
+    padding-top: 150px;
+  }
+
   .glow-effect {
     display: none;
   }
 
+  .animated-text {
+    left: 0;
+    top: 0%;
+    transform: translateX(-10%);
+    font-size: 50px;
+  }
+
+  .animated-text1 {
+    font-size: 14px;
+  }
+
+  .animated-text2 {
+    font-size: 14px;
+  }
+
   .btn {
     display: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-left: 0;
   }
 }
 
@@ -682,14 +737,18 @@ main {
 
 @media (max-width: 1200px) and (min-width: 751px) {
   .cta-button {
-    position: absolute;
-    top: 60%;
-    left: 80%;
-    width: 80px;
-    height: 80px;
-    background: rgba(0, 174, 255, 0.08);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-    z-index: 999999;
+    position: fixed;
+    bottom: 45px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    top: auto;
+    left: auto;
+    background: rgba(0, 149, 255, 0.0);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.0);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    z-index: 9999999 !important;
   }
 
   .cta-blur {
@@ -705,7 +764,7 @@ main {
   }
 
   .cta-logo img {
-    width: 20px;
+    width: 20px !important;
     height: auto;
   }
 }
@@ -840,6 +899,7 @@ main {
     will-change: transform;
     position: relative;
     width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -927,21 +987,28 @@ main {
     }
   
     .parallax-text {
-      display: none;
-    }
+      display: block;
+      font-size: clamp(30px, 8vw, 55px); /* passt sich automatisch an */
+      max-width: 90%;
+      text-align: center;
+      margin: 0 auto;
+      position: relative; /* statt absolute */
+      top: auto;
+      left: auto;
+  }
   
     .moving-logo {
       position: absolute;
-      top: 35%;
+      top: 48%;
       width: 50px;
       height: 50px;
       animation: moveAroundCircleTablet 10s linear infinite;
     }
 
     .mobile-headline {
-      display: block !important;
+      display: none;
       position: absolute;
-      top: 20%;
+      top: 22%;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
@@ -954,10 +1021,12 @@ main {
     .color-bulb-circle {
       position: absolute;
       left: 50%;
+      top: 0%;
+      border-radius: 50%;
       transform: translateX(-50%);
-      width: 160px;
-      height: 160px;
-      filter: blur(30px);
+      width: 260px;
+      height: 260px;
+      filter: blur(90px);
     }
   
     .parallax-button {
@@ -978,7 +1047,7 @@ main {
       position: absolute;
       width: 350px;
       height: 350px;
-      top: 30%;
+      top: 20%;
       left: 50%;
       transform: translate(-50%);
       filter: blur(50px);
@@ -1005,11 +1074,19 @@ main {
     }
   
     .parallax-text {
-      display: none;
-    }
+      display: block;
+      font-size: clamp(30px, 8vw, 55px); /* passt sich automatisch an */
+      max-width: 90%;
+      text-align: center;
+      margin: 0 auto;
+      position: relative; /* statt absolute */
+      top: -70px;
+      left: auto;
+      z-index: 100;
+  }
 
     .mobile-headline {
-      display: block !important;
+      display: none;
       position: absolute;
       top: 15%;
       left: 50%;
@@ -1500,15 +1577,18 @@ main {
     align-items: center;
     justify-content: center;
     font-weight: 300;
-    width: 35px;
-    height: 35px;
+    width: 3px;
+    height: 30px;
+    min-width: 30px; /* zusätzliche Sicherheit */
+    min-height: 30px;
     border: 2px solid rgba(176, 186, 188, 0.797);
     border-radius: 6px;
     margin-right: 20px;
     font-size: 18px;
     z-index: 3;
 }
-/* ========== TABLET-BREAKPOINT (max-width: 900px) ========== */
+
+/* ========== TABLET-BREAKPOINT ========== */
 @media (max-width: 1200px) and (min-width: 751px) {
   .about-me {
     margin-top: 5%;
@@ -1517,8 +1597,9 @@ main {
   }
 
   .left-bar {
-    margin-left: 5%;
-    margin-top: 0%;
+    margin-left: 3%;
+    margin-right: 2%;
+    margin-top: 5%;
     height: 90%; 
   }
 
@@ -1539,6 +1620,8 @@ main {
   .num {
     width: 30px;
     height: 30px;
+    min-width: 30px; /* zusätzliche Sicherheit */
+    min-height: 30px;
     font-size: 14px;
   }
 }
@@ -2206,6 +2289,79 @@ main {
   background: rgba(0, 153, 255, 0.2);
 }
 
+/* TABLET SERVICE */
+@media (max-width: 1200px) and (min-width: 751px) {
+  .services-section {
+    position: relative;
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+    color: #fff;
+    margin-top: 10%;
+  }
+  
+  .services-title {
+    display: none;
+  }
+
+  .services-title-mobile {
+    display: block;
+    position: relative;
+    font-size: 40px;
+    font-weight: 400;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .card-number-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  
+  /* Nummer */
+  .card-number {
+    font-size: 1.0rem;
+    font-weight: 400;
+    color: #5bcacb;
+  }
+  
+  /* Kurze Linie in hellem Grau */
+  .card-line {
+    width: 20px;
+    height: 1px;
+    background: #9f9f9fd4;
+  }
+
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+  
+  /* Einzelne Card: Breite anpassen, Höhe evtl. auf auto setzen */
+  .service-card {
+    width: 90%;
+    height: auto;
+    padding: 16px;
+  }
+  
+  /* Überschrift und Text anpassen */
+  .card-heading {
+    font-size: 16px;
+  }
+  
+  .card-text {
+    font-size: 12px;
+  }
+}
+
+/* PHONE  SERVICES */
 @media (max-width: 750px) {
   .services-title {
     display: none;
