@@ -189,8 +189,8 @@ header {
     
     .logo-header {
       position: relative;
-      margin-left: 20%;
-      margin-top: 0;
+      margin-left: 25%;
+      margin-top: 15px;
       height: 28px;
       z-index: 10;
     }
@@ -215,7 +215,7 @@ header {
 
     .hamburger .bar {
       height: 1.5px;
-      width: 100%;
+      width: 70%;
       background-color: white;
       transform-origin: center;
       transition: all 0.3s ease;
@@ -278,11 +278,13 @@ header {
       font-size: 18px;
       font-weight: 400;
     }
-  
+
+
+  /* SOCIALS */
     .nav-social-container {
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: 5px;
       display: flex;
       flex-direction: row;
       gap: 8px;
