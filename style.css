@@ -490,7 +490,6 @@ main {
       box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.1),
                   0 0 150px 80px rgba(77, 136, 204, 0.07);
       backdrop-filter: blur(2px);
-      overflow-x: hidden;
     }
     
     .hero-video-wrapper .video-feature {
