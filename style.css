@@ -1026,7 +1026,7 @@ main {
     }
 
     .mobile-headline {
-      display: block!
+      display: block!;
       position: absolute;
       top: 22%;
       left: 50%;
