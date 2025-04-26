@@ -439,6 +439,7 @@ main {
   
   .hero-video-mobile {
     display: block;
+    pointer-events: none;
   }
 }
 
@@ -1110,7 +1111,7 @@ main {
       z-index: 10;
   }
     .parallax-text {
-      display: block;
+      display: none;
       font-size: clamp(50px, 8vw, 55px); /* passt sich automatisch an */
       max-width: none;
       width: 85% !important;
@@ -1123,16 +1124,16 @@ main {
   }
 
     .mobile-headline {
-      display: none;
+      display: block;
       position: absolute;
-      top: 15%;
+      top: 28%;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
-      font-size: 25px;
-      font-weight: 500;
+      font-size: 45px;
+      font-weight: 600;
       text-align: center;
-      color: white;
+      color: rgba(255, 255, 255, 0.8);
       line-height: 1.3;
       z-index: 10;
     }
