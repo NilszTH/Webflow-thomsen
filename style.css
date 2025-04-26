@@ -180,6 +180,7 @@ header {
       justify-content: space-between;
       padding: 10px 15px;
       flex-direction: row;
+      overflow: visible;
     }
 
     .nav-links.active {
@@ -210,10 +211,11 @@ header {
       display: flex;
       align-items: center;
       cursor: pointer;
-      z-index: 5;
+      z-index: 100;
     }
 
     .hamburger .bar {
+      position: relative;
       height: 1.5px;
       width: 70%;
       background-color: white;
