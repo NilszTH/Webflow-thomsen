@@ -1693,6 +1693,7 @@ main {
   }
 
   .num {
+    display: none;
     width: 28px;
     height: 28px;
     font-size: 11px;
