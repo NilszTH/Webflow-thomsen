@@ -9,9 +9,10 @@ document.addEventListener("DOMContentLoaded", function() {
     return; 
   }
 
-  // Klick-Event: toggelt die "active"-Klasse
+  // Klick-Event: toggelt die "active"- und "open"-Klasse
   hamburger.addEventListener("click", function() {
     navLinks.classList.toggle("active");
+    hamburger.classList.toggle("open");
   });
 });
 
