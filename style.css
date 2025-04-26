@@ -248,7 +248,7 @@ header {
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(10px);
       border-radius: 0px;
-      padding: 5px 0;
+      padding: 3px 0;
       padding-bottom: 30px;
       z-index: 2;
     }
@@ -267,7 +267,7 @@ header {
 }
 
 .hamburger.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: rotate(-45deg) translate(11px, -11px);
   background-color: #28b4ff;
 }
   
@@ -279,7 +279,7 @@ header {
       padding-top: 0px;
     }
     .nav-links li:first-child {
-      margin-top: 60px;
+      margin-top: 70px;
     }
     .nav-links li a {
       font-size: 18px;
@@ -455,6 +455,17 @@ main {
       position: relative;
       display: block;
     }
+    .hero-video-mobile-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3); /* Adjust opacity and color as needed */
+      z-index: 1;
+      pointer-events: none;
+  }
+
 
     .hero-video-wrapper {
       position: absolute;
@@ -990,6 +1001,7 @@ main {
       display: block;
       font-size: clamp(30px, 8vw, 55px); /* passt sich automatisch an */
       max-width: 90%;
+      width: 80%;
       text-align: center;
       margin: 0 auto;
       position: relative; /* statt absolute */
@@ -1075,8 +1087,9 @@ main {
   
     .parallax-text {
       display: block;
-      font-size: clamp(30px, 8vw, 55px); /* passt sich automatisch an */
+      font-size: clamp(50px, 8vw, 55px); /* passt sich automatisch an */
       max-width: 90%;
+      width: 85% !important;
       text-align: center;
       margin: 0 auto;
       position: relative; /* statt absolute */
