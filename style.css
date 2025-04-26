@@ -178,7 +178,7 @@ header {
     .nav {
       position: relative;
       width: 100%;
-      max-width: 100%;
+      max-width: 95%;
       justify-content: space-between;
       padding: 10px 15px;
       flex-direction: row;
@@ -192,7 +192,7 @@ header {
     
     .logo-header {
       position: relative;
-      margin-left: 20px;
+      margin-left: 35px;
       margin-top: 10px;
       height: 32px;
       z-index: 10;
@@ -455,6 +455,7 @@ main {
       position: relative;
       display: block;
     }
+
     .hero-video-mobile-overlay {
       position: absolute;
       top: 0;
@@ -462,7 +463,7 @@ main {
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.3); /* Adjust opacity and color as needed */
-      z-index: 1;
+      z-index: 2;
       pointer-events: none;
   }
 
