@@ -72,7 +72,6 @@ header {
     z-index: 1000;
     display: flex;
     background: transparent;
-    overflow-x: hidden !important;
   }
   
   /* Logo links */
@@ -255,7 +254,7 @@ header {
       border-radius: 0px;
       padding: 3px 0;
       padding-bottom: 30px;
-      z-index: 2;
+      z-index: 10;
     }
   
     .nav-links.active {
@@ -317,7 +316,7 @@ header {
     .whatsapp-button {
       position: relative;
       padding: 3px 12px;
-      margin-top: 25%;
+      margin-top: 20px;
       font-size: 12px;
       right: 5px;
     }
@@ -1026,7 +1025,7 @@ main {
     }
 
     .mobile-headline {
-      display: block!;
+      display: none;
       position: absolute;
       top: 22%;
       left: 50%;
@@ -1109,7 +1108,7 @@ main {
       z-index: 10;
   }
     .parallax-text {
-      display: none;
+      display: block;
       font-size: clamp(50px, 8vw, 55px); /* passt sich automatisch an */
       max-width: none;
       width: 85% !important;
@@ -1122,17 +1121,19 @@ main {
   }
 
     .mobile-headline {
-      display: block;
-      font-size: clamp(50px, 8vw, 55px); /* passt sich automatisch an */
-      max-width: none;
-      width: 85% !important;
+      display: none;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      font-size: 25px;
+      font-weight: 500;
       text-align: center;
-      margin: 0 auto;
-      position: relative; /* statt absolute */
-      top: -70px;
-      left: auto;
-      z-index: 100;
-  }
+      color: white;
+      line-height: 1.3;
+      z-index: 10;
+    }
   
     .outer-circle,
     .inner-circle {
