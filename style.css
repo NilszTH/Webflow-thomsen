@@ -1126,11 +1126,11 @@ main {
     .mobile-headline {
       display: block;
       position: absolute;
-      top: 28%;
+      top: 22%;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
-      font-size: 45px;
+      font-size: 30px;
       font-weight: 600;
       text-align: center;
       color: rgba(255, 255, 255, 0.8);
