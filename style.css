@@ -294,7 +294,7 @@ header {
       display: flex;
     }
     .hamburger.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(11px, 11px);
+  transform: rotate(45deg) translate(9px, 9px);
   background-color: #28b4ff;
 }
 
@@ -304,7 +304,7 @@ header {
 }
 
 .hamburger.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(11px, -11px);
+  transform: rotate(-45deg) translate(7px, -7px);
   background-color: #28b4ff;
 }
   
