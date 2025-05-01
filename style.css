@@ -79,7 +79,7 @@ header {
     position: fixed;
     margin-left: 9.5%;
     margin-top: -8px;
-    height: 33px;
+    height: 50px;
     width: auto;
   }
   
@@ -201,16 +201,17 @@ header {
     
     .logo-header {
       position: relative;
-      left: 10px;
-      top: 10px;
+      left: 8px;
+      top: 8px;
       height: 28px;
       z-index: 10;
     }
 
     .nav-mobile-title {
+      display: none;
       position: absolute;
       top: 10px;
-      left: 42px;
+      left: 50px;
       font-size: 11px;
       color: rgba(255, 255, 255, 0.8);
       font-weight: 300;
@@ -649,6 +650,9 @@ main {
 .btn:hover::after {
     opacity: 1;
 }
+
+
+/* HERRRRRROOOO MEDIA*/
 
 @media (max-width: 1200px) and (min-width: 751px) {
   .hero-content {
