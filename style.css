@@ -208,7 +208,7 @@ header {
     }
 
     .nav-mobile-title {
-      position: relative;
+      position: absolute;
       top: 10px;
       left: 42px;
       font-size: 11px;
@@ -861,7 +861,7 @@ main {
   .mobile-divider-section {
     position: relative;
     width: 100%;
-    height: 2200px;
+    height: 200px;
     overflow: hidden;
     margin-top: -10px; /* optional, um sich an voriger Sektion anzugleichen */
     z-index: 5;
@@ -917,6 +917,8 @@ main {
     border-radius: 8px;
   }
 }
+
+
 
 /* -------------------------- Kreis + Paralax -------------------------- */
 .cirlce {
