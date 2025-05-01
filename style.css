@@ -176,6 +176,11 @@ header {
   .hamburger {
     display: none;
   }
+  @media (min-width: 1201px) {
+    .nav-mobile-title {
+      display: none;
+    }
+  }
   
   /* ===================== Mobile (max-width: 900px) ===================== */
   @media (max-width: 900px) {
@@ -200,6 +205,21 @@ header {
       margin-top: 10px;
       height: 32px;
       z-index: 10;
+    }
+
+    .nav-mobile-title {
+      position: absolute;
+      top: 10px;
+      left: 110px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+      z-index: 1000;
+      pointer-events: none;
+      letter-spacing: -0.8px; /* Buchstaben enger zusammenrücken */
+      font-stretch: condensed; /* Falls vom Font unterstützt, schmaler zeichnen */
+      line-height: 1.1; /* Geringere Zeilenhöhe */
+      transform: scaleX(0.95) scaleY(1.05); /* etwas schmaler und höher skalieren */
     }
   
       .hamburger {
@@ -824,6 +844,63 @@ main {
   }
 }
 
+/* Nur für Mobilgeräte */
+@media (max-width: 750px) {
+  .mobile-divider-section {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    margin-top: -10px; /* optional, um sich an voriger Sektion anzugleichen */
+    z-index: 5;
+  }
+
+  .divider-line-top,
+  .divider-line-bottom {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+  }
+
+  .divider-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .divider-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .divider-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .divider-text {
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4); /* optional für besseren Kontrast */
+    padding: 4px 12px;
+    border-radius: 8px;
+  }
+}
+
 /* -------------------------- Kreis + Paralax -------------------------- */
 .cirlce {
     position: relative;
@@ -1126,11 +1203,11 @@ main {
     .mobile-headline {
       display: block;
       position: absolute;
-      top: 25%;
+      top: 28%;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 600;
       text-align: center;
       color: rgba(255, 255, 255, 0.8);
