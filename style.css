@@ -1401,13 +1401,17 @@ main {
     overflow: hidden;
 }
 
+
 /* ========== Section: Bild + Marquee in einer Ebene ========== */
 .image-section {
     position: relative;
     align-items: center;
-    left: 5%;
     margin-top: 8%;
-    width: 90%;    
+    width: 100%;    
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
     background: transparent; 
     overflow: visible; 
     z-index: 2;
@@ -1415,7 +1419,7 @@ main {
   
   .feature-video-section {
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 100px auto 80px;
     text-align: center;
@@ -1489,12 +1493,48 @@ main {
     object-fit: cover;
   }
 
+  /* Große Bildschirme */
+
+  @media (min-width: 1600px) {
+    .image-section {
+      max-width: 1200px;
+    }
+  }
+
+
+@media (max-width: 1200px) and (min-width: 751px) {
+  .image-section {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
   @media (max-width: 750px) {
+    .image-section {
+      width: 90%;
+      max-width: 749px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .feature-video-section {
-      width: 95%;
-      margin: 60px auto 60px;
+      position: relative;
+      width: 90%;
+      max-width: 750px;
+      margin-left: 5%;
+      margin-right:5%;
     }
   
+    .feature-video-section {
+      position: relative;
+      width: 90%;
+      max-width: 749px;
+      margin: 100px auto 80px;
+      text-align: center;
+      z-index: 1;
+    }
+
     .video-headline {
       font-size: 28px;
       line-height: 1.2;
@@ -2950,6 +2990,82 @@ main {
   font-size: 0.85rem;
   color: #aaa;
   text-align: right;
+}
+
+@media (max-width: 1200px) and (min-width: 751px) {
+  .contact-content {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-box {
+    position: relative;
+    left: 50%;
+    bottom: 0%;
+    transform: translateX( -50%, -50%);
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* Linker Bereich (Logo + Subtext) in einer Spalte */
+  .footer-left {
+    position: absolute;
+    bottom: 0%;
+    left:39px;     
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-logo {
+    width: 30px;
+    height: auto;
+    max-width: none;  
+    max-height: none; 
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* Mittlerer Bereich (Social-Links) ebenso */
+  .social-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Rechter Bereich (Kontakt/Impressum) ebenfalls zentriert */
+  .footer-right {
+    display: none;
+  }
+
+  .right-bar span {
+    display: none;
+  }
+  /* Optional: Schriftgrößen anpassen */
+  .footer-sub {
+    font-size: 0.9rem;
+  }
+  .social-link {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+  }
+  .footer-right span {
+    position: absolute;
+    left: 60%;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 750px) {
