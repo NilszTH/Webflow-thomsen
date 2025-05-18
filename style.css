@@ -25,13 +25,6 @@ body {
   font-variation-settings: 'wght' 400, 'slnt' 0;
 }
 
-  font-family: 'Inter', sans-serif;
-}
-
-h1, h2, h3 {
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
-}
 
 .hero, .circle, .parallax-container, .about-me, .contact-section, .recent-work-section {
   overflow-x: hidden;
