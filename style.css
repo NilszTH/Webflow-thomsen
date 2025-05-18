@@ -1,18 +1,11 @@
 
 /* 🌑 BODY */
-@font-face {
-  font-family: 'Inter';
-  src: url('/Inter/static/Inter-VariableFont_opsz,wght.ttf') format('truetype');
-  font-weight: 100 900; /* variable font von 100 bis 900 */
-  font-display: swap;
-}
 
 @font-face {
-  font-family: 'Inter Italic';
-  src: url('/Inter/static/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Inter';
+  src: url('./assets/fonts/inter/Inter-Regular.woff2') format('woff2'),
+       url('./assets/fonts/inter/Inter-Regular.woff') format('woff');
+  font-style: normal;
 }
 
 body {
@@ -21,14 +14,8 @@ body {
     background-color: #0d0d0d;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'inter-regular', sans-serif;
 }
-
-h1, h2, h3 {
-  font-family: 'Inter Italic', sans-serif;
-  font-style: italic;
-}
-
 .hero, .circle, .parallax-container, .about-me, .contact-section, .recent-work-section {
   overflow-x: hidden;
   max-width: 100%;
@@ -1505,6 +1492,7 @@ main {
     height: auto;
     border-radius: 20px;
     object-fit: cover;
+    opacity: 0.75;
   }
 
   /* Große Bildschirme */
@@ -2377,82 +2365,93 @@ main {
   z-index: 10;
 }
 
-/* ========== Einzelne Card ========== */
+/* ========== Einzelne Card (Verbesserter 3D-Glaseffekt) ========== */
 .service-card {
-  background: rgba(0, 0, 0, 0.3); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 20px;
   width: 400px;
   height: 400px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 10;
-  transform: translateZ(0);
-  will-change: transform;
-  contain: layout style paint;
+  position: relative;
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-/* Hover-Effekt */
+/* 3D-Kanten-Effekt für den Rand */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  pointer-events: none;
+  opacity: 0.3;
+}
+
 .service-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px);
+  box-shadow: 
+    inset 0 0 30px rgba(255, 255, 255, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba(255, 255, 255, 0.2);
 }
 
-/* ========== Nummernzeile (01 + Linie) ========== */
+/* ========== Text und Überschriften der Service Card ========== */
+.service-card .card-heading {
+  font-size: 30px;
+  font-weight: 400;
+  text-align: left;
+  color: #ffffffac;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.service-card .card-text {
+  font-size: 0.95rem;
+  font-weight: 100;
+  color: #ddd;
+  line-height: 1.4;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  text-align: left;
+  margin-left: 20px;
+}
+
 .card-number-line {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
+  margin-left: 20px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Nummer */
 .card-number {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #21cacd;
+  color: rgba(73, 148, 169, 0.7);
 }
 
-/* Kurze Linie in hellem Grau */
 .card-line {
   width: 30px;
   height: 1px;
-  background: #9f9f9fd4;
-}
-
-/* ========== Card-Überschrift ========== */
-.card-heading {
-  font-size: 30px;
-  margin-top: 40px;
-  font-weight: 400;
-  text-align: left;
-}
-
-/* ========== Card-Text ========== */
-.card-text {
-  font-size: 0.95rem;
-  font-weight: 100;
-  color: #ccc;
-  line-height: 1.4;
-  margin-top: 50px;
-  margin-bottom: 12px;
-  text-align: left;
-}
-
-/* ========== Optionaler Link in der Card ========== */
-.card-link {
-  display: inline-block;
-  color: #00eeff;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-.card-link:hover {
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 
@@ -2869,7 +2868,7 @@ main {
   top: 15%;
   height: 100%;
   inset: 0;
-  background: url("FL_Hafen.png") center center no-repeat;
+  background: url("assets/images/FL_Hafen.png") center center no-repeat;
   background-size: cover;
   z-index: -3;
   opacity: 0.35;
@@ -3170,6 +3169,8 @@ main {
   pointer-events: none;
 }
 
+
+
 /* ----------------------- FOOTER ------------------- */
 /* FOOTER GRUNDSTIL */
 footer {
@@ -3227,7 +3228,52 @@ footer {
   text-decoration: underline;
 }
 
-/* RESPONSIVE FÜR MOBILGERÄTE */
+
+/* COOKIE BANNER */
+.cookie-banner {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: bottom 0.5s ease;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+.cookie-banner a {
+  color: #4a91e295;
+  text-decoration: underline;
+}
+
+.button-container {
+  display: flex;
+  gap: 12px;
+}
+
+.cookie-banner button {
+  background-color: #4a7bb48b;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cookie-banner button:hover {
+  background-color: #6395c1;
+}
+
+
+
+/* ######  Footer Mobil ###### */
+
 @media (max-width: 750px) {
   footer {
     margin-top: 90px;
@@ -3249,6 +3295,10 @@ footer {
     justify-content: center;
   }
 }
+
+
+
+
 /* WHATSAPP CSS */
 
 .whatsapp-chat {
