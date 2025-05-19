@@ -1,17 +1,20 @@
 
 /* 🌑 BODY */
 
+/* Inter Variable Font (Regular und Italic) */
 @font-face {
   font-family: 'Inter';
   src: url('/Inter/static/Inter-VariableFont_opsz,wght.ttf') format('truetype');
-  font-weight: 100 900; /* variable font von 100 bis 900 */
+  font-weight: 100 900;
   font-display: swap;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/Inter/static/Inter-VariableFont.woff2') format('woff2');
+  src: url('/Inter/static/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -21,8 +24,20 @@ body {
     background-color: #0d0d0d;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
-  font-variation-settings: 'wght' 400, 'slnt' 0;
+      font-family: 'Inter', sans-serif;
+  font-weight: 400; /* Regular */
+}
+
+/* Überschriften fett */
+h1, h2, h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700; /* Bold */
+}
+
+/* Kursiver Text (automatisch Inter Italic) */
+em, i {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
 }
 
 
@@ -110,10 +125,10 @@ header {
   
   /* Einzelne Links */
   .nav-links li a {
-    color: #fff;
+    color: #f0f0f0;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 14.5px;
+    font-weight: 400;
     padding: 0px 15px;
     transition: color 0.3s ease;
   }
@@ -1624,6 +1639,7 @@ main {
   font-size: 100px;
   margin: 60px;
   vertical-align: middle;
+  font-weight: 400;
 }
 
 /* Container für den Circle (Text, Blur, Logo) */
@@ -2051,11 +2067,12 @@ main {
   .section-title {
     font-size: 70px;
     font-weight: 500;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
   .section-title-mobile {
     display: none;
   }
+
 
   @media (max-width: 750px) {
     .section-title {
@@ -2070,6 +2087,7 @@ main {
     display: grid;
     gap: 32px; /* Abstand zwischen Karten in px */
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 80px;
   }
   
   /* Einzelne Card */
@@ -2435,7 +2453,7 @@ main {
 .service-card .card-text {
   font-size: 0.95rem;
   font-weight: 100;
-  color: #ddd;
+  color: #c6c6c6;
   line-height: 1.4;
   margin-top: 20px;
   margin-bottom: 12px;
