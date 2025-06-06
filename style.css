@@ -1021,7 +1021,7 @@ main {
   color: white;
   z-index: 20;
   text-align: center;
-  max-width: 220px;
+  max-width: 200px;
 }
 
 /* Counter oben links */
@@ -1031,13 +1031,13 @@ main {
 }
 .counter-number {
   display: block;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-top: 0em;
 }
 .counter-top-left .cluster-label {
   position: absolute;
-  bottom: 100%; /* oberhalb des Clusters */
+  bottom: 100%; 
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
   font-size: 22px;
@@ -1072,10 +1072,10 @@ main {
 
 .video-bottom-left .cluster-label {
   position: absolute;
-  top: 95px;
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 600;
   white-space: nowrap;;
   color: rgba(255, 255, 255, 0.421);
