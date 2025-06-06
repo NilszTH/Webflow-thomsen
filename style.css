@@ -1397,7 +1397,7 @@ main {
     /* Einzelpositionen der Buttons mobil optimiert */
     .parallax-button:nth-child(1) { top: 15%; left: 40%; }
     .parallax-button:nth-child(2) { top: 25%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 45%; left: 25%; }
+    .parallax-button:nth-child(3) { top: 47%; left: 35%; }
     .parallax-button:nth-child(4) { top: 42%; left: 52%; }
     .parallax-button:nth-child(5) { top: 55%; left: 40%; }
     .parallax-button:nth-child(6) { top: 40%; left: 65%; }
@@ -1441,16 +1441,16 @@ main {
   }
 
   .video-bottom-left .cluster-label {
-    top: 75px;
-    font-size: 14px;
+    top: 60px;
+    font-size: 10px;
   }
 
   /* Infocard (Hover-Bild) → rechts mittig */
   .image-right {
-    right: 15%;
+    right: 12%;
     top: 37%;
     transform: translateY(-50%);
-    max-width: 110px;
+    max-width: 120px;
     height: auto;
   }
 
@@ -3817,7 +3817,7 @@ footer {
     padding: 20px;
     gap: 12px;
     bottom: 0;
-    height: 45vh;
+    height: 40vh;
     justify-content: flex-start;
     overflow-y: auto;
     z-index: 99999;
@@ -3826,14 +3826,15 @@ footer {
   .cookie-banner p {
     font-size: 14px;
     line-height: 1.4;
-    margin-bottom: 12px;
+    margin-top: 20px;
+    margin-bottom: 25px;
     text-align: left;
   }
 
   .button-container {
     flex-direction: column;
-    width: 100%;
-    gap: 10px;
+    width: 70%;
+    gap: 15px;
   }
 
   .cookie-banner button {
