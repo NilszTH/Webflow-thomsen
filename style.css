@@ -1,7 +1,6 @@
 
 /* 🌑 BODY */
 
-/* Inter Variable Font (Regular und Italic) */
 @font-face {
   font-family: 'PT Sans';
   src: url('/PT_Sans/PTSans-Regular.ttf') format('truetype');
@@ -9,7 +8,9 @@
   font-style: normal;
   font-display: swap;
 }
-
+* {
+  box-sizing: border-box;
+}
 body {
     overflow-y: visible;
     overflow-x: hidden !important;
@@ -17,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 400; /* Regular */
 }
 
 
@@ -84,9 +85,9 @@ header {
   /* Logo links */
   .logo-header {
     position: fixed;
-    margin-left: 9.5%;
-    margin-top: -8px;
-    height: 50px;
+    margin-left: 7%;
+    margin-top: -40px;
+    height: 100px;
     width: auto;
   }
   
@@ -579,11 +580,11 @@ main {
 .animated-text {
   position: relative;
     animation: slideInFromLeft 1s ease-out forwards;
-    top: 0%;
+    top: -5%;
     left: 0;
     color: rgb(255, 255, 255);
-    font-size: 70px;
-    font-weight: 550;
+    font-size: 72px;
+    font-weight: 600;
     z-index: 5;
 }
 .animated-text1 {
@@ -596,9 +597,10 @@ main {
 }
 .animated-text2 {
     opacity: 1;
+    margin-bottom: 30px;
     animation: slideInFromLeft 1s ease-out forwards;
     color: rgb(156, 156, 156);
-    font-size: 20x;
+    font-size: 30x;
     font-weight: 200;
 }
 
@@ -606,7 +608,7 @@ main {
 .btn {
     display: inline-block;
     padding: 14px 40px;
-    margin-top: 30px;
+    margin-top: 20px;
     background: rgb(255, 255, 255);
     position: relative;
     left: 0%;
@@ -729,6 +731,7 @@ main {
 
 /* ✅ Animierter Button */
 .cta-button {
+    display: none;
     position: absolute;
     top: 37%;
     left: 80%;
@@ -910,6 +913,7 @@ main {
     position: relative;
     height: 100%;
     display: flex;
+    margin-top: 5%;;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -1010,6 +1014,122 @@ main {
     100% { transform: rotate(360deg); }
 }
 
+
+/* === INFO-CLUSTER POSITIONIERUNG UND STIL === */
+.info-cluster {
+  position: absolute;
+  color: white;
+  z-index: 20;
+  text-align: center;
+  max-width: 220px;
+}
+
+/* Counter oben links */
+.counter-top-left {
+  top: 20%;
+  left: 35%;
+}
+.counter-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 0em;
+}
+.counter-top-left .cluster-label {
+  position: absolute;
+  bottom: 100%; /* oberhalb des Clusters */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: white;
+}
+
+
+
+.video-bottom-left {
+  position: absolute; /* Beibehalten für untere linke Position */
+  bottom: 18%;
+  left: 24%;
+  backdrop-filter: blur(10px);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.5em;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.0);
+  z-index: 1;
+}
+
+
+.cluster-video {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  background: none;
+  opacity: 0.7;
+}
+
+.video-bottom-left .cluster-label {
+  position: absolute;
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;;
+  color: rgba(255, 255, 255, 0.421);
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+
+/* Rechts Bild mit Fade und Schriftzug */
+.image-right {
+  right: 25%;
+  top: 30%;
+  z-index: 0;
+}
+
+.hover-image-switch {
+  position: relative;
+  width: 180px;
+  height: auto;
+  display: block;
+}
+
+.hover-image-switch img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.image-default {
+  opacity: 1;
+  z-index: 1;
+}
+.image-hover {
+  opacity: 0;
+  z-index: 2;
+}
+.hover-image-switch:hover .image-hover {
+  opacity: 1;
+}
+.hover-image-switch:hover .image-default {
+  opacity: 0;
+}
+
+
+
+
 /* ✅ Farbklecks, der sich entlang des Kreises bewegt */
 .moving-logo {
   position: absolute;
@@ -1020,6 +1140,35 @@ main {
   transform: translate(-50%, -50%);
   animation: moveAroundCircle 10s linear infinite;
   object-fit: contain;
+}
+.parallax-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  pointer-events: none; /* verhindert, dass Buttons blockiert werden */
+  z-index: 20; /* über Kreiselementen und Buttons */
+}
+
+.parallax-text {
+  font-size: 70px;
+  line-height: 1.2;
+  color: white;
+  font-weight: 600;
+  padding: 20px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-out;
+  z-index: 20;
+}
+
+.mobile-headline {
+  display: none;
 }
 
 /* ✅ Animation für den Farbklecks */
@@ -1057,35 +1206,6 @@ main {
     z-index: -3;
   }
 
-.parallax-container {
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
-    will-change: transform;
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 10;
-}
-
-/* ✅ Haupttext mit Parallax-Effekt */
-.parallax-text {
-    font-size: 90px;
-    color: white;
-    font-weight: 500;
-    padding: 10px;
-    text-align: center;
-    position: relative;
-    transition: transform 0.2s ease-out;
-}
-
-.mobile-headline {
-  display: none;
-}
 
 .parallax-container-button {
     position: absolute;
@@ -1115,7 +1235,7 @@ main {
   .parallax-button:nth-child(1) { top: 30%; left: 40%; }
 .parallax-button:nth-child(2) { top: 30%; left: 60%; }
 .parallax-button:nth-child(3) { top: 55%; left: 45%; }
-.parallax-button:nth-child(4) { top: 35%; left: 48%; }
+.parallax-button:nth-child(4) { top: 50%; left: 55%; }
 .parallax-button:nth-child(5) { top: 65%; left: 40%; }
 .parallax-button:nth-child(6) { top: 60%; left: 60%; }
   
@@ -1152,17 +1272,6 @@ main {
       margin: 30px auto;
     }
   
-    .parallax-text {
-      display: block;
-      font-size: clamp(30px, 8vw, 55px); /* passt sich automatisch an */
-      max-width: 90%;
-      width: 80%;
-      text-align: center;
-      margin: 0 auto;
-      position: relative; /* statt absolute */
-      top: auto;
-      left: auto;
-  }
   
     .moving-logo {
       position: absolute;
@@ -1170,19 +1279,6 @@ main {
       width: 50px;
       height: 50px;
       animation: moveAroundCircleTablet 10s linear infinite;
-    }
-
-    .mobile-headline {
-      display: none;
-      position: absolute;
-      top: 22%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      font-size: 30px;
-      font-weight: 500;
-      color: white;
-      z-index: 10;
     }
   
     .color-bulb-circle {
@@ -1240,48 +1336,7 @@ main {
       width: 300px;
       margin: 20px auto;
     }
-  
-    .parallax-container {
-      overflow-x: hidden;
-      overflow-y: auto;
-      will-change: transform;
-      position: relative;
-      width: 100%;
-      max-width: none;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      z-index: 10;
-  }
-    .parallax-text {
-      display: none;
-      font-size: clamp(50px, 8vw, 55px); /* passt sich automatisch an */
-      max-width: none;
-      width: 85% !important;
-      text-align: center;
-      margin: 0 auto;
-      position: relative; /* statt absolute */
-      top: -70px;
-      left: auto;
-      z-index: 100;
-  }
 
-    .mobile-headline {
-      display: block;
-      position: absolute;
-      top: 28%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      font-size: 32px;
-      font-weight: 600;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.3;
-      z-index: 10;
-    }
   
     .outer-circle,
     .inner-circle {
@@ -1341,18 +1396,482 @@ main {
   
     /* Einzelpositionen der Buttons mobil optimiert */
     .parallax-button:nth-child(1) { top: 15%; left: 40%; }
-    .parallax-button:nth-child(2) { top: 15%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 40%; left: 45%; }
-    .parallax-button:nth-child(4) { top: 25%; left: 48%; }
+    .parallax-button:nth-child(2) { top: 25%; left: 60%; }
+    .parallax-button:nth-child(3) { top: 45%; left: 25%; }
+    .parallax-button:nth-child(4) { top: 42%; left: 52%; }
     .parallax-button:nth-child(5) { top: 55%; left: 40%; }
-    .parallax-button:nth-child(6) { top: 50%; left: 60%; }
+    .parallax-button:nth-child(6) { top: 40%; left: 65%; }
 
     /* ✅ Mobile Variante für kleinere Umlaufbahn */
     @keyframes moveAroundCircleMobile {
       0%   { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
       100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
     }
+
+/* Counter – bleibt zentriert */
+  .counter-top-left {
+    top: 25%;
+    left: 40%;
+    transform: translateX(-50%);
   }
+
+  .counter-number {
+    font-size: 1.8rem;
+  }
+
+  .counter-top-left .cluster-label {
+    font-size: 14px;
+    transform: translateX(-50%) translateY(-6px);
+  }
+
+  /* Video (Trust the Process) → unten links */
+  .video-bottom-left {
+    left: 12%;
+    bottom: 37%;
+    top: auto;
+    right: auto;
+    max-width: 120px;
+    transform: none;
+  }
+
+  .cluster-video {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+  }
+
+  .video-bottom-left .cluster-label {
+    top: 75px;
+    font-size: 14px;
+  }
+
+  /* Infocard (Hover-Bild) → rechts mittig */
+  .image-right {
+    right: 15%;
+    top: 37%;
+    transform: translateY(-50%);
+    max-width: 110px;
+    height: auto;
+  }
+
+  .hover-image-switch {
+    width: 100%;
+    height: auto;
+  }
+
+  .hover-image-switch img {
+    border-radius: 10px;
+  }
+  }
+
+
+  /* ########## Gesamtstruktur ############# */
+.infocard-section {
+  display: flex;
+  gap: 90px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 150px 5vw;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-repeat: repeat;
+  background-size: 5px 5px;
+  background-position: center center;
+  /* Parallax effect settings */
+  overflow: hidden;
+  overflow-x: hidden !important;
+}
+
+/* Linke Seite – Infocard Container */
+.infocard-wrapper {
+  flex: 0 0 400px;
+  max-width: 300px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Sticky Card selbst */
+.infocard {
+  z-index: 3;
+  overflow: visible;
+}
+
+/* Innerer Parallaxbereich (für Bildwechsel etc.) */
+.infocard-parallax {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  padding: 0px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  /* Parallax movement */
+  transform: translate3d(0, 0, 0); /* oder translateZ(0) */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  contain: layout paint;
+}
+
+/* Bild innerhalb der Karte */
+.infocard-image {
+  width: 100%;
+  height: 280px;
+  display: block;
+  border-radius: 12px 12px 0 0;
+  border: 1px bold rgba(212, 212, 212, 0.8);
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+
+/* Inhalt */
+.infocard-content {
+  margin-top: 4px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  color: black;
+  text-align: left;
+}
+.infocard-content h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(125, 216, 255);
+}
+.infocard-content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.infocard-scroll-content {
+  flex: 1 1 0;
+  max-width: calc(100% - 400px - 60px); /* Platz neben der Infocard */
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  text-align: left;
+}
+
+
+.image-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 700px;
+  transition: all 0.6s ease-out;
+}
+.image-text-block img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  opacity: 0.9;
+}
+.image-text-block p {
+  font-size: 18px;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* (Optional) Schienen hinter der Infocard */
+.infocard-track::before,
+.infocard-track::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  left: 10px;
+}
+
+/* TOOLBAR + FROMATIERTER TEXT */
+.editable-wrapper {
+  position: relative;
+  margin-top: 24px;
+  max-width: 100%;
+}
+
+.toolbar {
+  position: absolute;
+  top: -35px;
+  left: 30px;
+  background: #333;
+ box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.toolbar button {
+  background: none;
+  color: rgb(255, 255, 255);
+  border: none;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+}
+.toolbar button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.highlighted-text {
+  background-color: #ebd972;
+  color: black;
+  padding: 12px;
+  border-radius: 0px;
+  font-size: 18px;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+
+/* MARKER */
+.marker {
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  background: transparent;
+  top: -5px;
+}
+
+.marker-left {
+  left: -1px;
+  border-left: 2px solid black;
+  border-top: none;
+  border-radius: 0;
+}
+.marker-left::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: -5px;
+}
+
+.marker-right {
+  right: -1px;
+  top: 5px;
+  border-right: 2px solid black;
+  height: 50px;
+}
+.marker-right::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+}
+
+.icon-only {
+  opacity: 0.7;
+  font-size: 16px;
+  cursor: default;
+}
+
+/* FORMATIERTER TEXT */
+
+.formatted-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+  position: relative;
+}
+
+.strike {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.highlight {
+  color: #f97316; /* Orange-Ton, wie im Screenshot */
+  font-weight: 600;
+}
+
+.avatar-marker {
+  display: inline-block;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 10px;
+}
+/* Markerlinie darunter */
+.avatar-marker::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background-color: #f97316;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* WICHTIG – verhindert Verzerrung */
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px #f97316;
+}
+
+.editable-container {
+  position: relative;
+  padding-left: 24px;
+  margin-top: 12px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.editable-text {
+  font-size: 20px;
+  color: #999;
+  outline: none;
+  border: none;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.editable-text:focus {
+  color: #222;
+}
+
+.edit-toolbar {
+  display: flex;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: fit-content;
+  align-items: center;
+}
+
+.edit-toolbar button {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.edit-toolbar button:hover {
+  transform: scale(1.1);
+}
+.final-text {
+  font-family: monospace;
+  font-size: 19px;
+  color: #222;
+  margin: 32px 0 16px;
+  line-height: 1.6;
+}
+
+/* PHONEE */
+
+@media screen and (max-width: 650px) {
+  .infocard-section {
+    flex-direction: column;
+    gap: 60px;
+    padding: 80px 5vw;
+  }
+
+  .infocard-wrapper {
+    display: none;
+  }
+
+  .infocard-scroll-content {
+    max-width: 100%;
+    gap: 80px;
+  }
+
+  .image-text-block {
+    max-width: 100%;
+  }
+
+  .image-text-block img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .final-text {
+    font-size: 16px;
+    margin: 24px 0;
+  }
+
+  .edit-toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .editable-text {
+    font-size: 18px;
+  }
+}
+
+/* TABLET */
+
+@media screen and (min-width: 651px) and (max-width: 1249px) {
+  .infocard-section {
+    gap: 60px;
+    padding: 120px 5vw;
+  }
+
+  .infocard-wrapper {
+    flex: 0 0 280px;
+    max-width: 280px;
+  }
+
+  .infocard-scroll-content {
+    max-width: calc(100% - 280px - 40px);
+    gap: 100px;
+  }
+
+  .image-text-block {
+    max-width: 100%;
+  }
+
+  .image-text-block img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .editable-text {
+    font-size: 18px;
+  }
+
+  .final-text {
+    font-size: 17px;
+    margin: 28px 0 20px;
+  }
+}
+
+
 
   /* DASHED LINEEEEEEEEEE */
 
@@ -1766,7 +2285,7 @@ main {
 /* Inhalte */
 .content {
     padding-left: 20px;
-    width: 90%;
+    width: 100%;
     align-content: center;
     z-index: 3;
 }
@@ -2425,7 +2944,7 @@ main {
   font-size: 30px;
   font-weight: 400;
   text-align: left;
-  color: #ffffffac;
+  color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   margin-top: 30px;
   margin-left: 20px;
@@ -2434,7 +2953,7 @@ main {
 .service-card .card-text {
   font-size: 0.95rem;
   font-weight: 100;
-  color: #c6c6c6;
+  color: #d9d9d9;
   line-height: 1.4;
   margin-top: 20px;
   margin-bottom: 12px;

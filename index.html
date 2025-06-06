@@ -21,7 +21,7 @@
     <header>
       <nav class="nav">
         <a href="#top">
-          <img src="assets/images/logo_neu01.png" alt="Logo" class="logo-header">
+          <img src="assets/images/THOMSEN-2.png" alt="Logo" class="logo-header">
         </a>
         <div class="nav-mobile-title">WEBFLOW<br>THOMSEN</div>
         <!-- Navigationselemente (Desktop immer sichtbar, Mobile standardmäßig versteckt) -->
@@ -95,12 +95,14 @@
             </video>
           </div>
             <div class="blur-layer"></div>
-            <div class="hero-content">
-                <p class="animated-text1">KREATIV. MODERN. FUNKTIONELL.</p>
-                <h1 class="animated-text">Webdesign auf <br> Agentur-Niveau zu<br>Freelancer-Preisen</h1>
-                <p class="animated-text2">Mein Ziel ist es, eine Website zu gestalten und zu <br> entwickeln die dich und deine Zielgruppe begeistert.</p>
-                <a href="#service-section" class="btn">Informationen</a>
-            </div>
+           <div class="hero-content">
+  <div class="hero-text-wrapper">
+    <p class="animated-text1">KREATIV. MODERN. FUNKTIONELL.</p>
+    <h1 class="animated-text">Webdesign auf <br> Agentur-Niveau zu<br>Freelancer-Preisen</h1>
+    <p class="animated-text2">Mein Ziel ist es, eine Website zu gestalten und zu <br> entwickeln die dich und deine Zielgruppe begeistert.</p>
+  </div>
+  <a href="#service-section" class="btn">Informationen</a>
+</div>
             <a href="#top" class="cta-button">
               <div class="cta-blur"></div>
               <svg class="rotating-text" width="250" height="250" viewBox="0 0 250 250">
@@ -159,12 +161,36 @@
                 <!-- Farbklecks, der um den äußeren Kreis kreist -->
                 <img src="assets/images/movingdot.png" alt="Logo" class="moving-logo">
             </div>
-           <!-- Haupttext mit Parallax-Effekt in extra Wrapper -->
-           <div class="parallax-container">
-            <!-- Desktop/Tablet Version mit Parallax -->
-            <h1 class="parallax-text">Erwecke deine Ideen zum Leben<br>und gestalte aktiv mit.</h1>
-            <h1 class="mobile-headline">Erwecke deine Ideen zum Leben.</h1>
+                        <!-- Haupttext mit Parallax-Effekt in extra Wrapper -->
+            <div class="parallax-container">
+              <h1 class="parallax-text"><br></h1>
+              <h1 class="mobile-headline">Erwecke deine Ideen zum Leben.</h1>
             </div>
+            <!-- NEUE INFO-CLUSTER INNERHALB DER CIRCLE-SEKTION -->
+
+<div class="info-cluster counter-top-left">
+  <div class="cluster-label">CODE EXPERIENCE</div>
+  <span class="counter-number" data-target="1000">0</span>
+</div>
+
+            <!-- Info-Cluster 2: Video-Infocard unten links -->
+<div class="info-cluster video-bottom-left glass-card">
+  <div class="cluster-label">TRUST THE PROCESS</div>
+  <video class="cluster-video" autoplay muted loop playsinline>
+    <source src="assets/videos/process_retro.mp4" type="video/mp4">
+    Dein Browser unterstützt dieses Video nicht.
+  </video>
+</div>
+
+            <div class="info-cluster image-right">
+  <div class="image-fade-bg hover-image-switch">
+    <img class="image-default" src="assets/images/FL_TAG.jpg" alt="Profilbild ernst" />
+    <img class="image-hover" src="assets/images/FL_NACHT.jpg" alt="Profilbild lächelnd" />
+    <h3 class="cluster-title">Flensburg</h3> <!-- direkt INS Bild-Wrapper -->
+  </div>
+</div>
+
+
             <div class="circle"></div> <!-- Beispiel für deinen Kreis -->
             <div class="parallax-container-button">
                 <!-- Button 1 -->
@@ -179,10 +205,10 @@
                 
                     <!-- Beispiel-Button 2: nach rechts schieben -->
                     <div class="parallax-button"
-                         data-range-start="500"
-                         data-range-end="800"
-                         data-move-x="80"
-                         data-move-y="-30">
+                         data-range-start="350"
+                         data-range-end="850"
+                         data-move-x="90"
+                         data-move-y="-70">
                       <img src="assets/images/wordpress.png" alt="Webflow Logo" class="button-logo" />
                       <span class="button-text">Wordpress</span>
                     </div>
@@ -191,8 +217,8 @@
                     <div class="parallax-button"
                          data-range-start="500"
                          data-range-end="900"
-                         data-move-x="60"
-                         data-move-y="70">
+                         data-move-x="-70"
+                         data-move-y="-80">
                       <img src="assets/images/clients1.png" alt="Client-First Logo" class="button-logo" />
                       <span class="button-text">Client-First</span>
                     </div>
@@ -201,8 +227,8 @@
                     <div class="parallax-button"
                          data-range-start="500"
                          data-range-end="900"
-                         data-move-x="40"
-                         data-move-y="40">
+                         data-move-x="110"
+                         data-move-y="-100">
                       <img src="assets/images/function.png" alt="Attributes Logo" class="button-logo" />
                       <span class="button-text">Responsive</span>
                     </div>
@@ -210,7 +236,7 @@
                     <!-- Beispiel-Button 5: etwas weiter nach links/unten -->
                     <div class="parallax-button"
                          data-range-start="500"
-                         data-range-end="1200"
+                         data-range-end="1300"
                          data-move-x="-55"
                          data-move-y="65">
                       <img src="assets/images/design.png" alt="Figma Logo" class="button-logo" />
@@ -221,8 +247,8 @@
                     <div class="parallax-button"
                          data-range-start="500"
                          data-range-end="1000"
-                         data-move-x="50"
-                         data-move-y="80">
+                         data-move-x="60"
+                         data-move-y="90">
                       <img src="assets/images/custom.png" alt="Custom Logo" class="button-logo" />
                       <span class="button-text">Custom</span>
                     </div>
@@ -231,7 +257,90 @@
                     </div>
                 </div>
         </section>
+        <section class="infocard-section">
+  <div class="infocard-wrapper">
+    <!-- Sticky Infocard (bleibt auf halber Strecke stehen) -->
+    <div class="infocard">
+      <div class="infocard-parallax">
+        <img src="assets/images/concept_eckig.png" class="infocard-image" alt="Infobild">
+        <div class="infocard-content">
+          <h3>¶
+</h3>
+          <p>Jede Website beginnt mit einem Impuls <br> einer Idee, die Form und Funktion braucht.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="infocard-scroll-content">
+  <!-- Rechte Seite: Bild-Text-Blöcke scrollen normal vorbei -->
+  <div class="image-text-block">
+    <img src="assets/images/prozess1.png" alt="Projekt 1">
+    <p>Eine Website ist mehr als Code und Layout.
+Sie entsteht aus Planung, Strukturierung und Umsetzung.
+Texte, Bilder und Komponenten werden logisch verknüpft.
+Design und Funktion gehen Hand in Hand.
+Das Ergebnis ist ein stabiles, konsistentes System.</p>
+
+    <!-- Interaktives Formatierungsfeld -->
+<div class="editable-wrapper">
+  <div class="marker marker-left"></div>
+  
+  <div class="toolbar">
+    <button onclick="toggleStyle('fontWeight', 'bold')">B</button>
+    <button onclick="toggleStyle('fontStyle', 'italic')">I</button>
+    <button onclick="toggleStyle('textDecoration', 'underline')">U</button>
+    <button onclick="toggleStyle('textDecoration', 'line-through')">S</button>
+
+    <!-- Zusatz-Symbole, keine Funktion -->
+    <button class="icon-only">🔗</button>
+    <button class="icon-only">@</button>
+    <button class="icon-only">💡</button>
+  </div>
+
+  <div id="editableText" class="highlighted-text" contenteditable="true">
+    Dieser Text kann per Klick formatiert und verändert werden. Probiere es aus!
+  </div>
+
+  <div class="marker marker-right"></div>
+</div>
+
+<div class="image-text-block">
+  <img src="assets/images/desk.png" alt="Projekt 2">
+
+  <p class="formatted-text">
+    Die <span class="strike">kreativen</span> Ideen stehen – jetzt geht es an die <span class="strike">Umsetzung</span> in Code:  
+    <span class="highlight">HTML, CSS, JavaScript</span> bilden das Fundament.
     
+    <span class="avatar-marker">
+      <img src="assets/images/custom.png" alt="Nils" class="avatar-img" />
+    </span>
+    <span class="strike">Jede</span> Zeile hat einen Zweck.<br/>
+  Parallel zum Coden entsteht das, was später gesehen wird:
+  Texte, Bilder, Inhalte – alles wächst <span class="strike">zusammen</span> zur fertigen Seite.
+</p>
+</div>
+
+ <div class="image-text-block">
+  <img src="assets/images/zusammenschnitt.png" alt="Projekt 3">
+
+  <p class="final-text">
+    Der Code ist durch, das Design steht – die Website geht online. Von der ersten Idee bis zur fertigen Seite war es ein kreativer Prozess. Jetzt beginnt der Part, der zählt: Wirkung zeigen, Vertrauen aufbauen, Ergebnisse erzielen.
+  </p>
+
+  <div class="editable-container">
+    <div class="timeline-marker"></div>
+    <div class="editable-text" contenteditable="true">Hier Tippen...</div>
+
+    <div class="edit-toolbar">
+      <button><span>＋</span></button>
+      <button><span>📷</span></button>
+      <button><span>✎</span></button>
+    </div>
+  </div>
+</div>
+</div>
+</section>
         <section class="dashed-line">
             <section class="dashed-line-section">
                     <svg class="dashed-line" viewBox="0 0 5000 3000" preserveAspectRatio="none">

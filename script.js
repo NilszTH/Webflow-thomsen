@@ -17,27 +17,59 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// ------------------------ Parallax Text über Circle----------
-window.addEventListener("scroll", function() {
-    let text = document.querySelector(".parallax-text");
-    let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+function startCounter(entry) {
+  const counter = entry.target;
+  const target = +counter.getAttribute('data-target');
+  let current = 0;
 
-    let maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    let offset = 250; // Ab wann die Skalierung beginnt
+  const duration = 8000; // Dauer der Animation in ms → 8000 = 8 Sekunden
+  const frameRate = 60; // 60 FPS
+  const totalSteps = Math.round((duration / 1000) * frameRate);
+  const increment = target / totalSteps;
 
-    let progress = Math.max(0, (scrollPosition - offset) / (maxScroll - offset));
+  function update() {
+    current += increment;
+    if (current < target) {
+      counter.textContent = Math.floor(current) + "+";
+      requestAnimationFrame(update);
+    } else {
+      counter.textContent = target + "+h";
+    }
+  }
 
-    // 🔹 Start- und Endgröße definieren
-    let minScale = 0.6;  // Startgröße (80%)
-    let maxScale = 1.5;  // Endgröße (160%)
+  update();
+  counter.classList.add('counted');
+}
 
-    // 🔹 Berechnung der Skalierung mit variabler Spanne
-    let scaleValue = minScale + progress * (maxScale - minScale);
+// Observer wird erst nach dem ersten Scroll registriert
+let observerInitialized = false;
 
-    // Skalierung auf das Text-Element anwenden
-    text.style.transform = `scale(${scaleValue})`;
-    text.style.transition = "transform 0.2s ease-out";
-});
+function initObserverOnScroll() {
+  if (observerInitialized) return;
+  observerInitialized = true;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        startCounter(entry);
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  document.querySelectorAll('.counter-number').forEach(counter => {
+    observer.observe(counter);
+  });
+
+  // Observer-Initialisierung nur einmal
+  window.removeEventListener('scroll', initObserverOnScroll);
+}
+
+// Erst auf echten Scroll aktivieren
+window.addEventListener('scroll', initObserverOnScroll);
+
+
 
 // Hover Animation für Info-button (Start Bereich)
 document.querySelectorAll(".btn").forEach(button => {
@@ -109,6 +141,63 @@ function updateParallaxButtons() {
   ticking = false;
 }
 
+// PPPPP
+document.addEventListener("DOMContentLoaded", function () {
+  const parallaxCard = document.querySelector(".infocard-parallax");
+  const section = document.querySelector(".infocard-section");
+  const scrollContent = document.querySelector(".infocard-scroll-content");
+
+  window.addEventListener("scroll", () => {
+    if (!parallaxCard || !section || !scrollContent) return;
+
+    const sectionRect = section.getBoundingClientRect();
+    const sectionTop = sectionRect.top;
+    const sectionBottom = sectionRect.bottom;
+    const sectionHeight = section.offsetHeight;
+    const windowHeight = window.innerHeight;
+
+if (sectionTop <= 0 && sectionBottom >= windowHeight) {
+  const offsetAdjust = 0;
+  const scrollAmount = Math.round(
+  Math.min(sectionHeight - windowHeight - offsetAdjust, Math.abs(sectionTop) + offsetAdjust)
+);
+parallaxCard.style.transform = `translate3d(0, ${scrollAmount}px, 0)`;
+
+  const halfway = (sectionHeight - windowHeight) / 2;
+  const cardImage = parallaxCard.querySelector("img");
+
+  if (scrollAmount >= halfway) {
+    parallaxCard.classList.add("switched");
+    if (cardImage) cardImage.src = "assets/images/concept_eckig.png";
+  } else {
+    parallaxCard.classList.remove("switched");
+    if (cardImage) cardImage.src = "assets/images/concept_eckig.png";
+  }
+}
+
+    if (sectionTop < windowHeight && sectionBottom > 0) {
+      const ratio = Math.min(1, Math.abs(sectionTop) / (sectionHeight - windowHeight));
+      const multiplier = 2.5; // schneller scrollen
+      const contentOffset = ratio * 100 * multiplier;
+      parallaxCard.style.transform = `translate3d(0, ${Math.round(scrollAmount)}px, 0)`;
+    }
+  });
+});
+
+// Text abschnitt, der bearbeitet werden kann
+
+  function toggleStyle(style, value = '') {
+    const el = document.getElementById("editableText");
+    const current = el.style[style];
+    if (style === 'textDecoration') {
+      el.style.textDecoration = current === value ? '' : value;
+    } else {
+      el.style[style] = current === value || current === style ? '' : value || style;
+    }
+  }
+
+
+
 window.addEventListener('scroll', onScroll);
 
 // Smooth scrolling Funktion für Buttons
@@ -157,7 +246,7 @@ function smoothScroll(targetSelector, duration) {
     }
   });
 
-  // WHATSAPP CHAT
+  // WHATSAPP CHAT Social-Bereich
   // Öffnen des Chatfensters
   document.addEventListener("DOMContentLoaded", function () {
     const chat = document.getElementById("whatsapp-chat");
@@ -184,7 +273,7 @@ function smoothScroll(targetSelector, duration) {
     document.getElementById("whatsapp-chat").classList.add("hidden");
   }
 
-  // Nachricht an WhatsApp senden
+  // Nachricht an WhatsApp senden Social-Bereich
   function sendToWhatsApp() {
     const message = document.getElementById("userMessage").value.trim();
     if (message !== "") {
@@ -205,6 +294,7 @@ window.location.href = url;
     }
   }
 
+
   // Auto-copy E-Mail Button
   function copyEmail(event) {
     event.preventDefault();
@@ -224,7 +314,8 @@ window.location.href = url;
     });
   }
 
-  // Button-Klick abfangen
+
+  // Button-Klick abfangen Whats-App
   document.querySelectorAll(".social-link").forEach(link => {
     if (link.textContent.trim().toLowerCase() === "whatsapp") {
       link.addEventListener("click", function(e) {
@@ -243,3 +334,40 @@ window.location.href = url;
     const overlay = document.querySelector('.pixel-overlay');
     overlay.style.transform = "translateZ(0)";
   });
+
+
+
+
+
+// Cookie Banner ########################### 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const cookieBanner = document.getElementById("cookie-banner");
+
+  if (!cookieBanner) {
+    console.error("Cookie-Banner nicht gefunden!");
+    return;
+  }
+
+  // Prüfen, ob das Cookie existiert
+  if (document.cookie.includes("cookies_accepted=true")) {
+    console.log("Cookie akzeptiert: Banner bleibt ausgeblendet.");
+    cookieBanner.style.bottom = "-100%";
+  } else {
+    console.log("Kein Cookie gefunden: Banner wird angezeigt.");
+    cookieBanner.style.bottom = "0";
+  }
+});
+
+// Funktion zum Akzeptieren der Cookies
+function acceptCookies() {
+  document.cookie = "cookies_accepted=true; max-age=31536000; path=/";
+  document.getElementById("cookie-banner").style.bottom = "-100%";
+  console.log("Cookies akzeptiert.");
+}
+
+// Funktion zum Ablehnen der Cookies
+function declineCookies() {
+  document.getElementById("cookie-banner").style.bottom = "-100%";
+  console.log("Cookies abgelehnt.");
+}
