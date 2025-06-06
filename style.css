@@ -1818,6 +1818,23 @@ main {
     width: 100%;
     border-radius: 10px;
   }
+  .marker-right {
+  right: -1px;
+  top: 25px;
+  border-right: 2px solid black;
+  height: 50px;
+}
+.marker-right::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+}
 
   .final-text {
     font-size: 16px;
