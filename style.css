@@ -1465,7 +1465,7 @@ main {
   }
 
 
-  /* ########## Gesamtstruktur ############# */
+  /* ########## INFO CARD SECTION ############# */
 .infocard-section {
   display: flex;
   gap: 90px;
@@ -1476,7 +1476,7 @@ main {
   width: 100%;
   margin: 0 auto;
   background-color: #fff;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
   background-repeat: repeat;
   background-size: 5px 5px;
   background-position: center center;
@@ -1825,8 +1825,10 @@ main {
   }
 
   .edit-toolbar {
+    margin-right: 5%;
+    max-width: 90vw;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
   }
 
   .editable-text {
@@ -2699,7 +2701,9 @@ main {
   .cards-container {
     position: relative;
     width: 90%;
+    max-width: 100%;
     margin-left: 5%;
+    margin-right: 5%;
     align-items: center;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
@@ -2732,7 +2736,8 @@ main {
   }
 
   .card {
-    height: 350px;
+    display: flex;
+    height: 420px;
     padding: 12px;
     margin-bottom: 30px;
     background-color: #f3f3f3;
@@ -2743,7 +2748,10 @@ main {
   }
 
   .card img {
-    height: 200px;
+        height: auto;
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -3148,7 +3156,9 @@ main {
   
   /* Einzelne Card: Breite anpassen, Höhe evtl. auf auto setzen */
   .service-card {
-    width: 80%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
     padding: 20px;
   }
