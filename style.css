@@ -209,7 +209,7 @@ header {
     
     .logo-header {
       position: relative;
-      left: 8px;
+      left: 5px;
       top: 12px;
       height: 100px;
       z-index: 10;
@@ -3768,6 +3768,7 @@ footer {
 
 
 /* COOKIE BANNER */
+/* COOKIE BANNER */
 .cookie-banner {
   position: fixed;
   bottom: -100%;
@@ -3806,6 +3807,40 @@ footer {
 
 .cookie-banner button:hover {
   background-color: #6395c1;
+}
+
+
+@media (max-width: 750px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 12px;
+    bottom: 0;
+    height: 45vh;
+    justify-content: flex-start;
+    overflow-y: auto;
+    z-index: 99999;
+  }
+
+  .cookie-banner p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .cookie-banner button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
 }
 
 
