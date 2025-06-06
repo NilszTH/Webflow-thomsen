@@ -210,8 +210,8 @@ header {
     .logo-header {
       position: relative;
       left: 8px;
-      top: 8px;
-      height: 40px;
+      top: 12px;
+      height: 100px;
       z-index: 10;
     }
 
