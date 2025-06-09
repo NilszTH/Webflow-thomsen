@@ -1841,11 +1841,12 @@ main {
     margin: 24px 0;
   }
 
-  .edit-toolbar {
-    margin-right: 5%;
-    max-width: 70vw;
+.edit-toolbar {
+    width: 90vw;
+    margin: 0 auto;
+    box-sizing: border-box;
     flex-wrap: wrap;
-    gap: 6px;
+    justify-content: center;
   }
 
   .editable-text {
