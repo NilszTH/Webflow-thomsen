@@ -2718,10 +2718,10 @@ main {
 
   .cards-container {
     position: relative;
-    width: 90%;
+    width: 94%;
     max-width: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
     align-items: center;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
@@ -2753,17 +2753,17 @@ main {
     margin: 8px 0;
   }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  margin-bottom: 30px;
-  background-color: #f3f3f3;
-  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 12px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  color: #000;
-}
+  .card {
+    display: flex;
+    height: 390px;
+    padding: 12px;
+    margin-bottom: 30px;
+    background-color: #f3f3f3;
+    background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 12px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #000;
+  }
 
   .card img {
         height: auto;
