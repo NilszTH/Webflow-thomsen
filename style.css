@@ -14,7 +14,7 @@
 body {
     overflow-y: visible;
     overflow-x: hidden !important;
-    background-color: #0d0d0d;
+    background-color: #070707;
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
@@ -69,7 +69,7 @@ header {
 }
 
 /* ===================== Desktop: Standard ===================== */
-.nav {
+  .nav {
     position: relative;
     top: 5px;
     left: 50%;
@@ -80,6 +80,16 @@ header {
     z-index: 1000;
     display: flex;
     background: transparent;
+  }
+
+  .nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 6%;
+    width: 88%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1); /* halbtransparent weiß */
   }
   
   /* Logo links */
@@ -983,7 +993,7 @@ main {
     align-items: center;
     flex-direction: column;
     background-color: transparent;
-    color: rgba(228, 227, 227, 0.271);
+    color: rgba(228, 227, 227, 0.05);
     overflow-x: hidden;
 }
 
@@ -992,18 +1002,18 @@ main {
     position: absolute;
     width: 500px;
     height: 500px;
-    color: rgba(228, 227, 227, 0.271);
     z-index: 10;
 }
 
 /* ✅ Äußerer & innerer Kreis */
 .outer-circle, .inner-circle {
+  display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    color: rgba(228, 227, 227, 0.271);
+    color: rgba(228, 227, 227, 0.0);
     margin-bottom: 10%;
     z-index: 10;
 }
@@ -1225,9 +1235,10 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px 16px;
-    border-radius: 8px;
+    background-color: rgba(187, 189, 190, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 12px 20px;
+    border-radius: 18px;
     pointer-events: auto; /* Buttons bleiben klickbar */
     z-index: 10;
   }
@@ -1245,14 +1256,16 @@ main {
   }
   
   .button-logo {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
   }
   
   .button-text {
-    font-size: 14px;
+    font-size: 18px;
     white-space: nowrap;
+    font-weight: 500;
+    color: black;
   }
 
 /* TABLETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
@@ -1468,7 +1481,7 @@ main {
   /* ########## INFO CARD SECTION ############# */
 .infocard-section {
   display: flex;
-  gap: 90px;
+  gap: 120px;
   align-items: flex-start;
   justify-content: center;
   padding: 150px 5vw;
@@ -1491,6 +1504,7 @@ main {
   max-width: 300px;
   position: relative;
   overflow: visible;
+  left: 5%;
 }
 
 /* Sticky Card selbst */
@@ -1561,7 +1575,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 700px;
+  max-width: 750px;
   transition: all 0.6s ease-out;
 }
 .image-text-block img {
