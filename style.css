@@ -13,8 +13,8 @@
 }
 body {
     overflow-y: visible;
-    overflow-x: hidden !important;
-    background-color: #070707;
+    overflow-x: auto;
+    background-color: #131212;
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
@@ -104,13 +104,13 @@ header {
   /* Links (Desktop: sichtbar) */
   .nav-links {
     position: relative;
-    left: 20%;
-    top: 2%;
+    left: 18%;
+    top: 3%;
     list-style: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     display: flex;
-    gap: 15px;
+    gap: 10px;
     margin: 0;
     padding: 0;
   }
@@ -127,7 +127,7 @@ header {
   
   /* Hover-Effekt */
   .nav-links li a:hover {
-    color: rgb(126, 189, 226);
+    color: rgb(170, 225, 255, 0.8);
   }
 
   .nav-social-container {
@@ -136,22 +136,22 @@ header {
     top: 5px;
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 22px;
     z-index: 1000;
   }
 
   .whatsapp-button {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 3px 20px;
+    gap: 12px;
+    padding: 2px 15px;
     background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
     color: #fff;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 200 !important;
     backdrop-filter: blur(4px);
     transition: background 0.3s ease;
   }
@@ -172,8 +172,9 @@ header {
   .nav-social {
     position: fixed;
     right: 8%;
-    top: 45%;
+    top: 47%;
     transform: translateY(-50%);
+    opacity: 0.8;
     display: flex;
     flex-direction: row;
     gap: 18px;
@@ -181,7 +182,7 @@ header {
   }
   
   .nav-social a img {
-    width: 22px;
+    width: 25px;
     height: auto;
     filter: brightness(1) contrast(1);
     transition: filter 0.3s ease;
@@ -378,6 +379,9 @@ header {
     }
   }
 
+
+
+
 /* ✅ MAIN-BEREICH */
 main {
     display: block; /* Flex entfernen, um alle Sektionen frei positionierbar zu machen */
@@ -439,12 +443,12 @@ main {
 }
 
 .hero-video-wrapper .video-frame-enhanced {
-  padding: 10px;
+  padding: 7px;
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.1),
-              0 0 150px 80px rgba(77, 136, 204, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.02),
+              0 0 150px 80px rgba(77, 136, 204, 0.0);
   backdrop-filter: blur(2px);
   overflow-x: hidden;
 }
@@ -594,15 +598,16 @@ main {
     left: 0;
     color: rgb(255, 255, 255);
     font-size: 72px;
-    font-weight: 600;
+    font-weight: 500;
     z-index: 5;
 }
 .animated-text1 {
     opacity: 1;
     margin-top: 0;
+    margin-bottom: -20px;
     animation: slideInFromLeft 1s ease-out forwards;
     color: rgba(170, 225, 255, 0.6);
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
 }
 .animated-text2 {
@@ -619,51 +624,29 @@ main {
     display: inline-block;
     padding: 14px 40px;
     margin-top: 20px;
-    background: rgb(255, 255, 255);
+    background: rgba(85, 85, 85, 0.476);
+    border: 1px solid rgba(141, 141, 141, 0.476);
     position: relative;
     left: 0%;
-    color: rgb(0, 0, 0);
+    color: rgb(179, 179, 179);
     text-decoration: none;
-    border-radius: 25px;
-    font-weight: 500;
-    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 300;
+    font-size: 18px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     z-index: 12;
 }
 
-/* ✅ Glow, der sich mit der Maus bewegt */
-.btn::after {
-    content: "";
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, rgba(235, 235, 235, 0.806) 10%, rgba(170, 255, 255, 0) 60%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease-out, transform 0.05s linear;
-}
+
 
 /* ✅ Standard Hover */
 .btn:hover {
-    background: rgb(255, 255, 255);
-    box-shadow: 0 0 10px rgb(11, 251, 255);
+    border: 1px solid rgba(199, 199, 199, 0.475);
+    color: rgba(216, 216, 216, 0.545);
 }
 
-/* ✅ Dynamischer Glow */
-.glow-effect {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, rgb(255, 255, 255) 10%, rgba(170, 255, 255, 0) 60%);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.2s ease-out, transform 0.05s linear;
-}
+
 
 /* ✅ Glow beim Hovern aktivieren */
 .btn:hover::after {
@@ -739,6 +722,9 @@ main {
   }
 }
 
+
+
+
 /* ✅ Animierter Button */
 .cta-button {
     display: none;
@@ -781,6 +767,7 @@ main {
 
 /* ✅ Rotierender SVG-Text */
 .rotating-text {
+  display: none;
     position: absolute;
     width: 150px;
     height: 150px;
@@ -806,6 +793,7 @@ main {
 
 /* ✅ Logo mittig setzen */
 .cta-logo img {
+  display: none;
     width: 47px !important;
     height: auto;
     z-index: 4;
@@ -844,6 +832,8 @@ main {
     height: auto;
   }
 }
+
+
 
 
 /* ===================== Mobile (max-width: 600px) ===================== */
@@ -983,6 +973,201 @@ main {
 
 
 
+
+/* INFO BOXES + Graphic */
+
+
+.infobox-graphic-section {
+  background: none;
+  padding: 80px 40px;
+}
+
+.infobox-graphic-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.infobox-graphic {
+  position: relative;
+  background: #171717;
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 30px;
+  width: 460px;
+}
+
+.infobox-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.infobox-header h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 12px;
+  background: #2a2a2a;
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #ccc;
+}
+
+.feature-list {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.5;
+  align-items: left;
+}
+
+.feature-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.infobox-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.infobox-buttons button {
+  background: transparent;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.infobox-buttons .secondary {
+  background: rgba(255,255,255,0.03);
+}
+
+/* SVG Background Linie */
+.infobox-background {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.icon {
+  font-size: 14px;
+}
+
+
+.branch-line {
+  position: absolute;
+  top: 0;
+  left: 9%;
+  bottom: 20px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.makeover-line {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+
+
+.infobox-graphic-diagram {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  margin-top: 0px;
+}
+
+.main-btn, .branch-btn {
+  background: #1c1c1c;
+  color: #eee;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  background-color: #131212;
+}
+
+.main-btn {
+  position: absolute;
+  bottom: -13px;
+  left: 5px;
+  background-color: #131212;
+}
+
+.branch-btn {
+  position: absolute;
+  top: 70px;
+  right: 5px;
+}
+
+.main-btn2, .branch-btn2 {
+  background: #1c1c1c;
+  color: #eee;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  background-color: #131212;
+}
+.main-btn2 {
+  position: absolute;
+  left: 0px;
+  bottom: 1px;
+  z-index: 2;
+}
+
+.branch-btn2 {
+  position: absolute;
+  right: -2px;
+  bottom: 80px;
+  z-index: 2;
+}
+
+
+
 /* -------------------------- Kreis + Paralax -------------------------- */
 .cirlce {
     position: relative;
@@ -993,8 +1178,8 @@ main {
     align-items: center;
     flex-direction: column;
     background-color: transparent;
-    color: rgba(228, 227, 227, 0.05);
-    overflow-x: hidden;
+    color: rgba(228, 227, 227, 0.485);
+    
 }
 
 /* ✅ Container für die Kreise */
@@ -1142,6 +1327,7 @@ main {
 
 /* ✅ Farbklecks, der sich entlang des Kreises bewegt */
 .moving-logo {
+  display: none;
   position: absolute;
   width: 70px;
   height: 70px;
@@ -1235,10 +1421,10 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: rgba(187, 189, 190, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    padding: 12px 20px;
-    border-radius: 18px;
+    background-color: rgba(101, 101, 101, 0.3);
+    border: 1px solid rgba(183, 183, 183, 0.6);
+    padding: 8px 16px;
+    border-radius: 8px;
     pointer-events: auto; /* Buttons bleiben klickbar */
     z-index: 10;
   }
@@ -1262,10 +1448,10 @@ main {
   }
   
   .button-text {
-    font-size: 18px;
+    font-size: 16px;
     white-space: nowrap;
     font-weight: 500;
-    color: black;
+    color: rgb(149, 149, 149);
   }
 
 /* TABLETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
@@ -1992,14 +2178,14 @@ main {
   
   .video-headline {
     font-size: 50px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.3;
     text-align: left;
     margin-left: 16%;
     color: #fff;
   }
   .code-brackets {
-    color: #1e96ffbc;
+    color: #1e96ff8c;
     letter-spacing: 1px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: normal; 
@@ -2019,9 +2205,9 @@ main {
     padding: 10px; /* Innenabstand für Rahmen */
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.1); /* halbtransparenter Rahmen-Hintergrund */
-    border: 2px solid rgba(255, 255, 255, 0.3); /* eigentlicher Rahmen */
-    box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.1),
-                0 0 200px 100px rgba(255, 255, 255, 0.07); /* Lichtschein nach hinten */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* eigentlicher Rahmen */
+    box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.05),
+                0 0 200px 100px rgba(255, 255, 255, 0.0); /* Lichtschein nach hinten */
     backdrop-filter: blur(2px); /* für smoothen Glanz */
     overflow: hidden;
     max-width: 100%;
@@ -3463,7 +3649,7 @@ main {
   top: 15%;
   height: 100%;
   inset: 0;
-  background: url("assets/images/FL_Hafen.png") center center no-repeat;
+  background: url("assets/images/") center center no-repeat;
   background-size: cover;
   z-index: -3;
   opacity: 0.35;
@@ -3611,7 +3797,7 @@ main {
 
   .social-box {
     position: relative;
-    left: 50%;
+    left: 45%;
     bottom: 0%;
     transform: translateX( -50%, -50%);
     width: 90%;
@@ -3683,11 +3869,30 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: left;
+  }
+
+  .location-title {
+      bottom: 0%;
+    margin-left: 18%;     
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .location-text mobile {
+    bottom: 0%;
+    margin-left:-20px;     
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .social-box {
     position: relative;
-    left: 50%;
+    left: 45%;
     bottom: 0%;
     transform: translateX( -50%, -50%);
     width: 90%;
