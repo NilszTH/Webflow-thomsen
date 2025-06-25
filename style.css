@@ -1171,10 +1171,11 @@ main {
     flex-direction: column;
     gap: 22px;
     padding: 0;
+    max-width: 100%;
   }
 
   .infobox-graphic {
-    width: 98%; /* ergibt ca. 3% Abstand links/rechts */
+    width: 98%;
     margin: 0 auto;
     padding: 24px;
     box-sizing: border-box;
