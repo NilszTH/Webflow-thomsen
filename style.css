@@ -1166,7 +1166,51 @@ main {
   z-index: 2;
 }
 
+@media (max-width: 768px) {
+  .infobox-graphic-wrapper {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0;
+  }
 
+  .infobox-graphic {
+    width: 94%; /* ergibt ca. 3% Abstand links/rechts */
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+    height: auto;
+  }
+
+  .infobox-graphic-diagram {
+    height: 160px; /* genug Platz für Grafik */
+  }
+
+  .main-btn,
+  .branch-btn,
+  .main-btn2,
+  .branch-btn2 {
+    transform: scale(0.95);
+  }
+
+  .feature-list li {
+    font-size: 15px;
+    padding-left: 20px;
+  }
+
+  .infobox-header h2 {
+    font-size: 20px;
+  }
+
+  .infobox-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .infobox-buttons button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
 
 /* -------------------------- Kreis + Paralax -------------------------- */
 .cirlce {
