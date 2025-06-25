@@ -1169,12 +1169,12 @@ main {
 @media (max-width: 768px) {
   .infobox-graphic-wrapper {
     flex-direction: column;
-    gap: 32px;
+    gap: 22px;
     padding: 0;
   }
 
   .infobox-graphic {
-    width: 94%; /* ergibt ca. 3% Abstand links/rechts */
+    width: 98%; /* ergibt ca. 3% Abstand links/rechts */
     margin: 0 auto;
     padding: 24px;
     box-sizing: border-box;
@@ -1182,7 +1182,7 @@ main {
   }
 
   .infobox-graphic-diagram {
-    height: 160px; /* genug Platz für Grafik */
+    height: 150px; /* genug Platz für Grafik */
   }
 
   .main-btn,
