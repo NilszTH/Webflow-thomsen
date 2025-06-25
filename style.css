@@ -2346,7 +2346,7 @@ main {
 
 /* Jede Kopie (Block) */
 .marquee-content {
-  display: inline-block;
+  display: none;
   vertical-align: middle;
   margin: -5% 50px -5% 50px;
   z-index: 1;
