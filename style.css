@@ -1,6 +1,7 @@
 
 /* 🌑 BODY */
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @font-face {
   font-family: 'PT Sans';
   src: url('/PT_Sans/PTSans-Regular.ttf') format('truetype');
@@ -13,12 +14,12 @@
 }
 body {
     overflow-y: visible;
-    overflow-x: auto;
+    overflow-x: hidden;
     background-color: #131212;
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
-    font-weight: 400; /* Regular */
+    font-weight: 200;
 }
 
 
@@ -213,6 +214,17 @@ header {
       overflow: visible;
     }
 
+      .nav::after {
+    content: "";
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 6%;
+    width: 92%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1); /* halbtransparent weiß */
+  }
+
     .nav-links.active {
       display: flex;
       flex-direction: column;
@@ -382,7 +394,13 @@ header {
 
 
 
+
+
+
+
 /* ✅ MAIN-BEREICH */
+
+
 main {
     display: block; /* Flex entfernen, um alle Sektionen frei positionierbar zu machen */
     min-height: 100vh; 
@@ -606,8 +624,8 @@ main {
     margin-top: 0;
     margin-bottom: -20px;
     animation: slideInFromLeft 1s ease-out forwards;
-    color: rgba(170, 225, 255, 0.6);
-    font-size: 18px;
+    color: rgba(170, 255, 196, 0.9);
+    font-size: 16px;
     font-weight: 400;
 }
 .animated-text2 {
@@ -617,6 +635,8 @@ main {
     color: rgb(156, 156, 156);
     font-size: 30x;
     font-weight: 200;
+    font-family: 'Raleway', sans-serif !important;
+  font-weight: 300;
 }
 
 /* ✅ Button-Styling */
@@ -727,7 +747,7 @@ main {
 
 /* ✅ Animierter Button */
 .cta-button {
-    display: none;
+    display: block;
     position: absolute;
     top: 37%;
     left: 80%;
@@ -884,10 +904,12 @@ main {
     display: block;
     width: 100%;
     height: 250px;
+    background: #131212;
     overflow: hidden;
     margin-top: -150px; /* optional, um sich an voriger Sektion anzugleichen */
     z-index: 5;
   }
+
   .divider-line-top,
 .divider-line-bottom {
   position: absolute;
@@ -921,6 +943,7 @@ main {
 
   .divider-background {
     position: absolute;
+    background-color: #131212;
     top: 0;
     left: 0;
     width: 100%;
@@ -929,34 +952,51 @@ main {
     z-index: 1;
   }
 
-  .divider-text-wrapper {
-    position: relative;
-    text-align: left;
-    padding: 0 20px;
-    z-index: 3;
-  }
+.divider-text-wrapper {
+  position: relative;
+  text-align: left;
+  padding: 0 24px;
+  z-index: 3;
+}
   
-  .divider-subheading {
-    font-size: 12px;
-    font-weight: 300;
-    color: rgba(149, 209, 255, 0.5);
-    margin-bottom: 12px;
-    margin-top: 12px;
-  }
-  
-  .divider-text {
-    font-size: 18px;
-    font-weight: 400;
-    color: #edededd3;
-    margin: 0;
-  }
-  
-  .divider-description {
-    font-size: 10px;
-    font-weight: 200;
-    color: rgba(255, 255, 255, 0.4);
-    margin-top: 8px;
-  }
+.divider-subheading {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(149, 209, 255, 0.5);
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.divider-text {
+  font-size: 20px;
+  font-weight: 400;
+  color: #edededd3;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.divider-text-wrapper {
+  max-width: 500px;
+  margin-left: 10%;
+  margin-right: auto;
+  padding: 10px 0;
+  line-height: 1.5;
+}
+
+.divider-text-wrapper h2,
+.divider-text-wrapper p,
+.divider-text-wrapper a {
+  text-align: left;
+}
+
+.divider-description {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
   .github-link {
     display: inline-block;
     margin-top: 10px;
@@ -965,6 +1005,7 @@ main {
     text-decoration: none;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
     transition: color 0.3s ease;
+    margin-bottom: 40px;
   }
   .github-link:hover {
     color: #ffffff;
@@ -979,7 +1020,7 @@ main {
 
 .infobox-graphic-section {
   background: none;
-  padding: 40px 12px;
+  padding: 80px 40px;
 }
 
 .infobox-graphic-wrapper {
@@ -1017,6 +1058,8 @@ main {
   padding: 4px 10px;
   border-radius: 12px;
   color: #ccc;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 .feature-list {
@@ -1034,6 +1077,8 @@ main {
   font-size: 16px;
   line-height: 1.5;
   align-items: left;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 .feature-list li::before {
@@ -1166,547 +1211,178 @@ main {
   z-index: 2;
 }
 
+
+/* neu Github Copy */
+
+.section-three {
+  position: relative;
+  width: 100%;
+  min-height: 91vh;
+  background: 
+    radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px), /* Raster */
+    linear-gradient(to bottom, #131212, #ffffff);             /* Verlauf */
+  background-repeat: repeat;
+  background-size: 5px 5px, auto;
+  background-position: center center;
+  overflow: visible;
+  perspective: 1000px;
+}
+
+.section-three-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('dein-hintergrundbild.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.section-three-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 20px 80px;
+  text-align: center;
+  transition: none;
+  transform: scale(1) translateY(0);
+  z-index: 10;
+}
+
+.section-three-inner h1 {
+  font-size: 52px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 10%;
+  margin-bottom: 20px;
+}
+
+.section-three-inner p {
+  font-size: 22px;
+  color: #373737;
+  margin-bottom: 40px;
+}
+
+.section-three-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-three-form input {
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: none;
+  width: 260px;
+}
+
+.section-three-primary-btn,
+.section-three-secondary-btn {
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: 1px solid #9d9d9d;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.section-three-primary-btn {
+  background: #00a95f;
+  border: none;
+}
+
+.section-three-primary-btn:hover {
+  background: #00c977;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.section-three-secondary-btn:active,
+.section-three-primary-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+
+
 @media (max-width: 768px) {
-  .infobox-graphic-wrapper {
+
+  .section-three {
+    min-height: 90vh;
+  }
+  .section-three-inner {
+    padding: 80px 20px 60px;
+    text-align: center;
+    height: 100%;
+  }
+
+  .section-three-inner h1 {
+    font-size: 28px;
+    line-height: 1.4;
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+
+  .section-three-inner p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .section-three-form {
     flex-direction: column;
-    gap: 22px;
-    padding: 0;
-    max-width: 100hv;
+    gap: 10px;
+    align-items: center;
   }
 
-  .infobox-graphic {
-    width: 98% !important;
-    margin: 0 auto;
-    padding: 24px;
-    box-sizing: border-box;
-    height: auto;
+  .section-three-form input {
+    width: 90%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
   }
 
-  .infobox-graphic-diagram {
-    height: 150px;
+  .section-three-primary-btn,
+  .section-three-secondary-btn {
+    font-size: 14px;
+    padding: 12px 16px;
+    width: 40% !important;
   }
 
-  .main-btn,
-  .branch-btn,
-  .main-btn2,
-  .branch-btn2 {
-    transform: scale(0.95);
+  .section-three {
+    min-height: unset; /* Lücke unten vermeiden */
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-three-inner h1 {
+    font-size: 34px;
   }
 
-  .feature-list li {
-    font-size: 15px;
-    padding-left: 20px;
+  .section-three-inner p {
+    font-size: 18px;
   }
 
-  .infobox-header h2 {
-    font-size: 20px;
+  .section-three-form input {
+    width: 80%;
   }
 
-  .infobox-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .infobox-buttons button {
-    width: 100%;
-    margin-bottom: 10px;
+  .section-three-primary-btn,
+  .section-three-secondary-btn {
+    width: 80%;
   }
 }
 
 /* -------------------------- Kreis + Paralax -------------------------- */
-.cirlce {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: transparent;
-    color: rgba(228, 227, 227, 0.485);
-    
-}
 
-/* ✅ Container für die Kreise */
-.circle-container {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    z-index: 10;
-}
-
-/* ✅ Äußerer & innerer Kreis */
-.outer-circle, .inner-circle {
-  display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: rgba(228, 227, 227, 0.0);
-    margin-bottom: 10%;
-    z-index: 10;
-}
-
-/* ✅ Animation für das Drehen des Texts */
-@keyframes rotateText {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-
-/* === INFO-CLUSTER POSITIONIERUNG UND STIL === */
-.info-cluster {
-  position: absolute;
-  color: white;
-  z-index: 20;
-  text-align: center;
-  max-width: 200px;
-}
-
-/* Counter oben links */
-.counter-top-left {
-  top: 20%;
-  left: 35%;
-}
-.counter-number {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-top: 0em;
-}
-.counter-top-left .cluster-label {
-  position: absolute;
-  bottom: 100%; 
-  left: 50%;
-  transform: translateX(-50%) translateY(-10px);
-  font-size: 22px;
-  font-weight: 600;
-  white-space: nowrap;
-  color: white;
-}
-
-
-
-.video-bottom-left {
-  position: absolute; /* Beibehalten für untere linke Position */
-  bottom: 18%;
-  left: 24%;
-  backdrop-filter: blur(10px);
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 0.5em;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.0);
-  z-index: 1;
-}
-
-
-.cluster-video {
-  width: 160px;
-  height: auto;
-  border-radius: 8px;
-  background: none;
-  opacity: 0.7;
-}
-
-.video-bottom-left .cluster-label {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 19px;
-  font-weight: 600;
-  white-space: nowrap;;
-  color: rgba(255, 255, 255, 0.421);
-  z-index: 10;
-  pointer-events: none;
-}
-
-
-
-/* Rechts Bild mit Fade und Schriftzug */
-.image-right {
-  right: 25%;
-  top: 30%;
-  z-index: 0;
-}
-
-.hover-image-switch {
-  position: relative;
-  width: 180px;
-  height: auto;
-  display: block;
-}
-
-.hover-image-switch img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: opacity 0.5s ease;
-  z-index: 1;
-}
-
-.image-default {
-  opacity: 1;
-  z-index: 1;
-}
-.image-hover {
-  opacity: 0;
-  z-index: 2;
-}
-.hover-image-switch:hover .image-hover {
-  opacity: 1;
-}
-.hover-image-switch:hover .image-default {
-  opacity: 0;
-}
-
-
-
-
-/* ✅ Farbklecks, der sich entlang des Kreises bewegt */
-.moving-logo {
-  display: none;
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: moveAroundCircle 10s linear infinite;
-  object-fit: contain;
-}
-.parallax-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  pointer-events: none; /* verhindert, dass Buttons blockiert werden */
-  z-index: 20; /* über Kreiselementen und Buttons */
-}
-
-.parallax-text {
-  font-size: 70px;
-  line-height: 1.2;
-  color: white;
-  font-weight: 600;
-  padding: 20px;
-  text-align: center;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s ease-out;
-  z-index: 20;
-}
-
-.mobile-headline {
-  display: none;
-}
-
-/* ✅ Animation für den Farbklecks */
-@keyframes moveAroundCircle {
-    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(200px) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(200px) rotate(-360deg); }
-}
-
-.my-section {
-    min-height: 2000px;
-  }
-
-  .colorb-mediacircle {
-    display: none;
-  }
-
-  .circle-color-container {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  }
-
-  .color-bulb-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 260px;
-    height: 260px;
-    background-color: rgba(126, 189, 226, 0.2);
-    filter: blur(90px);
-    z-index: -3;
-  }
-
-
-.parallax-container-button {
-    position: absolute;
-    top: 0; 
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100; /* über dem Kreis/der Überschrift */
-    pointer-events: none; /* oder weglassen, wenn Buttons klickbar sein sollen */
-  }
-  
-  .parallax-button {
-    position: absolute;
-    will-change: transform;
-    transition: transform 0.1s ease-out;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: rgba(101, 101, 101, 0.3);
-    border: 1px solid rgba(183, 183, 183, 0.6);
-    padding: 8px 16px;
-    border-radius: 8px;
-    pointer-events: auto; /* Buttons bleiben klickbar */
-    z-index: 10;
-  }
-
-  .parallax-button:nth-child(1) { top: 30%; left: 40%; }
-.parallax-button:nth-child(2) { top: 30%; left: 60%; }
-.parallax-button:nth-child(3) { top: 55%; left: 45%; }
-.parallax-button:nth-child(4) { top: 50%; left: 55%; }
-.parallax-button:nth-child(5) { top: 65%; left: 40%; }
-.parallax-button:nth-child(6) { top: 60%; left: 60%; }
-  
-  /* Hover-Effekt (optional) */
-  .parallax-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .button-logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
-  
-  .button-text {
-    font-size: 16px;
-    white-space: nowrap;
-    font-weight: 500;
-    color: rgb(149, 149, 149);
-  }
-
-/* TABLETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
-  @media (max-width: 1200px) and (min-width: 751px) {
-
-    .circle {
-      position: relative;
-      overflow: visible;
-      overflow-x: hidden;
-    }
-
-    .circle-container {
-      position: absolute;
-      width: 500px;
-      width: 500px;
-      height: 300px;
-      margin: 30px auto;
-    }
-  
-  
-    .moving-logo {
-      position: absolute;
-      top: 48%;
-      width: 50px;
-      height: 50px;
-      animation: moveAroundCircleTablet 10s linear infinite;
-    }
-  
-    .color-bulb-circle {
-      position: absolute;
-      left: 50%;
-      top: 0%;
-      border-radius: 50%;
-      transform: translateX(-50%);
-      width: 260px;
-      height: 260px;
-      filter: blur(90px);
-    }
-  
-    .parallax-button {
-      position: absolute;
-      font-size: 13px;
-      padding: 8px 10px;
-    }
-  
-    /* Tablet: Neu positionierte Buttons */
-    .parallax-button:nth-child(1) { top: 30%; left: 40%; }
-    .parallax-button:nth-child(2) { top: 30%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 55%; left: 45%; }
-    .parallax-button:nth-child(4) { top: 40%; left: 48%; }
-    .parallax-button:nth-child(5) { top: 70%; left: 40%; }
-    .parallax-button:nth-child(6) { top: 65%; left: 60%; }
-  
-    .colorb-mediacircle {
-      position: absolute;
-      width: 350px;
-      height: 350px;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%);
-      filter: blur(50px);
-    }
-  
-    @keyframes moveAroundCircleTablet {
-      0%   { transform: translate(-50%, -50%) rotate(0deg) translateX(140px) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg) translateX(140px) rotate(-360deg); }
-    }
-  }
-
-/* PHONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE */
-  @media (max-width: 750px) {
-
-    .circle {
-      position: relative;
-      overflow: visible;
-      overflow-x: hidden;
-    }
-
-    .circle-container {
-      position: absolute;
-      width: 300px;
-      margin: 20px auto;
-    }
-
-  
-    .outer-circle,
-    .inner-circle {
-      position: absolute;
-      top: -17%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      z-index: 1;
-    }
-  
-    .moving-logo {
-      display: none;
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: moveAroundCircleMobile 10s linear infinite;
-      z-index: 2;
-    }
-  
-    .color-bulb-circle {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(0, 166, 255, 0.2);
-      border-radius: 50%;
-      filter: blur(90px);
-      z-index: -3;
-    }
-  
-    .parallax-container-button {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 11;
-      pointer-events: none;
-    }
-  
-    .parallax-button {
-      position: absolute;
-      font-size: 11px;
-      padding: 6px 8px;
-      will-change: transform;
-      transition: transform 0.2s ease-out;
-      transform: translate(-50%, -50%);
-      z-index: 12;
-    }
-  
-    /* Einzelpositionen der Buttons mobil optimiert */
-    .parallax-button:nth-child(1) { top: 15%; left: 40%; }
-    .parallax-button:nth-child(2) { top: 25%; left: 60%; }
-    .parallax-button:nth-child(3) { top: 47%; left: 35%; }
-    .parallax-button:nth-child(4) { top: 42%; left: 52%; }
-    .parallax-button:nth-child(5) { top: 55%; left: 40%; }
-    .parallax-button:nth-child(6) { top: 40%; left: 65%; }
-
-    /* ✅ Mobile Variante für kleinere Umlaufbahn */
-    @keyframes moveAroundCircleMobile {
-      0%   { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
-    }
-
-/* Counter – bleibt zentriert */
-  .counter-top-left {
-    top: 25%;
-    left: 40%;
-    transform: translateX(-50%);
-  }
-
-  .counter-number {
-    font-size: 1.8rem;
-  }
-
-  .counter-top-left .cluster-label {
-    font-size: 14px;
-    transform: translateX(-50%) translateY(-6px);
-  }
-
-  /* Video (Trust the Process) → unten links */
-  .video-bottom-left {
-    left: 12%;
-    bottom: 37%;
-    top: auto;
-    right: auto;
-    max-width: 120px;
-    transform: none;
-  }
-
-  .cluster-video {
-    width: 100%;
-    height: auto;
-    opacity: 0.8;
-  }
-
-  .video-bottom-left .cluster-label {
-    top: 60px;
-    font-size: 10px;
-  }
-
-  /* Infocard (Hover-Bild) → rechts mittig */
-  .image-right {
-    right: 12%;
-    top: 37%;
-    transform: translateY(-50%);
-    max-width: 120px;
-    height: auto;
-  }
-
-  .hover-image-switch {
-    width: 100%;
-    height: auto;
-  }
-
-  .hover-image-switch img {
-    border-radius: 10px;
-  }
-  }
 
 
   /* ########## INFO CARD SECTION ############# */
@@ -1727,6 +1403,11 @@ main {
   /* Parallax effect settings */
   overflow: hidden;
   overflow-x: hidden !important;
+}
+
+.infocard-section.infocard-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Linke Seite – Infocard Container */
@@ -1794,7 +1475,7 @@ main {
 
 .infocard-scroll-content {
   flex: 1 1 0;
-  max-width: calc(100% - 400px - 60px); /* Platz neben der Infocard */
+  max-width: calc(100% - 400px - 60px); 
   display: flex;
   flex-direction: column;
   gap: 120px;
@@ -1806,6 +1487,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-left: 5%;
   max-width: 750px;
   transition: all 0.6s ease-out;
 }
@@ -2751,10 +2433,12 @@ main {
 
 .feature-text {
   font-size: 0.8rem;
-  line-height: 1.4;
+  line-height: 1.5;
   color: #ddd;
   text-align: left;
   color: #bcbcbc;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 @media (max-width: 750px) {
@@ -2850,7 +2534,7 @@ main {
     position: relative;
     z-index: 10;
     display: grid;
-    gap: 32px; /* Abstand zwischen Karten in px */
+    gap: 32px;
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 80px;
   }
@@ -2867,7 +2551,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 16px;
-    margin-bottom: 120px;
+    margin-bottom: 20px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 500px;
   }
@@ -2913,8 +2597,8 @@ main {
     font-size: 15px;
     line-height: 1.4;
     margin-bottom: 16px;
-    flex: 1; /* Damit der Button nach unten rutscht, wenn Text länger wird */
-    text-align: left;
+    flex: 1;
+    text-align: left !important;
     color: #414141;
     z-index: 10;
   }
@@ -3182,7 +2866,7 @@ main {
 .services-container {
   display: flex;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 35px;
   max-width: 1400px;
   margin: 0 auto;
   justify-content: center;
@@ -3193,12 +2877,12 @@ main {
 .service-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
   padding: 20px;
-  width: 400px;
-  height: 400px;
+  width: 420px;
+  height: 470px;
   position: relative;
   box-shadow: 
     inset 0 0 20px rgba(255, 255, 255, 0.1),
@@ -3216,7 +2900,7 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 20px;
+  border-radius: 12px;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.5) 0%,
@@ -3224,11 +2908,11 @@ main {
     rgba(255, 255, 255, 0) 70%
   );
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: 
     inset 0 0 30px rgba(255, 255, 255, 0.15),
     0 12px 40px rgba(0, 0, 0, 0.3),
@@ -3242,19 +2926,21 @@ main {
   text-align: left;
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  margin-top: 30px;
+  margin-top: 38px;
   margin-left: 20px;
 }
 
 .service-card .card-text {
-  font-size: 0.95rem;
+  font-size: 1.0rem;
   font-weight: 100;
-  color: #d9d9d9;
+  color: #ffffff;
   line-height: 1.4;
-  margin-top: 20px;
+  margin-top: 35px;
   margin-bottom: 12px;
   text-align: left;
   margin-left: 20px;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 .card-number-line {
@@ -3323,27 +3009,27 @@ main {
 .colorbservice {
   top: 18%;
   left: 10%;
-  background: rgba(0, 255, 255, 0.2);
+  background: rgba(0, 255, 255, 0.1);
 }
 .colorbservice1 {
   top: 46%;
   left: 10%;
-  background: rgba(0, 191, 255, 0.254);
+  background: rgba(0, 191, 255, 0.154);
 }
 .colorbservice2 {
   top: 50%;
   left: 65%;
-  background: rgba(124, 90, 218, 0.2);
+  background: rgba(124, 90, 218, 0.1);
 }
 .colorbservice3 {
   top: 10%;
   left: 67%;
-  background: rgba(0, 255, 255, 0.1);
+  background: rgba(0, 255, 255, 0.07);
 }
 .colorbservicetopmid {
   top: 20%;
   left: 40%;
-  background: rgba(0, 153, 255, 0.2);
+  background: rgba(0, 153, 255, 0.09);
 }
 
 /* TABLET SERVICE */
@@ -3522,6 +3208,8 @@ main {
   font-weight: 400;
   color: #fff;
   transition: color 0.3s ease;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 300;
 }
 
 .faq-question:hover {
@@ -3537,6 +3225,8 @@ main {
   line-height: 1.5;
   color: #bcbcbc;
   margin-top: 10px;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 .faq-answer.active {
@@ -3654,7 +3344,9 @@ main {
   line-height: 1.5;
   color: #ccc;
   text-align: left;
-  margin-left: 18%
+  margin-left: 18%;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 .location-text.mobile {
@@ -3720,6 +3412,8 @@ main {
   padding: 20px 30px;
   background: radial-gradient(circle, var(--blur-color, rgba(50, 50, 50, 0.4)) 20%, rgba(0, 0, 0, 0) 90%);
   border-radius: 8px;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 /* Mittlerer Teil: Social-Links */
@@ -3804,7 +3498,9 @@ main {
   display: flex;
   flex-direction: column; /* Logo oben, "Webflow - Thomsen" drunter */
   align-items: flex-start;
-  gap: 6px; /* Abstand zwischen Logo und Text */
+  gap: 6px;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 .footer-logo {
@@ -3829,6 +3525,8 @@ main {
   font-size: 0.85rem;
   color: #aaa;
   text-align: right;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 200;
 }
 
 @media (max-width: 1200px) and (min-width: 751px) {

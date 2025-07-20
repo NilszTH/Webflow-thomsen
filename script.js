@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// COUNTER CIRCLE
+
 function startCounter(entry) {
   const counter = entry.target;
   const target = +counter.getAttribute('data-target');
@@ -141,7 +143,9 @@ function updateParallaxButtons() {
   ticking = false;
 }
 
-// PPPPP
+
+// INFO CARD SECTION - SLIDER
+
 document.addEventListener("DOMContentLoaded", function () {
   const parallaxCard = document.querySelector(".infocard-parallax");
   const section = document.querySelector(".infocard-section");
@@ -371,3 +375,49 @@ function declineCookies() {
   document.getElementById("cookie-banner").style.bottom = "-100%";
   console.log("Cookies abgelehnt.");
 }
+
+
+
+
+// section three
+
+// SECTION THREE — ohne Overlay
+
+window.addEventListener('load', () => {
+  const fadeTarget = document.getElementById('sectionThreeInner');
+
+  // Starteinstellungen
+  fadeTarget.style.transform = 'scale(1) translateY(0)';
+  fadeTarget.style.opacity = '1';
+});
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const section = document.querySelector('.section-three');
+  const fadeTarget = document.getElementById('sectionThreeInner');
+
+  const sectionTop = section.offsetTop;
+  const sectionHeight = section.offsetHeight;
+
+  // Nur während Viewport-Bereich aktiv:
+  if (scrollTop > sectionTop - window.innerHeight / 2 && scrollTop < sectionTop + sectionHeight) {
+    const progressRaw = (scrollTop - sectionTop + 200) / 800;
+    const progress = Math.min(Math.max(progressRaw, 0), 1);
+
+    const scaleValue = 1 - progress * 0.1;
+    const translateYText = progress * -50;
+    const textOpacity = 1 - progress;
+
+    fadeTarget.style.transform = `scale(${scaleValue}) translateY(${translateYText}px)`;
+    fadeTarget.style.opacity = `${textOpacity}`;
+  } else if (scrollTop < sectionTop) {
+    // Reset beim Hochscrollen
+    fadeTarget.style.transform = 'scale(1) translateY(0)';
+    fadeTarget.style.opacity = '1';
+  } else if (scrollTop > sectionTop + sectionHeight) {
+    // Beim Verlassen unten: alles raus
+    fadeTarget.style.transform = 'scale(0.9) translateY(-50px)';
+    fadeTarget.style.opacity = '0';
+  }
+});
+
