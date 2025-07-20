@@ -1211,6 +1211,33 @@ main {
   z-index: 2;
 }
 
+@media (max-width: 750px) {
+  .infobox-graphic-section {
+    padding: 60px 16px; /* Weniger horizontaler Rand */
+  }
+
+  .infobox-graphic-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .infobox-graphic {
+    width: 100%;       /* statt fester Breite */
+    max-width: 100%;   /* Sicherheit */
+    padding: 24px;
+  }
+
+  .infobox-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .infobox-buttons button {
+    width: 100%;
+  }
+}
 
 /* neu Github Copy */
 
