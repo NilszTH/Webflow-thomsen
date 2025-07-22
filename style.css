@@ -2628,6 +2628,7 @@ main {
     z-index: 10;
   }
 
+
 /* =====================================
    1. Mobile: bis 650px
 ===================================== */
@@ -2638,7 +2639,7 @@ main {
   }
 
   .card {
-    width: 94%;
+    width: 96%;
     height: 420px;
     padding: 12px;
     margin: 0 auto 30px auto;
