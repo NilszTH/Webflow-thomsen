@@ -2648,8 +2648,8 @@ main {
 
   .card img {
     width: 99%;
-    height: 195px;
-    object-fit: cover;
+    height: 190px;
+    object-fit: contain;
   }
 
   .card-description {
