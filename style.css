@@ -2641,7 +2641,7 @@ main {
 
   .card {
     width: 98%;
-    height: 400;
+    height: 400px;
     padding: 12px;
     margin: 0 auto 30px auto;
   }
