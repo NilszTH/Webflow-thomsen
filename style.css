@@ -711,19 +711,25 @@ main {
 
 @media (max-width: 750px) {
   .hero-content {
-    padding-left: 30px;
-    padding-top: 150px;
+    padding: 150px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 11%;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
   }
 
-  .glow-effect {
-    display: none;
-  }
-
-  .animated-text {
-    left: 0;
-    top: 0%;
-    transform: translateX(-10%);
-    font-size: 30px;
+  .animated-text,
+  .animated-text1,
+  .animated-text2 {
+    position: static !important;
+    transform: none !important;
+    font-size: 45px;
+    width: 100%;
+    max-width: 90%;
+    margin-bottom: 12px;
   }
 
   .animated-text1 {
@@ -731,13 +737,14 @@ main {
   }
 
   .animated-text2 {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .btn {
     display: none;
     padding: 10px 20px;
     font-size: 14px;
+    margin-top: 20px;
     margin-left: 0;
   }
 }
@@ -2562,184 +2569,117 @@ main {
     z-index: 10;
     display: grid;
     gap: 32px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     margin-bottom: 80px;
   }
   
   /* Einzelne Card */
-  .card {
-    position: relative;
-    z-index: 10;
-    background-color: #f3f3f3;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    color: #000;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    margin-bottom: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    height: 470px;
-  }
-  
-  /* Hover-Effekt */
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Bild in der Card */
-  .card img {
-    display: block;
-    width: 100%;
-    height: 230px !important;
-    object-fit: contain;
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: 4px;
-    margin-bottom: 4px;
-    object-position: top;
-  }
-  
-  /* Card-Titel */
-  .card-title {
-    font-size: 18px;
-    margin-bottom: 2px;
-    text-align: left;
-    color: #000;
-  }
-  
-  /* Location oder Zusatzinfo */
-  .card-location {
-    font-size: 12px;
-    color: #747474;
-    margin-bottom: 5px;
-    text-align: left;
-  }
-  
-  /* Beschreibungstext */
-  .card-description {
-    font-size: 14px;
-    line-height: 1.1;
-    padding-bottom: 4px;
-    margin-bottom: 10px;
-    flex: 1;
-    text-align: left !important;
-    color: #414141;
-    z-index: 10;
-  }
+  /* ============ Basis-Styles (für alle Größen) ============ */
 
+.card {
+  position: relative;
+  z-index: 10;
+  background-color: #f3f3f3;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  height: auto;
+}
 
-/* =====================================
-   1. Mobile: bis 650px
-===================================== */
-@media (max-width: 650px) {
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Card-Text */
+.card-title {
+  font-size: 18px;
+  margin-bottom: 4px;
+  text-align: left;
+  color: #000;
+}
+
+.card-location {
+  font-size: 12px;
+  color: #747474;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.card-description {
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+  color: #414141;
+  flex-grow: 1;
+ margin-bottom: 10px;
+}
+
+@media (min-width: 350px) and (max-width: 600px) {
   .cards-container {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+    padding: 0 16px;
   }
 
   .card {
-    width: 98%;
-    height: 395px;
-    padding: 12px;
-    margin: 0 auto 30px auto;
-  }
-
-  .card img {
-    width: 99%;
-    height: 180px;
-    object-fit: contain;
-  }
-
-  .card-description {
-    font-size: 13px;
-    line-height: 1.3;
+    max-width: 100%;
   }
 }
 
-/* =====================================
-   2. Klein & Mittel (z. B. Tablet hoch): 651px – 950px
-   → Feste Breite & mittig
-===================================== */
-@media (min-width: 651px) and (max-width: 950px) {
-  .cards-container {
-    justify-content: center;
-    gap: 24px;
-    display: flex;
-    flex-wrap: wrap;
-  }
 
-  .card {
-    width: 420px;
-    height: 420px;
-    padding: 16px;
-    margin: 0 auto 30px auto;
-  }
-
-  .card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-  }
-
-  .card-description {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-}
-
-/* =====================================
-   3. Tablets quer: 951px – 1200px
-   → Zwei-Spalten-Grid, feste Kartenhöhe
-===================================== */
-@media (min-width: 951px) and (max-width: 1200px) {
+/* 550px bis 849px – 2 schmalere Karten */
+@media (min-width: 601px) and (max-width: 849px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    gap: 16px;
+    padding: 0 16px;
   }
 
   .card {
-    height: 420px;
-    padding: 18px;
-  }
-
-  .card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-  }
-
-  .card-description {
-    font-size: 15px;
-    line-height: 1.5;
+    max-width: 100%;
   }
 }
 
-/* =====================================
-   4. Desktop: ab 1201px
-   → Bestehendes 3er-Grid
-===================================== */
-@media (min-width: 1201px) {
+/* 850px bis 999px – 2 etwas größere Karten */
+@media (min-width: 850px) and (max-width: 999px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0 20px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
+
+/* Ab 1000px – 3 Karten nebeneinander */
+@media (min-width: 1000px) {
   .cards-container {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
+    padding: 0 24px;
   }
 
   .card {
-    height: 420px;
-    padding: 20px;
-  }
-
-  .card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-  }
-
-  .card-description {
-    font-size: 15px;
-    line-height: 1.6;
+    max-width: 100%;
   }
 }
 
