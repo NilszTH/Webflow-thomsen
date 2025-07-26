@@ -1,3 +1,14 @@
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelector('.services-container');
+    if (container) {
+      container.scrollLeft = 0;
+    }
+  });
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
   // Selektoren für Hamburger-Button und Navigationselemente
   const hamburger = document.querySelector(".hamburger");
