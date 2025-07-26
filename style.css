@@ -726,7 +726,7 @@ main {
   .animated-text2 {
     position: static !important;
     transform: none !important;
-    font-size: 35;
+    font-size: 35px;
     width: 100%;
     max-width: 90%;
     margin-bottom: 12px;
