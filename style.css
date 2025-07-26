@@ -715,7 +715,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 10%;
+    margin-left: 11%;
     justify-content: flex-start;
     text-align: center;
     position: relative;
@@ -726,7 +726,7 @@ main {
   .animated-text2 {
     position: static !important;
     transform: none !important;
-    font-size: 32px;
+    font-size: 45px;
     width: 100%;
     max-width: 90%;
     margin-bottom: 12px;
@@ -2797,6 +2797,8 @@ main {
   }
 }
 
+
+
 /* ###################################################################*/
 /* ========== Services-Sektion ========== */
 .services-section {
@@ -2868,7 +2870,7 @@ main {
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-1px);
   box-shadow: 
     inset 0 0 30px rgba(255, 255, 255, 0.15),
     0 12px 40px rgba(0, 0, 0, 0.3),
@@ -3062,6 +3064,31 @@ main {
 
 /* PHONE  SERVICES */
 @media (max-width: 750px) {
+  .services-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 42px 26px; /* vorher nur links/rechts – jetzt auch oben/unten */
+  -webkit-overflow-scrolling: touch;
+}
+
+  .service-card {
+    flex: 0 0 80vw;
+    scroll-snap-align: start;
+    height: auto;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05); /* Optional: Glaseffekt behalten */
+    backdrop-filter: blur(10px);
+  }
+
+  /* Optional für schönes Scrollverhalten */
+  .services-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .services-title {
     display: none;
   }
@@ -3073,33 +3100,7 @@ main {
     font-weight: 400;
     z-index: 10;
     text-align: center;
-  }
-
-  .services-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Karten zentriert */
-    gap: 20px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  /* Einzelne Card: Breite anpassen, Höhe evtl. auf auto setzen */
-  .service-card {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    padding: 20px;
-  }
-  
-  /* Überschrift und Text anpassen */
-  .card-heading {
-    font-size: 2rem;
-  }
-  
-  .card-text {
-    font-size: 0.9rem;
+    margin-bottom: 16px;
   }
 }
 
