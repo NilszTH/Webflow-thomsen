@@ -1,11 +1,4 @@
-
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const container = document.querySelector('.services-container');
-    if (container) {
-      container.scrollLeft = 0;
-    }
-  });
+// service card
 
 
 
