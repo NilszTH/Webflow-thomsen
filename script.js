@@ -1,5 +1,61 @@
-// service card
+// play pause button hero
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Hero Desktop
+  const heroVideo = document.querySelector(".hero-video-wrapper .video-feature");
+  const heroBtn = document.querySelector(".video-toggle-btn-hero");
+
+  if (heroVideo && heroBtn) {
+    heroBtn.addEventListener("click", () => {
+      if (heroVideo.paused) {
+        heroVideo.play();
+        heroBtn.textContent = "❚❚";
+      } else {
+        heroVideo.pause();
+        heroBtn.textContent = "▶";
+      }
+    });
+  }
+
+  // Hero Mobile
+  const heroMobileVideo = document.querySelector(".hero-video-mobile-wrapper .hero-video-mobile");
+  const heroMobileBtn = document.querySelector(".video-toggle-btn-hero-mobile");
+
+  if (heroMobileVideo && heroMobileBtn) {
+    heroMobileBtn.addEventListener("click", () => {
+      if (heroMobileVideo.paused) {
+        heroMobileVideo.play();
+        heroMobileBtn.textContent = "❚❚";
+      } else {
+        heroMobileVideo.pause();
+        heroMobileBtn.textContent = "▶";
+      }
+    });
+  }
+});
+
+// play pause marquee
+
+  const visionButton = document.querySelector('.video-toggle-btn-vision');
+  if (visionButton) {
+    visionButton.addEventListener('click', () => {
+      const container = visionButton.closest('.video-frame-enhanced');
+      const video = container ? container.querySelector('video') : null;
+      if (!video) return;
+
+      if (video.paused) {
+        video.play();
+        visionButton.textContent = '❚❚'; // Pause-Symbol
+      } else {
+        video.pause();
+        visionButton.textContent = '▶'; // Play-Symbol
+      }
+    });
+  }
+
+
+
+  // Hamburger Mneü
 
 
 document.addEventListener("DOMContentLoaded", function() {

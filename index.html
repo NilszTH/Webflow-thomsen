@@ -77,22 +77,27 @@
         </div>
         <!--Erste Sektion: Hero-Bereich mit Animation -->
         <section class="hero">
-          <div class="hero-video-wrapper">
-            <div class="video-frame-enhanced">
-              <video class="video-feature" autoplay muted loop playsinline preload="auto">
-  <source src="assets/videos/code_mixed_loop.webm" type="video/webm">
-  <source src="assets/videos/code_mixed_loop.mp4" type="video/mp4">
-  Dein Browser unterstützt dieses Videoformat nicht.
-</video>
-            </div>
-          </div>
-          <div class="hero-video-mobile-wrapper">
-            <video class="hero-video-mobile" autoplay muted loop playsinline preload="auto">
-              <source src="assets/videos/abstract_02.webm" type="video/webm">
-              <source src="assets/videos/abstract_02.mp4" type="video/mp4">
-              Dein Browser unterstützt dieses Videoformat nicht.
-            </video>
-          </div>
+<!-- Hero Desktop -->
+<div class="hero-video-wrapper">
+  <div class="video-frame-enhanced">
+    <video class="video-feature" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/code_mixed_loop.webm" type="video/webm">
+      <source src="assets/videos/code_mixed_loop.mp4" type="video/mp4">
+      Dein Browser unterstützt dieses Videoformat nicht.
+    </video>
+    <button class="video-toggle-btn-hero">❚❚</button>
+  </div>
+</div>
+
+<!-- Hero Mobile -->
+<div class="hero-video-mobile-wrapper">
+  <video class="hero-video-mobile" autoplay muted loop playsinline preload="auto">
+    <source src="assets/videos/abstract_02.webm" type="video/webm">
+    <source src="assets/videos/abstract_02.mp4" type="video/mp4">
+    Dein Browser unterstützt dieses Videoformat nicht.
+  </video>
+  <button class="video-toggle-btn-hero-mobile">❚❚</button>
+</div>
             <div class="blur-layer"></div>
            <div class="hero-content">
   <div class="hero-text-wrapper">
@@ -343,12 +348,13 @@ Das Ergebnis ist ein stabiles, konsistentes System.</p>
               </div>
             
               <div class="video-frame-enhanced">
-                <video class="video-feature" autoplay muted loop playsinline preload="auto">
-                  <source src="assets/videos/vision.webm" type="video/webm" />
-                  <source src="assets/videos/vision.mp4" type="video/mp4" />
-                  Dein Browser unterstützt keine HTML5-Videos.
-                </video>
-              </div>
+  <video class="video-feature" autoplay muted loop playsinline preload="auto">
+    <source src="assets/videos/vision.webm" type="video/webm" />
+    <source src="assets/videos/vision.mp4" type="video/mp4" />
+    Dein Browser unterstützt keine HTML5-Videos.
+  </video>
+  <button class="video-toggle-btn-vision">❚❚</button>
+</div>
               </div>
             
               <!-- Container:(Enthält 2 Kopien) -->
@@ -575,7 +581,7 @@ Das Ergebnis ist ein stabiles, konsistentes System.</p>
               </div>
 
                <div class="card">
-                <img src="assets/images/supabase.png" alt="Project Image">
+                <img src="assets/images/Idea & Inspiration.png" alt="Project Image">
                 <h3 class="card-title">Technische Seiten inkl. Datenbanken</h3>
                 <p class="card-location">ADVANCED HOSTING</p>
                 <p class="card-description">
@@ -624,13 +630,12 @@ Das Ergebnis ist ein stabiles, konsistentes System.</p>
                 <span class="card-number">01</span>
                 <span class="card-line"></span>
               </div>
-              <h3 class="card-heading">Design &<br>Content</h3>
+              <h3 class="card-heading">Neue Website &<br>Re-Design</h3>
               <p class="card-text">
-                Gemeinsam entwicklen wir ein intuitives Benutzererlebnis
-                und ein ansprechendes Design. 
-                
-                <br><br>Unter Berücksichtigung deiner Markenwerte und der Bedürfnisse
-                deiner Kunden führen wir Besucher gezielt durch deine Inhalte.
+                <span class="service-highlight1">KREATIV. MODERN. FUNKTIONELL.</span><br><br>
+                Ich erstelle deine Website von Grund auf oder verleihe deiner bestehenden Seite ein frisches, 
+                modernes Re-Design – technisch einwandfrei, visuell überzeugend und für alle Geräte optimiert. 
+                <br><br>So erreichst du deine Zielgruppe mit einem starken ersten Eindruck.
               </p>
             </div>
         
@@ -640,13 +645,12 @@ Das Ergebnis ist ein stabiles, konsistentes System.</p>
                 <span class="card-number">02</span>
                 <span class="card-line"></span>
               </div>
-              <h3 class="card-heading">Hosting &<br>Domain-Service</h3>
+              <h3 class="card-heading">Pflege &<br>Weiterentwicklung</h3>
               <p class="card-text">
-                Keine technischen Kopfschmerzen mehr!<br><br> 
-                Ich helfe dir dabei, den richtigen Hosting-Anbieter<br>
-                auszuwählen und kümmere mich um die Domain-Einrichtung.<br><br>
-                Ob shared Hosting oder eigener Server: Wir finden die passende
-                Lösung.
+                <span class="service-highlight2">Immer aktuell. Immer funktionsfähig.</span><br><br>
+                Ich übernehme regelmäßige Pflege, Updates und funktionale Erweiterungen – 
+                damit deine Website stets sicher, modern und nutzerfreundlich bleibt.
+                <br><br>Auf Wunsch zeige ich dir Schritt für Schritt, wie du deine Website selbst pflegst.
               </p>
             </div>
         
@@ -656,11 +660,12 @@ Das Ergebnis ist ein stabiles, konsistentes System.</p>
                 <span class="card-number">03</span>
                 <span class="card-line"></span>
               </div>
-              <h3 class="card-heading">Pflege &<br>Weiterentwicklung</h3>
+              <h3 class="card-heading">Betreuung bestehender Websites</h3>
               <p class="card-text">
-                Damit deine Seite immer sicher und aktuell bleibt, kümmere
-                ich mich um regelmäßige Updates, Backups und neue Funktionen.
-                <br><br>Auf Wunsch zeige ich dir Schritt für Schritt, wie du deine Website selbst pflegst.
+                <span class="service-highlight">Relaunch, Support & Optimierung.</span><br><br>
+                Du hast bereits eine Website, aber sie wirkt veraltet oder läuft nicht rund?
+                Ich unterstütze dich bei der Überarbeitung, optimiere Inhalte und übernehme die laufende Betreuung
+                – ohne dass du alles neu machen musst.
               </p>
               <a href="#" class="card-link"></a>
             </div>
