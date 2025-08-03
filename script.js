@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
   // Hamburger Mneü
 
 
@@ -481,3 +483,28 @@ window.addEventListener('scroll', () => {
   }
 });
 
+
+// pfeile links + rechts service section
+
+
+  const container = document.querySelector('.services-container');
+  const leftArrow = document.getElementById('scrollLeft');
+  const rightArrow = document.getElementById('scrollRight');
+
+  function updateArrowVisibility() {
+    leftArrow.style.display = container.scrollLeft > 0 ? 'flex' : 'none';
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    rightArrow.style.display = container.scrollLeft < maxScrollLeft - 1 ? 'flex' : 'none';
+  }
+
+  leftArrow.addEventListener('click', () => {
+    container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
+  });
+
+  container.addEventListener('scroll', updateArrowVisibility);
+  window.addEventListener('resize', updateArrowVisibility);
+  window.addEventListener('load', updateArrowVisibility);
