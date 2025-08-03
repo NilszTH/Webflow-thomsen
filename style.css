@@ -2968,8 +2968,8 @@ main {
   margin-bottom: 12px;
   text-align: left;
   margin-left: 20px;
-  font-family: 'PT Sans', sans-serif;
-    font-weight: 100;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 300;
 }
 .service-highlight1 {
   color: #82a5b3; /* Beispiel: kräftiges Blau */
