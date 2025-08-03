@@ -2931,6 +2931,27 @@ main {
   overflow: hidden;
 }
 
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
+  animation: pulseLight 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes pulseLight {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.05);
+  }
+}
+
 /* 3D-Kanten-Effekt für den Rand */
 .service-card::before {
   content: '';
