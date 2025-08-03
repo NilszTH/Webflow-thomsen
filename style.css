@@ -3050,7 +3050,7 @@ main {
 .colorbservice {
   top: 18%;
   left: 10%;
-  background: rgba(0, 255, 255, 0.0);
+  background: rgba(0, 255, 255, 0.01);
 }
 .colorbservice1 {
   top: 46%;
@@ -3060,7 +3060,7 @@ main {
 .colorbservice2 {
   top: 50%;
   left: 65%;
-  background: rgba(124, 90, 218, 0.0);
+  background: rgba(124, 90, 218, 0.02);
 }
 .colorbservice3 {
   top: 10%;
@@ -3070,7 +3070,7 @@ main {
 .colorbservicetopmid {
   top: 20%;
   left: 40%;
-  background: rgba(0, 153, 255, 0.0);
+  background: rgba(0, 153, 255, 0.03);
 }
 
 /* TABLET SERVICE */
@@ -3168,6 +3168,62 @@ main {
     border-radius: 16px;
     padding: 24px 20px;
   }
+
+  .service-card .card-heading {
+  font-size: 27px;
+  font-weight: 400;
+  text-align: left;
+  color: #fdfdfd;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 18px;
+  margin-left: 20px;
+}
+
+.service-card .card-text {
+  font-size: 1.0rem;
+  font-weight: 100;
+  color: #e3e3e3;
+  line-height: 1.4;
+  margin-top: 35px;
+  margin-bottom: 12px;
+  text-align: left;
+  margin-left: 20px;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 300;
+}
+.service-highlight1 {
+  color: #82a5b3; /* Beispiel: kräftiges Blau */
+  font-weight: 600;
+}
+.service-highlight2 {
+  color: #afb382; /* Beispiel: kräftiges Blau */
+  font-weight: 600;
+}
+.service-highlight {
+  color: #82b398; /* Beispiel: kräftiges Blau */
+  font-weight: 600;
+}
+
+.card-number-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  margin-left: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card-number {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(73, 148, 169, 0.7);
+}
+
+.card-line {
+  width: 30px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
 
   .scroll-start-spacer {
     display: none;
