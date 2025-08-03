@@ -3157,6 +3157,7 @@ main {
     flex-direction: row;
     gap: 16px;
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;

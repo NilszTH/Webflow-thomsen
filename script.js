@@ -508,3 +508,24 @@ window.addEventListener('scroll', () => {
   container.addEventListener('scroll', updateArrowVisibility);
   window.addEventListener('resize', updateArrowVisibility);
   window.addEventListener('load', updateArrowVisibility);
+
+
+  // SERVICE SECTION mobile (scroll)
+
+window.addEventListener('load', () => {
+  const container = document.querySelector('.services-container');
+  if (!container) return;
+
+  // Snap deaktivieren
+  container.style.scrollSnapType = 'none';
+
+  // Direkt beim ersten Frame scrollen
+  requestAnimationFrame(() => {
+    container.scrollTo({ left: 0, behavior: 'auto' });
+
+    // Snap kurz danach aktivieren
+    setTimeout(() => {
+      container.style.scrollSnapType = 'x mandatory';
+    }, 100);
+  });
+});
