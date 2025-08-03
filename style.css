@@ -2819,7 +2819,7 @@ main {
 
 .cta-mid .rotating-text text {
   font-size: 14px;
-  fill: #fff; /* Farbe des Textes */
+  fill: #fff; 
   font-weight: 300;
   letter-spacing: 5px;
   text-shadow: 0 0 0px rgba(0, 162, 255, 0.6);
@@ -2909,12 +2909,15 @@ main {
 }
 
 
-/* ========== Einzelne Card (Verbesserter 3D-Glaseffekt) ========== */
+/* ========== Service Cards ========== */
 .service-card {
   background: rgba(0, 0, 0, 0.0);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='none' stroke='rgba(255,255,255,0.03)'><rect width='1' height='1'/></svg>");
+  background-repeat: repeat;
+  background-size: 10px 10px;
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(28px) saturate(150%);
-  border: 1px solid rgba(84, 84, 84, 0.5);
+  border: 2px solid rgba(84, 84, 84, 0.7);
   border-radius: 12px;
   padding: 20px;
   width: 480px !important;
@@ -2959,7 +2962,7 @@ main {
   font-weight: 400;
   text-align: left;
   color: #fdfdfd;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.0);
   margin-top: 38px;
   margin-left: 20px;
 }
