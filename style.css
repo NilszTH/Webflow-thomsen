@@ -2877,6 +2877,7 @@ main {
   padding: 60px 20px;
   color: #fff;
   margin-top: 10%;
+  left: -1%;
 }
 
 .services-title {
@@ -2895,8 +2896,8 @@ main {
 .services-container {
   display: flex;
   flex-wrap: nowrap;
-  gap: 35px;
-  max-width: 1400px;
+  gap: 30px;
+  max-width: 1500px;
   margin: 0 auto;
   justify-content: center;
   z-index: 10;
@@ -2905,13 +2906,13 @@ main {
 
 /* ========== Einzelne Card (Verbesserter 3D-Glaseffekt) ========== */
 .service-card {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.0);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(28px) saturate(150%);
   border: 1px solid rgba(84, 84, 84, 0.5);
   border-radius: 12px;
   padding: 20px;
-  width: 460px;
+  width: 480px !important;
   height: 500px;
   position: relative;
   box-shadow: 
@@ -2968,7 +2969,7 @@ main {
   text-align: left;
   margin-left: 20px;
   font-family: 'PT Sans', sans-serif;
-    font-weight: 200;
+    font-weight: 100;
 }
 .service-highlight1 {
   color: #82a5b3; /* Beispiel: kräftiges Blau */
@@ -3049,27 +3050,27 @@ main {
 .colorbservice {
   top: 18%;
   left: 10%;
-  background: rgba(0, 255, 255, 0.03);
+  background: rgba(0, 255, 255, 0.0);
 }
 .colorbservice1 {
   top: 46%;
   left: 10%;
-  background: rgba(0, 191, 255, 0.084);
+  background: rgba(0, 191, 255, 0.0);
 }
 .colorbservice2 {
   top: 50%;
   left: 65%;
-  background: rgba(124, 90, 218, 0.1);
+  background: rgba(124, 90, 218, 0.0);
 }
 .colorbservice3 {
   top: 10%;
   left: 67%;
-  background: rgba(0, 255, 255, 0.07);
+  background: rgba(0, 255, 255, 0.00);
 }
 .colorbservicetopmid {
   top: 20%;
   left: 40%;
-  background: rgba(0, 153, 255, 0.09);
+  background: rgba(0, 153, 255, 0.0);
 }
 
 /* TABLET SERVICE */
@@ -3144,36 +3145,32 @@ main {
   }
 }
 
-/* PHONE  SERVICES */
 @media (max-width: 750px) {
   .services-container {
     display: flex;
     flex-direction: row;
     gap: 16px;
     width: 100%;
-    left: 0;
-    max-width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 48px 16px 40px 16px;
-    margin: 0;
     scroll-behavior: smooth;
+    padding: 48px 0 40px 0; /* entfernt Lücke links/rechts */
+    margin: 0;
   }
 
   .service-card {
-    flex: 0 0 80vw;
+    flex: 0 0 88vw; /* breiter */
+    min-height: 360px;
     scroll-snap-align: start;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border-radius: 16px;
-    padding: 20px;
+    padding: 24px 20px;
   }
 
   .scroll-start-spacer {
-    flex: 0 0 10vw;
-    height: 1px;
-    pointer-events: none;
+    display: none;
   }
 
   .services-container::-webkit-scrollbar {
