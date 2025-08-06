@@ -2306,156 +2306,174 @@ main {
 }
 
 /* ---------------------------About-Me Sektion------------------------*/
-.about-me {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  max-width: 900px;
-  width: 100%;
-  margin: auto;
-  margin-top: 5%;
-  padding: 100px 40px;
-  position: relative;
-  z-index: 3;
-}
-
-/* Linker Balken - etwas nach innen rücken */
-.left-bar {
-    width: 2px;
-    height: 80%;
-    margin-top: 10%;
-    margin-left: 0%;
-    background: linear-gradient(180deg, #00d9ff, #0077ff);
-    position: absolute;
-    top: 0;
-    box-shadow: 0px 0px 10px #00d9ff;
-    z-index: 3;
-}
-
-/* Inhalte */
-.content {
-    padding-left: 20px;
-    width: 100%;
-    align-content: center;
-    z-index: 3;
-}
-
-.content h2 {
-  font-size: 55px;
-  color: white;
-  z-index: 3;
-}
-
-/* Stichpunkte */
-.stichpunkte {
-    list-style: none;
-    padding-left: 5%;
-    width: 98%;
-    z-index: 3;
-}
-
-.stichpunkte li {
+  .about-me-section {
+    padding: 10vh 5vw;
     display: flex;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 200;
-    padding: 30px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: white; /* Falls vorher nicht sichtbar */
-    z-index: 3;
-}
-
-/* Zahlen - jetzt etwas deutlicher */
-.num {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-weight: 300;
-    width: 3px;
-    height: 30px;
-    min-width: 30px; /* zusätzliche Sicherheit */
-    min-height: 30px;
-    border: 2px solid rgba(176, 186, 188, 0.797);
-    border-radius: 6px;
-    margin-right: 20px;
-    font-size: 18px;
-    z-index: 3;
-}
-
-/* ========== TABLET-BREAKPOINT ========== */
-@media (max-width: 1200px) and (min-width: 751px) {
-  .about-me {
-    margin-top: 5%;
-    padding: 60px 15px;
-    max-width: 100%;
+    width: 100%;
   }
 
-  .left-bar {
-    margin-left: 3%;
-    margin-right: 2%;
-    margin-top: 5%;
-    height: 90%; 
-  }
-
-  .content h2 {
+  .scroll-paragraph {
+    max-width: 980px;
+    width: 100%;
     font-size: 40px;
-    margin-bottom: 50px;
-    line-height: 1.2;
+    line-height: 1.6;
+    color: #555;
+    font-weight: 300;
     text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
   }
 
-  .stichpunkte li {
-    font-size: 17px;
-    padding: 15px 0;
-    line-height: 1.5;
-    text-align: left;
+  .scroll-paragraph span {
+    display: inline-block;
+    margin-right: 6px;
+    color: #444;
+    transition: color 0.4s ease;
+    opacity: 1;
   }
 
-  .num {
-    width: 30px;
-    height: 30px;
-    min-width: 30px; /* zusätzliche Sicherheit */
-    min-height: 30px;
-    font-size: 14px;
+.scroll-paragraph span.visible {
+  color: #fff;
+}
+
+
+
+.logo-word {
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0;
+  transform: scale(0.5);
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 0;
+  margin-right: 0;
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out,
+    width 0.5s ease-in-out,
+    max-width 0.6s ease-in-out,
+    margin 0.5s ease-in-out;
+}
+
+.logo-word.visible {
+  width: auto;
+  opacity: 1;
+  transform: scale(1);
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+.logo-glow {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  overflow: visible !important;
+}
+
+.logo-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(43, 144, 195, 0.2), transparent 80%);
+  filter: blur(70px);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.logo-word.visible .logo-glow::before {
+  opacity: 1;
+}
+
+.logo-glow img {
+  display: block;
+  width: 70px;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+.logo-word, .logo-glow {
+  overflow: visible;
+}
+
+.logo-word img {
+  height: 75px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+  position: relative;
+  z-index: 10;
+}
+
+.logo-word.visible img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gradient-text1 {
+  background: linear-gradient(
+    90deg,
+    white 0%,
+    #c6f3ff 35%,
+    #8981f9 70%,
+    #abc8f4 80%,
+    white 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (max-width: 1200px) and (min-width: 900px) {
+  .scroll-paragraph {
+    font-size: 30px;
+    line-height: 1.9;
+  }
+
+  .logo-word img {
+    height: 45px;
+    width: auto;
+  }
+
+  .logo-glow::before {
+    width: 140px;
+    height: 140px;
+    filter: blur(40px);
   }
 }
 
-/* ========== SMARTPHONE-BREAKPOINT (max-width: 600px) ========== */
-@media (max-width: 750px) {
-  .about-me {
-    margin-top: 2%;
-    padding: 40px 10px;
-    max-width: 90%;
+@media (max-width: 899px) {
+  .scroll-paragraph {
+    font-size: 20px;
+    line-height: 1.8;
   }
 
-  .left-bar {
-    margin-left: 3%;
-    margin-top: 7%;
-    height: 90%;
-    margin-bottom: 0%;
+  .logo-word {
+    margin-left: 0.3em;
+    margin-right: 0.3em;
   }
 
-  .content h2 {
-    font-size: 28px;   
-    margin-bottom: 30px;
-    line-height: 1.2;
-    text-align: left;
+  .logo-word img {
+    height: 36px;
+    width: auto;
   }
 
-  .stichpunkte li {
-    font-size: 14px;
-    padding: 10px 0;
-    line-height: 1.5;
-    text-align: left;
-  }
-
-  .num {
-    display: none;
-    width: 28px;
-    height: 28px;
-    font-size: 11px;
-    border: 1px solid;
+  .logo-glow::before {
+    width: 110px;
+    height: 110px;
+    filter: blur(30px);
   }
 }
 

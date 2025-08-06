@@ -529,3 +529,8 @@ window.addEventListener('load', () => {
     }, 100);
   });
 });
+
+
+// ABOUT ME (parallax text mit logos)
+
+
