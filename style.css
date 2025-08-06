@@ -2324,13 +2324,14 @@ main {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    transition: all 0.5s ease-in-out;
   }
 
   .scroll-paragraph span {
     display: inline-block;
     margin-right: 6px;
     color: #444;
-    transition: color 0.4s ease;
+    transition: margin 0.6s ease-in-out;
     opacity: 1;
   }
 
@@ -2345,25 +2346,26 @@ main {
   vertical-align: middle;
   opacity: 0;
   transform: scale(0.5);
-  width: 0;
+  max-width: 0;
+  min-width: 0;
   overflow: hidden;
   white-space: nowrap;
   margin-left: 0;
   margin-right: 0;
   transition:
-    opacity 0.5s ease-in-out,
-    transform 0.5s ease-in-out,
-    width 0.5s ease-in-out,
+    opacity 0.6s ease-in-out,
+    transform 0.6s ease-in-out,
     max-width 0.6s ease-in-out,
-    margin 0.5s ease-in-out;
+    margin 0.6s ease-in-out;
 }
 
+/* Sichtbarer Zustand */
 .logo-word.visible {
-  width: auto;
+  max-width: 120px;
   opacity: 1;
   transform: scale(1);
-  margin-left: 0.2em;
-  margin-right: 0.2em;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
 }
 
 .logo-glow {
@@ -2385,7 +2387,7 @@ main {
   background: radial-gradient(circle, rgba(43, 144, 195, 0.2), transparent 80%);
   filter: blur(70px);
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: -1;
   pointer-events: none;
 }
@@ -2410,17 +2412,21 @@ main {
   opacity: 0;
   transform: scale(0.5);
   transition:
-    opacity 0.5s ease-in-out,
-    transform 0.5s ease-in-out;
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
   position: relative;
   z-index: 10;
+  visibility: hidden;
 }
 
 .logo-word.visible img {
   opacity: 1;
   transform: scale(1);
+  visibility: visible;
 }
 
+
+/* Das ist dein Gradient-Text */
 .gradient-text1 {
   background: linear-gradient(
     90deg,
@@ -2434,7 +2440,82 @@ main {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+.gradient-text1.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Container unter dem Text platzieren */
+.crow-container {
+  width: 150px;
+  height: 150px;
+  margin: 80px auto 0 auto; /* Abstand nach oben, zentriert */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+/* Das animierte Logo selbst */
+.animated-crow {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.8) rotate(0deg);
+  animation:
+    crowFadeIn 1.2s ease-out forwards,
+    crowFlap 1.6s ease-in-out infinite;
+}
+
+/* Fade-In beim Laden */
+@keyframes crowFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Auf- und Abschweben */
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Leichtes Zittern/Flattern */
+@keyframes crowFlap {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.02) rotate(1deg);
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.02) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+
 
 @media (max-width: 1200px) and (min-width: 900px) {
   .scroll-paragraph {
