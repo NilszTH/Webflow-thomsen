@@ -97,8 +97,8 @@ header {
   .logo-header {
     position: fixed;
     margin-left: 7%;
-    margin-top: -40px;
-    height: 100px;
+    margin-top: -25px;
+    height: 65px;
     width: auto;
   }
   
@@ -233,8 +233,8 @@ header {
     .logo-header {
       position: relative;
       left: 5px;
-      top: 12px;
-      height: 100px;
+      top: 15px;
+      height: 65px;
       z-index: 10;
     }
 
@@ -2455,23 +2455,32 @@ main {
 /* Container unter dem Text platzieren */
 .crow-container {
   width: 150px;
-  height: 150px;
+  min-width: 150px;
+  max-width: none;
+  height: auto;
   margin: 80px auto 0 auto; /* Abstand nach oben, zentriert */
   display: flex;
   justify-content: center;
   align-items: center;
   animation: floatUpDown 4s ease-in-out infinite;
+  flex-shrink: 0 !important;
 }
 
 /* Das animierte Logo selbst */
 .animated-crow {
-  width: 100%;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: none !important;
   height: auto;
   opacity: 0;
   transform: scale(0.8) rotate(0deg);
   animation:
     crowFadeIn 1.2s ease-out forwards,
     crowFlap 1.6s ease-in-out infinite;
+    flex-shrink: 0 !important;
+}
+  img.animated-crow {
+  max-width: none !important;
 }
 
 /* Fade-In beim Laden */
@@ -2539,6 +2548,31 @@ main {
 }
 
 
+@media (max-width: 900px) {
+  .crow-container {
+    width: 150px;
+    height: 150px;
+    margin: 80px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatUpDown 4s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  .animated-crow {
+    width: 90px !important;
+    height: 90px !important;
+    min-width: 90px !important;
+     max-width: none !important;
+    flex-shrink: 0;
+  }
+  img.animated-crow {
+  max-width: none !important;
+}
+}
+
+
 
 @media (max-width: 1200px) and (min-width: 900px) {
   .scroll-paragraph {
@@ -2581,11 +2615,15 @@ main {
   }
 }
 
+
+
+
+
 /* ------------ FEATURES Section -------------------*/
 .features-section {
   position: relative;
   padding: 60px 20px;
-  text-align: center; /* Wenn du alles mittig willst */
+  text-align: center;
   z-index: 5;
 }
 
