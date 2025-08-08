@@ -755,7 +755,7 @@ main {
 
 @media (max-width: 750px) {
   .hero-content {
-    padding: 150px 0px 0 0px;
+    padding: 120px 0px 0 0px;
     
     display: flex;
     flex-direction: column;
@@ -771,7 +771,7 @@ main {
   .animated-text2 {
     position: static !important;
     transform: none !important;
-    font-size: 42px;
+    font-size: 39px;
     width: 100%;
     max-width: 90%;
     margin-bottom: 12px;
