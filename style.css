@@ -3609,6 +3609,13 @@ main {
   .services-container::-webkit-scrollbar {
     display: none;
   }
+  .checkmark {
+  display: inline-block;
+  color: #9df99d; /* hellgrün, gerne anpassen */
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 16px;
+}
 }
 
  /* FAQ */
