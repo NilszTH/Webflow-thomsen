@@ -3271,6 +3271,29 @@ main {
   height: 1px;
   background: rgba(255, 255, 255, 0.5);
 }
+.card-checklist {
+  list-style: none;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-left: 9px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.card-checklist li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.checkmark {
+  display: inline-block;
+  color: #9df99d; /* hellgrün, gerne anpassen */
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 18px;
+}
 
 
 /* ✅ Farbkleckse */
