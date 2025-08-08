@@ -3035,20 +3035,20 @@ main {
   position: relative;
   padding: 60px 20px;
   color: #fff;
-  margin-top: 10%;
+  margin-top: 5%;
   left: -1%;
 }
 
 .services-title {
   position: relative;
   text-align: center;
-  font-size: 70px;
+  font-size: 75px;
   font-weight: 500;
   margin-bottom: 40px;
   z-index: 10;
 }
 .services-title-mobile {
-  display: none;
+  display: ;
 }
 
 /* ========== Container für 3 Cards in EINER Zeile ========== */
@@ -3072,9 +3072,26 @@ main {
 }
 
 /* pfeil links + rechts als signal zum scrollen */
-
 .services-scroll-arrow {
-  display: none !important;
+  position: absolute;
+  margin-top: 15%;
+  z-index: 10;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-arrow {
+  left: 8px;
+}
+
+.right-arrow {
+  right: 8px;
 }
 
  /* FADE EFFECT LINK + RECHTS */
@@ -3445,6 +3462,7 @@ main {
     font-size: 12px;
   }
 }
+
 
 @media (max-width: 750px) {
   .services-container {
