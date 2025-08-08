@@ -542,6 +542,7 @@ main {
                 0 0 150px 80px rgba(77, 136, 204, 0.07);
     backdrop-filter: blur(2px);
     overflow-x: hidden;
+    opacity: 0.3;
   }
   
   .hero-video-wrapper .video-feature {
@@ -554,6 +555,7 @@ main {
   
   .hero-video-mobile {
     display: block;
+    opacity: 0.2;
     pointer-events: none;
   }
 }
@@ -637,7 +639,7 @@ main {
       height: 100vh;
       object-fit: cover; /* Video streckt sich und füllt schön */
       max-height: 100vh;
-      opacity: 0.5;
+      opacity: 0.3;
       z-index: 0;
     }
     .hero {
@@ -666,7 +668,7 @@ main {
     margin-top: 0;
     margin-bottom: -20px;
     animation: slideInFromLeft 1s ease-out forwards;
-    color: rgba(170, 255, 196, 0.9);
+    color: rgba(110, 110, 110, 0.9);
     font-size: 16px;
     font-weight: 400;
 }
@@ -753,13 +755,14 @@ main {
 
 @media (max-width: 750px) {
   .hero-content {
-    padding: 150px 20px 0 20px;
+    padding: 150px 0px 0 0px;
+    
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-left: 11%;
+    align-items: left;
+    margin-left: 10%;
     justify-content: flex-start;
-    text-align: center;
+    text-align: left;
     position: relative;
   }
 
@@ -768,7 +771,7 @@ main {
   .animated-text2 {
     position: static !important;
     transform: none !important;
-    font-size: 35px;
+    font-size: 42px;
     width: 100%;
     max-width: 90%;
     margin-bottom: 12px;
@@ -1087,7 +1090,7 @@ main {
   border: 1px solid #333;
   border-radius: 16px;
   padding: 30px;
-  width: 460px;
+  width: 420px;
 }
 
 .infobox-header {
