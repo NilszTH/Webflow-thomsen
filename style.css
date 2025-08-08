@@ -3056,50 +3056,122 @@ main {
   display: flex;
   flex-wrap: nowrap;
   gap: 30px;
-  max-width: 1500px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 40px 5vw;
   margin: 0 auto;
-  justify-content: center;
-  z-index: 10;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroll-start-spacer,
+.scroll-end-spacer {
+  flex: 0 0 auto;
+  width: 8%;
 }
 
 /* pfeil links + rechts als signal zum scrollen */
 
 .services-scroll-arrow {
-  display: none;
+  display: none !important;
+}
+
+ /* FADE EFFECT LINK + RECHTS */
+
+.services-section::before,
+.services-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 450px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.services-section::before {
+  left: 0;
+  background: linear-gradient(to right, #131212 0%, transparent 100%);
+}
+
+.services-section::after {
+  right: 0;
+  background: linear-gradient(to left, #131212 0%, transparent 100%);
 }
 
 
 /* ========== Service Cards ========== */
 .service-card {
-  background: rgba(0, 0, 0, 0.0);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='none' stroke='rgba(255,255,255,0.03)'><rect width='1' height='1'/></svg>");
-  background-repeat: repeat;
-  background-size: 10px 10px;
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(28px) saturate(150%);
-  border: 2px solid rgba(84, 84, 84, 0.7);
+  position: relative;
+  width: 480px;
+  height: 500px;
   border-radius: 12px;
   padding: 20px;
-  width: 480px !important;
-  height: 500px;
-  position: relative;
-  box-shadow: 
-    inset 0 0 20px rgba(86, 86, 86, 0.1),
-    0 4px 15px rgba(0, 0, 0, 0.2),
-    0 0 40px rgba(53, 53, 53, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
   overflow: hidden;
+  background: rgba(0, 0, 0, 0.0);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5' fill='none' stroke='rgba(255,255,255,0.05)'><rect width='1' height='1'/></svg>");
+  background-repeat: repeat;
+  background-size: 5px 5px;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: 
+    inset 0 0 8px rgba(255, 255, 255, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  z-index: 0;
+  pointer-events: none;
+
+  background: linear-gradient(135deg, #00f2ff, #3a00ff);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* NEU: Lichtkante & Schattenkante */
+  box-shadow:
+    -2px -2px 6px rgba(255, 255, 255, 0.2),  /* Licht oben links */
+     2px  2px 6px rgba(0, 0, 0, 0.25);        /* Schatten unten rechts */
+}
+
+.border-1 {
+  background: linear-gradient(135deg, #65b5bc, #928da0);
+}
+
+.border-2 {
+  background: linear-gradient(135deg, #a0a08a, #dfdfd6);
+}
+
+.border-3 {
+  background: linear-gradient(135deg, #c4e9db, #8b8272);
+}
+
+.border-4 {
+  background: linear-gradient(135deg, #323232, #8a6ce5);
+}
+
 
 .service-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3) 70%);
   animation: pulseLight 6s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
 }
+
+
 
 @keyframes pulseLight {
   0%, 100% {
@@ -3111,6 +3183,7 @@ main {
     transform: scale(1.05);
   }
 }
+
 
 /* 3D-Kanten-Effekt für den Rand */
 .service-card::before {
@@ -3130,6 +3203,7 @@ main {
   pointer-events: none;
   opacity: 0.1;
 }
+
 
 .service-card:hover {
   transform: translateY(-1px);
@@ -3170,6 +3244,10 @@ main {
 }
 .service-highlight {
   color: #82b398; /* Beispiel: kräftiges Blau */
+  font-weight: 600;
+}
+.service-highlight4 {
+  color: #9182b3; /* Beispiel: kräftiges Blau */
   font-weight: 600;
 }
 
@@ -3273,6 +3351,17 @@ main {
     color: #fff;
     margin-top: 10%;
   }
+
+  .services-section::before,
+.services-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
   
   .services-title {
     display: none;
@@ -3348,6 +3437,17 @@ main {
     padding: 48px 0 40px 0; /* entfernt Lücke links/rechts */
     margin: 0;
   }
+
+    .services-section::before,
+.services-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
 
   /* pfeil links + rechts als signal zum scrollen */
 

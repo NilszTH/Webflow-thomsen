@@ -530,7 +530,9 @@ window.addEventListener('load', () => {
   });
 });
 
+// SERVICE SECTION 
 
-// ABOUT ME (parallax text mit logos)
+
+// AService
 
 
