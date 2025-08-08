@@ -3048,7 +3048,7 @@ main {
   z-index: 10;
 }
 .services-title-mobile {
-  display: ;
+  display: none;
 }
 
 /* ========== Container für 3 Cards in EINER Zeile ========== */
@@ -3478,6 +3478,21 @@ main {
     padding: 48px 0 40px 0; /* entfernt Lücke links/rechts */
     margin: 0;
   }
+
+  .services-title {
+  Display: none;
+}
+
+.services-title-mobile {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 55px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  z-index: 10;
+}
+
 
     .services-section::before,
 .services-section::after {
