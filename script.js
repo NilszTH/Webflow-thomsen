@@ -448,14 +448,15 @@ function declineCookies() {
   const wrap = document.querySelector('.showcase-preview');
   if (!wrap || !rows.length) return;
 
-  // als let, damit wir die Referenzen nach dem Fade tauschen können
+  // Referenzen als let, damit wir sie nach dem Fade tauschen können
   let imgCurrent = wrap.querySelector('.preview-img.current');
   let imgNext    = wrap.querySelector('.preview-img.next');
 
-  // Falls HTML kein initiales src mehr am .current hat, sorgen wir dafür
+  // Erstaktive Row (oder erste)
   const firstBtn = document.querySelector('.showcase-rows .row.is-active') || rows[0];
 
-  let token = 0; // zum Abbrechen alter Transitions
+  // Token zum Abbrechen veralteter Transitions
+  let token = 0;
 
   function setVarsFor(img, el){
     img.style.setProperty('--x',     el.dataset.x     || '50%');
@@ -473,28 +474,22 @@ function declineCookies() {
     return src;
   }
 
-  function crossFadeStart(){
-    // next sichtbar machen, current ausfaden (Layer bleiben „warm“)
-    imgNext.style.visibility = 'visible';
-    imgNext.style.opacity    = '1';
-    imgCurrent.style.opacity = '0';
-  }
-
-  function swapRoles(){
-    // Klassen tauschen…
+  function finalizeSwap(){
+    // Klassen tauschen
     imgCurrent.classList.remove('current');
     imgCurrent.classList.add('next');
     imgCurrent.style.visibility = 'hidden';
+    imgCurrent.style.opacity    = '0';
 
     imgNext.classList.remove('next');
     imgNext.classList.add('current');
 
-    // Referenzen tauschen…
+    // Referenzen tauschen
     const tmp = imgCurrent;
     imgCurrent = imgNext;
     imgNext    = tmp;
 
-    // next zurück in Neutralzustand
+    // next wieder neutralisieren
     imgNext.style.opacity    = '0';
     imgNext.style.visibility = 'hidden';
   }
@@ -507,19 +502,51 @@ function declineCookies() {
     await preload(src);
     if (my !== token) return;
 
+    // Bild setzen & nächste Ebene vorbereiten
     imgNext.src = src;
+    imgNext.style.willChange   = 'opacity, transform';
+    imgCurrent.style.willChange = 'opacity, transform';
 
-    // Reflow → dann animieren
-    void imgNext.offsetWidth;
+    // WICHTIG: zuerst sichtbar & auf 0 setzen, sonst startet iOS keine Transition
+    imgNext.style.visibility = 'visible';
+    imgNext.style.opacity    = '0';
+    imgCurrent.style.opacity = '1';
+
+    // Reflow erzwingen, dann im nächsten Frame animieren
+    // eslint-disable-next-line no-unused-expressions
+    imgNext.offsetWidth;
     requestAnimationFrame(() => {
       if (my !== token) return;
-      crossFadeStart();
-      const onEnd = (e) => {
-        if (e.propertyName !== 'opacity' || my !== token) return;
+
+      // Dauer aus CSS lesen (für Fallback)
+      const cs   = getComputedStyle(imgNext);
+      const dur  = (parseFloat(cs.transitionDuration) || 0) +
+                   (parseFloat(cs.transitionDelay)    || 0);
+      const ms   = Math.max(80, dur * 1000 + 60);
+
+      let done = false;
+      const finish = () => {
+        if (done || my !== token) return;
+        done = true;
         imgNext.removeEventListener('transitionend', onEnd);
-        swapRoles(); // kein src-Reassign am current → kein Flackern
+        finalizeSwap();
+        imgNext.style.willChange    = '';
+        imgCurrent.style.willChange = '';
       };
-      imgNext.addEventListener('transitionend', onEnd, { once:false });
+      const onEnd = (e) => {
+        if (e.propertyName === 'opacity') finish();
+      };
+
+      imgNext.addEventListener('transitionend', onEnd);
+      const fallback = setTimeout(finish, ms);
+
+      // Safeguard: wenn Token wechselt, Timer räumen
+      const killIfStale = () => { if (my !== token) clearTimeout(fallback); };
+      requestAnimationFrame(killIfStale);
+
+      // Start des Cross‑Fades
+      imgNext.style.opacity    = '1';
+      imgCurrent.style.opacity = '0';
     });
   }
 
@@ -528,24 +555,22 @@ function declineCookies() {
     setVarsFor(imgCurrent, btn);
     imgCurrent.src = src;
     imgCurrent.style.visibility = 'visible';
-    imgCurrent.style.opacity = '1';
-    imgNext.style.opacity = '0';
-    imgNext.style.visibility = 'hidden';
+    imgCurrent.style.opacity    = '1';
+    imgNext.style.opacity       = '0';
+    imgNext.style.visibility    = 'hidden';
   }
 
   function swapTo(btn){
     if (!btn?.dataset?.img) return;
 
     const noFade = btn.dataset.fade === '0' || wrap.classList.contains('no-fade');
-
     if (noFade) instantSwap(btn);
     else        fadeSwap(btn);
 
     rows.forEach(r => r.classList.toggle('is-active', r === btn));
   }
 
-  // ---------- INIT: erster Frame MUSS ein Bild zeigen ----------
-  // 1) Variablen + src direkt auf current setzen
+  // ---------- INIT: erster Frame zeigt sofort ein Bild ----------
   setVarsFor(imgCurrent, firstBtn);
   if (!imgCurrent.getAttribute('src')) {
     imgCurrent.src = firstBtn.dataset.img; // falls HTML leer war
@@ -553,20 +578,21 @@ function declineCookies() {
   imgCurrent.style.visibility = 'visible';
   imgCurrent.style.opacity    = '1';
 
-  // 2) next neutral halten
   imgNext.style.opacity    = '0';
   imgNext.style.visibility = 'hidden';
 
-  // 3) aktive Row markieren (falls nicht gesetzt)
   rows.forEach(r => r.classList.toggle('is-active', r === firstBtn));
 
-  // 4) Click/Keyboard
+  // Events (inkl. Key‑Support)
   rows.forEach(btn => {
-    btn.addEventListener('click', () => swapTo(btn));
+    btn.addEventListener('click', () => swapTo(btn), { passive: true });
     btn.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); swapTo(btn); }
     });
   });
+
+  // Optional: Touch‑Optimierung (verhindert 300ms‑Delay auf alten Browsern)
+  rows.forEach(btn => btn.style.touchAction = 'manipulation');
 })();
 
 
