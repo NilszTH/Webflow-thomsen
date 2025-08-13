@@ -79,60 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// COUNTER CIRCLE
-
-function startCounter(entry) {
-  const counter = entry.target;
-  const target = +counter.getAttribute('data-target');
-  let current = 0;
-
-  const duration = 8000; // Dauer der Animation in ms → 8000 = 8 Sekunden
-  const frameRate = 60; // 60 FPS
-  const totalSteps = Math.round((duration / 1000) * frameRate);
-  const increment = target / totalSteps;
-
-  function update() {
-    current += increment;
-    if (current < target) {
-      counter.textContent = Math.floor(current) + "+";
-      requestAnimationFrame(update);
-    } else {
-      counter.textContent = target + "+h";
-    }
-  }
-
-  update();
-  counter.classList.add('counted');
-}
-
-// Observer wird erst nach dem ersten Scroll registriert
-let observerInitialized = false;
-
-function initObserverOnScroll() {
-  if (observerInitialized) return;
-  observerInitialized = true;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-        startCounter(entry);
-      }
-    });
-  }, {
-    threshold: 0.6
-  });
-
-  document.querySelectorAll('.counter-number').forEach(counter => {
-    observer.observe(counter);
-  });
-
-  // Observer-Initialisierung nur einmal
-  window.removeEventListener('scroll', initObserverOnScroll);
-}
-
-// Erst auf echten Scroll aktivieren
-window.addEventListener('scroll', initObserverOnScroll);
-
 
 
 // Hover Animation für Info-button (Start Bereich)
@@ -159,51 +105,185 @@ document.querySelectorAll(".btn").forEach(button => {
     });
 });
 
-// Parallax Effect für Buttons über Circle
-let lastScrollY = window.scrollY;
-let ticking = false;
 
-function onScroll() {
-  lastScrollY = window.scrollY;
-  requestTick();
-}
 
-function requestTick() {
-  if (!ticking) {
-    requestAnimationFrame(updateParallaxButtons);
-    ticking = true;
-  }
-}
+// show case + grid
 
-function updateParallaxButtons() {
-  const scrollTop = lastScrollY;
-
-  document.querySelectorAll('.parallax-button').forEach(button => {
-    const rangeStart = parseInt(button.dataset.rangeStart) || 800;
-    const rangeEnd   = parseInt(button.dataset.rangeEnd)   || 1000;
-    const moveX      = parseFloat(button.dataset.moveX)    || 0;
-    const moveY      = parseFloat(button.dataset.moveY)    || 0;
-
-    let progress;
-    if (scrollTop < rangeStart) {
-      progress = 0;
-    } else if (scrollTop > rangeEnd) {
-      progress = 1;
-    } else {
-      progress = (scrollTop - rangeStart) / (rangeEnd - rangeStart);
+(function previewSwap() {
+  // DOM ready – sicherstellen, dass HTML existiert
+  const run = () => {
+    const rows = document.querySelectorAll('.showcase-rows .row');
+    const wrap = document.querySelector('.showcase-preview');
+    if (!wrap || !rows.length) {
+      console.warn('[preview] fehlende DOM-Knoten:', { wrap: !!wrap, rows: rows.length });
+      return;
     }
 
-    const offsetX = moveX * progress;
-    const offsetY = moveY * progress;
+    let imgCurrent = wrap.querySelector('.preview-img.current');
+    let imgNext    = wrap.querySelector('.preview-img.next');
 
-    button.style.transform = `
-      translate(-50%, -50%)
-      translate(${offsetX}px, ${offsetY}px)
-    `;
-  });
+    if (!imgCurrent || !imgNext) {
+      console.warn('[preview] .preview-img Layers fehlen – prüfe HTML-Struktur (current/next).');
+      return;
+    }
 
-  ticking = false;
-}
+    // Erste aktive Row
+    const firstBtn = document.querySelector('.showcase-rows .row.is-active') || rows[0];
+    let token = 0; // bricht alte Transitions ab
+
+    function setVarsFor(img, el){
+      img.style.setProperty('--x',     el?.dataset?.x     || '50%');
+      img.style.setProperty('--y',     el?.dataset?.y     || '50%');
+      img.style.setProperty('--scale', el?.dataset?.scale || '1');
+      img.style.setProperty('--w',     '100%');
+      img.style.setProperty('--h',     '100%');
+      img.style.setProperty('--fit',   el?.dataset?.fit   || 'contain');
+    }
+
+    async function preload(src){
+      return new Promise(res => {
+        const pic = new Image();
+        pic.onload = () => res(src);
+        pic.onerror = () => res(src); // nicht blockieren
+        pic.src = src;
+        // decode optional
+        if (pic.decode) { pic.decode().then(() => res(src)).catch(() => res(src)); }
+      });
+    }
+
+    function finalizeSwap(){
+      imgCurrent.classList.remove('current');
+      imgCurrent.classList.add('next');
+      imgCurrent.style.visibility = 'hidden';
+      imgCurrent.style.opacity    = '0';
+
+      imgNext.classList.remove('next');
+      imgNext.classList.add('current');
+
+      const tmp = imgCurrent; imgCurrent = imgNext; imgNext = tmp;
+
+      imgNext.style.opacity    = '0';
+      imgNext.style.visibility = 'hidden';
+    }
+
+    async function fadeSwap(btn){
+      const my = ++token;
+      const src = btn.dataset.img;
+      if (!src) return;
+
+      setVarsFor(imgNext, btn);
+      await preload(src);
+      if (my !== token) return;
+
+      imgNext.src = src;
+
+      // next sichtbar ab 0 → animieren
+      imgNext.style.visibility = 'visible';
+      imgNext.style.opacity    = '0';
+      imgCurrent.style.opacity = '1';
+
+      // Reflow erzwingen
+      void imgNext.offsetWidth;
+
+      requestAnimationFrame(() => {
+        if (my !== token) return;
+
+        const cs  = getComputedStyle(imgNext);
+        const dur = (parseFloat(cs.transitionDuration)||0) + (parseFloat(cs.transitionDelay)||0);
+        const ms  = Math.max(80, dur * 1000 + 60);
+
+        let done = false;
+        const finish = () => {
+          if (done || my !== token) return;
+          done = true;
+          imgNext.removeEventListener('transitionend', onEnd);
+          finalizeSwap();
+        };
+        const onEnd = (e) => (e.propertyName === 'opacity') && finish();
+
+        imgNext.addEventListener('transitionend', onEnd);
+        const t = setTimeout(finish, ms);
+        requestAnimationFrame(() => { if (my !== token) clearTimeout(t); });
+
+        imgNext.style.opacity    = '1';
+        imgCurrent.style.opacity = '0';
+      });
+    }
+
+    function instantSwap(btn){
+      const src = btn.dataset.img;
+      if (!src) return;
+      setVarsFor(imgCurrent, btn);
+      imgCurrent.src = src;
+      imgCurrent.style.visibility = 'visible';
+      imgCurrent.style.opacity    = '1';
+      imgNext.style.opacity       = '0';
+      imgNext.style.visibility    = 'hidden';
+    }
+
+    function swapTo(btn){
+      if (!btn?.dataset?.img) return;
+      const noFade = btn.dataset.fade === '0' || wrap.classList.contains('no-fade');
+      noFade ? instantSwap(btn) : fadeSwap(btn);
+      rows.forEach(r => r.classList.toggle('is-active', r === btn));
+    }
+
+    // ---------- INIT ----------
+    setVarsFor(imgCurrent, firstBtn);
+    if (!imgCurrent.getAttribute('src')) imgCurrent.src = firstBtn.dataset.img || '';
+    imgCurrent.style.visibility = 'visible';
+    imgCurrent.style.opacity    = '1';
+    imgNext.style.opacity       = '0';
+    imgNext.style.visibility    = 'hidden';
+    rows.forEach(r => r.classList.toggle('is-active', r === firstBtn));
+
+    // ---------- Mobile-sicheres Tapping ----------
+    let suppressClicksUntil = 0;
+    const handleTap = (btn, e) => {
+      if (e.type === 'click' && Date.now() < suppressClicksUntil) return;
+      if (e.type === 'pointerdown' && e.pointerType !== 'mouse') suppressClicksUntil = Date.now() + 450;
+      if (e.type === 'touchstart') suppressClicksUntil = Date.now() + 450;
+      swapTo(btn);
+      if (document.activeElement === btn) btn.blur();
+    };
+
+    rows.forEach(btn => {
+      btn.setAttribute('type', 'button'); // falls in <form>, Submit verhindern
+
+      if (window.PointerEvent) {
+        btn.addEventListener('pointerdown', (e) => {
+          if (e.pointerType !== 'mouse') e.preventDefault(); // Ghost‑Click kill
+          handleTap(btn, e);
+        }, { passive: false });
+
+        // echter Maus‑Click
+        btn.addEventListener('click', (e) => {
+          // wenn pointerType fehlt, ist es sehr wahrscheinlich Maus
+          if (e.pointerType === undefined) handleTap(btn, e);
+        });
+      } else {
+        // Fallback
+        btn.addEventListener('touchstart', (e) => { e.preventDefault(); handleTap(btn, e); }, { passive: false });
+        btn.addEventListener('click', (e) => handleTap(btn, e));
+      }
+
+      // Tastatur
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); swapTo(btn); }
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run, { once:true });
+  } else {
+    run();
+  }
+})();
+
+
+
+
 
 
 // INFO CARD SECTION - SLIDER
@@ -405,6 +485,8 @@ window.location.href = url;
 
 
 
+
+
 // Cookie Banner ########################### 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -440,160 +522,6 @@ function declineCookies() {
 
 
 
-
-// show case + grid
-
-(() => {
-  const rows = document.querySelectorAll('.showcase-rows .row');
-  const wrap = document.querySelector('.showcase-preview');
-  if (!wrap || !rows.length) return;
-
-  // Referenzen als let, damit wir sie nach dem Fade tauschen können
-  let imgCurrent = wrap.querySelector('.preview-img.current');
-  let imgNext    = wrap.querySelector('.preview-img.next');
-
-  // Erstaktive Row (oder erste)
-  const firstBtn = document.querySelector('.showcase-rows .row.is-active') || rows[0];
-
-  // Token zum Abbrechen veralteter Transitions
-  let token = 0;
-
-  function setVarsFor(img, el){
-    img.style.setProperty('--x',     el.dataset.x     || '50%');
-    img.style.setProperty('--y',     el.dataset.y     || '50%');
-    img.style.setProperty('--scale', el.dataset.scale || '1');
-    img.style.setProperty('--w',     '100%');
-    img.style.setProperty('--h',     '100%');
-    img.style.setProperty('--fit',   el.dataset.fit   || 'contain');
-  }
-
-  async function preload(src){
-    const pic = new Image();
-    pic.src = src;
-    if (pic.decode) { try { await pic.decode(); } catch {} }
-    return src;
-  }
-
-  function finalizeSwap(){
-    // Klassen tauschen
-    imgCurrent.classList.remove('current');
-    imgCurrent.classList.add('next');
-    imgCurrent.style.visibility = 'hidden';
-    imgCurrent.style.opacity    = '0';
-
-    imgNext.classList.remove('next');
-    imgNext.classList.add('current');
-
-    // Referenzen tauschen
-    const tmp = imgCurrent;
-    imgCurrent = imgNext;
-    imgNext    = tmp;
-
-    // next wieder neutralisieren
-    imgNext.style.opacity    = '0';
-    imgNext.style.visibility = 'hidden';
-  }
-
-  async function fadeSwap(btn){
-    const my = ++token;
-    const src = btn.dataset.img;
-    setVarsFor(imgNext, btn);
-
-    await preload(src);
-    if (my !== token) return;
-
-    // Bild setzen & nächste Ebene vorbereiten
-    imgNext.src = src;
-    imgNext.style.willChange   = 'opacity, transform';
-    imgCurrent.style.willChange = 'opacity, transform';
-
-    // WICHTIG: zuerst sichtbar & auf 0 setzen, sonst startet iOS keine Transition
-    imgNext.style.visibility = 'visible';
-    imgNext.style.opacity    = '0';
-    imgCurrent.style.opacity = '1';
-
-    // Reflow erzwingen, dann im nächsten Frame animieren
-    // eslint-disable-next-line no-unused-expressions
-    imgNext.offsetWidth;
-    requestAnimationFrame(() => {
-      if (my !== token) return;
-
-      // Dauer aus CSS lesen (für Fallback)
-      const cs   = getComputedStyle(imgNext);
-      const dur  = (parseFloat(cs.transitionDuration) || 0) +
-                   (parseFloat(cs.transitionDelay)    || 0);
-      const ms   = Math.max(80, dur * 1000 + 60);
-
-      let done = false;
-      const finish = () => {
-        if (done || my !== token) return;
-        done = true;
-        imgNext.removeEventListener('transitionend', onEnd);
-        finalizeSwap();
-        imgNext.style.willChange    = '';
-        imgCurrent.style.willChange = '';
-      };
-      const onEnd = (e) => {
-        if (e.propertyName === 'opacity') finish();
-      };
-
-      imgNext.addEventListener('transitionend', onEnd);
-      const fallback = setTimeout(finish, ms);
-
-      // Safeguard: wenn Token wechselt, Timer räumen
-      const killIfStale = () => { if (my !== token) clearTimeout(fallback); };
-      requestAnimationFrame(killIfStale);
-
-      // Start des Cross‑Fades
-      imgNext.style.opacity    = '1';
-      imgCurrent.style.opacity = '0';
-    });
-  }
-
-  function instantSwap(btn){
-    const src = btn.dataset.img;
-    setVarsFor(imgCurrent, btn);
-    imgCurrent.src = src;
-    imgCurrent.style.visibility = 'visible';
-    imgCurrent.style.opacity    = '1';
-    imgNext.style.opacity       = '0';
-    imgNext.style.visibility    = 'hidden';
-  }
-
-  function swapTo(btn){
-    if (!btn?.dataset?.img) return;
-
-    const noFade = btn.dataset.fade === '0' || wrap.classList.contains('no-fade');
-    if (noFade) instantSwap(btn);
-    else        fadeSwap(btn);
-
-    rows.forEach(r => r.classList.toggle('is-active', r === btn));
-  }
-
-  // ---------- INIT: erster Frame zeigt sofort ein Bild ----------
-  setVarsFor(imgCurrent, firstBtn);
-  if (!imgCurrent.getAttribute('src')) {
-    imgCurrent.src = firstBtn.dataset.img; // falls HTML leer war
-  }
-  imgCurrent.style.visibility = 'visible';
-  imgCurrent.style.opacity    = '1';
-
-  imgNext.style.opacity    = '0';
-  imgNext.style.visibility = 'hidden';
-
-  rows.forEach(r => r.classList.toggle('is-active', r === firstBtn));
-
-  // Events (inkl. Key‑Support)
-  rows.forEach(btn => {
-    btn.addEventListener('click', () => swapTo(btn), { passive: true });
-    btn.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); swapTo(btn); }
-    });
-  });
-
-  // Optional: Touch‑Optimierung (verhindert 300ms‑Delay auf alten Browsern)
-  rows.forEach(btn => btn.style.touchAction = 'manipulation');
-})();
 
 
 
