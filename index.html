@@ -31,6 +31,11 @@
           <li><a href="#recent-work-section">Projekte</a></li>
           <li><a href="#service-section">Service</a></li>
           <li><a href="#contact-section">FAQ</a></li>
+          <li>
+  <a href="https://webflowthomsen.de/generator" class="generator-link">
+    WebGenV1 <span class="nav-badge">Coming Soon</span>
+  </a>
+</li>
         </ul>
         <div class="nav-social-container">
           <a href="https://wa.me/491751503737" target="_blank" class="whatsapp-button">
@@ -99,7 +104,7 @@
   <div class="hero-text-wrapper">
     <p class="animated-text1">KREATIV. MODERN. FUNKTIONELL.</p>
     <h1 class="animated-text">Webdesign auf <br> Agentur-Niveau zu<br>Freelancer-Preisen</h1>
-    <p class="animated-text2">Mein Ziel ist es, eine Website zu gestalten und zu entwickeln <br> die dich und deine Zielgruppe begeistert.</p>
+    <p class="animated-text2">Gemeinsam gestalten und entwickeln wir <br>eine Website, die dich und deine Zielgruppe begeistert.</p>
   </div>
   <a href="#service-section" class="btn">Informationen</a>
 </div>
@@ -216,17 +221,90 @@
 </section>
 
 
-<section class="section-three">
-  <div class="section-three-inner" id="sectionThreeInner">
-    <h1>Bereit für deinen professionellen Webauftritt?<br><br>Ob Onepager, Blog oder Online-Shop – ich helfe dir, deine Vision digital zum Leben zu bringen. Klar, modern und individuell.</h1>
-    <p>Jetzt Kontakt aufnehmen</p>
+<!-- ===== Showcase (Glass card + text/image grid) ===== -->
+<section id="showcase">
+  <!-- Glow background (subtle) -->
+    <div class="showcase-glow"></div>
 
-    <div class="section-three-form">
-      <input type="email" placeholder="E-Mail Adresse eingeben">
-      <button class="section-three-primary-btn">Abschicken</button>
-      <button class="section-three-secondary-btn">Mehr Infos</button>
+  <div class="showcase-card">
+    <p class="showcase-eyebrow">Coming Soon  ↗</p>
+    <h3 class="showcase-title">
+  <span>WebGen-V1</span>
+</h3>
+
+    <!-- NEU: Wrapper für zweispaltigen Textfluss -->
+    <div class="showcase-flow">
+      <p class="showcase-subtitle">
+        Erstelle in Minuten ein Grundlayout inkl. Bilder, <br>Farben & 
+        Textvorschlägen. Perfekt, um erste Ideen zu sammeln
+        und ein Gefühl für dein zukünftiges Webdesign zu bekommen.
+      </p>
+      <ul class="showcase-features">
+        <li>Eigene Bilder hochladen und sofort sehen</li>
+        <li>Farben & Branding direkt anpassen</li>
+        <li>Sofortige Vorschau ohne lange Wartezeit</li>
+        <li>Passende Textvorschläge nach Branche</li>
+      </ul><br>
+      <p class="showcase-desc">
+        Der Generator inspiriert dich und gibt dir einen schnellen
+        Startpunkt für die Umsetzung. Egal ob Redesign oder neue Website.
+      </p>
+    </div>
+    <!-- /NEU -->
+
+    <div class="showcase-image">
+      <img src="assets/images/webgenmuster.webp" alt="Website Generator Vorschau">
     </div>
   </div>
+
+  <div class="showcase-hr"></div>
+  <!-- Divider line the card docks to -->
+  <div class="showcase-divider"></div>
+
+  <!-- Text–Image Grid -->
+<div class="showcase-grid">
+  <div class="showcase-rows" role="list">
+    <button class="row is-active"
+            data-img="assets/images/dragdrop.png"
+            data-x="50%" data-y="50%" data-scale="1" data-fit="contain">
+      <span class="row-title">Drag & Drop</span>
+      <span class="row-meta">Logos, Bilder & Content per drag & drop hochladen<br>und mit ins Layout einfließen alssen.</span>
+    </button>
+
+    <button class="row"
+            data-img="assets/images/farbenschriften.png"
+            data-x="52%" data-y="48%" data-scale="1.06" data-fit="contain">
+      <span class="row-title">Farben & Schriften</span>
+      <span class="row-meta">Gib vor, welche Farben und Schriftarten du möchtest.</span>
+    </button>
+
+    <button class="row"
+            data-img="assets/images/prompt.png"
+            data-x="50%" data-y="50%" data-scale="0.83" data-fit="cover">
+      <span class="row-title">Promts & Keywords</span>
+      <span class="row-meta">Beschreibe dein Wunschlayout bis ins kleinste Detail und lasse<br> deiner Kreativität freuen lauf.</span>
+    </button>
+
+    <button class="row"
+            data-img="assets/images/vorschau.png"
+            data-x="50%" data-y="50%" data-scale="1.1" data-fit="contain">
+      <span class="row-title">Vorschau & Änderung</span>
+      <span class="row-meta">Erhalte innerhalb kürzester Zeit eine Vorschau deiner Wunsch-Website<br> und ändere sie nach belieben.</span>
+    </button>
+  </div>
+
+  <div class="showcase-preview" aria-live="polite">
+    <!-- Cross‑fade Ebenen -->
+    <img class="preview-img current"
+         src="assets/images/code.png"
+         alt="Preview">
+    <img class="preview-img next" alt="" aria-hidden="true">
+
+    <!-- Edge fades -->
+    <div class="preview-fade top"></div>
+    <div class="preview-fade bottom"></div>
+  </div>
+</div>
 </section>
         
 

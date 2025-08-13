@@ -441,47 +441,139 @@ function declineCookies() {
 
 
 
-// section three
+// show case + grid
 
-// SECTION THREE — ohne Overlay
+(() => {
+  const rows = document.querySelectorAll('.showcase-rows .row');
+  const wrap = document.querySelector('.showcase-preview');
+  if (!wrap || !rows.length) return;
 
-window.addEventListener('load', () => {
-  const fadeTarget = document.getElementById('sectionThreeInner');
+  // als let, damit wir die Referenzen nach dem Fade tauschen können
+  let imgCurrent = wrap.querySelector('.preview-img.current');
+  let imgNext    = wrap.querySelector('.preview-img.next');
 
-  // Starteinstellungen
-  fadeTarget.style.transform = 'scale(1) translateY(0)';
-  fadeTarget.style.opacity = '1';
-});
+  // Falls HTML kein initiales src mehr am .current hat, sorgen wir dafür
+  const firstBtn = document.querySelector('.showcase-rows .row.is-active') || rows[0];
 
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const section = document.querySelector('.section-three');
-  const fadeTarget = document.getElementById('sectionThreeInner');
+  let token = 0; // zum Abbrechen alter Transitions
 
-  const sectionTop = section.offsetTop;
-  const sectionHeight = section.offsetHeight;
-
-  // Nur während Viewport-Bereich aktiv:
-  if (scrollTop > sectionTop - window.innerHeight / 2 && scrollTop < sectionTop + sectionHeight) {
-    const progressRaw = (scrollTop - sectionTop + 200) / 800;
-    const progress = Math.min(Math.max(progressRaw, 0), 1);
-
-    const scaleValue = 1 - progress * 0.1;
-    const translateYText = progress * -50;
-    const textOpacity = 1 - progress;
-
-    fadeTarget.style.transform = `scale(${scaleValue}) translateY(${translateYText}px)`;
-    fadeTarget.style.opacity = `${textOpacity}`;
-  } else if (scrollTop < sectionTop) {
-    // Reset beim Hochscrollen
-    fadeTarget.style.transform = 'scale(1) translateY(0)';
-    fadeTarget.style.opacity = '1';
-  } else if (scrollTop > sectionTop + sectionHeight) {
-    // Beim Verlassen unten: alles raus
-    fadeTarget.style.transform = 'scale(0.9) translateY(-50px)';
-    fadeTarget.style.opacity = '0';
+  function setVarsFor(img, el){
+    img.style.setProperty('--x',     el.dataset.x     || '50%');
+    img.style.setProperty('--y',     el.dataset.y     || '50%');
+    img.style.setProperty('--scale', el.dataset.scale || '1');
+    img.style.setProperty('--w',     '100%');
+    img.style.setProperty('--h',     '100%');
+    img.style.setProperty('--fit',   el.dataset.fit   || 'contain');
   }
-});
+
+  async function preload(src){
+    const pic = new Image();
+    pic.src = src;
+    if (pic.decode) { try { await pic.decode(); } catch {} }
+    return src;
+  }
+
+  function crossFadeStart(){
+    // next sichtbar machen, current ausfaden (Layer bleiben „warm“)
+    imgNext.style.visibility = 'visible';
+    imgNext.style.opacity    = '1';
+    imgCurrent.style.opacity = '0';
+  }
+
+  function swapRoles(){
+    // Klassen tauschen…
+    imgCurrent.classList.remove('current');
+    imgCurrent.classList.add('next');
+    imgCurrent.style.visibility = 'hidden';
+
+    imgNext.classList.remove('next');
+    imgNext.classList.add('current');
+
+    // Referenzen tauschen…
+    const tmp = imgCurrent;
+    imgCurrent = imgNext;
+    imgNext    = tmp;
+
+    // next zurück in Neutralzustand
+    imgNext.style.opacity    = '0';
+    imgNext.style.visibility = 'hidden';
+  }
+
+  async function fadeSwap(btn){
+    const my = ++token;
+    const src = btn.dataset.img;
+    setVarsFor(imgNext, btn);
+
+    await preload(src);
+    if (my !== token) return;
+
+    imgNext.src = src;
+
+    // Reflow → dann animieren
+    void imgNext.offsetWidth;
+    requestAnimationFrame(() => {
+      if (my !== token) return;
+      crossFadeStart();
+      const onEnd = (e) => {
+        if (e.propertyName !== 'opacity' || my !== token) return;
+        imgNext.removeEventListener('transitionend', onEnd);
+        swapRoles(); // kein src-Reassign am current → kein Flackern
+      };
+      imgNext.addEventListener('transitionend', onEnd, { once:false });
+    });
+  }
+
+  function instantSwap(btn){
+    const src = btn.dataset.img;
+    setVarsFor(imgCurrent, btn);
+    imgCurrent.src = src;
+    imgCurrent.style.visibility = 'visible';
+    imgCurrent.style.opacity = '1';
+    imgNext.style.opacity = '0';
+    imgNext.style.visibility = 'hidden';
+  }
+
+  function swapTo(btn){
+    if (!btn?.dataset?.img) return;
+
+    const noFade = btn.dataset.fade === '0' || wrap.classList.contains('no-fade');
+
+    if (noFade) instantSwap(btn);
+    else        fadeSwap(btn);
+
+    rows.forEach(r => r.classList.toggle('is-active', r === btn));
+  }
+
+  // ---------- INIT: erster Frame MUSS ein Bild zeigen ----------
+  // 1) Variablen + src direkt auf current setzen
+  setVarsFor(imgCurrent, firstBtn);
+  if (!imgCurrent.getAttribute('src')) {
+    imgCurrent.src = firstBtn.dataset.img; // falls HTML leer war
+  }
+  imgCurrent.style.visibility = 'visible';
+  imgCurrent.style.opacity    = '1';
+
+  // 2) next neutral halten
+  imgNext.style.opacity    = '0';
+  imgNext.style.visibility = 'hidden';
+
+  // 3) aktive Row markieren (falls nicht gesetzt)
+  rows.forEach(r => r.classList.toggle('is-active', r === firstBtn));
+
+  // 4) Click/Keyboard
+  rows.forEach(btn => {
+    btn.addEventListener('click', () => swapTo(btn));
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); swapTo(btn); }
+    });
+  });
+})();
+
+
+
+
+
+
 
 
 // pfeile links + rechts service section

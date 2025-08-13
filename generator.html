@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website‑Generator</title>
+
+  <!-- Deine globale Site‑CSS -->
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Generator-spezifische Styles -->
+  <link rel="stylesheet" href="./generator.css" />
+  <meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    connect-src 'self' http://localhost:8787 http://127.0.0.1:8787;
+    img-src 'self' data: blob:;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com data:;
+    script-src 'self' 'unsafe-inline';
+  ">
+</head>
+<body class="generator-page">
+    <div class="gen-blur-overlay" aria-hidden="true"></div>
+
+  <!-- ===== HEADER (Platzhalter) =====
+       Ersetze diesen Block durch deinen bestehenden Header-Code
+       oder binde dein Header-Partial ein -->
+<!-- ===== HEADER (dein Original) ===== -->
+<header>
+  <nav class="nav">
+    <a href="#top">
+      <img src="assets/icons/wt01.webp" alt="Logo" class="logo-header">
+    </a>
+    <div class="nav-mobile-title"></div>
+
+   <ul class="nav-links">
+  <li><a href="index.html#about-me">Leistungen</a></li>
+  <li><a href="index.html#recent-work-section">Projekte</a></li>
+  <li><a href="index.html#service-section">Service</a></li>
+  <li><a href="index.html#contact-section">FAQ</a></li>
+  <li><a href="https://webflowthomsen.de/generator" class="generator-link">Generator</a></li>
+</ul>
+
+    <div class="nav-social-container">
+      <a href="https://wa.me/491751503737" target="_blank" class="whatsapp-button">
+        <img src="assets/images/whatsapp-logo.png" alt="WhatsApp" />
+        <span><span class="faded"></span>WhatsApp</span>
+      </a>
+      <div class="nav-social"></div>
+    </div>
+
+    <div class="nav-social">
+      <a href="https://instagram.de/nilsz_th" target="_blank" aria-label="Instagram">
+        <img src="assets/images/insta.png" alt="Instagram Logo">
+      </a>
+      <a href="https://github.com/NilszTH" target="_blank" aria-label="WhatsApp">
+        <img src="assets/images/github-logo.png" alt="WhatsApp Logo">
+      </a>
+    </div>
+
+    <button class="hamburger" aria-label="Menü öffnen">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
+</header>
+<!-- ===== /HEADER ===== -->
+  <!-- ===== /HEADER ===== -->
+
+  <!-- ===== COOKIE-BANNER (Platzhalter) =====
+       Lasse den Wrapper stehen – dein existierendes Script kann hier hinein mounten -->
+  <div id="cookie-consent-mount"></div>
+  <!-- ===== /COOKIE-BANNER ===== -->
+
+  <main>
+    <!-- WebGen Architecture Section -->
+<section class="generator-page gen-arch" id="webgen-arch">
+  <div class="arch-inner container">
+
+    <!-- (Optional) Section-Title -->
+    <h2 class="arch-title">So arbeitet <span>WebGen‑V1</span></h2>
+
+    <!-- Netzwerk-Layer: Chip, Linien, Cards -->
+    <div class="arch-network">
+      <!-- animierte Verbindungs-Linien -->
+      <svg class="arch-lines" viewBox="0 0 1200 480" aria-hidden="true">
+        <defs>
+          <linearGradient id="wire" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0"  stop-color="rgba(14,165,233,0)"/>
+            <stop offset="0.5" stop-color="rgba(14,165,233,.55)"/>
+            <stop offset="1"  stop-color="rgba(14,165,233,0)"/>
+          </linearGradient>
+          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="rgba(14,165,233,.35)"/>
+          </filter>
+        </defs>
+
+        <!-- mittig: Chip (x ~ 600/1200, y ~ 90) nach unten zu 3 Karten -->
+        <!-- zu Card 1 (links) -->
+        <path class="wire" d="M600,88 C520,120 440,150 360,220 S220,300 200,320"
+              stroke="url(#wire)" />
+        <!-- zu Card 2 (mitte) -->
+        <path class="wire" d="M600,88 C600,140 600,190 600,240 S600,290 600,320"
+              stroke="url(#wire)" />
+        <!-- zu Card 3 (rechts) -->
+        <path class="wire" d="M600,88 C680,120 760,150 840,220 S980,300 1000,320"
+              stroke="url(#wire)" />
+      </svg>
+
+      <!-- CHIP / „Powered by“ -->
+      <div class="arch-chip" role="img" aria-label="WebGen-V1 Input">
+        <div class="chip-core">WebGen‑V1 Input</div>
+      </div>
+
+      <!-- GRID der 3 Karten -->
+      <div class="arch-grid" role="list">
+        <!-- Card 1 -->
+        <article class="arch-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">🖼️</div>
+          <h3>Assets &amp; Branding</h3>
+          <p>Lade Bilder/Logos hoch, definiere Primärfarbe &amp; Typografie.
+             WebGen normalisiert alles und nutzt es als „Seed“.</p>
+          <footer>Input • Dateien • Farben</footer>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="arch-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">⚙️</div>
+          <h3>Layout Synthese</h3>
+          <p>Komponenten‑Bauplan: Hero, Features, Kontakt. 
+             Varianten werden bewertet – best‑fit landet in der Vorschau.</p>
+          <footer>Engine • Heuristics • Presets</footer>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="arch-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">📦</div>
+          <h3>Export &amp; Handoff</h3>
+          <p>HTML/CSS‑Export oder direkter Handoff in dein Projekt. 
+             Saubere Klassen &amp; Variablen gemäß deinem Branding.</p>
+          <footer>Output • Code • Assets</footer>
+        </article>
+      </div>
+    </div>
+  </div>
+<!-- SVG-Overlay für die Verbindungs-Linien -->
+<svg class="arch-links" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true"></svg>
+</section>
+
+    <!-- Hauptbereich: Formular + Vorschau -->
+    <section class="gen-shell container">
+      <!-- Linke Spalte: Formular -->
+      <aside class="card gen-form">
+        <h2 class="card-title">Briefing</h2>
+
+        <label class="field">
+          <span>Branche</span>
+          <input id="industry" type="text" placeholder="z. B. Bau, Coaching, Praxis" />
+        </label>
+
+        <label class="field">
+          <span>Ziele</span>
+          <textarea id="goals" rows="3" placeholder="z. B. Leads generieren, Termine, Portfolio"></textarea>
+        </label>
+
+        <div class="grid-2">
+          <label class="field">
+            <span>Markenname</span>
+            <input id="brand" type="text" placeholder="Dein Markenname" />
+          </label>
+
+          <label class="field">
+            <span>Primärfarbe</span>
+            <input id="color" type="text" value="#0ea5e9" placeholder="#0ea5e9" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <!-- Button-ID bleibt für späteres JS -->
+          <button id="run" class="btn btn-primary">Grundlayout erzeugen</button>
+          <div id="status" class="status"></div>
+        </div>
+
+        <div class="note">
+          <strong>Hinweis:</strong> Aktuell ist nur das Frontend aktiv.
+          Die Generierung wird funktionieren, sobald dein Backend angebunden ist.
+        </div>
+      </aside>
+
+      <!-- Rechte Spalte: Vorschau -->
+      <section class="card gen-preview">
+        <div class="gen-preview-header">
+          <h2 class="card-title">Vorschau</h2>
+          <div class="preview-swatches">
+            <span class="swatch" style="--c:#0ea5e9"></span>
+            <span class="swatch" style="--c:#111827"></span>
+            <span class="swatch" style="--c:#e5e7eb"></span>
+          </div>
+        </div>
+
+        <!-- Leerzustand – wird später von JS ersetzt -->
+        <div id="previewBox" class="gen-preview-empty">
+          <div class="empty-icon" aria-hidden="true">◆</div>
+          <p>Vorschau erscheint hier, nachdem du auf „Grundlayout erzeugen“ klickst.</p>
+        </div>
+
+        <!-- Optional: ein statisches Demo‑Skelett, bis das Backend dran ist -->
+        <div class="demo-skeleton">
+          <section class="skeleton hero">
+            <div class="shimmer title"></div>
+            <div class="shimmer text"></div>
+            <div class="shimmer cta"></div>
+          </section>
+          <section class="skeleton features">
+            <div class="shimmer title small"></div>
+            <div class="grid-2">
+              <div class="shimmer box"></div>
+              <div class="shimmer box"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </section>
+
+    <!-- Info / Steps -->
+    <section class="gen-steps container">
+      <div class="step card">
+        <h3>1. Briefing</h3>
+        <p>Branche, Ziele und Branding eingeben.</p>
+      </div>
+      <div class="step card">
+        <h3>2. Vorschau</h3>
+        <p>Entwurf ansehen und Inhalte anpassen.</p>
+      </div>
+      <div class="step card">
+        <h3>3. Export</h3>
+        <p>Später als ZIP (HTML/CSS) exportieren oder Projekt starten.</p>
+      </div>
+    </section>
+  </main>
+
+
+
+  <script>
+    // nur das Jahr setzen; KEIN API‑Call
+    const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+  </script>
+  <!-- Dein späteres JS kann hier eingebunden werden:
+  <script src="./generator.js" defer></script> -->
+  <footer class="gen-footer">
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Hinweis">
+    <span>Diese Website verwendet Cookies, um ein optimales Nutzungserlebnis zu bieten.
+      <a href="https://webflowthomsen.de/datenschutz" target="_blank" class="highlighted-link">Mehr erfahren</a>
+    </span>
+    <div class="button-container">
+      <button type="button" onclick="acceptCookies()">Akzeptieren</button>
+      <button type="button" onclick="declineCookies()">Ablehnen</button>
+    </div>
+  </div>
+
+  <nav class="navfooter" aria-label="Footer Navigation">
+    <ul>
+      <li><a href="/datenschutz">Datenschutz</a></li>
+      <li><a href="/haftungsausschluss">Haftungsausschluss</a></li>
+    </ul>
+  </nav>
+</footer>
+<script>
+  (function () {
+    const banner = document.getElementById('cookie-banner');
+    const key = 'cookieConsent';
+
+    function showBanner() {
+      if (!localStorage.getItem(key)) {
+        banner.classList.add('show');
+      }
+    }
+    window.acceptCookies = function () {
+      localStorage.setItem(key, 'accepted');
+      banner.classList.remove('show');
+    };
+    window.declineCookies = function () {
+      localStorage.setItem(key, 'declined');
+      banner.classList.remove('show');
+    };
+
+    document.addEventListener('DOMContentLoaded', showBanner);
+  })();
+</script>
+<!-- am Ende von generator.html, VOR </body> -->
+<script src="./generator.js" defer></script>
+</body>
+</html>
