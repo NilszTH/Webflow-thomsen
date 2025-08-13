@@ -1674,16 +1674,20 @@ background: none;
   .showcase-image {
     grid-column: 1;
     order: 3;
-    height: 400px;
+    height: 450px;
     margin-bottom: -60px;
   }
   .showcase-image img {
     margin-top: -30%;
     margin-bottom: -20%;
     margin-left: 3%;
-    width: 125%;
+    width: 130%;
     height: auto;
     object-fit: contain;
+  }
+
+  .showcase-title {
+    font-size: 27px;
   }
   .showcase-flow {
     column-count: 1;
