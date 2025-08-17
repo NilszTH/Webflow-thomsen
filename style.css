@@ -1379,7 +1379,7 @@ main {
 
 .section-two .eyebrow{
   margin:0 0 .6rem 0; 
-  font-size:.9rem; 
+  font-size:.7rem; 
   letter-spacing:.16em; 
   text-transform:uppercase;
   color:rgba(200,240,255,.85);
@@ -1394,8 +1394,32 @@ main {
   margin-bottom: 12%;
 }
   .section-two__media{
-    order: 2; height: 56vw; margin-top: -50px;
+    order: 2; 
+    height: 56vw; 
+    margin-top: -50px;
   }
+
+  .section-two__media .card{
+  position:absolute; inset:auto; right:0; bottom:0;
+  width:min(480px, 46vw); aspect-ratio: 4/3; 
+  border-radius:6px;
+  background: #101010; overflow:hidden; 
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  transform-origin: 80% 90%;
+}
+
+.section-two__media .card img{ 
+  width:105%; 
+  height:120%; 
+  object-fit:cover; 
+  display:block; 
+  opacity:.95;
+  transform: translate(-2.5%, -2.5%);
+}
+
+
+
   .section-two__copy{ order: 1; }
   .card-1{ transform: rotate(-6deg) translate(-4%, -6%); }
   .card-2{ transform: rotate(-1deg) translate(0, 0); }
