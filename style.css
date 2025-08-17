@@ -131,6 +131,44 @@ header {
     color: rgb(170, 225, 255, 0.8);
   }
 
+
+
+  /* ===== Desktop: fixed header + auto-hide ===== */
+@media (min-width: 901px) {
+  :root { --hdr-h: 80px; }     /* will be updated by JS to your real header height */
+
+  header {
+    position: fixed;           /* fixed beats sticky issues with transformed parents */
+    inset: 0 0 auto 0;         /* top:0; left:0; right:0 */
+    z-index: 5000;
+    transform: translateY(0);
+    transition: transform .35s ease, opacity .25s ease;
+    will-change: transform, opacity;
+  }
+
+  /* Push page content down by header height to avoid layout jump */
+  body { padding-top: var(--hdr-h); }
+
+  /* Hide when scrolling down */
+  header.nav-hide {
+    transform: translateY(calc(-1 * var(--hdr-h) - 10px));
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Your fixed logo should also fade while hidden */
+  header.nav-hide .logo-header {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: transform .35s ease, opacity .25s ease;
+  }
+}
+
+/* Mobile: keep header normal & always visible */
+@media (max-width: 900px) {
+  header { position: relative; transform: none !important; opacity: 1 !important; }
+}
   /* Generator - Button */
 
 .nav-badge {
@@ -707,8 +745,11 @@ main {
     display: inline-block;
     padding: 14px 40px;
     margin-top: 20px;
-    background: rgba(85, 85, 85, 0.476);
-    border: 1px solid rgba(141, 141, 141, 0.476);
+    bdisplay:inline-flex; align-items:center; gap:10px;
+  padding:12px 18px; border-radius:10px; color:#eaeaea; text-decoration:none;
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.18);
+  transition: transform .15s ease, box-shadow .25s ease, background .25s ease;
     position: relative;
     left: 0%;
     color: rgb(179, 179, 179);
@@ -725,8 +766,9 @@ main {
 
 /* ✅ Standard Hover */
 .btn:hover {
-    border: 1px solid rgba(199, 199, 199, 0.475);
-    color: rgba(216, 216, 216, 0.545);
+    transform: translateY(-1px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  background: linear-gradient(90deg, rgba(120,180,255,.12), rgba(139,92,246,.10));
 }
 
 
@@ -1085,6 +1127,290 @@ main {
   }
 }
 
+/* section-two */
+
+/* ===== section-two base ===== */
+.section-two{
+  --line: rgba(255,255,255,.12);
+  --line-strong: rgba(255,255,255,.24);
+  --chip-bg: rgba(255,255,255,.06);
+  --chip-fg: rgba(230,235,240,.9);
+  --fade-bg: #0b0b0b;               /* page bg color behind fades */
+  position: relative;
+  isolation: isolate;
+  padding: clamp(60px,6vw,100px) 6vw;
+  overflow: hidden;
+}
+
+/* dashed rack/grid in the back */
+.section-two .rack-bg{
+  position:absolute; inset:0;
+  z-index:-2;
+  /* fine dashed grid */
+  --c: rgba(255,255,255,.06);
+  background:
+    repeating-linear-gradient(to right, var(--c) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(to bottom, var(--c) 0 1px, transparent 1px 28px);
+  mask:
+    linear-gradient(to bottom, transparent 0, #000 8%, #000 92%, transparent 100%),
+    radial-gradient(150% 80% at 50% 50%, #000 65%, transparent 100%);
+  mask-composite: intersect;
+  opacity:.6;
+}
+
+/* rails layer (dashed lines with end fades) */
+.section-two .rails{
+  position:absolute; inset:0;
+  z-index:-1; /* sit in front of grid, behind content */
+  pointer-events:none;
+}
+
+.section-two .rail{
+  position:absolute; left:0; right:0; height:2px;
+  top: 22%;
+}
+.section-two .rail-bottom{ top:auto; bottom: 18%; }
+
+/* dashed line + end-fade via mask */
+.section-two .rail::before{
+  content:""; position:absolute; inset:0;
+  background:
+    repeating-linear-gradient(to right, var(--line) 0 48px, transparent 48px 96px);
+  /* fade out at edges */
+  -webkit-mask: linear-gradient(90deg, transparent 0 3%, #000 10% 90%, transparent 97% 100%);
+          mask: linear-gradient(90deg, transparent 0 3%, #000 10% 90%, transparent 97% 100%);
+}
+
+/* accent stronger center guide (optional, super subtle) */
+.section-two .rail::after{
+  content:""; position:absolute; inset:auto 10% auto 10%; height:2px; top:0;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+  opacity:.22;
+}
+
+/* small anchor circles on the rails */
+.section-two .rail .node{
+  position:absolute; top:50%; translate:0 -50%;
+  width:10px; height:10px; border-radius:50%;
+  background: var(--line-strong);
+  box-shadow: 0 0 0 6px rgba(255,255,255,.05);
+}
+
+/* content layout */
+.section-two__inner{
+  display:grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(24px, 4vw, 60px);
+  align-items: center;
+}
+
+.section-two__copy{ text-align:left; }
+.section-two .eyebrow{
+  margin:0 0 .6rem 0; font-size:.9rem; letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(200,240,255,.85);
+}
+.section-two .headline{
+  margin:0 0 1rem 0; font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem); 
+  line-height:1.15; color:#fff; font-weight:600;
+}
+.section-two .lede{
+  margin:0 0 1.2rem 0; color:rgba(240,240,240,.85); font-size:clamp(1rem, .4vw + .9rem, 1.2rem);
+}
+
+/* chips */
+.section-two .chips{
+  display:flex; flex-wrap:wrap; gap:8px 10px; padding:0; margin:0 0 1.3rem 0; list-style:none;
+}
+.section-two .chips li{
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.78rem;
+  /* Visuelle Basis NICHT hier setzen – damit die per‑Chip Farben greifen */
+}
+/* base chip stays as-is; we’ll just allow per-chip colors */
+.chips .chip{
+  --tint: 200 220 255;
+  --alpha-bg: .30;
+  --alpha-brd: .30;
+  --alpha-glow: .30;
+  background: linear-gradient(180deg,
+              rgba(var(--tint) / var(--alpha-bg)) 0%,
+              rgba(255 255 255 / .04) 100%);
+  border: 1px solid rgba(var(--tint) / var(--alpha-brd));
+  color: #e9eef6;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  transition: box-shadow .2s ease, transform .15s ease, background .2s ease;
+}
+.chips .chip:hover{
+  box-shadow:
+    0 0 24px rgba(var(--tint) / var(--alpha-glow)),
+    inset 0 1px 0 rgba(255,255,255,.12);
+  transform: translateY(-1px);
+}
+
+/* per-chip tints (HSL-ish in RGB for wide support) */
+.chip--starter   { --tint: 147 197 114; }  /* green */
+.chip--ecom      { --tint: 56 189 248;  }  /* sky */
+.chip--blog      { --tint: 250 204 21;  }  /* amber */
+.chip--ai        { --tint: 99 102 241;  }  /* indigo */
+.chip--portfolio { --tint: 236 72 153;  }  /* pink */
+.chip--saas      { --tint: 34 197 94;   }  /* emerald */
+.chip--multi     { --tint: 168 85 247;  }  /* violet */
+
+/* --- chip color helpers -------------------------------------------------- */
+/* 1) Allow data-variant or utility-style classes (works with <li class="chip" data-variant="ecom">) */
+.section-two .chips .chip[data-variant="starter"],
+.section-two .chips .chip.is-starter{ --tint: 147 197 114; }
+.section-two .chips .chip[data-variant="ecom"],
+.section-two .chips .chip.is-ecom{ --tint: 56 189 248; }
+.section-two .chips .chip[data-variant="blog"],
+.section-two .chips .chip.is-blog{ --tint: 250 204 21; }
+.section-two .chips .chip[data-variant="ai"],
+.section-two .chips .chip.is-ai{ --tint: 99 102 241; }
+.section-two .chips .chip[data-variant="portfolio"],
+.section-two .chips .chip.is-portfolio{ --tint: 236 72 153; }
+.section-two .chips .chip[data-variant="saas"],
+.section-two .chips .chip.is-saas{ --tint: 34 197 94; }
+.section-two .chips .chip[data-variant="multi"],
+.section-two .chips .chip.is-multi{ --tint: 168 85 247; }
+
+/* 2) Fallback: tint by order if no variant provided */
+.section-two .chips .chip:nth-child(1){ --tint: 147 197 114; }
+.section-two .chips .chip:nth-child(2){ --tint: 56 189 248; }
+.section-two .chips .chip:nth-child(3){ --tint: 250 204 21; }
+.section-two .chips .chip:nth-child(4){ --tint: 99 102 241; }
+.section-two .chips .chip:nth-child(5){ --tint: 236 72 153; }
+.section-two .chips .chip:nth-child(6){ --tint: 34 197 94; }
+.section-two .chips .chip:nth-child(7){ --tint: 168 85 247; }
+
+/* optional: slightly stronger text contrast for yellow/amber chips */
+.chip--blog{ color: #111; background:
+  linear-gradient(180deg, rgba(var(--tint)/.22), rgba(255 255 255 / .06)); }
+
+/* button */
+.section-two .button{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 18px; border-radius:10px; color:#eaeaea; text-decoration:none;
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.18);
+  transition: transform .15s ease, box-shadow .25s ease, background .25s ease;
+}
+.section-two .button.ghost:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  background: linear-gradient(90deg, rgba(120,180,255,.12), rgba(139,92,246,.10));
+}
+.section-two .button .icon{ width:18px; height:18px; }
+
+/* media/cards */
+.section-two__media{
+  position:relative; height:min(480px, 40vw);
+}
+.section-two__media .card{
+  position:absolute; inset:auto; right:0; bottom:0;
+  width:min(480px, 46vw); aspect-ratio: 4/3; 
+  border-radius:6px;
+  background: #101010; overflow:hidden; 
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  transform-origin: 80% 90%;
+}
+.section-two__media .card img{ width:100%; height:100%; object-fit:cover; display:block; opacity:.95; }
+
+/* staggered fan */
+.card-1{ transform: rotate(-7deg) translate(10px, -20px); z-index:1; opacity:.85;}
+.card-2{ transform: rotate(-2deg) translate(0, -10px); z-index:2; }
+.card-3{ transform: rotate(6deg) translate(30px, 20px); z-index:3; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px){
+  .section-two__media{ height: 44vw; }
+}
+@media (max-width: 860px){
+
+  /* ===== section-two base ===== */
+.section-two{
+  --line: rgba(255,255,255,.12);
+  --line-strong: rgba(255,255,255,.24);
+  --chip-bg: rgba(255,255,255,.06);
+  --chip-fg: rgba(230,235,240,.9);
+  --fade-bg: #0b0b0b;               /* page bg color behind fades */
+  position: relative;
+  isolation: isolate;
+  padding: clamp(60px,6vw,100px) 6vw;
+  overflow: hidden;
+  margin-top: 7%;
+}
+
+/* dashed rack/grid in the back */
+.section-two .rack-bg{
+  position:absolute; inset:0;
+  z-index:-2;
+  /* fine dashed grid */
+  --c: rgba(255,255,255,.06);
+  background:
+    repeating-linear-gradient(to right, var(--c) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(to bottom, var(--c) 0 1px, transparent 1px 28px);
+  mask:
+    linear-gradient(to bottom, transparent 0, #000 8%, #000 92%, transparent 100%),
+    radial-gradient(150% 80% at 50% 50%, #000 65%, transparent 100%);
+  mask-composite: intersect;
+  opacity:.6;
+}
+
+/* rails layer (dashed lines with end fades) */
+.section-two .rails{
+  position:absolute; inset:0;
+  z-index:-1; /* sit in front of grid, behind content */
+  pointer-events:none;
+}
+
+.section-two .rail{
+  position:absolute; left:0; right:0; height:2px;
+  top: 22%;
+}
+.section-two .rail-bottom{ top:auto; bottom: 18%; }
+
+  .section-two__inner{ 
+  grid-template-columns: 1fr;
+  display:grid;
+  margin-top: 1%;
+}
+
+.section-two .eyebrow{
+  margin:0 0 .6rem 0; 
+  font-size:.9rem; 
+  letter-spacing:.16em; 
+  text-transform:uppercase;
+  color:rgba(200,240,255,.85);
+}
+
+.section-two .headline{
+  margin:0 0 1rem 0; 
+  font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem); 
+  line-height:1.15; 
+  color:#fff; 
+  font-weight:600;
+  margin-bottom: 12%;
+}
+  .section-two__media{
+    order: 2; height: 56vw; margin-top: -50px;
+  }
+  .section-two__copy{ order: 1; }
+  .card-1{ transform: rotate(-6deg) translate(-4%, -6%); }
+  .card-2{ transform: rotate(-1deg) translate(0, 0); }
+  .card-3{ transform: rotate(5deg) translate(4%, 6%); }
+  .section-two .rail-top{ top: 18%; }
+  .section-two .rail-bottom{ bottom: 14%; }
+}
+@media (max-width: 560px){
+  .section-two{ padding: 48px 5vw; }
+  .section-two__media{ height: 62vw; }
+  .section-two .chips li{ font-size:.72rem; padding:5px 9px; }
+  .section-two .button{ padding:10px 14px; }
+}
+
+
 
 
 
@@ -1105,7 +1431,7 @@ main {
 
 .infobox-graphic {
   position: relative;
-  background: #171717;
+  background: #0b0b0b;
   border: 1px solid #333;
   border-radius: 16px;
   padding: 30px;
@@ -1330,7 +1656,7 @@ main {
   position: absolute; inset: 10% -5% auto -5%;
   height: 30rem;
   background: radial-gradient(60rem 20rem at 50% 10%,
-              rgba(140, 120, 255, .35), rgba(0,0,0,0));
+              rgba(140, 120, 255, .25), rgba(0, 0, 0, 0));
   filter: blur(40px);
   z-index: -1;
   pointer-events: none;
@@ -1348,7 +1674,7 @@ main {
   margin: 0 auto;
   padding: 2.2rem 2.4rem;
   border-radius: var(--card-radius, 18px);
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.00);
   border: 1px solid rgba(255,255,255,0.16);
   box-shadow:
     0 20px 60px rgba(30, 20, 90, .25),
@@ -1530,7 +1856,9 @@ main {
 
 /* Hover: sanfter Gradient + leichter Lift */
 .row:hover {
-  background: linear-gradient(135deg, rgba(199, 204, 211, 0.18) 0%, rgba(139,92,246,0.18) 100%);
+  background: linear-gradient(180deg,
+      rgba(120,180,255,0), 60%),
+      rgba(120,180,255,.12);
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   transform: translateY(-2px);
   border-color: rgba(255,255,255,.12); /* Border bleibt dezent */
@@ -1538,11 +1866,14 @@ main {
 
 /* Active: gleich wie Hover, aber ohne Bewegung */
 .row.is-active {
-  background: linear-gradient(135deg, rgba(59,130,246,0.22) 0%, rgba(139,92,246,0.22) 100%);
+  background: linear-gradient(90deg,
+      rgba(120,180,255,.12),
+      rgba(120,180,255,0) 60%);
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   border-color: rgba(255,255,255,.12);
   transform: none;
 }
+
 
 .row-title {
   font-weight: 600;

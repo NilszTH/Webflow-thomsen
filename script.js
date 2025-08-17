@@ -80,6 +80,63 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+// Ein- & Ausblenden der navigation (Desktop)
+
+(() => {
+  const header = document.querySelector('header');
+  if (!header) return;
+
+  const DESKTOP_MIN = 901;
+  const MIN_SCROLL  = 80;  // erst nach 80px Gesamtscroll reagieren
+  const DELTA       = 10;  // Richtungsrauschen filtern
+
+  let lastY = window.pageYOffset || document.documentElement.scrollTop;
+
+  function onScroll() {
+    // Mobile: nie verstecken
+    if (window.innerWidth < DESKTOP_MIN) {
+      header.classList.remove('nav-hide');
+      lastY = window.pageYOffset || document.documentElement.scrollTop;
+      return;
+    }
+
+    const y  = window.pageYOffset || document.documentElement.scrollTop;
+    const dy = y - lastY;
+
+    // winzige Bewegungen ignorieren -> ruhiger
+    if (Math.abs(dy) < DELTA) {
+      lastY = y;
+      return;
+    }
+
+    if (y > MIN_SCROLL && dy > 0) {
+      // scrollt nach unten -> ausblenden
+      header.classList.add('nav-hide');
+    } else {
+      // scrollt nach oben oder nah am Top -> einblenden
+      header.classList.remove('nav-hide');
+    }
+
+    lastY = y;
+  }
+
+  // performanter Listener
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => { onScroll(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', onScroll, { passive: true });
+
+  // initial
+  onScroll();
+})();
+
+
+
 
 // Hover Animation für Info-button (Start Bereich)
 document.querySelectorAll(".btn").forEach(button => {
