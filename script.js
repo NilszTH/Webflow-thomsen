@@ -633,9 +633,105 @@ window.addEventListener('load', () => {
   });
 });
 
-// SERVICE SECTION 
+
+
+
+
+
+//  SECTION THREE
+
+//  SECTION THREE (orthogonale Linien)
+(function(){
+  const root = document.querySelector('.section-three.powered');
+  if (!root) return;
+
+  const svg  = root.querySelector('.s3-lines');
+  const chip = root.querySelector('.s3-chip');
+  if (!svg || !chip) return;
+
+  // Pfade: IDs wie im HTML (#p-…)
+  const L_BASE = svg.querySelector('#p-left-base');
+  const M_BASE = svg.querySelector('#p-mid-base');
+  const R_BASE = svg.querySelector('#p-right-base');
+  const L_FLOW = svg.querySelector('#p-left-flow');
+  const M_FLOW = svg.querySelector('#p-mid-flow');
+  const R_FLOW = svg.querySelector('#p-right-flow');
+
+  const cards = [
+    { el: root.querySelector('.card.c1'), base: L_BASE, flow: L_FLOW },
+    { el: root.querySelector('.card.c2'), base: M_BASE, flow: M_FLOW },
+    { el: root.querySelector('.card.c3'), base: R_BASE, flow: R_FLOW },
+  ];
+
+  // sofort was sehen (falls Layout noch nicht lief)
+  const seed = 'M 24 24 L 224 24';
+  [L_BASE,M_BASE,R_BASE,L_FLOW,M_FLOW,R_FLOW].forEach(p=>{
+    if (p && !p.getAttribute('d')) p.setAttribute('d', seed);
+  });
+
+  // viewBox = ganze Section
+  function setViewBox(){
+    const r = root.getBoundingClientRect();
+    svg.setAttribute('viewBox', `0 0 ${Math.max(1,r.width)} ${Math.max(1,r.height)}`);
+  }
+
+  // Andockpunkte
+  const round = n => Math.round(n*10)/10;
+  const P = (x,y) => `${round(x)} ${round(y)}`;
+
+  function anchorCard(card){
+    const cs = getComputedStyle(card);
+    const attach = Math.max(0, Math.min(100, parseFloat(cs.getPropertyValue('--attach')) || 50));
+    const cr = card.getBoundingClientRect();
+    const rr = root.getBoundingClientRect();
+    const x = cr.left + (attach/100)*cr.width - rr.left;
+    const y = cr.top - rr.top;
+    return {x,y};
+  }
+  function anchorChip(){
+    const cr = chip.getBoundingClientRect();
+    const rr = root.getBoundingClientRect();
+    return { x: cr.left + cr.width/2 - rr.left, y: cr.top + cr.height - rr.top };
+  }
+
+  // 90°-Route
+  function orth(from, to){
+    const lift = 26;
+    const viaY = from.y - lift;
+    return `M ${P(from.x,from.y)} L ${P(from.x,viaY)} L ${P(to.x,viaY)} L ${P(to.x,to.y)}`;
+  }
+
+  function layout(){
+    setViewBox();
+    const tgt = anchorChip();
+    cards.forEach(c=>{
+      if (!c.el || !c.base || !c.flow) return;
+      const src = anchorCard(c.el);
+      const d   = orth(src, tgt);
+      c.base.setAttribute('d', d);
+      c.flow.setAttribute('d', d);
+    });
+  }
+
+  // Pulse-Delays (falls CSS-Variablen genutzt werden)
+  [L_FLOW,M_FLOW,R_FLOW].forEach((p,i)=>{
+    if (!p) return;
+    const delay = p.getAttribute('data-delay') || `${i*0.6}s`;
+    const gap   = p.getAttribute('data-gap')   || '520';
+    p.style.setProperty('--delay', delay);
+    p.style.setProperty('--gap', gap);
+    p.style.animationDelay = delay;
+  });
+
+  // Triggers
+  const ro = new ResizeObserver(()=>requestAnimationFrame(layout));
+  ro.observe(document.documentElement);
+  window.addEventListener('load', ()=>requestAnimationFrame(layout));
+  document.fonts && document.fonts.ready.then(()=>requestAnimationFrame(layout));
+  window.addEventListener('resize', ()=>requestAnimationFrame(layout), {passive:true});
+  requestAnimationFrame(()=>requestAnimationFrame(layout));
+})();
 
 
 // AService
-
 

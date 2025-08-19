@@ -206,77 +206,96 @@ Starkes Branding beginnt mit klarem Design und einer digitalen Bühne, die zu di
   </div>
 </section>
 
+<!-- ======================== SECTION THREE ======================== -->
 
-<section class="infobox-graphic-section">
-  <div class="infobox-graphic-wrapper">
 
-    <!-- Erste Card -->
-    <div class="infobox-graphic">
-      <div class="infobox-header">
-        <h2>Neue Website</h2>
-        <span class="badge">Live</span>
+<section id="section-three" class="section-three powered">
+  <!-- Hintergrundraster -->
+  <div class="s3-grid s3-grid--top"></div>
+  <div class="s3-grid s3-grid--bottom-left"></div>
+
+  <div class="s3-wrap">
+
+
+    <!-- Chip -->
+    <div class="s3-chip" aria-label="Powered By">
+      <div class="s3-chip-face">
+        <span class="label">Powered By</span>
+        <span class="scan"></span>
       </div>
-
-      <ul class="feature-list">
-        <li>Individuelle Seite statt Baukasten</li>
-        <li>Klar strukturiert, einfach pflegbar</li>
-        <li>SEO-freundlicher Aufbau</li>
-        <li>Bereit zum Skalieren & Erweitern</li>
-      </ul>
-
-      <div class="infobox-buttons">
-        <button>Mehr erfahren</button>
-        <button class="secondary">Projekte</button>
-      </div>
-
-      <!-- Grafik-Overlay -->
-      <div class="infobox-graphic-diagram">
-        <button class="main-btn">
-          <span class="icon">🛡</span> INVISIBLE
-        </button>
-      <svg class="branch-line" viewBox="0 0 300 120" preserveAspectRatio="none">
-  <path d="M30,100 C90,80 150,20 220,60" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none" />
-</svg>
-        <button class="branch-btn">
-          <span class="icon">✔</span> SEO READY
-        </button>
-      </div>
-
+      <div class="pins pins--t"></div>
+      <div class="pins pins--b"></div>
     </div>
 
-   <!-- Zweite Card: BASIC PAGE → AGENCY LOOK -->
-<div class="infobox-graphic">
-  <div class="infobox-header">
-    <h2>Website Makeover</h2>
-    <span class="badge">New</span>
+    <!-- Karten -->
+    <div class="s3-cards">
+     <article class="card c1" style="--attach:56%">
+  <div class="card-head">
+    <img src="assets/icons/supabase-logo-icon.png" alt="Supabase Logo" class="logo-img" />
+    <h3 class="title">Supabase</h3>
   </div>
-  <ul class="feature-list">
-    <li>Visuelles Upgrade für professionellen Auftritt</li>
-    <li>Farben, Fonts und UI abgestimmt</li>
-    <li>Dein Branding im besten Licht</li>
-    <li>Frisches, responsives Re-Design für alle Geräte</li>
-  </ul>
-  <div class="infobox-buttons">
-    <button>Mehr erfahren</button>
-    <button class="secondary">Projekte</button>
-  </div>
+  <p class="copy">
+    Die Open-Source Backend-Plattform für Datenbanken, Auth & Realtime-APIs – inkl. Realtime-Listenern, rollenbasierter Zugriffskontrolle und skalierbarer Cloud-Infrastruktur.
+  </p>
+</article>
 
-  <!-- Linie + Buttons -->
-  <div class="infobox-graphic-diagram">
-<button class="main-btn2">
-  <span class="icon">🧱</span> BASIC PAGE
-</button>
-<button class="branch-btn2">
-  <span class="icon">✔</span> AGENCY LOOK
-</button>
+      <article class="card c2" style="--attach:50%">
+  <div class="card-head">
+    <img src="assets/icons/github-mark-white.png" alt="GitHub Logo" class="logo-img" />
+    <h3 class="title">GitHub</h3>
   </div>
-<svg class="makeover-line" viewBox="0 0 300 100" preserveAspectRatio="none">
-  <path d="M20,80 C100,85 180,90 250,10" stroke="#aaa" stroke-width="1.5" fill="none"/>
-</svg>
-</div>
+  <p class="copy">
+    Von Open Source bis Enterprise: GitHub bietet die Tools, um Software effizient, sicher und kollaborativ zu entwickeln.
+  </p>
+</article>
 
+<article class="card c3" style="--attach:44%">
+  <div class="card-head">
+    <img src="assets/icons/vscode-alt.png" alt="Visual Studio Code Logo" class="logo-img" />
+    <h3 class="title">Visual Studio Code</h3>
+  </div>
+  <p class="copy">
+    Der Editor für moderne Webentwicklung: Leichtgewichtig, erweiterbar und 
+    mit tausenden Extensions für Sprachen, Frameworks und Tools.  
+    Integriertes Debugging, Git-Support und Live-Server machen VS Code zum Standard.
+  </p>
+</article>
+
+
+          <svg class="s3-lines" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <filter id="s3-soft" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="0.6"/>
+          </filter>
+          <linearGradient id="s3-flow-blue"  x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00C2FF"/><stop offset="100%" stop-color="#6AE1FF"/>
+          </linearGradient>
+          <linearGradient id="s3-flow-pink"  x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF4BD1"/><stop offset="100%" stop-color="#FFC1F1"/>
+          </linearGradient>
+          <linearGradient id="s3-flow-amber" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FFC34D"/><stop offset="100%" stop-color="#FFE29A"/>
+          </linearGradient>
+        </defs>
+
+        <g class="bus">
+          <path id="s3-left-base"  class="bus-line" />
+          <path id="s3-mid-base"   class="bus-line" />
+          <path id="s3-right-base" class="bus-line" />
+        </g>
+
+        <g class="flows">
+          <path id="s3-left-flow"  class="flow" stroke="url(#s3-flow-blue)"  data-delay="0s"   data-gap="520"/>
+          <path id="s3-mid-flow"   class="flow" stroke="url(#s3-flow-pink)"  data-delay=".6s"  data-gap="520"/>
+          <path id="s3-right-flow" class="flow" stroke="url(#s3-flow-amber)" data-delay="1.2s" data-gap="520"/>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
+
+
+
 
 
 <!-- ===== Showcase (Glass card + text/image grid) ===== -->
