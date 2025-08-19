@@ -1444,62 +1444,128 @@ main {
 
 /* ====== Section Three (Powered) ====== */
 
+/* ====== Section Three (Powered) – FINAL ====== */
 .section-three.powered{
   --wrap: min(1200px, 92vw);
   --card-bg-a: rgba(16,16,18,.9);
   --card-bg-b: rgba(10,10,12,.86);
   --card-brd: rgba(255,255,255,.12);
-  --grid-c: rgba(255,255,255,.05);
+  --grid-c: rgba(255,255,255,.06); /* für Kreise */
   position: relative;
   padding: clamp(56px,6vw,90px) 0;
   color:#e9ecf2;
   overflow: hidden;
   isolation: isolate;
+  margin-bottom: -5%;
+  margin-top: 15%;
 }
 
-/* Hintergrundraster mit Fade */
-.section-three.powered .s3-grid{
-  position: absolute; inset:0; pointer-events:none; z-index:0;
+/* ===== Concentric rings: fixed-size, centered ===== */
+.section-three.powered {
+  /* Steuer-Variablen für die Ringe */
+  --rings-size: 520px;         /* Gesamtgröße der Ringfläche (Breite = Höhe) */
+  --ring-gap: 22px;            /* Abstand zwischen den Ringen */
+  --ring-alpha: .06;           /* Helligkeit der Ringlinien */
+  --rings-y: 0px;              /* vertikaler Offset relativ zur Mitte (optional) */
+}
+
+/* Container bleibt full-bleed, zeichnet selbst aber nichts */
+.section-three.powered .s3-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Die Ringe selbst: zentriertes, begrenztes Pseudo-Element */
+.section-three.powered .s3-grid::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  width: var(--rings-size);
+  height: var(--rings-size);
+  border-radius: 50%;
+  opacity: .72;
+
+  /* Nur innerhalb dieser Box werden Ringe gezeichnet */
   background:
-    repeating-linear-gradient(0deg,  var(--grid-c) 0 1px, transparent 1px 40px),
-    repeating-linear-gradient(90deg, var(--grid-c) 0 1px, transparent 1px 40px);
-  mask: linear-gradient(to bottom, transparent 0 6%, #000 14% 60%, transparent 96% 100%);
-  opacity:.35;
-}
-.section-three.powered .s3-grid--bottom-left{
-  background:
-    repeating-linear-gradient(0deg,  var(--grid-c) 0 1px, transparent 1px 34px),
-    repeating-linear-gradient(90deg, var(--grid-c) 0 1px, transparent 1px 34px);
-  mask: radial-gradient(70% 60% at 10% 100%, #000 0 60%, transparent 80%);
-  opacity:.25;
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255, var(--ring-alpha)) 0 1px,
+      transparent 1px var(--ring-gap)
+    );
+
+  /* weiche Außenkante / Vignette, damit es elegant ausfadet */
+  mask:
+    radial-gradient(circle at 50% 50%,
+      #000 0 78%,
+      rgba(0,0,0,.75) 90%,
+      transparent 100%);
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%,
+      #000 0 78%,
+      rgba(0,0,0,.75) 90%,
+      transparent 100%);
 }
 
-.section-three.powered .s3-wrap{ max-width:var(--wrap); margin:0 auto; position:relative; z-index:1; }
+/* Optional: auf Mobile kleiner */
+@media (max-width: 700px){
+  .section-three.powered {
+    --rings-size: 360px;   /* kompakter auf kleineren Screens */
+    --ring-gap: 20px;
+    --rings-y: -10px;      /* leicht nach oben schieben, wenn gewünscht */
+  }
+}
 
-/* Chip oben mittig */
+/* Falls noch vorhanden: altes Unter‑Raster hart deaktivieren */
+.section-three.powered .s3-grid--bottom-left{ display:none !important; }
+
+/* dezente „Atmung“ der Ringe (optional) */
+@media (prefers-reduced-motion: no-preference){
+  .section-three.powered .s3-grid{
+    animation:s3-rings-drift 22s linear infinite;
+  }
+  @keyframes s3-rings-drift{
+    0%   { background-size:100% 100%; opacity:.28; }
+    50%  { background-size:102% 102%; opacity:.30; }
+    100% { background-size:100% 100%; opacity:.28; }
+  }
+}
+
+/* Inhalt über dem Hintergrund halten */
+.section-three.powered .s3-wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+
+/* ===== Chip oben mittig ===== */
 .section-three.powered .s3-chip{
   position: relative;
-  width: 260px; 
+  width: 260px;
   height: 74px;
-  margin: 0 auto 22px;
-  margin-bottom: 100px;
+  margin: 0 auto 100px;   /* extra Luft */
   font-size: 30px;
 }
-
 .section-three.powered .s3-chip-face{
-  position:absolute; 
-  inset:0;
+  position:absolute; inset:0;
   border-radius: 12px;
   border:1px solid rgba(255,255,255,.18);
   background: linear-gradient(180deg, rgba(30,30,40,.9), rgba(10,10,14,.92));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.14),
     0 20px 60px rgba(0,0,0,.45);
-  display:grid; 
-  place-items:center;
+  display:grid; place-items:center;
 }
-
-.section-three.powered .s3-chip .label{ font-weight:800; font-size: 35px letter-spacing:.4px; opacity:.92; }
+.section-three.powered .s3-chip .label{
+  font-weight:800;
+  font-size:35px;         /* Semikolon gefixt */
+  letter-spacing:.4px;
+  opacity:.92;
+}
 .section-three.powered .s3-chip .scan{
   position:absolute; inset:2px;
   background: linear-gradient(180deg, transparent 0 40%, rgba(80,160,255,.12) 50%, transparent 60% 100%);
@@ -1507,7 +1573,6 @@ main {
   animation: chip-scan 4s linear infinite;
   pointer-events:none;
 }
-
 @keyframes chip-scan{
   0%{ transform: translateY(-120%); opacity:.0; }
   15%{ opacity:.7; }
@@ -1528,15 +1593,19 @@ main {
 .section-three.powered .pins::after{
   content:""; width:18px; height:100%;
   background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.06));
-  border-radius:2px; filter:url(#soft);
+  border-radius:2px;
+  filter:url(#soft);
 }
 .section-three.powered .pins{ gap:14px; }
 
-/* Kartenlayout */
+/* ===== Kartenlayout ===== */
 .section-three.powered .s3-cards{
-  display:grid; grid-template-columns: repeat(3, 1fr);
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(16px,2vw,24px);
   margin-top: 60px;
+  position: relative;   /* Anker für evtl. Linien */
+  overflow: visible;
 }
 .section-three.powered .card{
   position: relative;
@@ -1547,8 +1616,8 @@ main {
   box-shadow: 0 16px 42px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.12);
   transition: transform .18s ease, box-shadow .22s ease, background .35s ease, border-color .22s ease;
   min-height: 150px;
+  z-index: 1; /* über Hintergrund/Linien */
 }
-
 .section-three.powered .card:hover{
   --angle: 0deg;
   transform: translateY(-2px);
@@ -1565,111 +1634,52 @@ main {
   box-shadow: 0 0 12px var(--accent,#00c2ff);
 }
 
-/* Kopf */
+/* Kopf / Logos / Texte */
 .section-three.powered .card-head{ display:flex; align-items:center; gap:10px; margin-bottom:6px; }
 .section-three.powered .logo .svg{ width:28px; height:28px; display:block; }
 .section-three.powered .title{ margin:0; font-size:18px; font-weight:800; letter-spacing:.2px; }
-.section-three.powered .copy{ margin:0; text-align: left; color:rgba(230,232,238,.86); font-size:14px; line-height:1.45; }
+.section-three.powered .copy{ margin:0; text-align:left; color:rgba(230,232,238,.86); font-size:14px; line-height:1.45; }
+
+/* Bildlogos (Supabase/GitHub/VSC) */
 .section-three .logo,
-.section-three .logo-img {
+.section-three .logo-img{
   width: 35px;
   height: 35px;
   display: inline-block;
   object-fit: contain;
   flex-shrink: 0;
-} 
+}
 
-/* Logo-Stempel + individuelle Akzentfarbe */
+/* Akzentfarben */
 .section-three.powered .stamp--blue  { --accent:#00c2ff; }
 .section-three.powered .stamp--pink  { --accent:#ff5bd1; }
 .section-three.powered .stamp--amber { --accent:#ffc34d; }
 
-
-.section-three.powered .s3-lines.debug { outline: 1px dashed rgba(255,0,0,.35); background: transparent; }
-
-/* ensure all paths scale crisply */
-.section-three.powered .s3-lines path{
-  vector-effect: non-scaling-stroke;
-}
-
-/* HTML uses .bus-line for the grey base routes */
+/* ===== (optional) SVG‑Linien Styles – falls genutzt ===== */
+.section-three.powered .s3-lines.debug{ outline:1px dashed rgba(255,0,0,.35); background:transparent; }
+.section-three.powered .s3-lines path{ vector-effect: non-scaling-stroke; }
 .section-three.powered .bus-line{
-  fill: none;
-  stroke: rgba(255,255,255,.34);
-  stroke-width: 2px;
-  stroke-dasharray: 8 12;
-  opacity: .9;
+  fill:none; stroke:rgba(255,255,255,.34); stroke-width:2px;
+  stroke-dasharray:8 12; opacity:.9;
 }
-
-/* HTML uses .flow for the colored pulses */
 .section-three.powered .flow{
-  fill: none;
-  stroke-width: 3.5px;
-  stroke-linecap: round;
+  fill:none; stroke-width:3.5px; stroke-linecap:round;
   filter: drop-shadow(0 0 6px var(--flow, #64c8ff));
-  /* dash length + gap; JS sets --gap/--delay on the element (fallbacks provided) */
-  stroke-dasharray: 56 var(--gap,520);
+  stroke-dasharray:56 var(--gap,520);
   animation: s3-dash 3.6s linear infinite;
   animation-delay: var(--delay, 0s);
-  opacity: .95;
+  opacity:.95;
 }
-
-
-.section-three.powered .s3-bus {
-  fill: none;
-  stroke: rgba(255,255,255,.35);
-  stroke-width: 2px;
-  stroke-dasharray: 8 12;
-}
-
-.section-three.powered .s3-flow {
-  fill: none;
-  stroke: var(--flow, #64c8ff);
-  stroke-width: 3.5px;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 6px var(--flow, #64c8ff));
-  stroke-dasharray: 56 520;
-  animation: s3-dash 3.6s linear infinite;
-  animation-delay: var(--delay, 0s);
-  opacity: .95;
-}
-
-
-@keyframes s3-dash {
+@keyframes s3-dash{
   from { stroke-dashoffset: 0; }
   to   { stroke-dashoffset: -576; }
 }
 
-/* Falls du mobil die Linien wirklich aus willst, dann so (aber nicht globale display:none): */
-@media (max-width:700px){
-  .section-three .s3-lines{ opacity:.5; } /* oder visibility:hidden */
-}
-@keyframes dash-move{
-  0%  { stroke-dashoffset: 0; }
-  72% { stroke-dashoffset: -600; } /* läuft über die gesamte Länge */
-  100%{ stroke-dashoffset: -600; } /* kurze “Pause” am Ende */
-}
-
-/* Responsive */
-@media (max-width: 980px){
-  .section-three.powered .s3-lines{ transform: translateX(-50%) scale(.95); transform-origin: top center; }
-}
-/* ========== Section Three – Mobile polish ========== */
+/* ===== Mobile Polish ===== */
 @media (max-width: 700px){
+  .section-three.powered{ padding: clamp(36px, 8vw, 56px) 0; }
+  .section-three.powered .s3-wrap{ max-width:980px; width:92vw; margin:0 auto; }
 
-  /* overall spacing a touch tighter on mobile */
-  .section-three.powered{
-    padding: clamp(36px, 8vw, 56px) 0;
-  }
-
-  .section-three.powered .s3-wrap{
-    /* keep content nicely inside */
-    max-width: 980px;              /* safe cap */
-    width: 92vw;                   /* not full width */
-    margin: 0 auto;
-  }
-
-  /* Cards: single column, a bit taller, centered, with side breathing room */
   .section-three.powered .s3-cards{
     grid-template-columns: 1fr;
     gap: 18px;
@@ -1677,58 +1687,33 @@ main {
   .section-three.powered .card{
     width: 92%;
     margin: 0 auto;
-    min-height: 172px;             /* a bit more vertical room for text */
+    min-height: 172px;
     padding: 20px 18px 22px;
   }
+  .section-three.powered .card-head{ gap:12px; }
+  .section-three.powered .logo-img{ width:22px; height:22px; object-fit:contain; }
+  .section-three.powered .title{ font-size:17px; }
+  .section-three.powered .copy{ font-size:14px; line-height:1.5; }
 
-  /* Logo images stay tidy on mobile */
-  .section-three.powered .card-head{ gap: 12px; }
-  .section-three.powered .logo-img{
-    width: 22px; height: 22px; object-fit: contain;
-  }
-  .section-three.powered .title{ font-size: 17px; }
-  .section-three.powered .copy{ font-size: 14px; line-height: 1.5; }
+  .section-three.powered .s3-chip{ margin-bottom:14px; }
 
-  /* Chip spacing */
-  .section-three.powered .s3-chip{ margin-bottom: 14px; }
-
-  /* ---- Background: switch to concentric circles on mobile ---- */
-
-  /* Hide the lower-left grid on mobile */
-  .section-three.powered .s3-grid--bottom-left{ display: none; }
-
-  /* Turn the top grid into soft concentric rings that fade out */
-/* ---- Hintergrund: Kreise mittig platzieren ---- */
-.section-three.powered .s3-grid--top{
-  background:
-    repeating-radial-gradient(
-      circle at 50% 50%,            /* exaktes Zentrum der Section */
-      var(--grid-c) 0 1px,
-      transparent 1px 40px
-    );
-  mask:
-    radial-gradient(circle at 50% 50%, #000 0 70%, transparent 90% 100%);
-  opacity: .35;
+  /* Linien ggf. weicher */
+  .section-three.powered .s3-lines{ opacity:.65; }
 }
 
-  /* Optional: lines a bit softer on mobile, keep them visible if you want */
-  .section-three.powered .s3-lines{ opacity: .65; }
-}
-
-/* Slightly wider phones/tablets: keep the “narrow card” look a bit longer */
+/* Tablets: „schmale Karte“ etwas länger behalten */
 @media (min-width: 701px) and (max-width: 860px){
   .section-three.powered .s3-cards{ grid-template-columns: 1fr; }
   .section-three.powered .card{ width: 88%; margin: 0 auto; min-height: 168px; }
 }
 
-.section-three.powered .s3-cards{ 
-  position: relative;            /* Anker für das SVG */
-  overflow: visible;             /* vorsichtshalber, damit nichts abgeschnitten wird */
+/* leichte Korrektur, wenn du .s3-lines transformiert hast */
+@media (max-width: 980px){
+  .section-three.powered .s3-lines{
+    transform: translateX(-50%) scale(.95);
+    transform-origin: top center;
+  }
 }
-
-
-.section-three.powered .card{ position: relative; z-index: 1; } /* Cards über den Linien */
-
 
 
 /* neu Github Copy */
@@ -1739,6 +1724,7 @@ main {
   width: 1200px;
   padding: 10rem 6vw 7rem;
   isolation: isolate;
+  margin-top: -5%;
 }
 
 /* Subtle space background glow */
