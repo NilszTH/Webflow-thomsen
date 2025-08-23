@@ -137,31 +137,51 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+// pfeile links + rechts service section
 
-// Hover Animation für Info-button (Start Bereich)
-document.querySelectorAll(".btn").forEach(button => {
-    let glow = document.createElement("div");
-    glow.classList.add("glow-effect");
-    button.appendChild(glow);
 
-    button.addEventListener("mousemove", function(e) {
-        let rect = button.getBoundingClientRect();
-        let x = e.clientX - rect.left;
-        let y = e.clientY - rect.top;
+  const container = document.querySelector('.services-container');
+  const leftArrow = document.getElementById('scrollLeft');
+  const rightArrow = document.getElementById('scrollRight');
 
-        glow.style.left = `${x}px`;
-        glow.style.top = `${y}px`;
-    });
+  function updateArrowVisibility() {
+    leftArrow.style.display = container.scrollLeft > 0 ? 'flex' : 'none';
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    rightArrow.style.display = container.scrollLeft < maxScrollLeft - 1 ? 'flex' : 'none';
+  }
 
-    button.addEventListener("mouseenter", function() {
-        glow.style.opacity = "1";
-    });
+  leftArrow.addEventListener('click', () => {
+    container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
+  });
 
-    button.addEventListener("mouseleave", function() {
-        glow.style.opacity = "0";
-    });
+  rightArrow.addEventListener('click', () => {
+    container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
+  });
+
+  container.addEventListener('scroll', updateArrowVisibility);
+  window.addEventListener('resize', updateArrowVisibility);
+  window.addEventListener('load', updateArrowVisibility);
+
+
+  // SERVICE SECTION mobile (scroll)
+
+window.addEventListener('load', () => {
+  const container = document.querySelector('.services-container');
+  if (!container) return;
+
+  // Snap deaktivieren
+  container.style.scrollSnapType = 'none';
+
+  // Direkt beim ersten Frame scrollen
+  requestAnimationFrame(() => {
+    container.scrollTo({ left: 0, behavior: 'auto' });
+
+    // Snap kurz danach aktivieren
+    setTimeout(() => {
+      container.style.scrollSnapType = 'x mandatory';
+    }, 100);
+  });
 });
-
 
 
 // show case + grid
@@ -580,58 +600,6 @@ function declineCookies() {
 
 
 
-
-
-
-
-
-
-
-// pfeile links + rechts service section
-
-
-  const container = document.querySelector('.services-container');
-  const leftArrow = document.getElementById('scrollLeft');
-  const rightArrow = document.getElementById('scrollRight');
-
-  function updateArrowVisibility() {
-    leftArrow.style.display = container.scrollLeft > 0 ? 'flex' : 'none';
-    const maxScrollLeft = container.scrollWidth - container.clientWidth;
-    rightArrow.style.display = container.scrollLeft < maxScrollLeft - 1 ? 'flex' : 'none';
-  }
-
-  leftArrow.addEventListener('click', () => {
-    container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
-  });
-
-  rightArrow.addEventListener('click', () => {
-    container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
-  });
-
-  container.addEventListener('scroll', updateArrowVisibility);
-  window.addEventListener('resize', updateArrowVisibility);
-  window.addEventListener('load', updateArrowVisibility);
-
-
-  // SERVICE SECTION mobile (scroll)
-
-window.addEventListener('load', () => {
-  const container = document.querySelector('.services-container');
-  if (!container) return;
-
-  // Snap deaktivieren
-  container.style.scrollSnapType = 'none';
-
-  // Direkt beim ersten Frame scrollen
-  requestAnimationFrame(() => {
-    container.scrollTo({ left: 0, behavior: 'auto' });
-
-    // Snap kurz danach aktivieren
-    setTimeout(() => {
-      container.style.scrollSnapType = 'x mandatory';
-    }, 100);
-  });
-});
 
 
 
