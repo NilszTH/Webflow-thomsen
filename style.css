@@ -614,6 +614,10 @@ main {
     display: none;
     font-size: 10px;
   }
+  
+ .colorb {
+  display: none;
+  }
 }
 
 
