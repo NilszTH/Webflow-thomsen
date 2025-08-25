@@ -391,10 +391,10 @@ parallaxCard.style.transform = `translate3d(0, ${scrollAmount}px, 0)`;
 
   if (scrollAmount >= halfway) {
     parallaxCard.classList.add("switched");
-    if (cardImage) cardImage.src = "assets/images/concept_eckig.png";
+    if (cardImage) cardImage.src = "assets/images/concept01.png";
   } else {
     parallaxCard.classList.remove("switched");
-    if (cardImage) cardImage.src = "assets/images/concept_eckig.png";
+    if (cardImage) cardImage.src = "assets/images/concept01.png";
   }
 }
 
