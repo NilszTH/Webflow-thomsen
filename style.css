@@ -478,6 +478,7 @@ main {
   transform: translateX(-50%);
   background: rgba(83, 83, 83, 0.2);
   backdrop-filter: blur(6px);
+  overflow: hidden !important;
 }
 
 /* ✅ Hero-Bereich (Startbereich) */
