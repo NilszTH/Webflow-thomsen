@@ -1575,7 +1575,7 @@ main {
   position: absolute; inset: 10% -5% auto -5%;
   height: 30rem;
   background: radial-gradient(60rem 20rem at 50% 10%,
-              rgba(140, 120, 255, .25), rgba(0, 0, 0, 0));
+              rgba(145, 131, 225, 0.119), rgba(0, 0, 0, 0));
   filter: blur(40px);
   z-index: -1;
   pointer-events: none;
@@ -3711,12 +3711,12 @@ main {
 
 .services-section::before {
   left: 0;
-  background: linear-gradient(to right, #0b0b0b 0%, transparent 100%);
+  background: linear-gradient(to right, #101010 0%, transparent 100%);
 }
 
 .services-section::after {
   right: 0;
-  background: linear-gradient(to left, #0b0b0b 0%, transparent 100%);
+  background: linear-gradient(to left, #101010 0%, transparent 100%);
 }
 
 
