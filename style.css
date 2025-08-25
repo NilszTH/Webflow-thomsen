@@ -471,6 +471,8 @@ main {
   border-radius: 50%;
   filter: blur(90px);
   z-index: -2;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .colorb {
   top: 40%;
