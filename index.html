@@ -81,50 +81,35 @@
             <div class="colorbbottom"></div>
         </div>
         <!--Erste Sektion: Hero-Bereich mit Animation -->
-        <section class="hero">
-<!-- Hero Desktop -->
-<div class="hero-video-wrapper">
-  <div class="video-frame-enhanced">
-    <video class="video-feature" autoplay muted loop playsinline preload="auto">
-      <source src="assets/videos/code_mixed_loop.webm" type="video/webm">
-      <source src="assets/videos/code_mixed_loop.mp4" type="video/mp4">
-      Dein Browser unterstützt dieses Videoformat nicht.
-    </video>
-    <button class="video-toggle-btn-hero">❚❚</button>
-  </div>
-</div>
+       <section class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+  <!-- Background Grid -->
+  <div class="hero-grid"></div>
 
-<!-- Hero Mobile -->
-<div class="hero-video-mobile-wrapper">
-  
-  <button class="video-toggle-btn-hero-mobile">❚❚</button>
-</div>
-            <div class="blur-layer"></div>
-           <div class="hero-content">
-  <div class="hero-text-wrapper">
-    <p class="animated-text1">KREATIV. MODERN. FUNKTIONELL.</p>
-    <h1 class="animated-text">Webdesign auf <br> Agentur-Niveau zu<br>Freelancer-Preisen</h1>
-    <p class="animated-text2">Gemeinsam gestalten und entwickeln wir <br>eine Website, die dich und deine Zielgruppe begeistert.</p>
+  <div class="blur-layer"></div>
+
+  <div class="hero-content">
+    <div class="hero-text-wrapper">
+      <p class="animated-label">KREATIV. MODERN. FUNKTIONELL.</p>
+      <h1 class="animated-text">
+        Webdesign auf <br> Agentur-Niveau zu<br>Freelancer-Preisen
+      </h1>
+      <p class="animated-text2">
+        Gemeinsam gestalten und entwickeln wir <br>
+        eine Website, die dich und deine Zielgruppe begeistert.
+      </p>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#service-section" class="btn btn--primary">Starten</a>
+      <a href="#contact-section" class="btn btn--ghost">Kontakt</a>
+    </div>
+
+    <p class="hero-hint">
+      <span class="triangle">▲</span> kontakt@webflow-thomsen.de
+    </p>
   </div>
-  <a href="#service-section" class="btn">Informationen →</a>
-</div>
-            <a href="#top" class="cta-button">
-              <div class="cta-blur"></div>
-              <svg class="rotating-text" width="250" height="250" viewBox="0 0 250 250">
-                <defs>
-                  <path id="circlePath" d="M 125,125 m -100,0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0" />
-                </defs>
-                <text font-size="14" fill="white">
-                  <textPath xlink:href="#circlePath" startOffset="50%" text-anchor="middle">
-                    • WordPress • Code • Design • WordPress • Code • Design
-                  </textPath>
-                </text>
-              </svg>
-              <div class="cta-logo">
-                <img src="assets/images/W-3.png" alt="Webflow Logo">
-              </div>
-            </a>
-        </section>
+</section>
 
         <!--DIVIDER (LINES + BackGround + TEXT) -->
 <section class="mobile-divider-section">
