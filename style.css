@@ -480,7 +480,6 @@ main {
   pointer-events: none;
   z-index: -2;
   overflow-y: hidden;
-  overflow-x: hidden;
 }
 
 /* ✅ Hero-Bereich (Startbereich) */
