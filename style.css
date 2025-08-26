@@ -592,6 +592,16 @@ main {
 
 /* Mobile */
 @media (max-width: 750px) {
+  
+  .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 12%;
+  text-align: center;
+}
 
   .animated-label {
   display: inline-block;
