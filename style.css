@@ -464,23 +464,20 @@ main {
     text-align: center;
 }
 
-.colorb {
+/* Glow-Bubble */
+.colorb{
   position: absolute;
-  width: 800px;
-  height:800px;
-  border-radius: 50%;
-  filter: blur(90px);
-  z-index: -2;
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-.colorb {
-  top: 40%;
   left: 50%;
-  transform: translateX(-50%);
-  background: rgba(83, 83, 83, 0.2);
+  top: 50%;
+  transform: translate(-50%,-40%); /* leicht oberhalb der Mitte */
+  width: min(90vw, 700px);         /* responsive statt fester 800px */
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: rgba(83,83,83,0.20);
+  filter: blur(90px);
   backdrop-filter: blur(6px);
-  overflow: hidden !important;
+  pointer-events: none;
+  z-index: -2;
 }
 
 /* ✅ Hero-Bereich (Startbereich) */
@@ -522,10 +519,9 @@ main {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0;
-  margin-bottom: 5%;
   text-align: center;
 }
 
@@ -592,16 +588,6 @@ main {
 
 /* Mobile */
 @media (max-width: 750px) {
-  
-  .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0;
-  margin-bottom: 12%;
-  text-align: center;
-}
 
   .animated-label {
   display: inline-block;
@@ -615,6 +601,22 @@ main {
   margin-bottom: 0px;
 }
 
+  .colorb{
+    transform: translate(-50%,-35%);
+    width: min(120vw, 520px);  /* kleiner */
+    filter: blur(60px);        /* weniger Ausdehnung */
+  }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  margin-bottom: 25%;
+}
+
   .animated-text {
     font-size: 35px;
   }
@@ -624,10 +626,6 @@ main {
   .hero-actions {
     display: none;
     font-size: 10px;
-  }
-  
- .colorb {
-  display: none;
   }
 }
 
