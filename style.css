@@ -72,7 +72,7 @@ header {
 /* ===================== Desktop: Standard ===================== */
   .nav {
     position: relative;
-    top: 5px;
+    top: 12px;
     left: 50%;
     transform: translateX(-50%);
     max-width: 97% !important;
@@ -97,16 +97,16 @@ header {
   .logo-header {
     position: fixed;
     margin-left: 7%;
-    margin-top: -25px;
-    height: 65px;
+    margin-top: -10px;
+    height: 50px;
     width: auto;
   }
   
   /* Links (Desktop: sichtbar) */
   .nav-links {
     position: relative;
-    left: 15%;
-    top: 3%;
+    left: 13%;
+    top: 9%;
     list-style: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -523,6 +523,7 @@ main {
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .animated-label {
@@ -616,6 +617,13 @@ main {
   text-align: center;
   margin-bottom: 25%;
 }
+
+ .hero::before{
+    width: 120vw;
+    height: 120vw;
+    top: 45%;
+    transform: translate(-50%, -50%);
+  }
 
   .animated-text {
     font-size: 35px;
@@ -2966,7 +2974,7 @@ main {
   transform: scale(0.5);
   max-width: 0;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
   margin-left: -5px;
   margin-right: -5px;
@@ -2994,21 +3002,19 @@ main {
   overflow: visible !important;
 }
 
-.logo-glow::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 220px;
-  height: 220px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(43, 144, 195, 0.2), transparent 80%);
-  filter: blur(70px);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: -1;
-  pointer-events: none;
-}
+.logo-glow::before{
+  content:""; position:absolute; top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  width: 420px; height: 420px;    /* größer als vorher */
+  background: radial-gradient(
+    circle,
+    rgba(43,144,195,.26) 0%,
+    rgba(43,144,195,.18) 30%,
+    rgba(43,144,195,.08) 55%,
+    rgba(43,144,195,.00) 75%
+  );
+  pointer-events:none; z-index:-1; opacity:0; transition: opacity .4s ease;
+}}
 
 .logo-word.visible .logo-glow::before {
   opacity: 1;
@@ -4477,7 +4483,7 @@ main {
   background: url("assets/images/D-13.png") center center no-repeat;
   background-size: cover;
   z-index: -3;
-  opacity: 0.25;
+  opacity: 0.15;
   mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
   -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
   pointer-events: none;
