@@ -479,6 +479,8 @@ main {
   backdrop-filter: blur(6px);
   pointer-events: none;
   z-index: -2;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 /* ✅ Hero-Bereich (Startbereich) */
@@ -3234,8 +3236,9 @@ main {
   }
 
   .logo-glow::before {
-    width: 110px;
-    height: 110px;
+    display: none;
+    width: 60px;
+    height: 60px;
     filter: blur(30px);
   }
 }

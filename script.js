@@ -564,43 +564,6 @@ window.location.href = url;
 
 
 
-// Cookie Banner ########################### 
-
-document.addEventListener("DOMContentLoaded", function() {
-  const cookieBanner = document.getElementById("cookie-banner");
-
-  if (!cookieBanner) {
-    console.error("Cookie-Banner nicht gefunden!");
-    return;
-  }
-
-  // Prüfen, ob das Cookie existiert
-  if (document.cookie.includes("cookies_accepted=true")) {
-    console.log("Cookie akzeptiert: Banner bleibt ausgeblendet.");
-    cookieBanner.style.bottom = "-100%";
-  } else {
-    console.log("Kein Cookie gefunden: Banner wird angezeigt.");
-    cookieBanner.style.bottom = "0";
-  }
-});
-
-// Funktion zum Akzeptieren der Cookies
-function acceptCookies() {
-  document.cookie = "cookies_accepted=true; max-age=31536000; path=/";
-  document.getElementById("cookie-banner").style.bottom = "-100%";
-  console.log("Cookies akzeptiert.");
-}
-
-// Funktion zum Ablehnen der Cookies
-function declineCookies() {
-  document.getElementById("cookie-banner").style.bottom = "-100%";
-  console.log("Cookies abgelehnt.");
-}
-
-
-
-
-
 
 
 
@@ -703,3 +666,48 @@ function declineCookies() {
 
 // AService
 
+// Cookie Banner ########################### 
+
+
+// Cookie Banner ########################### 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const cookieBanner = document.getElementById("cookie-banner");
+  if (!cookieBanner) {
+    console.error("Cookie-Banner nicht gefunden!");
+    return;
+  }
+
+  // Funktion um Cookie sauber zu lesen
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
+
+  // Prüfen, ob Cookie schon gesetzt ist
+  if (getCookie("cookies_accepted") === "true") {
+    console.log("Cookie akzeptiert: Banner bleibt ausgeblendet.");
+    cookieBanner.style.bottom = "-100%";
+  } else {
+    console.log("Kein Cookie gefunden: Banner wird angezeigt.");
+    cookieBanner.style.bottom = "0";
+  }
+});
+
+// Funktion zum Akzeptieren
+function acceptCookies() {
+  // Cookie für 1 Jahr setzen
+  document.cookie = "cookies_accepted=true; max-age=31536000; path=/; SameSite=Lax";
+  document.getElementById("cookie-banner").style.bottom = "-100%";
+  console.log("Cookies akzeptiert.");
+}
+
+// Funktion zum Ablehnen
+function declineCookies() {
+  // Optional: abgelehnt auch merken
+  document.cookie = "cookies_accepted=false; max-age=31536000; path=/; SameSite=Lax";
+  document.getElementById("cookie-banner").style.bottom = "-100%";
+  console.log("Cookies abgelehnt.");
+}
